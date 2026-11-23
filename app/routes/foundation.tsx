@@ -1,58 +1,61 @@
 import { Link } from "react-router";
 import { PaperStudy } from "../components/paper-study";
 import { FoldDiagram } from "../components/fold-diagram";
-import { lessons, studioResources } from "../lessons";
-import { englishPath } from "../navigation";
-import { pageTitle } from "../site";
+import { ExploreLink } from "../components/explore-link";
+import { useI18n } from "../i18n/context";
+import { lessons } from "../lessons";
+import { localPath } from "../navigation";
 
 export default function Foundation() {
+  const {
+    locale,
+    common: { home, models },
+    format,
+  } = useI18n();
   return (
     <>
-      <title>{pageTitle("Origami in Motion")}</title>
       <section className="opening" aria-labelledby="home-title">
         <div className="hero-copy">
-          <p className="eyebrow">Interactive paper studio</p>
+          <p className="eyebrow">{home.tagline}</p>
           <h1 id="home-title">
-            Origami <em>in motion.</em>
+            {home.title} <em>{home.emphasis}</em>
           </h1>
-          <p className="intro">
-            Discover how a single sheet takes shape. Follow a fold in 3D, turn it in your hands, and
-            trace it back to the beginning.
-          </p>
-          <Link tabIndex={0} className="btn btn-primary" to={englishPath("firstFold")}>
-            <span className="play-icon" aria-hidden="true" />
-            Open the 3D studio
-          </Link>
+          <p className="intro">{home.intro}</p>
+          <div className="hero-actions">
+            <ExploreLink gallery className="btn btn-primary">
+              {home.browse}
+            </ExploreLink>
+            <Link tabIndex={0} className="btn btn-outline" to={localPath(locale, "creaseGuide")}>
+              {home.read}
+            </Link>
+          </div>
         </div>
         <PaperStudy />
       </section>
-      <section className="library" aria-labelledby="collection">
+      <section className="library" aria-labelledby="models">
         <div className="section-heading">
-          <h2 id="collection">On the worktable</h2>
+          <h2 id="models" tabIndex={-1}>
+            {home.gallery}
+          </h2>
         </div>
         <div className="library-grid">
-          {[...lessons, ...studioResources].map((lesson) => (
+          {lessons.map((lesson) => (
             <article key={lesson.id} className="resource">
-              <div
-                className={
-                  lesson.id === "crease-guide" ? "diagram-field notation-field" : "diagram-field"
-                }
-              >
+              <div className="diagram-field" dir="ltr">
                 <FoldDiagram kind={lesson.id} />
               </div>
-              <div>
-                <p className="category">{lesson.format}</p>
+              <div className="card-copy">
+                <p className="category">{home.lesson}</p>
                 <h3>
-                  <Link tabIndex={0} to={lesson.href}>
-                    {lesson.title}
+                  <Link tabIndex={0} to={localPath(locale, lesson.id)}>
+                    {models[lesson.id].title}
                   </Link>
                 </h3>
-                {"stepCount" in lesson && (
-                  <p className="lesson-facts">
-                    {lesson.level} · {lesson.stepCount} steps · {lesson.paper}
-                  </p>
-                )}
-                <p>{lesson.summary}</p>
+                <p className="lesson-facts">
+                  {home.beginner} · {format(home.count, { n: lesson.stepCount })} ·{" "}
+                  {home[lesson.paper]}
+                </p>
+                <p>{models[lesson.id].summary}</p>
               </div>
             </article>
           ))}

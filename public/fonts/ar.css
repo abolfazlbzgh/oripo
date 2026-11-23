@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Oripo Noto Arabic";
+  src: url("/fonts/noto-arabic.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range:
+    U+0020-007E, U+00A0, U+00AB, U+00B0, U+00B7, U+00BB, U+00D7, U+0600-06FF, U+0750-077F,
+    U+2000-206F, U+2212;
+}
+
+html.font-ar {
+  --body-font: "Oripo Noto Arabic", "Noto Sans Arabic", Tahoma, system-ui, sans-serif;
+  --heading-font: var(--body-font);
+}

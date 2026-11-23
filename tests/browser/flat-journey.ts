@@ -1,3 +1,4 @@
+import { hydrationControl, setDark } from "./shell-helpers";
 import { inspectByTouch } from "./studio-touch";
 import { expect, type Page } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
@@ -84,7 +85,7 @@ export function flatJourney(f: Fixture) {
         if (/\/(?:studio|(?:[\w-]+-)?scene)\.client-/.test(r.url())) scenes.push(r.url());
       });
       await page.goto("/en");
-      await expect(page.getByLabel("Appearance")).toBeEnabled();
+      await expect(hydrationControl(page)).toBeEnabled();
       const card = page
         .getByRole("article")
         .filter({ has: page.getByRole("link", { name: f.title, exact: true }) });
@@ -194,16 +195,12 @@ export function flatJourney(f: Fixture) {
         await page.emulateMedia({ colorScheme: "dark", reducedMotion: "reduce" });
         expect((await page.goto(route))?.status()).toBe(200);
         await expect(button(page, "Zoom in")).toBeEnabled();
-        const theme = page.getByLabel("Appearance");
-        await theme.selectOption("oripo-light");
+        await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
+        await setDark(page, false);
         expect((await page.reload())?.status()).toBe(200);
         await expect(button(page, "Zoom in")).toBeEnabled();
-        await expect(theme).toHaveValue("oripo-light");
         await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
-        for (const choice of ["oripo-dark", "system"]) {
-          await theme.selectOption(choice);
-          await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
-        }
+        await setDark(page, true);
         for (let n = 1; n <= total; n++) {
           await button(page, "Next fold").click();
           await expect(page.getByRole("slider")).toHaveJSProperty("valueAsNumber", n);

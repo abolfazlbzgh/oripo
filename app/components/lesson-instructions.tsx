@@ -1,3 +1,4 @@
+import { useI18n } from "../i18n/context";
 import { useEffect, useRef, useState } from "react";
 import type { Instruction, PlayerLesson } from "../lesson/use-lesson-player";
 import { PlayerIcon } from "./player-icon";
@@ -18,6 +19,10 @@ export function LessonInstructions({
   instant: boolean;
   pause: () => void;
 }) {
+  const {
+    common: { player: p },
+    format,
+  } = useI18n();
   const trigger = useRef<HTMLButtonElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const close = useRef<HTMLButtonElement>(null);
@@ -33,8 +38,8 @@ export function LessonInstructions({
           type="button"
           tabIndex={0}
           className="studio-icon-button"
-          aria-label="Close instructions"
-          title="Close instructions"
+          aria-label={p.close}
+          title={p.close}
           popoverTarget={enhanced ? undefined : panelId}
           popoverTargetAction={enhanced ? undefined : "hide"}
           onTouchEnd={(event) => {
@@ -51,7 +56,7 @@ export function LessonInstructions({
           <PlayerIcon name="close" />
         </button>
       </header>
-      <div className="instruction-body" role="region" aria-label="Instruction text" tabIndex={0}>
+      <div className="instruction-body" role="region" aria-label={p.instructions} tabIndex={0}>
         <h2 id="instruction-title">{copy.title}</h2>
         {copy === lesson.steps[0] && (
           <p className="sheet-preparation">{lesson.sheet.instruction}</p>
@@ -59,7 +64,7 @@ export function LessonInstructions({
         <p className="current-instruction">{copy.instruction}</p>
         {complete && <p>{copy.result}</p>}
         <details className="lesson-transcript">
-          <summary tabIndex={0}>Read all {lesson.steps.length} steps</summary>
+          <summary tabIndex={0}>{format(p.all, { n: lesson.steps.length })}</summary>
           <p>
             <strong>{lesson.sheet.title}</strong>
             <br />
@@ -76,14 +81,9 @@ export function LessonInstructions({
           </ol>
         </details>
         <p className="input-help" id="studio-gestures">
-          Drag to orbit. Pinch or scroll to zoom. Focus the paper and use the arrow keys to turn it.
+          {p.gestures}
         </p>
-        {instant && (
-          <p className="input-help">
-            Next and Previous move one fold at a time. The middle button switches between the
-            finished model and the starting sheet.
-          </p>
-        )}
+        {instant && <p className="input-help">{p.instant}</p>}
       </div>
     </>
   );
@@ -94,8 +94,8 @@ export function LessonInstructions({
         type="button"
         tabIndex={0}
         className="studio-info studio-icon-button"
-        aria-label="Read step instructions"
-        title="Read step instructions"
+        aria-label={p.info}
+        title={p.info}
         aria-controls={panelId}
         aria-haspopup="dialog"
         aria-expanded={enhanced ? open : undefined}

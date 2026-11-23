@@ -1,7 +1,8 @@
-import type { KeyboardEvent } from "react";
+import { useMemo, type KeyboardEvent } from "react";
 import type { CameraAction } from "../fold/studio.client";
 import { useLessonPlayer, type PlayerLesson } from "../lesson/use-lesson-player";
-import { pageTitle } from "../site";
+import { useI18n } from "../i18n/context";
+import type { ModelId } from "../lessons";
 import { LessonInstructions } from "./lesson-instructions";
 import { LessonTransport } from "./lesson-transport";
 import { PlayerIcon } from "./player-icon";
@@ -14,12 +15,34 @@ const orbitKeys: Record<string, CameraAction> = {
   ArrowDown: "down",
 };
 const viewButtons = [
-  ["closer", "plus", "Zoom in"],
-  ["farther", "minus", "Zoom out"],
-  ["reset", "reset", "Reset view"],
+  ["closer", "plus", "closer"],
+  ["farther", "minus", "farther"],
+  ["reset", "reset", "reset"],
 ] as const;
 
-export function LessonPage({ lesson, info }: { lesson: PlayerLesson; info: { title: string } }) {
+export function LessonPage({
+  model,
+  steps,
+  loadScene,
+}: {
+  model: ModelId;
+  steps: readonly { id: string; durationMs: number }[];
+  loadScene: PlayerLesson["loadScene"];
+}) {
+  const { common, transcript, format } = useI18n();
+  const p = common.player;
+  const lesson = useMemo(() => {
+    if (!transcript) throw new Error("Missing transcript for " + model);
+    return {
+      sheet: transcript.sheet,
+      steps: steps.map(({ id, durationMs }) => {
+        const copy = transcript.steps[id];
+        if (!copy) throw new Error("Missing instruction " + id);
+        return { id, durationMs, ...copy };
+      }),
+      loadScene,
+    };
+  }, [model, steps, loadScene, transcript]);
   const {
     host,
     range,
@@ -43,8 +66,10 @@ export function LessonPage({ lesson, info }: { lesson: PlayerLesson; info: { tit
     }
   }
   return (
-    <article className="lesson-studio" aria-label={info.title + " folding studio"}>
-      <title>{pageTitle(info.title)}</title>
+    <article
+      className="lesson-studio"
+      aria-label={format(p.studio, { model: common.models[model].title })}
+    >
       <div className="studio-topline">
         <p className="step-indicator">{label}</p>
         <LessonInstructions
@@ -59,6 +84,7 @@ export function LessonPage({ lesson, info }: { lesson: PlayerLesson; info: { tit
       <div className="paper-field">
         <div
           className="studio-canvas"
+          dir="ltr"
           ref={host}
           role="img"
           tabIndex={ready ? 0 : -1}
@@ -66,27 +92,27 @@ export function LessonPage({ lesson, info }: { lesson: PlayerLesson; info: { tit
           aria-label={description}
           aria-describedby="studio-gestures"
           aria-keyshortcuts="ArrowLeft ArrowRight ArrowUp ArrowDown"
-          title="Drag or use arrow keys to orbit"
+          title={p.orbit}
           onKeyDown={orbit}
           hidden={scene === "unavailable"}
         />
         {!ready && (
           <div className="studio-placeholder">
-            <strong>{scene === "loading" ? lesson.sheet.title : "3D view unavailable"}</strong>
+            <strong>{scene === "loading" ? lesson.sheet.title : p.unavailable}</strong>
             <p>{scene === "loading" ? lesson.sheet.instruction : description}</p>
-            <p>Open Info for the folding instructions.</p>
+            <p>{p.openInfo}</p>
           </div>
         )}
       </div>
-      <fieldset className="studio-camera" disabled={!ready} aria-label="Camera view">
+      <fieldset className="studio-camera" disabled={!ready} aria-label={p.camera}>
         {viewButtons.map(([action, name, label]) => (
           <button
             type="button"
             tabIndex={0}
             className="studio-icon-button"
             key={action}
-            title={label}
-            aria-label={label}
+            title={p[label]}
+            aria-label={p[label]}
             onClick={() => moveCamera(action)}
           >
             <PlayerIcon name={name} />

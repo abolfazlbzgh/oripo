@@ -1,3 +1,4 @@
+import { hydrationControl, setDark } from "./shell-helpers";
 import { inspectByTouch } from "./studio-touch";
 import { atIndex } from "../../app/lesson/geometry";
 import { expect, type Page } from "@playwright/test";
@@ -91,7 +92,7 @@ test("playable catalog to nine folds, in-flight reversal, final dart, replay and
   await page.emulateMedia({ colorScheme: "light", reducedMotion: "no-preference" });
   await page.clock.install({ time: new Date("2026-01-01T12:00:00Z") });
   await page.goto("/en");
-  await expect(page.getByLabel("Appearance")).toBeEnabled();
+  await expect(hydrationControl(page)).toBeEnabled();
   const card = page
     .getByRole("article")
     .filter({ has: page.getByRole("link", { name: "Dart paper airplane" }) });
@@ -169,15 +170,8 @@ for (const width of [320, 390])
       await ready(page);
       await endpoint(page, 0);
     }
-    const theme = page.getByLabel("Appearance");
-    for (const [choice, scheme] of [
-      ["oripo-light", "light"],
-      ["oripo-dark", "dark"],
-      ["system", "dark"],
-    ] as const) {
-      await theme.selectOption(choice);
-      await expect(page.locator("html")).toHaveCSS("color-scheme", scheme);
-    }
+    await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
+    for (const dark of [false, true]) await setDark(page, dark);
     for (let n = 1; n <= 9; n++) {
       await button(page, "Next fold").click();
       await endpoint(page, n);

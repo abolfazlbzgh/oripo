@@ -1,3 +1,4 @@
+import { setDark } from "./shell-helpers";
 import { expect, type Page } from "@playwright/test";
 import { test as previewTest, watchBrowser } from "./preview";
 
@@ -241,17 +242,11 @@ test.describe("narrow touch viewport", { tag: "@cdp" }, () => {
     page,
     context,
   }) => {
-    await page.goto("/en");
-    await page.getByRole("link", { name: "Open the 3D studio" }).tap();
+    await page.goto(lab);
     await rendered(page);
     await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
-    for (const [setting, scheme] of [
-      ["oripo-light", "light"],
-      ["oripo-dark", "dark"],
-      ["system", "dark"],
-    ] as const) {
-      await page.getByLabel("Appearance").selectOption(setting);
-      await expect(page.locator("html")).toHaveCSS("color-scheme", scheme);
+    for (const dark of [false, true]) {
+      await setDark(page, dark);
       expect(await page.evaluate(() => [innerWidth, document.documentElement.scrollWidth])).toEqual(
         [320, 320],
       );
@@ -377,7 +372,7 @@ test("route exit during motion releases the old GL context, and return opens one
   await button(page, "Next").click();
   await expect(page.getByRole("heading", { name: "Folding", exact: true })).toBeVisible();
   await page.getByRole("link", { name: "Back to Explore" }).click();
-  await expect(page).toHaveURL(/\/en$/);
+  await expect(page).toHaveURL(/\/en#models$/);
   await expect(page.locator("canvas")).toHaveCount(0);
   await expect.poll(() => context.evaluate((gl) => gl?.isContextLost())).toBe(true);
   await context.dispose();
@@ -385,7 +380,7 @@ test("route exit during motion releases the old GL context, and return opens one
   await page
     .locator('img[src="/paper-crane.svg"]')
     .evaluate((el) => (el as HTMLImageElement).decode());
-  await page.getByRole("link", { name: "Open the 3D studio" }).click();
+  await page.goBack();
   await rendered(page);
   await atAngle(page, 0);
   await expect(button(page, "Previous")).toBeDisabled();

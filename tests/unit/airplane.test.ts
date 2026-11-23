@@ -1,3 +1,4 @@
+import { localPath } from "../../app/navigation";
 import { describe, expect, it } from "vitest";
 import type { Point } from "../../app/fold/geometry";
 import { airplane as model, airplanePattern } from "../../app/lesson/airplane";
@@ -41,7 +42,7 @@ function landmark([x, y]: Point, stage: number): Point {
 it("publishes one versioned dart, with English instructions and an endpoint for every stable action", () => {
   expect(airplaneInfo.availability).toBe("playable");
   expect(airplaneInfo.id).toBe(model.lessonId);
-  expect(lessons.find((l) => l.id === model.lessonId)?.href).toBe("/en/lessons/paper-airplane");
+  expect(lessons.map((l) => localPath("en", l.id))).toContain("/en/lessons/paper-airplane");
   expect(Object.keys(airplaneText).sort()).toEqual(model.steps.map((s) => s.id).sort());
   expect(Object.values(airplaneText).every((s) => s.instruction && s.result && s.title)).toBe(true);
   expect(model.poses.length).toBe(model.steps.length + 1);

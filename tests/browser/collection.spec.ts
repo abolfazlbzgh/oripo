@@ -1,3 +1,4 @@
+import { hydrationControl } from "./shell-helpers";
 import { expect } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
 
@@ -102,7 +103,7 @@ test("switches dart to heart to fox to dart during playback and releases each st
   });
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/en");
-  await expect(page.getByLabel("Appearance")).toBeEnabled();
+  await expect(hydrationControl(page)).toBeEnabled();
   const counts = () => page.evaluate(() => window.lessonListenerCounts());
   const idle = await counts();
   const models = page

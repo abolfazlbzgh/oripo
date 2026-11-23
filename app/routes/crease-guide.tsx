@@ -1,47 +1,36 @@
-import { Link } from "react-router";
-import { englishPath } from "../navigation";
-import { pageTitle } from "../site";
+import { ExploreLink } from "../components/explore-link";
+import { useI18n } from "../i18n/context";
 
 export default function CreaseGuide() {
+  const {
+    common: { guide, nav },
+  } = useI18n();
   return (
     <article className="guide">
-      <title>{pageTitle("Crease notation")}</title>
       <header className="article-head">
-        <p className="eyebrow">Field guide</p>
-        <h1>Crease notation</h1>
-        <p className="intro">
-          Read a fold from the side of the paper facing you. The crease line tells you which way the
-          paper bends.
-        </p>
+        <p className="eyebrow">{nav.guide}</p>
+        <h1>{guide.title}</h1>
+        <p className="intro">{guide.intro}</p>
       </header>
       <dl className="notation">
         <div>
           <dt>
-            <span className="sample valley" aria-hidden="true" />
-            Valley fold
+            <span className="sample valley" dir="ltr" aria-hidden="true" />
+            {guide.valley}
           </dt>
-          <dd>
-            A dashed line marks a valley. Bring the two sides toward you so the crease sits at the
-            bottom of a V.
-          </dd>
+          <dd>{guide.valleyText}</dd>
         </div>
         <div>
           <dt>
-            <span className="sample mountain" aria-hidden="true" />
-            Mountain fold
+            <span className="sample mountain" dir="ltr" aria-hidden="true" />
+            {guide.mountain}
           </dt>
-          <dd>
-            A dash-dot line marks a mountain. Fold the sides away from you so the crease rises into
-            a ridge.
-          </dd>
+          <dd>{guide.mountainText}</dd>
         </div>
       </dl>
-      <Link tabIndex={0} className="btn btn-primary" to={englishPath("firstFold")}>
-        Try the valley fold
-      </Link>
-      <Link tabIndex={0} className="text-link" to={englishPath("foundation")}>
-        Back to Explore
-      </Link>
+      <ExploreLink gallery className="btn btn-primary">
+        {guide.back}
+      </ExploreLink>
     </article>
   );
 }

@@ -1,6 +1,6 @@
 # Self-hosted type
 
-Each document selects a font stack with its locale class on `<html>`. The five Latin locales share one Inter file and the existing system serif heading stack. Persian, Arabic, Hindi, Simplified Chinese and Japanese each use a single script-specific face for body text and headings. Each face has a variable 100–900 weight axis, a Unicode range and `font-display: swap`. CSS requests a face when the document uses it. Language names from other scripts can use the reader’s installed fallback fonts. [Font declarations](../app/fonts.css)
+Each document links only its script’s font stylesheet and selects that stack with its locale class on `<html>`. The five Latin locales share one Inter file and the existing system serif heading stack. Persian, Arabic, Hindi, Simplified Chinese and Japanese each use a single script-specific face for body text and headings. Each face has a variable 100–900 weight axis, a Unicode range and `font-display: swap`. CSS requests a face when the document uses it. Language names from other scripts can use the reader’s installed fallback fonts. [Font declarations](../public/fonts/)
 
 ## Sources and licenses
 

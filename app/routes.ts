@@ -1,15 +1,10 @@
-import { index, prefix, route, type RouteConfig } from "@react-router/dev/routes";
-import { pages } from "./navigation";
-import { site } from "./site";
+import { route, type RouteConfig } from "@react-router/dev/routes";
+import { lessons } from "./lessons";
+import { labPath } from "./navigation";
 
 export default [
-  index("routes/start.tsx"),
-  ...prefix(site.defaultLocale, [
-    index("routes/foundation.tsx"),
-    route(pages.creaseGuide, "routes/crease-guide.tsx"),
-    route(pages.firstFold, "routes/first-fold.tsx"),
-    route(pages.foxFace, "routes/fox-face.tsx"),
-    route(pages.paperHeart, "routes/paper-heart.tsx"),
-    route(pages.paperAirplane, "routes/paper-airplane.tsx"),
-  ]),
+  route(":locale?", "routes/foundation.tsx"),
+  route(":locale/guide/crease-notation", "routes/crease-guide.tsx"),
+  ...lessons.map(({ id }) => route(`:locale/lessons/${id}`, `routes/${id}.tsx`)),
+  route(labPath.slice(1), "routes/first-fold.tsx"),
 ] satisfies RouteConfig;

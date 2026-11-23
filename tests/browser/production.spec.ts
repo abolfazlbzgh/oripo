@@ -1,16 +1,16 @@
 import { expect } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
+import { setDark } from "./shell-helpers";
 
 const documents = [
-  { path: "/", heading: "Choose a language" },
-  { path: "/en", heading: "Origami in motion." },
+  { path: "/", heading: "One sheet. Endless possibilities." },
+  { path: "/en", heading: "One sheet. Endless possibilities." },
   { path: "/en/guide/crease-notation", heading: "Crease notation" },
 ];
 
 for (const { path, heading } of documents) {
   test(`${path} serves its own document and hydrates after refresh`, async ({ page, baseURL }) => {
     const errors = watchBrowser(page, baseURL);
-
     for (const visit of [() => page.goto(path), () => page.reload()]) {
       const response = await visit();
       expect(response?.status()).toBe(200);
@@ -19,14 +19,12 @@ for (const { path, heading } of documents) {
         heading,
       );
       await expect(page.getByRole("heading", { level: 1, name: heading })).toBeVisible();
-      await page.getByLabel("Appearance").selectOption("oripo-dark");
-      await expect(page.locator("html")).toHaveAttribute("data-theme", "oripo-dark");
+      await setDark(page, true);
       await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
     }
     expect(errors).toEqual([]);
   });
 }
-
 test("English navigation works at phone width with system and explicit themes", async ({
   page,
 }) => {
@@ -34,10 +32,9 @@ test("English navigation works at phone width with system and explicit themes", 
   await page.emulateMedia({ colorScheme: "dark", reducedMotion: "reduce" });
   await page.goto("/");
   await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
-  await page.getByRole("link", { name: "English", exact: true }).click();
-  await page.getByLabel("Appearance").selectOption("oripo-light");
-  await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
-  await page.getByRole("link", { name: "Crease notation", exact: true }).click();
+  await setDark(page, false);
+  await page.getByRole("button", { name: "Site menu" }).click();
+  await page.getByRole("banner").getByRole("link", { name: "Guide", exact: true }).click();
   await expect(page).toHaveURL(/\/en\/guide\/crease-notation$/);
   await expect(page.getByRole("heading", { name: "Crease notation" })).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "oripo-light");
@@ -45,25 +42,30 @@ test("English navigation works at phone width with system and explicit themes", 
     true,
   );
   await page.getByRole("link", { name: "Back to Explore" }).click();
-  await expect(page).toHaveURL(/\/en$/);
-  await page.getByLabel("Appearance").selectOption("system");
+  await expect(page).toHaveURL(/\/en#models$/);
+  await setDark(page, true);
   await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
 });
-
 test("unknown pages and unsupported locales return a recoverable HTTP 404", async ({ page }) => {
-  for (const path of [
-    "/en/missing",
-    "/fr",
-    "/en/lessons/missing-dart",
-    "/fr/lessons/paper-airplane",
-    "/fr/lessons/paper-heart",
-    "/fr/lessons/fox-face",
-    "/en/lessons/unknown-model",
-  ]) {
-    expect((await page.goto(path))?.status()).toBe(404);
-    expect((await page.reload())?.status()).toBe(404);
-    await expect(page.getByRole("heading", { name: "Page not found" })).toBeVisible();
-    await page.getByRole("link", { name: "Choose a language" }).click();
-    await expect(page).toHaveURL(/\/$/);
+  for (const [path, code] of [
+    ["/en/missing", "en"],
+    ["/__spa-fallback.html", "en"],
+    ["/it", "en"],
+    ["/en/lessons/missing-dart", "en"],
+    ["/it/lessons/paper-airplane", "en"],
+    ["/it/lessons/paper-heart", "en"],
+    ["/it/lessons/fox-face", "en"],
+    ["/fr/lessons/unknown-model", "fr"],
+    ["/fa/wrong", "fa"],
+  ] as const) {
+    for (const visit of [() => page.goto(path), () => page.reload()]) {
+      expect((await visit())?.status()).toBe(404);
+      await expect(page.locator("html")).toHaveAttribute("lang", code);
+      await expect(page.locator("h1")).toHaveText(
+        code === "fr" ? "Page introuvable" : code === "fa" ? "صفحه پیدا نشد" : "Page not found",
+      );
+    }
+    await page.locator(`main a[href="/${code}#models"]`).click();
+    await expect(page.locator("#models")).toBeVisible();
   }
 });

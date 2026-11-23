@@ -3,5 +3,14 @@
   "framework": null,
   "installCommand": "npm ci",
   "buildCommand": "npm run build",
-  "outputDirectory": "build/client"
+  "outputDirectory": "build/client",
+  "routes": [
+    { "handle": "filesystem" },
+    {
+      "src": "/(en|fa|es|fr|zh-Hans|ar|pt-BR|de|ja|hi)(?:/.*)?",
+      "dest": "/errors/$1.html",
+      "status": 404
+    },
+    { "src": "/.*", "dest": "/404.html", "status": 404 }
+  ]
 }

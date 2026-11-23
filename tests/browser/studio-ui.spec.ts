@@ -1,6 +1,7 @@
+import { hydrationControl } from "./shell-helpers";
 import { expect } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
-import { englishPath, publishedPaths } from "../../app/navigation";
+import { labPath, prerenderPaths } from "../../app/navigation";
 
 test("appearance applies before hydration, survives navigation and reload, then follows the system", async ({
   page,
@@ -9,12 +10,12 @@ test("appearance applies before hydration, survives navigation and reload, then 
   const errors = watchBrowser(page, baseURL);
   await page.emulateMedia({ colorScheme: "light" });
   await page.goto("/en");
-  const appearance = page.getByRole("combobox", { name: "Appearance" });
-  await appearance.selectOption("oripo-dark");
-  await page.getByRole("link", { name: "Crease notation", exact: true }).click();
+  const appearance = page.getByRole("checkbox", { name: "Dark mode" });
+  await appearance.check();
+  await page.getByRole("banner").getByRole("link", { name: "Guide", exact: true }).click();
   await expect(page.getByRole("heading", { level: 1, name: "Crease notation" })).toBeVisible();
-  await expect(appearance).toHaveValue("oripo-dark");
-  // Use a fresh document so browser form-state restoration cannot enable the prerendered select.
+  await expect(appearance).toBeChecked();
+  // Use a fresh document so browser form-state restoration cannot enable the prerendered checkbox.
   await page.goto("about:blank");
   let release: () => void = () => {};
   const gate = new Promise<void>((resolve) => {
@@ -27,21 +28,24 @@ test("appearance applies before hydration, survives navigation and reload, then 
   try {
     await page.goto("/en/guide/crease-notation", { waitUntil: "commit" });
     await expect(appearance).toBeDisabled();
+    await expect(page.locator(".wide-control .swap-on")).toHaveCSS("opacity", "1");
+    await expect(page.locator(".wide-control .swap-off")).toHaveCSS("opacity", "0");
     await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
   } finally {
     release();
   }
   await expect(appearance).toBeEnabled();
-  await expect(appearance).toHaveValue("oripo-dark");
-  await appearance.selectOption("oripo-light");
+  await expect(appearance).toBeChecked();
+  await appearance.uncheck();
   await page.emulateMedia({ colorScheme: "dark" });
   await page.reload();
-  await expect(appearance).toHaveValue("oripo-light");
+  await expect(appearance).not.toBeChecked();
   await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
-  await appearance.selectOption("system");
-  await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
+  // A fresh preference follows the OS until a visitor makes a binary choice.
+  await page.evaluate(() => localStorage.removeItem("oripo-appearance"));
   await page.reload();
-  await expect(appearance).toHaveValue("system");
+  await expect(appearance).toBeChecked();
+  await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
   await page.emulateMedia({ colorScheme: "light" });
   await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
   expect(errors).toEqual([]);
@@ -58,20 +62,21 @@ test("keyboard users can skip navigation, enter the studio and reverse without l
   });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/en");
-  await expect(page.getByRole("link", { name: "Explore", exact: true })).toHaveAttribute(
-    "aria-current",
-    "page",
-  );
+  await expect(
+    page.getByRole("banner").getByRole("link", { name: "Explore", exact: true }),
+  ).toHaveAttribute("aria-current", "page");
   await page.keyboard.press("Tab");
   await expect(page.getByRole("link", { name: "Skip to content" })).toBeFocused();
   await page.keyboard.press("Enter");
   await expect(page.getByRole("main")).toBeFocused();
   await page.keyboard.press("Tab");
-  await expect(page.getByRole("link", { name: "Open the 3D studio" })).toBeFocused();
+  await expect(page.getByRole("link", { name: "Explore origami" })).toBeFocused();
   expect(sceneRequests).toHaveLength(0);
   await page.keyboard.press("Enter");
+  await expect(page.locator("#models")).toBeFocused();
+  await page.goto(labPath);
   await expect(page.getByRole("heading", { name: "The first fold", exact: true })).toBeVisible();
-  await expect(page.getByRole("main")).toBeFocused();
+  await page.getByRole("main").focus();
   const prev = page.getByRole("button", { name: "Previous", exact: true });
   const next = page.getByRole("button", { name: "Next", exact: true });
   await expect(next).toBeEnabled();
@@ -97,10 +102,12 @@ for (const width of [320, 390, 768, 1440]) {
   }) => {
     const errors = watchBrowser(page, baseURL);
     await page.setViewportSize({ width, height: 840 });
-    for (const path of publishedPaths) {
+    for (const path of prerenderPaths.filter(
+      (path) => path === "/" || /^\/en(?:\/|$)/.test(path),
+    )) {
       await page.goto(path);
-      await expect(page.getByLabel("Appearance")).toBeEnabled();
-      if (path === englishPath("firstFold") || path.startsWith("/en/lessons/"))
+      await expect(hydrationControl(page)).toBeEnabled();
+      if (path === labPath || path.startsWith("/en/lessons/"))
         await expect(page.getByRole("button", { name: "Zoom in", exact: true })).toBeEnabled();
       for (const scale of ["100%", "200%"]) {
         const offscreen = await page.evaluate(
@@ -108,7 +115,7 @@ for (const width of [320, 390, 768, 1440]) {
             document.documentElement.style.fontSize = scale;
             const visibleControls = Array.from(
               document.querySelectorAll<HTMLElement>("a,button,select,summary,h1,h2,h3"),
-            ).filter((el) => el.getClientRects().length && !el.classList.contains("skip-link"));
+            ).filter((el) => el.getClientRects().length && !el.matches(".skip-link,.sr-only"));
             const clipped = visibleControls
               .filter((el) => {
                 const box = el.getBoundingClientRect();

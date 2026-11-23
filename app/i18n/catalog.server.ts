@@ -7,7 +7,7 @@ import { foxText, foxSheet } from "../lesson/fox.en";
 type ModelId = keyof Common["models"];
 
 const commonFiles = import.meta.glob<Common>("./*/common.json", { import: "default" });
-const lessonFiles = import.meta.glob<Transcript>("./*/{paper-airplane,paper-heart,fox-face}.json", {
+const lessonFiles = import.meta.glob<Transcript>(["./*/*.json", "!./*/common.json"], {
   import: "default",
 });
 const english = {
@@ -21,8 +21,8 @@ export function readCommon(locale: Locale) {
   if (!read) throw new Error(`Missing messages for ${locale}`);
   return read();
 }
-export async function readTranscript(locale: Locale, model: ModelId) {
-  if (locale === "en") return english[model] as Transcript;
+export async function readTranscript(locale: Locale, model: ModelId): Promise<Transcript> {
+  if (locale === "en") return english[model];
   const read = lessonFiles[`./${locale}/${model}.json`];
   if (!read) throw new Error(`Missing transcript for ${locale}/${model}`);
   return read();

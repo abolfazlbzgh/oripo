@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Oripo Noto JP";
+  src: url("/fonts/noto-jp.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range:
+    U+0020-007E, U+00A0, U+00AB, U+00B0, U+00B7, U+00BB, U+00D7, U+2000-206F, U+2212, U+2236,
+    U+3000-30FF, U+3400-9FFF, U+FF01-FF60;
+}
+
+html.font-ja {
+  --body-font: "Oripo Noto JP", "Hiragino Sans", Meiryo, system-ui, sans-serif;
+  --heading-font: var(--body-font);
+}

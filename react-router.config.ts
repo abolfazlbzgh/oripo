@@ -1,8 +1,11 @@
 import type { Config } from "@react-router/dev/config";
-import { publishedPaths } from "./app/navigation";
+import { prerenderPaths } from "./app/navigation";
+import { writeStaticFiles } from "./scripts/static-files";
 
 export default {
   ssr: false,
-  prerender: publishedPaths,
+  prerender: prerenderPaths,
   routeDiscovery: { mode: "initial" },
+  buildEnd: ({ reactRouterConfig }) =>
+    writeStaticFiles(reactRouterConfig.buildDirectory, reactRouterConfig.appDirectory),
 } satisfies Config;

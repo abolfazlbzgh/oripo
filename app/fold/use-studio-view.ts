@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useLayoutEffect, useRef, useState } from "react";
 import type { CameraAction, FoldView, StudioCallbacks } from "./studio.client";
 
 export type StudioMount<T> = (
@@ -7,10 +7,14 @@ export type StudioMount<T> = (
 ) => undefined | (() => void);
 export type SettleReason = "reduced" | "unavailable";
 
+const defaultReading = (bearing: number, elevation: number, zoom: number) =>
+  `${bearing}° around · ${elevation}° above · ${zoom.toFixed(2)}× zoom`;
+
 export function useStudioView<T>(
   load: () => Promise<StudioMount<T>>,
   sample: (now: number) => T,
   settle: (reason: SettleReason) => void,
+  formatReading = defaultReading,
 ) {
   const host = useRef<HTMLDivElement>(null);
   const cameraReading = useRef<HTMLParagraphElement>(null);
@@ -19,6 +23,17 @@ export function useStudioView<T>(
   const [reducedMotion, setReducedMotion] = useState(false);
   const [scene, setScene] = useState<"loading" | "ready" | "unavailable">("loading");
 
+  // Locale changes update presentation callbacks while the same camera and canvas stay mounted.
+  const readPose = useEffectEvent(sample);
+  const settlePose = useEffectEvent(settle);
+  const camera = useRef<[number, number, number] | null>(null);
+  const writeReading = useEffectEvent(() => {
+    if (cameraReading.current && camera.current)
+      cameraReading.current.textContent = formatReading(...camera.current);
+  });
+  useLayoutEffect(() => {
+    writeReading();
+  }, [formatReading]);
   useEffect(() => {
     const container = host.current;
     if (!container) return;
@@ -30,7 +45,7 @@ export function useStudioView<T>(
       reduced.current = preference.matches;
       setReducedMotion(preference.matches);
       if (reduced.current) {
-        settle("reduced");
+        settlePose("reduced");
         view.current?.invalidate();
       }
     }
@@ -38,7 +53,7 @@ export function useStudioView<T>(
       if (closed || lost) return;
       lost = true;
       view.current = null;
-      settle("unavailable");
+      settlePose("unavailable");
       setScene("unavailable");
     }
     syncPreference();
@@ -47,7 +62,7 @@ export function useStudioView<T>(
       .then((mount) => {
         if (closed) return;
         dispose = mount(container, {
-          sample,
+          sample: readPose,
           active: () => !closed && !lost,
           ready: (controls) => {
             if (closed || lost) return;
@@ -57,7 +72,8 @@ export function useStudioView<T>(
           cameraChanged: (bearing, elevation, zoom) => {
             if (closed || lost || !cameraReading.current) return;
             const degrees = (radians: number) => Math.round((radians * 180) / Math.PI);
-            cameraReading.current.textContent = `${degrees(bearing)}° around · ${degrees(elevation)}° above · ${zoom.toFixed(2)}× zoom`;
+            camera.current = [degrees(bearing), degrees(elevation), zoom];
+            writeReading();
           },
           unavailable,
         });
@@ -69,7 +85,7 @@ export function useStudioView<T>(
       view.current = null;
       dispose?.();
     };
-  }, [load, sample, settle]);
+  }, [load]);
   function moveCamera(action: CameraAction) {
     view.current?.moveCamera(action);
   }

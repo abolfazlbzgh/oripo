@@ -1,5 +1,8 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { useStudioView, type SettleReason, type StudioMount } from "../fold/use-studio-view";
+import { useI18n } from "../i18n/context";
+import type { Common, formatter, Instruction } from "../i18n/messages";
+export type { Instruction } from "../i18n/messages";
 import { atIndex } from "./geometry";
 import {
   commandLesson,
@@ -11,14 +14,18 @@ import {
 } from "./playback";
 
 type Reading = ReturnType<typeof sampleLesson>;
-export type Instruction = { title: string; instruction: string; result: string };
 export type PlayerLesson = {
   sheet: Instruction;
   steps: readonly (Instruction & { id: string; durationMs: number })[];
   loadScene: () => Promise<StudioMount<Reading>>;
 };
 
-function statusOf(lesson: PlayerLesson, pose: Reading) {
+function statusOf(
+  lesson: PlayerLesson,
+  pose: Reading,
+  p: Common["player"],
+  format: ReturnType<typeof formatter>,
+) {
   const { steps, sheet } = lesson;
   const { position, step, travel, canNext, canPrevious } = pose;
   const complete = position === steps.length && travel === "rest";
@@ -28,7 +35,7 @@ function statusOf(lesson: PlayerLesson, pose: Reading) {
   const description = boundary
     ? (position === 0 ? sheet : atIndex(steps, position - 1)).result
     : copy.instruction;
-  const label = complete ? "Lesson complete" : `Step ${step + 1} / ${steps.length}`;
+  const label = complete ? p.finished : format(p.step, { n: step + 1, total: steps.length });
   return {
     step,
     copy,
@@ -44,12 +51,17 @@ function statusOf(lesson: PlayerLesson, pose: Reading) {
 }
 
 export function useLessonPlayer(lesson: PlayerLesson) {
+  const {
+    common: { player: p },
+    format,
+    locale,
+  } = useI18n();
   const { steps } = lesson;
   const motion = useRef(initialLessonMotion);
   const displayed = useRef(0);
   const range = useRef<HTMLInputElement>(null);
   const [status, setStatus] = useState(() =>
-    statusOf(lesson, sampleLesson(steps, initialLessonMotion, 0)),
+    statusOf(lesson, sampleLesson(steps, initialLessonMotion, 0), p, format),
   );
   const last = useRef(status);
   const [announcement, setAnnouncement] = useState("");
@@ -61,7 +73,9 @@ export function useLessonPlayer(lesson: PlayerLesson) {
       const pose = sampleLesson(steps, motion.current, now);
       const { position, step, progress, travel } = pose;
       const prior = last.current;
+      const languageChanged = prior.copy !== atIndex(steps, step) && prior.step === step;
       if (
+        languageChanged ||
         displayed.current !== position ||
         prior.travel !== travel ||
         prior.step !== step ||
@@ -69,7 +83,7 @@ export function useLessonPlayer(lesson: PlayerLesson) {
         prior.canPrevious !== pose.canPrevious
       ) {
         displayed.current = position;
-        const next = statusOf(lesson, pose);
+        const next = statusOf(lesson, pose, p, format);
         const slider = range.current;
         if (slider) {
           slider.value = String(position);
@@ -77,11 +91,19 @@ export function useLessonPlayer(lesson: PlayerLesson) {
           slider.setAttribute(
             "aria-valuetext",
             next.complete
-              ? "Lesson complete"
-              : `Step ${step + 1} of ${steps.length}, ${next.copy.title}, ${Math.round(progress * 100)}% folded`,
+              ? p.finished
+              : position === 0
+                ? p.starting
+                : format(p.value, {
+                    n: step + 1,
+                    total: steps.length,
+                    title: next.copy.title,
+                    percent: Math.round(progress * 100),
+                  }),
           );
         }
         if (
+          languageChanged ||
           prior.step !== step ||
           prior.travel !== travel ||
           prior.boundary !== next.boundary ||
@@ -96,14 +118,21 @@ export function useLessonPlayer(lesson: PlayerLesson) {
             next.boundary && travel === "rest"
               ? position === 0
                 ? lesson.sheet.result
-                : `Reached step ${position} of ${steps.length}. ${next.description}`
-              : `${travel === "reverse" ? "Reversing" : travel === "rest" ? "Paused at" : "Showing"} step ${step + 1} of ${steps.length}. ${next.copy.title}.`;
+                : format(p.reached, {
+                    n: position,
+                    total: steps.length,
+                    description: next.description,
+                  })
+              : format(
+                  travel === "reverse" ? p.reverse : travel === "rest" ? p.paused : p.showing,
+                  { n: step + 1, total: steps.length, title: next.copy.title },
+                );
           setAnnouncement(message);
         }
       }
       return pose;
     },
-    [lesson, steps],
+    [lesson, steps, p, format],
   );
 
   const settle = useCallback(
@@ -111,11 +140,23 @@ export function useLessonPlayer(lesson: PlayerLesson) {
       motion.current = settleLesson(motion.current, displayed.current);
       const pose = sample(performance.now());
       if (reason === "unavailable")
-        setAnnouncement(`3D view unavailable. ${statusOf(lesson, pose).description}`);
+        setAnnouncement(`${p.unavailable}. ${statusOf(lesson, pose, p, format).description}`);
     },
-    [lesson, sample],
+    [lesson, sample, p, format],
   );
-  const studio = useStudioView(lesson.loadScene, sample, settle);
+  useLayoutEffect(() => {
+    sample(performance.now());
+  }, [sample]);
+  const cameraText = useCallback(
+    (bearing: number, elevation: number, zoom: number) =>
+      format(p.reading, {
+        bearing,
+        elevation,
+        zoom: zoom.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
+      }),
+    [format, p, locale],
+  );
+  const studio = useStudioView(lesson.loadScene, sample, settle, cameraText);
 
   function command(action: LessonCommand) {
     const now = performance.now();

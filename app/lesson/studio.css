@@ -15,101 +15,6 @@ body:has(.lesson-studio) > .footer-inner {
   padding: 10px max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom))
     max(10px, env(safe-area-inset-left));
 }
-.studio-masthead {
-  padding-top: env(safe-area-inset-top);
-}
-.studio-masthead .masthead-inner {
-  width: 100%;
-  min-height: 60px;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  padding: 5px max(16px, env(safe-area-inset-right)) 5px max(16px, env(safe-area-inset-left));
-  gap: clamp(8px, 1.6vw, 24px);
-}
-.studio-masthead .wordmark {
-  min-width: 44px;
-  font-size: 1.75rem;
-  min-height: 44px;
-  flex: none;
-}
-.studio-masthead .wordmark img {
-  width: 30px;
-}
-.studio-masthead .appearance {
-  flex: none;
-  margin: 0;
-}
-.studio-masthead .appearance select {
-  min-height: 44px;
-}
-.model-picker {
-  margin-inline-start: auto;
-  min-width: 0;
-}
-.model-picker h1 {
-  font: inherit;
-  line-height: 1.2;
-  font-size: 0.92rem;
-  font-weight: 650;
-  letter-spacing: normal;
-}
-.model-picker h1 button,
-.model-links {
-  color: var(--color-base-content);
-  background: var(--color-base-100);
-  border: 1px solid var(--fine-line);
-  border-radius: 12px;
-}
-.model-picker h1 button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6em;
-  font: inherit;
-  max-width: 100%;
-  min-height: 44px;
-  padding: 5px 12px;
-  cursor: pointer;
-  anchor-name: --model-trigger;
-}
-.model-links {
-  position: fixed;
-  inset: 3.5rem max(8px, env(safe-area-inset-right)) auto auto;
-  margin: 0;
-  padding: 5px;
-  width: min(16rem, calc(100vw - 16px));
-  max-height: 80dvh;
-  overflow: auto;
-  z-index: 3;
-  box-shadow: 0 8px 28px color-mix(in srgb, var(--color-neutral) 18%, transparent);
-}
-@supports (top: anchor(bottom)) {
-  .model-links {
-    position-anchor: --model-trigger;
-    inset: auto;
-    top: anchor(bottom);
-    right: anchor(right);
-    margin-top: 5px;
-  }
-}
-.studio-masthead .model-links nav {
-  display: grid;
-  gap: 0;
-  justify-content: stretch;
-}
-.studio-masthead .model-links a {
-  min-height: 44px;
-  padding: 0.55em 0.75em;
-  border-radius: 8px;
-  color: var(--color-base-content);
-}
-.studio-masthead .model-links a:is(:hover, [aria-current="page"]) {
-  background: var(--color-base-200);
-}
-.studio-masthead .model-links .compact-navigation {
-  display: none;
-}
 .lesson-studio {
   --studio-surface: var(--color-base-100);
   --track-line: color-mix(in srgb, var(--color-base-content) 62%, var(--studio-surface));
@@ -448,57 +353,10 @@ body:has(.lesson-studio) > .footer-inner {
   font-size: 0.85rem;
   line-height: 1.5;
 }
-@container (max-width:44rem) {
-  .studio-masthead .masthead-inner > nav {
-    display: none;
-  }
-  .studio-masthead .model-links .compact-navigation {
-    display: grid;
-    border-top: 1px solid var(--fine-line);
-  }
-  .studio-masthead .appearance {
-    width: 44px;
-    height: 44px;
-  }
-  .studio-masthead .appearance svg {
-    inset-inline-start: 11px;
-  }
-  .studio-masthead .appearance::after {
-    display: none;
-  }
-  .studio-masthead .appearance select {
-    width: 100%;
-    padding: 0;
-    color: transparent;
-  }
-  .studio-masthead .appearance option {
-    color: var(--color-base-content);
-  }
-}
-@container (max-width:24rem) {
-  .model-links {
-    inset-inline: max(8px, env(safe-area-inset-left)) max(8px, env(safe-area-inset-right));
-    width: auto;
-    max-height: 65dvh;
-  }
-}
-@container (max-width:17rem) {
-  .studio-masthead .wordmark {
-    font-size: 0;
-    gap: 0;
-  }
-  .studio-masthead .masthead-inner {
-    padding-inline: 8px;
-  }
-}
 @media (max-width: 42rem) {
   .content:has(.lesson-studio) {
     padding: 6px max(6px, env(safe-area-inset-right)) max(6px, env(safe-area-inset-bottom))
       max(6px, env(safe-area-inset-left));
-  }
-  .studio-masthead .masthead-inner {
-    padding-inline: max(8px, env(safe-area-inset-left)) max(8px, env(safe-area-inset-right));
-    min-height: 54px;
   }
   .lesson-studio {
     border-radius: 14px;
@@ -540,10 +398,6 @@ body:has(.lesson-studio) > .footer-inner {
   }
 }
 @media (max-height: 30rem) {
-  .studio-masthead .masthead-inner {
-    min-height: 48px;
-    padding-block: 2px;
-  }
   .studio-topline {
     padding-top: 3px;
     padding-inline-end: 68px;
@@ -600,4 +454,8 @@ body:has(.lesson-studio) > .footer-inner {
   .fold-button {
     border: 1px solid ButtonText;
   }
+}
+
+[dir="rtl"] .fold-button:not(.toggle-play) .player-icon {
+  transform: scaleX(-1);
 }

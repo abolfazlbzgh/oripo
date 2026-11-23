@@ -1,7 +1,7 @@
 import { CameraControls } from "../components/camera-controls";
 import { Link } from "react-router";
 import { useFoldPlayer } from "../fold/use-fold-player";
-import { englishPath } from "../navigation";
+import { galleryPath } from "../navigation";
 import { pageTitle } from "../site";
 import "./first-fold.css";
 
@@ -164,7 +164,7 @@ export default function FirstFold() {
           />
         </div>
       </div>
-      <Link tabIndex={0} className="text-link" to={englishPath("foundation")}>
+      <Link tabIndex={0} className="text-link" to={galleryPath("en")}>
         Back to Explore
       </Link>
       <span className="sr-only" role="status" aria-atomic="true">

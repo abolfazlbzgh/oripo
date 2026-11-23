@@ -1,4 +1,5 @@
 @import "tailwindcss" source(none);
+@import "./shell.css";
 @source "./**/*.{ts,tsx}";
 
 @plugin "daisyui" {
@@ -76,7 +77,7 @@
 }
 
 :root {
-  --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --serif: var(--heading-font, Georgia, serif);
   --muted: color-mix(in srgb, var(--color-base-content) 78%, var(--color-base-100));
   --sage-field: color-mix(in srgb, var(--color-primary) 13%, var(--color-base-100));
   --fine-line: color-mix(in srgb, var(--color-base-content) 20%, transparent);
@@ -88,7 +89,7 @@ body {
   flex-direction: column;
   background: var(--color-base-100);
   color: var(--color-base-content);
-  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  font-family: var(--body-font, system-ui, sans-serif);
   line-height: 1.6;
 }
 .frame {
@@ -99,109 +100,8 @@ body {
 .content {
   flex: 1;
 }
-.masthead {
-  border-block-end: 1px solid var(--fine-line);
-}
-.masthead-inner,
-.footer-inner,
-.wordmark,
-.appearance,
-nav {
-  display: flex;
-  align-items: center;
-}
-.masthead-inner {
-  min-height: 4.75rem;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-.wordmark {
-  font: bold 2rem/1 var(--serif);
-  letter-spacing: -0.065em;
-  gap: 0.36rem;
-  color: var(--color-base-content);
-  min-height: 2.75rem;
-}
-.wordmark img {
-  width: 2.15rem;
-  height: auto;
-}
-.masthead nav {
-  flex: 1;
-  gap: clamp(0.5rem, 3vw, 2.8rem);
-  justify-content: center;
-}
-.masthead nav a {
-  font-size: 0.94rem;
-  color: var(--muted);
-  padding-block: 0.8rem;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.48rem;
-}
-.masthead nav a[aria-current="page"] {
-  text-decoration-line: underline;
-  font-weight: 650;
-  color: var(--color-primary);
-}
-.masthead a:hover,
-.footer-inner a:hover,
-.text-link:hover {
-  color: var(--color-secondary);
-}
-.appearance {
-  position: relative;
-  border: 1px solid var(--fine-line);
-  border-radius: 2rem;
-  font-size: 0.875rem;
-}
-.appearance svg {
-  position: absolute;
-  inset-inline-start: 0.75rem;
-  pointer-events: none;
-}
-.appearance::after {
-  content: "";
-  position: absolute;
-  inset-inline-end: 0.85rem;
-  width: 0.42rem;
-  height: 0.42rem;
-  border: solid currentColor;
-  border-width: 0 1.5px 1.5px 0;
-  transform: translateY(-25%) rotate(45deg);
-  pointer-events: none;
-}
-.appearance select {
-  appearance: none;
-  border-radius: inherit;
-  min-height: 2.75rem;
-  padding: 0.4rem 2rem 0.4rem 2.35rem;
-  background: transparent;
-  cursor: pointer;
-}
-.appearance option {
-  background: var(--color-base-100);
-  color: var(--color-base-content);
-}
-.footer-inner {
-  flex-wrap: wrap;
-  gap: 0.3rem 1rem;
-  padding-block: 1.5rem;
-  border-block-start: 1px solid var(--fine-line);
-  color: var(--muted);
-  font-size: 0.875rem;
-}
-.footer-inner .wordmark {
-  font-size: 1.5rem;
-}
-.footer-inner img {
-  width: 1.5rem;
-}
-.footer-inner > a:last-child {
-  margin-inline-start: auto;
-  padding-block: 0.7rem;
-}
 .skip-link {
-  z-index: 5;
+  z-index: 20;
   position: absolute;
   inset-inline-start: 1rem;
   inset-block-start: 0.75rem;
@@ -278,8 +178,8 @@ h1 {
   font-size: clamp(2.8rem, 6.3vw, 5.8rem);
 }
 .hero-copy h1 {
-  font-size: clamp(3.8rem, 7vw, 6.75rem);
-  line-height: 0.97;
+  font-size: clamp(3.25rem, 5.9vw, 6rem);
+  line-height: 1.03;
 }
 .hero-copy h1 em {
   display: block;
@@ -292,16 +192,9 @@ h1 {
   max-width: 43ch;
   margin-block: 1.4rem 1.8rem;
 }
-.play-icon {
-  width: 0;
-  height: 0;
-  border-block: 0.32rem solid transparent;
-  border-inline-start: 0.51rem solid currentColor;
-  margin-inline-end: 0.2rem;
-}
 .study {
   overflow: hidden;
-  border-radius: 0.6rem;
+  border-radius: 1.15rem;
   background: var(--sage-field);
   border: 1px solid var(--fine-line);
 }
@@ -376,7 +269,21 @@ h1 {
   inset-block-end: 0.85rem;
   inset-inline-end: 0.85rem;
 }
+.hero-actions .btn,
+.guide > .btn {
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .library {
+  min-block-size: calc(100svh - var(--header-row) - 2rem);
   padding-block: 2rem clamp(3rem, 6vw, 5rem);
   border-block-start: 1px solid var(--fine-line);
 }
@@ -387,32 +294,41 @@ h2 {
   font-size: clamp(2.1rem, 3.5vw, 3.25rem);
 }
 .library-grid {
-  container-type: inline-size;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.25rem, 4vw, 3.5rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.65rem);
 }
 .resource {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(6rem, 0.52fr) minmax(0, 1fr);
-  gap: clamp(1rem, 2vw, 1.8rem);
-  align-items: center;
+  min-width: 0;
+  border: 1px solid var(--fine-line);
+  border-radius: 1.1rem;
+  background: var(--color-base-100);
+  overflow: clip;
+}
+.resource:focus-within {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 3px;
 }
 .diagram-field {
   display: grid;
-  align-items: center;
-  min-height: 8.7rem;
-  height: 100%;
+  place-items: center;
+  height: clamp(10rem, 17vw, 15rem);
   background: var(--sage-field);
-  border-radius: 0.45rem;
 }
-.notation-field {
-  background: color-mix(in srgb, var(--color-accent) 27%, var(--color-base-100));
+.resource:nth-child(2) .diagram-field {
+  background: color-mix(in srgb, var(--color-secondary) 12%, var(--color-base-200));
+}
+.resource:nth-child(3) .diagram-field {
+  background: color-mix(in srgb, var(--color-accent) 25%, var(--color-base-200));
 }
 .fold-diagram {
-  width: 100%;
-  height: auto;
+  width: min(72%, 14.5rem);
+  max-height: 83%;
+  filter: drop-shadow(0 10px 7px #172e201c);
+}
+.card-copy {
+  padding: clamp(1rem, 1.6vw, 1.6rem);
 }
 .category {
   font-size: 0.75rem;
@@ -465,16 +381,17 @@ h2 {
   margin-block: 1rem 2rem;
 }
 .notation > div {
-  border-block-start: 1px solid var(--fine-line);
-  padding: 1.4rem;
+  border: 1px solid var(--fine-line);
+  padding: clamp(1.25rem, 3.2vw, 2.2rem);
   background: var(--color-base-200);
-  border-radius: 0.4rem;
+  border-radius: 1rem;
 }
 .notation dt {
   overflow-wrap: anywhere;
   font: normal 1.75rem var(--serif);
 }
 .notation dd {
+  line-height: 1.75;
   margin-block-start: 0.65rem;
   color: var(--muted);
 }
@@ -504,82 +421,26 @@ h2 {
   text-decoration: underline;
   text-underline-offset: 0.2rem;
 }
-@media (max-width: 52rem) {
-  .opening {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 1.5rem;
-  }
-  .library-grid {
-    grid-template-columns: 1fr;
-  }
-  .resource {
-    grid-template-columns: minmax(6rem, 0.4fr) minmax(0, 1fr);
-  }
-}
-@media (max-width: 41rem) {
-  .masthead-inner {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0 0.6rem;
-    padding-block: 0.6rem 0.2rem;
-  }
-  .masthead nav {
-    grid-row: 2;
-    grid-column: 1/-1;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 0 1.25rem;
-  }
-  .appearance {
-    grid-column: 2;
-    grid-row: 1;
-  }
+@media (max-width: 46rem) {
   .opening,
   .notation {
     grid-template-columns: minmax(0, 1fr);
   }
   .opening {
-    padding-block: 2.1rem;
-    gap: 1.75rem;
+    padding-block: 2.2rem;
+    gap: 1.8rem;
   }
   .hero-copy h1 {
-    font-size: clamp(3.25rem, 12vw, 4.6rem);
-  }
-  .hero-copy h1 em {
-    display: inline;
+    font-size: clamp(2.9rem, 11vw, 4.8rem);
   }
   .study-field {
-    aspect-ratio: 1.95;
+    aspect-ratio: 1.9;
   }
-  .study-field img {
-    width: 76%;
+  .library-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
   }
   .intro {
     margin-block: 1rem 1.35rem;
-  }
-  .library-grid {
-    gap: 1.4rem;
-  }
-  .resource {
-    grid-template-columns: minmax(5rem, 0.45fr) minmax(0, 1fr);
-  }
-}
-@container (max-width: 20rem) {
-  .resource {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.65rem;
-  }
-  .diagram-field {
-    height: 7rem;
-    min-height: 0;
-  }
-  .fold-diagram {
-    height: 100%;
-  }
-}
-@media (max-width: 23rem) {
-  .footer-inner > a:last-child {
-    margin-inline-start: 0;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -591,20 +452,15 @@ h2 {
     transition-duration: 0s !important;
   }
 }
-.masthead {
-  container-type: inline-size;
+
+html:not(.font-latin)
+  :is(h1, h2, h3, .eyebrow, .category, .step-indicator, .instruction-step, .study figcaption span) {
+  letter-spacing: normal;
+  line-height: 1.25;
 }
-@container (max-width: 16rem) {
-  .masthead-inner {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-  .masthead nav {
-    justify-content: flex-start;
-  }
-  .appearance {
-    margin-block-end: 0.5rem;
-  }
+html:is(.font-fa, .font-ar, .font-hi) .hero-copy h1 em {
+  font-style: normal;
+}
+html.font-latin .hero-copy h1 {
+  text-wrap: balance;
 }

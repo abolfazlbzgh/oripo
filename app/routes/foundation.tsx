@@ -34,7 +34,7 @@ export default function Foundation() {
           {lessons.map((lesson) => (
             <article key={lesson.id} className="resource">
               <div className="diagram-field">
-                <FoldDiagram />
+                <FoldDiagram airplane={lesson.id === "paper-airplane"} />
               </div>
               <div>
                 <p className="category">{lesson.format}</p>

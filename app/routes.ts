@@ -8,5 +8,6 @@ export default [
     index("routes/foundation.tsx"),
     route(pages.creaseGuide, "routes/crease-guide.tsx"),
     route(pages.firstFold, "routes/first-fold.tsx"),
+    route(pages.paperAirplane, "routes/paper-airplane.tsx"),
   ]),
 ] satisfies RouteConfig;

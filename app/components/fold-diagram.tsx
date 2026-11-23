@@ -1,7 +1,21 @@
-export function FoldDiagram({ guide = false }: { guide?: boolean }) {
+export function FoldDiagram({
+  guide = false,
+  airplane = false,
+}: {
+  guide?: boolean;
+  airplane?: boolean;
+}) {
   return (
     <svg className="fold-diagram" viewBox="0 0 220 156" fill="none" aria-hidden="true">
-      {guide ? (
+      {airplane ? (
+        <g stroke="#466453" strokeWidth="1.5" strokeLinejoin="round">
+          <path d="M198 10 72 134 68 119Z" fill="#ac895f" />
+          <path d="M198 10 53 62 21 90 68 119Z" fill="#a5bda9" />
+          <path d="M198 10 68 119 112 148 148 118Z" fill="#92b39f" />
+          <path d="M198 10 53 62 142 57Z" fill="#e4c396" />
+          <path d="M198 10 142 57 148 118Z" fill="#d6b282" />
+        </g>
+      ) : guide ? (
         <>
           <path d="m28 86 66-38 49 22-65 39z" fill="#dab391" />
           <path d="m78 109 65-39 48-43-61 36z" fill="#f2d6ac" />

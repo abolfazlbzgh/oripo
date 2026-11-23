@@ -1,0 +1,66 @@
+import type { AirplaneStepId } from "./airplane";
+
+export const sheetText = {
+  title: "Start with a rectangle",
+  instruction:
+    "Place a 2 × 3 rectangle green side up, with a short edge at the top. Its midpoint will become the nose.",
+  result: "A flat green rectangle, with its long sides running from nose to tail.",
+};
+
+export const airplaneText = {
+  "mark-spine": {
+    title: "Mark the spine",
+    instruction:
+      "Bring the right long edge over to meet the left long edge. Press the fold from top to bottom.",
+    result: "The gold reverse faces up on a long, folded rectangle.",
+  },
+  "open-sheet": {
+    title: "Open the sheet",
+    instruction:
+      "Swing the right half back out. Keep the short edge at the top and use the center crease as your guide.",
+    result: "The sheet lies flat again with a crease down its center.",
+  },
+  "left-corner": {
+    title: "Bring in the left corner",
+    instruction:
+      "Fold the top-left corner inward until its short top edge lies along the spine. The top midpoint stays still.",
+    result: "A gold triangle covers the upper-left part of the green sheet.",
+  },
+  "right-corner": {
+    title: "Bring in the right corner",
+    instruction:
+      "Fold the top-right corner to the same centerline. Match the two folded edges at the nose.",
+    result: "Two gold triangles meet at the spine beneath a pointed nose.",
+  },
+  "left-taper": {
+    title: "Narrow the left side",
+    instruction:
+      "Lift the sloping left edge with both layers. Bring the whole edge to the spine and press the new crease.",
+    result: "A longer folded edge runs from the nose down the left side.",
+  },
+  "right-taper": {
+    title: "Narrow the right side",
+    instruction:
+      "Bring the sloping right edge and the layer beneath it to the spine. Align it with the left fold.",
+    result: "The nose has two matching, long tapers.",
+  },
+  "close-body": {
+    title: "Pinch the body",
+    instruction:
+      "Lift both sides toward each other along the spine. Hold the closed halves upright with the tucked corners inside.",
+    result: "The layers stand together above the spine. The point and tail are still aligned.",
+  },
+  "left-wing": {
+    title: "Lower the left wing",
+    instruction:
+      "At the tail, measure one tenth of the sheet’s length up from the spine. Fold the left layers outward along the line from the nose to that mark. Stop just above level.",
+    result: "The left wing spreads out while the right packet stays upright.",
+  },
+  "right-wing": {
+    title: "Lower the right wing",
+    instruction:
+      "Lower the right packet along the matching line. Leave both wings tilted slightly upward and pinch the narrow keel beneath them.",
+    result:
+      "Your dart is complete. Two swept wings spread from a single nose, with a vertical keel between them.",
+  },
+} satisfies Record<AirplaneStepId, typeof sheetText>;

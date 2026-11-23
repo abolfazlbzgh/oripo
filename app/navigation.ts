@@ -4,6 +4,7 @@ export const pages = {
   foundation: "",
   creaseGuide: "guide/crease-notation",
   firstFold: "lab/first-fold",
+  paperAirplane: "lessons/paper-airplane",
 } as const;
 
 export function englishPath(page: keyof typeof pages) {
@@ -17,4 +18,5 @@ export const publishedPaths = [
   englishPath("foundation"),
   englishPath("creaseGuide"),
   englishPath("firstFold"),
+  englishPath("paperAirplane"),
 ];

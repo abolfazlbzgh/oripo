@@ -220,6 +220,42 @@
   font-size: 0.875rem;
 }
 
+.lab-key .key-back {
+  background: #e4b77d;
+}
+.lab-key .key-guide {
+  height: 0;
+  width: 1.2rem;
+  border: 0;
+  border-top: 2px dashed #aa673c;
+}
+.airplane-lesson .lab-stage {
+  aspect-ratio: 1.65;
+}
+.lesson-result,
+.lesson-transcript p {
+  margin-block-start: 0.6rem;
+}
+.lesson-transcript {
+  max-width: 65ch;
+  margin-block-start: 1.5rem;
+}
+.lesson-transcript summary {
+  width: fit-content;
+  cursor: pointer;
+  padding-block: 0.65rem;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.lesson-transcript ol {
+  list-style: decimal;
+  padding-inline-start: 1.6rem;
+}
+.lesson-transcript li {
+  margin-block: 1rem;
+  padding-inline-start: 0.35rem;
+}
+
 @media (scripting: enabled) {
   .lab-placeholder .script-hint {
     display: none;
@@ -247,6 +283,43 @@
   padding-inline: 0;
 }
 @media (max-width: 52rem) {
+  .airplane-lesson .studio-heading {
+    margin-block-end: 1rem;
+  }
+  .airplane-lesson .studio-heading h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+  .airplane-lesson .lab-workbench {
+    row-gap: 0.8rem;
+  }
+  .airplane-lesson .lab-view,
+  .airplane-lesson .lab-notes {
+    display: contents;
+  }
+  .airplane-lesson .lab-panel {
+    order: 1;
+    padding: 0;
+    border: 0;
+  }
+  .airplane-lesson .pose {
+    margin: 0;
+  }
+  .airplane-lesson .pose h2 {
+    font-size: 1.7rem;
+    margin-block: 0.2rem;
+  }
+  .airplane-lesson .transport {
+    order: 2;
+    padding-block-start: 0;
+  }
+  .airplane-lesson .lab-camera {
+    order: 3;
+    margin-block-start: 0;
+  }
+  .airplane-lesson .lab-key {
+    gap: 0.3rem 0.6rem;
+    padding: 0.55rem 0.75rem;
+  }
   .lab-workbench {
     grid-template-columns: minmax(0, 1fr);
   }

@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import {
   Link,
   Links,
+  Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
@@ -13,13 +14,15 @@ import { site, pageTitle } from "./site";
 import type { Route } from "./+types/root";
 import "./styles.css";
 
+export const meta = () => [{ name: "description", content: site.description }];
+
 export function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang={site.defaultLocale} suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content={site.description} />
+        <Meta />
         <link rel="icon" type="image/svg+xml" href="/oripo.svg" />
         <script src="/appearance.js"></script>
         <Links />

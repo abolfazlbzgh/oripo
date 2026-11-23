@@ -1,6 +1,6 @@
 # Oripo
 
-Oripo is a step-by-step origami tutorial for the web. Phase 0 provides an English foundation page, a crease-notation guide, and a static build. The 3D tutorial player is planned work.
+Oripo is a step-by-step origami tutorial for the web. The English foundation includes a crease-notation guide and a laboratory where you can orbit a square sheet as it makes one reversible half-fold.
 
 ## Run locally
 
@@ -13,6 +13,8 @@ npm run dev
 
 Open the local address printed by Vite. Start at `/` to choose English, or open `/en` directly. The guide has a shareable address at `/en/guide/crease-notation`. The appearance control follows the system until a reader chooses Light or Dark.
 
+The English foundation links to the lab. To try it from the production build, run `npm run build` and `npm run preview`, then open the [first-fold laboratory](http://127.0.0.1:4173/en/lab/first-fold).
+
 ## Verify changes
 
 | Command                | Purpose                                                                            |
@@ -20,7 +22,7 @@ Open the local address printed by Vite. Start at `/` to choose English, or open 
 | `npm run typecheck`    | Generate route types and check strict TypeScript.                                  |
 | `npm run lint`         | Run ESLint with zero warnings allowed.                                             |
 | `npm run format:check` | Check source, configuration and documentation with Prettier.                       |
-| `npm test`             | Check canonical locale links and pre-render coverage with Vitest.                  |
+| `npm test`             | Check route coverage, rigid-panel geometry and reversible timing with Vitest.      |
 | `npm run build`        | Pre-render the published pages into `build/client`.                                |
 | `npm run preview`      | Serve the production files at `http://127.0.0.1:4173`.                             |
 | `npm run test:smoke`   | Use Playwright against the existing production build on disposable loopback ports. |
@@ -33,11 +35,11 @@ React Router Framework Mode and Vite generate static pages with React and TypeSc
 
 ## Roadmap
 
-1. Prove one reversible fold in a rotatable scene and test its geometry.
+1. Refine the player UI using the verified single-fold lab.
 2. Author and verify one complete lesson with Next, Previous, pause and replay.
-3. Expand toward three validated lessons, the gallery, translations and accessibility testing.
+3. Expand toward three validated lessons, the gallery, translations and further accessibility testing.
 
-The first hosted preview requires separate authorization. Phase 0 was verified locally.
+The foundation and first fold have been verified locally. The first hosted preview requires separate authorization.
 
 ## Ownership and licensing
 

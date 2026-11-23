@@ -25,7 +25,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <Links />
       </head>
       <body>
-        <a className="skip-link btn btn-primary" href="#main">
+        <a tabIndex={0} className="skip-link btn btn-primary" href="#main">
           Skip to content
         </a>
         <Header />
@@ -54,7 +54,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     <section className="article-head">
       <title>{pageTitle(heading)}</title>
       <h1>{heading}</h1>
-      <Link className="btn btn-primary" to={englishPath("foundation")}>
+      <Link tabIndex={0} className="btn btn-primary" to={englishPath("foundation")}>
         Return to Oripo
       </Link>
     </section>

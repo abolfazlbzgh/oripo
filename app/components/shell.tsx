@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router";
+import { Link, NavLink, useLocation, useMatch } from "react-router";
 import { englishPath } from "../navigation";
 
 function Brand() {
   return (
-    <Link className="wordmark" to={englishPath("foundation")}>
+    <Link tabIndex={0} className="wordmark" to={englishPath("foundation")}>
       <img src="/oripo.svg" width="36" height="36" alt="" />
       Oripo
     </Link>
@@ -54,16 +54,22 @@ function Appearance() {
 }
 
 export function Header() {
+  const home = englishPath("foundation");
+  const onHome = useMatch({ path: home, end: true });
   return (
     <header className="masthead">
       <div className="frame masthead-inner">
         <Brand />
         <nav aria-label="Main navigation">
-          <NavLink end to={englishPath("foundation")}>
+          <Link tabIndex={0} to={home} aria-current={onHome ? "page" : undefined}>
             Explore
+          </Link>
+          <NavLink tabIndex={0} to={englishPath("firstFold")}>
+            3D studio
           </NavLink>
-          <NavLink to={englishPath("firstFold")}>3D studio</NavLink>
-          <NavLink to={englishPath("creaseGuide")}>Crease guide</NavLink>
+          <NavLink tabIndex={0} to={englishPath("creaseGuide")}>
+            Crease guide
+          </NavLink>
         </nav>
         <Appearance />
       </div>
@@ -76,7 +82,7 @@ export function Footer() {
     <footer className="frame footer-inner">
       <Brand />
       <span>Origami in Motion</span>
-      <Link to="/" hrefLang="en">
+      <Link tabIndex={0} to="/" hrefLang="en">
         Language · English
       </Link>
     </footer>

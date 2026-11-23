@@ -13,7 +13,13 @@ export default function Start() {
         <p className="intro">
           Enter the paper studio to try your first fold and explore the crease guide.
         </p>
-        <Link className="btn btn-primary" to={englishPath("foundation")} lang="en" hrefLang="en">
+        <Link
+          tabIndex={0}
+          className="btn btn-primary"
+          to={englishPath("foundation")}
+          lang="en"
+          hrefLang="en"
+        >
           English
         </Link>
       </div>

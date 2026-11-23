@@ -19,7 +19,7 @@ export default function Foundation() {
             Discover how a single sheet takes shape. Follow a fold in 3D, turn it in your hands, and
             trace it back to the beginning.
           </p>
-          <Link className="btn btn-primary" to={englishPath("firstFold")}>
+          <Link tabIndex={0} className="btn btn-primary" to={englishPath("firstFold")}>
             <span className="play-icon" aria-hidden="true" />
             Open the 3D studio
           </Link>
@@ -39,7 +39,9 @@ export default function Foundation() {
               <div>
                 <p className="category">{lesson.format}</p>
                 <h3>
-                  <Link to={lesson.href}>{lesson.title}</Link>
+                  <Link tabIndex={0} to={lesson.href}>
+                    {lesson.title}
+                  </Link>
                 </h3>
                 <p>{lesson.summary}</p>
               </div>
@@ -52,7 +54,9 @@ export default function Foundation() {
             <div>
               <p className="category">Field guide</p>
               <h3>
-                <Link to={englishPath("creaseGuide")}>Crease notation</Link>
+                <Link tabIndex={0} to={englishPath("creaseGuide")}>
+                  Crease notation
+                </Link>
               </h3>
               <p>Read the lines on the page. See how a valley differs from a mountain fold.</p>
             </div>

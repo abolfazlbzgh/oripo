@@ -36,10 +36,10 @@ export default function CreaseGuide() {
           </dd>
         </div>
       </dl>
-      <Link className="btn btn-primary" to={englishPath("firstFold")}>
+      <Link tabIndex={0} className="btn btn-primary" to={englishPath("firstFold")}>
         Try the valley fold
       </Link>
-      <Link className="text-link" to={englishPath("foundation")}>
+      <Link tabIndex={0} className="text-link" to={englishPath("foundation")}>
         Back to Explore
       </Link>
     </article>

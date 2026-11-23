@@ -387,6 +387,7 @@ h2 {
   font-size: clamp(2.1rem, 3.5vw, 3.25rem);
 }
 .library-grid {
+  container-type: inline-size;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1.25rem, 4vw, 3.5rem);
@@ -465,6 +466,7 @@ h2 {
   border-radius: 0.4rem;
 }
 .notation dt {
+  overflow-wrap: anywhere;
   font: normal 1.75rem var(--serif);
 }
 .notation dd {
@@ -557,7 +559,7 @@ h2 {
     grid-template-columns: minmax(5rem, 0.45fr) minmax(0, 1fr);
   }
 }
-@media (max-width: 23rem) {
+@container (max-width: 20rem) {
   .resource {
     grid-template-columns: minmax(0, 1fr);
     gap: 0.65rem;
@@ -569,6 +571,8 @@ h2 {
   .fold-diagram {
     height: 100%;
   }
+}
+@media (max-width: 23rem) {
   .footer-inner > a:last-child {
     margin-inline-start: 0;
   }

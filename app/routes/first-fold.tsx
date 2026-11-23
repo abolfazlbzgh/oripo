@@ -126,6 +126,7 @@ export default function FirstFold() {
             </div>
             <div className="lab-actions" role="group" aria-label="Fold controls">
               <button
+                tabIndex={0}
                 type="button"
                 className="btn"
                 disabled={loading}
@@ -135,6 +136,7 @@ export default function FirstFold() {
                 Previous
               </button>
               <button
+                tabIndex={0}
                 type="button"
                 className="btn btn-primary"
                 disabled={loading}
@@ -144,6 +146,7 @@ export default function FirstFold() {
                 Next
               </button>
               <button
+                tabIndex={0}
                 type="button"
                 className="btn replay"
                 disabled={loading}
@@ -187,6 +190,7 @@ export default function FirstFold() {
                   <div>
                     {group.controls.map(([action, text, label]) => (
                       <button
+                        tabIndex={0}
                         type="button"
                         key={action}
                         aria-label={label}
@@ -199,7 +203,12 @@ export default function FirstFold() {
                   </div>
                 </div>
               ))}
-              <button type="button" className="reset-view" onClick={() => moveCamera("reset")}>
+              <button
+                tabIndex={0}
+                type="button"
+                className="reset-view"
+                onClick={() => moveCamera("reset")}
+              >
                 Reset view
               </button>
             </div>
@@ -207,7 +216,7 @@ export default function FirstFold() {
           </fieldset>
         </div>
       </div>
-      <Link className="text-link" to={englishPath("foundation")}>
+      <Link tabIndex={0} className="text-link" to={englishPath("foundation")}>
         Back to Explore
       </Link>
       <span className="sr-only" role="status" aria-atomic="true">

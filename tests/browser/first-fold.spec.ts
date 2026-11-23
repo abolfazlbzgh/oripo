@@ -46,7 +46,9 @@ async function paperPixels(page: Page) {
   return page.evaluate(async (encoded) => {
     const bytes = Uint8Array.from(atob(encoded), (c) => c.charCodeAt(0));
     const bitmap = await createImageBitmap(new Blob([bytes], { type: "image/png" }));
-    const image = new OffscreenCanvas(bitmap.width, bitmap.height);
+    const image = document.createElement("canvas");
+    image.width = bitmap.width;
+    image.height = bitmap.height;
     const ctx = image.getContext("2d");
     if (!ctx) throw new Error("Pixel readback unavailable");
     ctx.drawImage(bitmap, 0, 0);
@@ -284,7 +286,6 @@ test.describe("narrow touch viewport", () => {
     ]);
     await touch("touchEnd", []);
     await expect.poll(async () => (await reading.innerText()).split(" · ")[2]).not.toBe(zoom);
-    await session.detach();
     await atAngle(page, 180);
     await button(page, "Previous").tap();
     await atAngle(page, 0);
@@ -296,6 +297,29 @@ test.describe("narrow touch viewport", () => {
     ]);
     await button(page, "Next").tap();
     await atAngle(page, 180);
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.reload();
+    await rendered(page);
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
+    const label = await page.getByText("Fold angle", { exact: true }).boundingBox();
+    if (!label) throw new Error("Missing angle label");
+    const startView = await reading.innerText();
+    const swipe = {
+      x: Math.round(label.x + label.width / 2),
+      y: Math.round(label.y + label.height / 2),
+      id: 1,
+    };
+    await touch("touchStart", [swipe]);
+    for (let distance = 10; distance <= 100; distance += 10) {
+      await touch("touchMove", [{ ...swipe, y: swipe.y - distance }]);
+    }
+    await touch("touchEnd", []);
+    await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(0);
+    await expect(reading).toHaveText(startView);
+    await atAngle(page, 0);
+    await session.detach();
   });
 });
 

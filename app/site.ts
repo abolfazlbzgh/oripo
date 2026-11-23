@@ -1,6 +1,7 @@
 export const site = {
   name: "Oripo",
-  description: "A step-by-step guide to learning origami with authored 3D folds.",
+  description:
+    "Learn how origami takes shape. Explore crease notation and turn a square sheet through a reversible fold in the Oripo 3D studio.",
   defaultLocale: "en",
 } as const;
 

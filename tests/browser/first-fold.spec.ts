@@ -237,7 +237,7 @@ test.describe("narrow touch viewport", () => {
     context,
   }) => {
     await page.goto("/en");
-    await page.getByRole("link", { name: "Open the first-fold lab" }).tap();
+    await page.getByRole("link", { name: "Open the 3D studio" }).tap();
     await rendered(page);
     await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
     for (const [setting, scheme] of [
@@ -353,7 +353,7 @@ test("route exit during motion releases the old GL context, and return opens one
   await expect(page.locator("canvas")).toHaveCount(0);
   await expect.poll(() => context.evaluate((gl) => gl?.isContextLost())).toBe(true);
   await context.dispose();
-  await page.getByRole("link", { name: "Open the first-fold lab" }).click();
+  await page.getByRole("link", { name: "Open the 3D studio" }).click();
   await rendered(page);
   await atAngle(page, 0);
   await expect(button(page, "Previous")).toBeDisabled();

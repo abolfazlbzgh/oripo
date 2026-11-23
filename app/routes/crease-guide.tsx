@@ -6,14 +6,14 @@ export default function CreaseGuide() {
   return (
     <article className="guide">
       <title>{pageTitle("Crease notation")}</title>
-      <Link className="link" to={englishPath("foundation")}>
-        Back to foundation
-      </Link>
-      <h1>Crease notation</h1>
-      <p className="intro">
-        Read a fold from the side of the paper facing you. The crease line tells you which way the
-        paper bends.
-      </p>
+      <header className="article-head">
+        <p className="eyebrow">Field guide</p>
+        <h1>Crease notation</h1>
+        <p className="intro">
+          Read a fold from the side of the paper facing you. The crease line tells you which way the
+          paper bends.
+        </p>
+      </header>
       <dl className="notation">
         <div>
           <dt>
@@ -36,6 +36,12 @@ export default function CreaseGuide() {
           </dd>
         </div>
       </dl>
+      <Link className="btn btn-primary" to={englishPath("firstFold")}>
+        Try the valley fold
+      </Link>
+      <Link className="text-link" to={englishPath("foundation")}>
+        Back to Explore
+      </Link>
     </article>
   );
 }

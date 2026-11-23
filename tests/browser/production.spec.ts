@@ -3,7 +3,7 @@ import { test, watchBrowser } from "./preview";
 
 const documents = [
   { path: "/", heading: "Choose a language" },
-  { path: "/en", heading: "A guide to paper folds" },
+  { path: "/en", heading: "Origami in motion." },
   { path: "/en/guide/crease-notation", heading: "Crease notation" },
 ];
 
@@ -15,7 +15,9 @@ for (const { path, heading } of documents) {
       const response = await visit();
       expect(response?.status()).toBe(200);
       const html = await response?.text();
-      expect(html?.replace(/<br\s*\/?\s*>/gi, " ")).toContain(`<h1>${heading}</h1>`);
+      expect(html?.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1]?.replace(/<[^>]+>/g, "")).toBe(
+        heading,
+      );
       await expect(page.getByRole("heading", { level: 1, name: heading })).toBeVisible();
       await page.getByLabel("Appearance").selectOption("oripo-dark");
       await expect(page.locator("html")).toHaveAttribute("data-theme", "oripo-dark");
@@ -35,14 +37,14 @@ test("English navigation works at phone width with system and explicit themes", 
   await page.getByRole("link", { name: "English", exact: true }).click();
   await page.getByLabel("Appearance").selectOption("oripo-light");
   await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
-  await page.getByRole("link", { name: "Read the crease guide" }).click();
+  await page.getByRole("link", { name: "Crease notation", exact: true }).click();
   await expect(page).toHaveURL(/\/en\/guide\/crease-notation$/);
   await expect(page.getByRole("heading", { name: "Crease notation" })).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "oripo-light");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
     true,
   );
-  await page.getByRole("link", { name: "Back to foundation" }).click();
+  await page.getByRole("link", { name: "Back to Explore" }).click();
   await expect(page).toHaveURL(/\/en$/);
   await page.getByLabel("Appearance").selectOption("system");
   await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");

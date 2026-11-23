@@ -4,13 +4,90 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <title>Page not found</title>
+    <link rel="icon" href="/oripo.svg" />
+    <title>Page not found · Oripo</title>
+    <script src="/appearance.js"></script>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font:
+          100%/1.65 system-ui,
+          sans-serif;
+      }
+      [data-theme="oripo-light"] {
+        color-scheme: light;
+      }
+      [data-theme="oripo-dark"] {
+        color-scheme: dark;
+      }
+      body {
+        margin: 0;
+        background: light-dark(#faf8f1, #151e1b);
+        color: light-dark(#233b31, #f4f1e9);
+      }
+      header,
+      main,
+      footer {
+        width: min(68rem, 90%);
+        margin-inline: auto;
+      }
+      header,
+      footer {
+        padding-block: 1.5rem;
+      }
+      header {
+        border-block-end: 1px solid currentColor;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font:
+          bold 2rem Georgia,
+          serif;
+        text-decoration: none;
+      }
+      main {
+        padding-block: clamp(3rem, 12vh, 8rem);
+      }
+      h1 {
+        font:
+          normal clamp(2.4rem, 7vw, 5rem)/1.1 Georgia,
+          serif;
+        margin: 0.5em 0;
+      }
+      a {
+        color: inherit;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      nav a {
+        padding-block: 0.65rem;
+      }
+      :focus-visible {
+        outline: 3px solid currentColor;
+        outline-offset: 4px;
+      }
+      footer {
+        border-block-start: 1px solid currentColor;
+      }
+    </style>
   </head>
   <body>
+    <header>
+      <a href="/en" class="brand"><img src="/oripo.svg" width="32" height="32" alt="" />Oripo</a>
+    </header>
     <main>
+      <p>404</p>
       <h1>Page not found</h1>
       <p>This address does not match a published page.</p>
-      <a href="/">Choose a language</a>
+      <nav aria-label="Recovery">
+        <a href="/en">Back to Explore</a><a href="/">Choose a language</a>
+      </nav>
     </main>
+    <footer>Oripo · Origami in Motion</footer>
   </body>
 </html>

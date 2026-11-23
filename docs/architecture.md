@@ -1,5 +1,9 @@
 # Architecture and lesson handoff
 
+## Current lesson authoring
+
+The published registry now includes the intermediate Masu box. Version 2 adds a right-angle gusset for moving seams. Each model supplies its own endpoint palette. Explore projects those endpoints during the static build. [Construction and appearance ADR](decisions/0007-coupled-corners-and-finished-paper.md)
+
 ## Foundation
 
 | Responsibility                                                                           | Location                                                  |
@@ -7,11 +11,11 @@
 | Document shell, language tag, skip link, shared appearance control, route error boundary | `app/root.tsx`, `app/components/shell.tsx`                |
 | Document-title format, origin, locale metadata and page copy                             | `app/site.ts`, `app/i18n/`                                |
 | Registered pages and localized canonical URLs                                            | `app/routes.ts`, `app/navigation.ts`                      |
-| English default and localized Explore, Guide, internal lab and three lessons             | `app/routes/`                                             |
+| English default and localized Explore, Guide, internal lab and published lessons         | `app/routes/`                                             |
 | Semantic light/dark tokens, responsive page layout and reduced-motion rules              | `app/styles.css`                                          |
 | Static output, preview and production checks                                             | `react-router.config.ts`, `scripts/preview.mjs`, `tests/` |
 
-The route registry expands three stable model slugs and the Guide across ten locales. The same root loader supplies the initial document and subsequent static data responses. [Localized shell ADR](decisions/0006-localized-static-shell.md)
+The route registry expands each published model slug and the Guide across ten locales. The same root loader supplies the initial document and subsequent static data responses. [Localized shell ADR](decisions/0006-localized-static-shell.md)
 
 ### Appearance and navigation
 
@@ -75,7 +79,7 @@ Dart, Heart and Fox share one continuous position from the starting sheet to the
 
 `airplane-scene.client.tsx` supplies the dart view and ply heights to `lesson-scene.client.tsx`. That shared drawing updates position and normal buffers on the same 16 dart panels throughout playback. Green and gold identify the two paper faces. A dashed line marks the active or upcoming crease. Rim lines follow real material edges. A seam gains ink when its incident panels first fold apart. For depth ordering only, a virtual ply is 0.0007 world units thick. The drawing rotates prior offsets about virtual hinges half a ply above a single layer, 1.5 plies above the nose fold and four plies above the closing spine. Exact geometry remains zero-thickness. The renderer explicitly disposes its buffers and materials.
 
-## Three-lesson collection
+## Original three-lesson collection
 
 `app/lessons.ts` registers three playable model IDs with their sheet types and action counts. Each locale supplies titles, summaries, difficulty labels and transcripts. The route registry builds their URLs from the same IDs. A unit check compares the action counts with the fold data. The homepage renders original SVG diagrams. Its module graph contains the catalog and UI without importing Three.js.
 
@@ -93,7 +97,7 @@ Each convex panel carries paired material and posed coordinates during subdivisi
 
 1. Choose paper proportions, an ordered sequence, the moving layers and finished landmarks. Work out where each crease lies after earlier actions.
 2. Supply a `FlatFold[]` and per-step English copy for an all-flat sequence, or supply an explicit `LessonPattern` for spatial endpoints. Use `flatScene` for a flat packet and bind its timing to the shared lesson player. Retain the step IDs when editing instructions.
-3. Register the locale-independent route and complete each localized transcript. Compare every canonical endpoint to an independent construction. Check rigid distances, seams, closure and reversal within 1e−6 world units at this scale.
+3. In `app/lessons.ts`, choose a permanent ID, maker difficulty, category and front/reverse/edge finish. Supply the compiled endpoint, ply heights and preview camera in `scripts/lesson-previews.ts`. Register the locale-independent route and complete each localized transcript. Compare every canonical endpoint to an independent construction. Check rigid distances, seams, closure and reversal within 1e−6 world units at this scale.
 4. Compare production paper pixels to independently projected outlines. Inspect oblique and reverse views, interrupt motion, switch models, and exercise the text player. Then publish its catalog entry.
 
 ### Release verification

@@ -235,3 +235,7 @@ The prerendered popover, motion-free finish/start controls and keyboard orbit ad
 ## Phase 7 localization and provenance
 
 The owner’s approved design preview guided the layout and interactions. Oripo supplies the production artwork, geometry, timing and English fold manuscripts. Codex drafted the localized interface and lesson text against those manuscripts. Automated checks compare step IDs, interpolation fields and published content in all ten locales. Human linguistic review is `REVIEW_PENDING`, including fold terminology and spoken control labels. The six self-hosted font derivatives carry the SIL Open Font License. [Font sources and licenses](fonts.md) · [Local release evidence](release.md)
+
+## Phase 8 authorship and review
+
+Codex checked six proposed fold sequences, constructed the Masu mesh and moving corner constraints, drafted all ten Masu manuscripts and generated the four catalog images from the production meshes. The numerical and visual tests use separately derived outlines and landmarks. These are automated independent constructions by the implementer. Human folding trials, linguistic review and external geometry review are still open. The daisyUI skill informed the grouped Explore catalog. The user retained the approved shell and local-only release process. See the [model selection record](phase-8-models.md).

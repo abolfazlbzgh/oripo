@@ -12,8 +12,8 @@ The following sources are pinned to Google Fonts commit `06bfe0d62a98375cb09c942
 | `vazirmatn-fa.woff2`    | Vazirmatn 33.003, Vazirmatn Project Authors      |  62,396 | [Source](https://github.com/google/fonts/tree/06bfe0d62a98375cb09c942fa18e68bd32cff057/ofl/vazirmatn) · [OFL](../public/fonts/OFL-vazirmatn.txt)                   |
 | `noto-arabic.woff2`     | Noto Sans Arabic 2.012, Noto Project Authors     |  95,100 | [Source](https://github.com/google/fonts/tree/06bfe0d62a98375cb09c942fa18e68bd32cff057/ofl/notosansarabic) · [OFL](../public/fonts/OFL-notosansarabic.txt)         |
 | `noto-devanagari.woff2` | Noto Sans Devanagari 2.007, Noto Project Authors | 115,600 | [Source](https://github.com/google/fonts/tree/06bfe0d62a98375cb09c942fa18e68bd32cff057/ofl/notosansdevanagari) · [OFL](../public/fonts/OFL-notosansdevanagari.txt) |
-| `noto-sc.woff2`         | Noto Sans SC 2.004-H2, Adobe                     | 109,700 | [Source](https://github.com/google/fonts/tree/06bfe0d62a98375cb09c942fa18e68bd32cff057/ofl/notosanssc) · [OFL](../public/fonts/OFL-notosanssc.txt)                 |
-| `noto-jp.woff2`         | Noto Sans JP 2.004-H2, Adobe                     |  93,300 | [Source](https://github.com/google/fonts/tree/06bfe0d62a98375cb09c942fa18e68bd32cff057/ofl/notosansjp) · [OFL](../public/fonts/OFL-notosansjp.txt)                 |
+| `noto-sc.woff2`         | Noto Sans SC 2.004-H2, Adobe                     | 118,252 | [Source](https://github.com/google/fonts/tree/06bfe0d62a98375cb09c942fa18e68bd32cff057/ofl/notosanssc) · [OFL](../public/fonts/OFL-notosanssc.txt)                 |
+| `noto-jp.woff2`         | Noto Sans JP 2.004-H2, Adobe                     |  97,436 | [Source](https://github.com/google/fonts/tree/06bfe0d62a98375cb09c942fa18e68bd32cff057/ofl/notosansjp) · [OFL](../public/fonts/OFL-notosansjp.txt)                 |
 
 ## Rebuild after changing the copy
 
@@ -92,3 +92,5 @@ for family, (filename, locale) in families.items():
 Check the new text against both the output font’s Unicode cmap and the `unicode-range` descriptor in the stylesheet. A source character outside the declared range needs a corresponding CSS update.
 
 For Phase 7, the recipe reproduced all six font binaries byte for byte. The distributed licenses preserve the full upstream wording with trailing spaces removed. The declared ranges and font cmaps covered the characters in all ten locale dictionaries. In a local font fixture, Chromium, Firefox and WebKit each requested one WOFF2 when rendering the translated Guide introduction alongside all ten native language names. Chromium’s font inspector confirmed the text of each introduction used the downloaded face.
+
+Phase 8 regenerated the Japanese and Simplified Chinese subsets from the pinned local source fonts for the Masu manuscript and difficulty labels. The font cmap and CSS range audit covered all ten locales.

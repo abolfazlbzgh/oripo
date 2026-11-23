@@ -1,12 +1,13 @@
 # Oripo
 
-**Origami in Motion.** Choose one of three beginner lessons and fold a single sheet in 3D. Use Next fold to make one fold, Play to continue through the lesson or the timeline to stop at any angle. Drag the paper to inspect its layers.
+**Origami in Motion.** Fold a single sheet in 3D, from a first dart to a lined Masu box. Use Next fold to make one fold, Play to continue through the lesson or the timeline to stop at any angle. Drag the paper to inspect its layers.
 
 | English lesson                                                         | Starting paper           | Actions |
 | ---------------------------------------------------------------------- | ------------------------ | ------: |
 | [Dart paper airplane](http://127.0.0.1:4173/en/lessons/paper-airplane) | 2 × 3 portrait rectangle |       9 |
 | [Paper heart](http://127.0.0.1:4173/en/lessons/paper-heart)            | Square, corner up        |      12 |
 | [Fox face](http://127.0.0.1:4173/en/lessons/fox-face)                  | Square, corner up        |       6 |
+| [Masu box](http://127.0.0.1:4173/en/lessons/masu-box)                  | Square, corner up        |      18 |
 
 ## Run locally
 
@@ -19,7 +20,7 @@ npm run dev
 
 Open the local address printed by Vite. Both `/` and `/en` open English Explore. The brand returns to the top and Explore opens the model gallery at `/{locale}#models`. Guide opens `/{locale}/guide/crease-notation`. The language menu preserves the page and the position of the current fold. The appearance control follows the system and remembers explicit Light or Dark choices across visits.
 
-Run `npm run build` and `npm run preview` to serve the production lessons at the links above. Each page includes the complete ordered instructions in its static HTML. Open Info to read the current fold or expand all steps. Arrow keys scrub the focused timeline and orbit the focused paper. With reduced motion, Next and Previous settle immediately and the middle button switches between the finished model and the starting sheet. The three published models and Guide are available in English, Persian, Spanish, French, Simplified Chinese, Arabic, Brazilian Portuguese, German, Japanese and Hindi. The English first-fold lab remains an internal regression fixture.
+Run `npm run build` and `npm run preview` to serve the production lessons at the links above. Each page includes the complete ordered instructions in its static HTML. Open Info to read the current fold or expand all steps. Arrow keys scrub the focused timeline and orbit the focused paper. With reduced motion, Next and Previous settle immediately and the middle button switches between the finished model and the starting sheet. The published models and Guide are available in English, Persian, Spanish, French, Simplified Chinese, Arabic, Brazilian Portuguese, German, Japanese and Hindi. The English first-fold lab remains an internal regression fixture.
 
 ## Verify changes
 

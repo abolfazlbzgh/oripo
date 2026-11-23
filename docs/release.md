@@ -1,5 +1,54 @@
 # Local release verification
 
+## Phase 8 local verification
+
+The local catalog adds one Intermediate lesson, the 18-action Masu box. The original three lessons retain their IDs, steps, timings and Beginner difficulty. Five candidates remain outside the registry. The [feasibility matrix](phase-8-models.md) records the construction, difficulty evidence and rights decisions for all six proposals. The nine-lesson release gate remains open.
+
+### Paper and geometry
+
+| Model         | Actions | Front / reverse / edge at completion | Sampled poses | Worst rigid error | Worst seam or corner-trace error | Worst canonical landmark error |
+| ------------- | ------: | ------------------------------------ | ------------: | ----------------: | -------------------------------: | -----------------------------: |
+| Dart airplane |       9 | `#bdcfdf` / `#90abc6` / `#49647e`    |         9,009 |         1.055e−15 |                        2.722e−15 |                      9.501e−16 |
+| Paper heart   |      12 | `#b82d50` / `#d63f60` / `#771d3a`    |        12,012 |         3.331e−16 |                        7.200e−16 |                      3.140e−16 |
+| Fox face      |       6 | `#efb797` / `#d5712e` / `#814521`    |         6,006 |         4.441e−16 |                        1.061e−15 |                      5.551e−16 |
+| Masu box      |      18 | `#448b91` / `#64a5a0` / `#285359`    |        18,018 |         3.331e−16 |                        4.965e−16 |                0 at completion |
+
+The threshold is 1e−6 world units. Fixed hinge error and drift after 1,000 forward/reverse trips measured zero for all four lessons. The Masu fixture evaluates two coupled end walls against an independent construction, checks the wrap and floor layer order, and confirms a connected disk of 81 vertices, 208 edges and 128 faces. It found zero transverse penetrations among 697,312 bounding-box candidate triangle pairs at 31 interior fractions per action. These samples cover discrete poses of a zero-thickness sheet. The final box has a one-unit square floor, four half-unit walls and a clear top opening.
+
+All four studios use instructional stock `#99b9a3` / `#e4b77d` with `#374e40` edges up to the last endpoint. Endpoint pigments change on the same frame as the final pose. Reversal restores the instructional stock. A build-time projection of that same endpoint and layer stack produces four transparent PNGs totaling 19,165 bytes. The palette test changes the pigments and checks that every preview alpha sample stays fixed. [Construction and appearance decision](decisions/0007-coupled-corners-and-finished-paper.md)
+
+### Studio and gallery evidence
+
+The locked installation (`npm.cmd ci --strict-peer-deps`, 230 packages), `npm.cmd run typecheck`, `npm.cmd run lint`, `npm.cmd run format:check`, `npm.cmd test` (85/85 in eleven files), and `npm.cmd run build` passed on Node 22.23.2 and npm 10.9.8. `npm.cmd run test:smoke` ran against the production build on loopback. All 208 cases passed in 8.4 minutes, with zero failures, skips or retries.
+
+| Browser               | Passed | Failed | Skipped |
+| --------------------- | -----: | -----: | ------: |
+| Chromium 159.0.8154.6 |     72 |      0 |       0 |
+| Firefox 159.0         |     68 |      0 |       0 |
+| WebKit 27.2           |     68 |      0 |       0 |
+
+Four Chromium-only cases use emulated touch through the DevTools protocol. Firefox used host browser process access. Monitored normal journeys recorded zero uncaught exceptions, hydration errors, failed assets or external requests. The suite checked keyboard navigation, focus return, reduced motion, right-to-left reading direction, narrow portrait and landscape layouts, and 200% text. A reload resets both the timeline and its native slider to the flat sheet. The run saved 132 PNGs and its machine-readable report at `.local/phase-8/verified-smoke.json`.
+
+All three browsers captured each studio flat, mid-fold, complete in Light and Dark, at an angle, and fully reversed. Across the twelve model/browser pairs, the final paper silhouette overlapped its independently projected outline by 96.63–98.98% (intersection over union). At 0.001 action before completion, zero sampled pixels matched the finished hues in these twelve checks. The gallery tests also checked each static alpha silhouette and the fraction of visible paper carrying its assigned pigments. Screenshots are in `.local/phase-8/verified-browser/`. The four-model contact sheet is `.local/phase-8/verified-models.png`.
+
+### Local routes, payload and review
+
+The ten locales have 60 canonical pages, 61 public entry documents including the English root alias, one internal noindex lab and eleven 404 documents. Two requests to each of the 62 entry paths returned the actual generated HTML, yielding 124 HTTP 200 responses. Two requests to each of five withheld paths in each locale returned 100 localized HTTP 404 responses. The Masu transcript has a starting sheet plus all 18 titled actions in every locale. The Japanese and Simplified Chinese font subsets were regenerated. A cmap and CSS range audit found zero missing characters across the ten dictionaries.
+
+| English cold visit or build total | Phase 7 rebuilt, raw / gzip bytes | Phase 8, raw / gzip bytes |
+| --------------------------------- | --------------------------------: | ------------------------: |
+| All emitted client JavaScript     |               1,138,259 / 325,004 |       1,144,372 / 327,767 |
+| Explore JavaScript                |                 377,419 / 121,262 |         377,259 / 121,145 |
+| Explore HTML                      |                    20,992 / 5,435 |            21,363 / 5,380 |
+| Explore scene JavaScript          |                             0 / 0 |                     0 / 0 |
+| Masu through scene readiness      |                                 — |       1,123,248 / 318,718 |
+
+Desktop and phone-width Explore each requested zero scene bytes. The dev server served the same PNG bytes as the production build for all four previews. The production renderer continues to account for the large lazy chunk advisory. Receipt files are under the ignored `.local/phase-8/` directory.
+
+**REVIEW_PENDING** covers human linguistic review and fold terminology. **NOT RUN** covers physical-paper trials, real mobile devices, hardware GPU acceptance, spoken screen readers and hosted verification. The third-party references and diagrams stay at their publishers. The geometry, manuscripts, previews and tests contributed here are original project work.
+
+The next construction to test is a waterbomb base with a pocket spread. Verify its moving seams from an independent crease pattern, then check an actual folded frog's spring and reassess its maker tier. The bird and flower candidates need separate evidence for layer order, human difficulty and adaptation rights where applicable. After a balanced nine pass, a twelve-lesson roster could add a beginner boat, an intermediate corrugated map and an advanced single-sheet sculptural animal with a rights-cleared sequence.
+
 ## Phase 7 local verification
 
 Phase 7 starts at `a27782881a3eda34fa617132a9f845c2ddc1a1bc`. The public catalog contains Dart airplane, Paper heart and Fox face. Their 9, 12 and 6 steps use the original fold patterns and timings. The English first-fold lab remains available at `/en/lab/first-fold` for regression.

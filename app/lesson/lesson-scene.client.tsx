@@ -6,65 +6,28 @@ import {
   Float32BufferAttribute,
   FrontSide,
   Group,
-  Line,
   LineBasicMaterial,
   LineDashedMaterial,
   LineSegments,
   Mesh,
   MeshStandardMaterial,
 } from "three";
-import type { Point } from "../fold/geometry";
+import { paperLayers, type HingePlies } from "./drawing";
+import { instructionalPaper, type PaperPalette } from "./paper-palette";
 import { mountStudio, type StudioCallbacks, type Viewpoint } from "../fold/studio.client";
-import {
-  atIndex,
-  difference,
-  poseAt,
-  rotate,
-  turnAngle,
-  type Pose,
-  type CompiledLesson,
-} from "./geometry";
+import { atIndex, difference, poseAt, type CompiledLesson } from "./geometry";
 import type { sampleLesson } from "./playback";
 
 type Sample = (now: number) => ReturnType<typeof sampleLesson>;
 export function createLessonMount(
   model: CompiledLesson,
+  finished: PaperPalette,
   view: Viewpoint,
-  heights: Readonly<Record<string, number>>,
+  heights: HingePlies,
 ) {
   const { faces, steps, creases } = model;
 
-  // Rotate the existing drawing stack about a virtual hinge. The material pose stays exact.
-  function foldOffsets(start: Pose, step: number, progress: number): Pose {
-    const result = [...start];
-    const action = atIndex(steps, step);
-    for (const turn of action.turns) {
-      const height = heights[action.id];
-      if (height === undefined || !Number.isFinite(height))
-        throw new Error(`Invalid drawing height in ${action.id}`);
-      const origin: Point = [0, 0, height * 0.0007];
-      const angle = turnAngle(turn.degrees, progress);
-      for (const f of turn.faces) result[f] = rotate(atIndex(start, f), origin, turn.axis, angle);
-    }
-    return result;
-  }
-  const offsets: Pose[] = [faces.map(() => [0, 0, 0])];
-  for (let i = 0; i < steps.length; i++) offsets.push(foldOffsets(atIndex(offsets, i), i, 1));
-
-  const outlines = faces.map(() => [] as { a: number; b: number; appearsAfter: number }[]);
-  for (const edge of model.edges) {
-    let appearsAfter = -1;
-    const [first, second] = edge.faces;
-    if (first !== undefined && second !== undefined) {
-      const action = steps.findIndex(
-        ({ turns }) =>
-          turns.findIndex((t) => t.faces.includes(first)) !==
-          turns.findIndex((t) => t.faces.includes(second)),
-      );
-      appearsAfter = action < 0 ? Infinity : action;
-    }
-    for (const f of edge.faces) atIndex(outlines, f).push({ a: edge.a, b: edge.b, appearsAfter });
-  }
+  const { offsets, foldOffsets, outlines } = paperLayers(model, heights);
 
   function geometryWithPositions(count: number) {
     const geometry = new BufferGeometry();
@@ -74,9 +37,9 @@ export function createLessonMount(
 
   function makePaper() {
     const group = new Group();
-    const materials = [
+    const materials: [MeshStandardMaterial, MeshStandardMaterial] = [
       new MeshStandardMaterial({
-        color: "#99b9a3",
+        color: instructionalPaper.front,
         side: FrontSide,
         roughness: 1,
         polygonOffset: true,
@@ -84,7 +47,7 @@ export function createLessonMount(
         polygonOffsetUnits: 1,
       }),
       new MeshStandardMaterial({
-        color: "#e4b77d",
+        color: instructionalPaper.reverse,
         side: BackSide,
         roughness: 1,
         polygonOffset: true,
@@ -93,7 +56,7 @@ export function createLessonMount(
       }),
     ];
     const ink = new LineBasicMaterial({
-      color: "#374e40",
+      color: instructionalPaper.edge,
       depthWrite: false,
       transparent: true,
       opacity: 0.62,
@@ -105,8 +68,12 @@ export function createLessonMount(
       depthTest: false,
       depthWrite: false,
     });
-    const guide = new Line(geometryWithPositions(2), guideInk);
-    guide.geometry.setAttribute("lineDistance", new Float32BufferAttribute([0, 1], 1));
+    const guideSize = 2 * Math.max(...steps.map((s) => s.guides.length));
+    const guide = new LineSegments(geometryWithPositions(guideSize), guideInk);
+    guide.geometry.setAttribute(
+      "lineDistance",
+      new Float32BufferAttribute(new Float32Array(guideSize), 1),
+    );
     guide.renderOrder = 2;
     guide.frustumCulled = false;
     group.add(guide);
@@ -133,6 +100,12 @@ export function createLessonMount(
     function draw({ step, progress, position }: ReturnType<Sample>) {
       const guideStep = position === steps.length ? steps.length : step;
       if (position === lastPosition && guideStep === lastGuide) return;
+      if ((position === steps.length) !== (lastPosition === steps.length)) {
+        const palette = position === steps.length ? finished : instructionalPaper;
+        materials[0].color.set(palette.front);
+        materials[1].color.set(palette.reverse);
+        ink.color.set(palette.edge);
+      }
       lastPosition = position;
       lastGuide = guideStep;
       const pose = poseAt(model, step, progress);
@@ -158,17 +131,22 @@ export function createLessonMount(
       }
       guide.visible = guideStep < steps.length;
       if (guide.visible) {
-        const crease = atIndex(atIndex(steps, guideStep).turns, 0).crease;
-        const ends = creases.get(crease);
-        if (!ends) throw new Error(`Missing guide for ${crease}`);
-        const [a, b] = ends;
-        const line = guide.geometry.getAttribute("position");
-        line.setXYZ(0, ...atIndex(pose, a));
-        line.setXYZ(1, ...atIndex(pose, b));
+        const names = atIndex(steps, guideStep).guides;
+        const line = guide.geometry.getAttribute("position"),
+          distances = guide.geometry.getAttribute("lineDistance");
+        names.forEach((name, i) => {
+          const ends = creases.get(name);
+          if (!ends) throw new Error(`Missing guide for ${name}`);
+          const a = atIndex(pose, ends[0]),
+            b = atIndex(pose, ends[1]);
+          line.setXYZ(2 * i, ...a);
+          line.setXYZ(2 * i + 1, ...b);
+          distances.setX(2 * i, 0);
+          distances.setX(2 * i + 1, Math.hypot(...difference(a, b)));
+        });
+        guide.geometry.setDrawRange(0, 2 * names.length);
         line.needsUpdate = true;
-        const d = guide.geometry.getAttribute("lineDistance");
-        d.setX(1, Math.hypot(...difference(atIndex(pose, a), atIndex(pose, b))));
-        d.needsUpdate = true;
+        distances.needsUpdate = true;
       }
     }
     function dispose() {

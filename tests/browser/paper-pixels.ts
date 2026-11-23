@@ -6,10 +6,12 @@ export async function paperPixels(
   polygons: Point[][],
   eye: Point,
   probes: Point[] = [],
+  finish?: "paper-airplane" | "paper-heart" | "fox-face" | "masu-box",
+  includeTeachingInk = false,
 ) {
   const png = await page.locator("canvas").screenshot();
   return page.evaluate(
-    async ({ encoded, polygons, eye, probes }) => {
+    async ({ encoded, polygons, eye, probes, finish, includeTeachingInk }) => {
       const bytes = Uint8Array.from(atob(encoded), (c) => c.charCodeAt(0));
       const bitmap = await createImageBitmap(new Blob([bytes], { type: "image/png" }));
       const canvas = document.createElement("canvas");
@@ -47,7 +49,26 @@ export async function paperPixels(
         union = 0,
         green = 0,
         gold = 0,
+        colored = 0,
         hash = 2166136261;
+      function hue(r: number, g: number, b: number) {
+        if (finish === "masu-box")
+          return g - r > 26 && b - r > 22 && Math.abs(b - g) < 25 ? "teal" : "other";
+        if (finish === "paper-airplane") return b - g > 6 && g - r > 7 && b > 95 ? "blue" : "other";
+        if (finish === "paper-heart")
+          return r - g > 50 && b - g > 10 && r - b > 42 ? "rose" : "other";
+        if (finish === "fox-face") {
+          if (r - g > 63 && g - b > 38) return "orange";
+          if (r - g > 1.25 * (g - b) && r - g > 27 && g - b > 16 && r - b > 48 && b > 94)
+            return "apricot";
+          return "other";
+        }
+        // Subpixel rim/crease strokes blend the two teaching pigments on small panels.
+        if (includeTeachingInk && g - b > 12 && g > 80 && Math.abs(r - g) < 21) return "ink";
+        if (g - r > 14 && g - b > 8 && g > 90) return "green";
+        if (r - g > 18 && g - b > 16 && r > 105) return "gold";
+        return "other";
+      }
       for (let i = 0; i < pixels.byteLength; i += 4) {
         const r = pixels.getUint8(i),
           g = pixels.getUint8(i + 1),
@@ -56,28 +77,30 @@ export async function paperPixels(
         const back = r - g > 18 && g - b > 16 && r > 105;
         if (front) green++;
         if (back) gold++;
-        const actual = front || back,
+        const tone = hue(r, g, b);
+        const actual = tone !== "other",
           expected = mask.getUint8(i + 3) > 127;
         if (actual && expected) inside++;
         if (actual || expected) union++;
-        hash = Math.imul(hash ^ (front ? 1 : back ? 2 : 0), 16777619);
+        if (actual) colored++;
+        hash = Math.imul(hash ^ (actual ? tone.charCodeAt(0) + tone.length : 0), 16777619);
       }
       const colors = probes.map((p) => {
         const [x, y] = project(p);
-        const counts = { green: 0, gold: 0 };
+        const counts: Record<string, number> = {};
         for (let u = -2; u <= 2; u++)
           for (let v = -2; v <= 2; v++) {
             const offset = 4 * ((Math.round(y) + v) * w + Math.round(x) + u);
             const r = pixels.getUint8(offset),
               g = pixels.getUint8(offset + 1),
               b = pixels.getUint8(offset + 2);
-            if (g - r > 14 && g - b > 8 && g > 90) counts.green++;
-            if (r - g > 18 && g - b > 16 && r > 105) counts.gold++;
+            const tone = hue(r, g, b);
+            counts[tone] = (counts[tone] ?? 0) + 1;
           }
-        return counts.gold >= 13 ? "gold" : counts.green >= 13 ? "green" : "other";
+        return Object.entries(counts).find(([, count]) => count >= 13)?.[0] ?? "other";
       });
-      return { iou: inside / union, green, gold, hash, colors };
+      return { iou: inside / union, green, gold, colored, hash, colors };
     },
-    { encoded: png.toString("base64"), polygons, eye, probes },
+    { encoded: png.toString("base64"), polygons, eye, probes, finish, includeTeachingInk },
   );
 }

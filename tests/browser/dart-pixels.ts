@@ -10,7 +10,7 @@ const rad = Math.PI / 180;
 
 // Independently construct the dart's exterior from the crease dimensions. Interior
 // triangles, paper buffer attributes and camera matrices from the app are never read.
-function outlines(shape: Silhouette): Point[][] {
+export function dartOutline(shape: Silhouette): Point[][] {
   if (shape === "sheet")
     return [
       [
@@ -39,5 +39,13 @@ function outlines(shape: Silhouette): Point[][] {
 }
 
 export function dartPixels(page: Page, shape: Silhouette) {
-  return paperPixels(page, outlines(shape), [2.4, -3.35, 4]);
+  return paperPixels(
+    page,
+    dartOutline(shape),
+    [2.4, -3.35, 4],
+    [],
+    typeof shape === "object" && shape.left === 84 && shape.right === 84
+      ? "paper-airplane"
+      : undefined,
+  );
 }

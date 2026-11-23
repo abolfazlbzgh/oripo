@@ -89,3 +89,15 @@ export const airplanePattern = {
   steps,
 } satisfies LessonPattern;
 export const airplane = compileLesson(airplanePattern);
+
+export const airplaneHingePlies = {
+  "mark-spine": 0.5,
+  "open-sheet": 0.5,
+  "left-corner": 0.5,
+  "right-corner": 0.5,
+  "left-taper": 1.5,
+  "right-taper": 1.5,
+  "close-body": 4,
+  "left-wing": 0,
+  "right-wing": 0,
+};

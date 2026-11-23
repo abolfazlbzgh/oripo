@@ -135,8 +135,8 @@ test("playable catalog to nine folds, in-flight reversal, final dart, replay and
   }
   const dart = await dartPixels(page, { left: 84, right: 84 });
   expect(dart.iou).toBeGreaterThan(0.92);
-  expect(dart.green).toBeGreaterThan(800);
-  expect(dart.gold).toBeGreaterThan(400);
+  expect(dart.colored).toBeGreaterThan(1200);
+  expect(dart.green + dart.gold).toBeLessThan(dart.colored * 0.02);
   expect(samples.mid).toBeDefined();
   expect(dart.hash).not.toBe(samples.mid?.hash);
   samples.finished = dart;

@@ -145,6 +145,8 @@ export function useLessonPlayer(lesson: PlayerLesson) {
     [lesson, sample, p, format],
   );
   useLayoutEffect(() => {
+    // Browsers may restore native form values across a reload before hydration.
+    if (range.current) range.current.value = String(displayed.current);
     sample(performance.now());
   }, [sample]);
   const cameraText = useCallback(

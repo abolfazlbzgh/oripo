@@ -13,7 +13,7 @@ export const diamond: Point[][] = [
   ],
 ];
 type Fixture = {
-  slug: string;
+  slug: "paper-heart" | "fox-face";
   title: string;
   steps: readonly { id: string; durationMs: number }[];
   sheet: { title: string; result: string };
@@ -149,7 +149,7 @@ export function flatJourney(f: Fixture) {
         await page.clock.fastForward(duration);
         await endpoint(n);
       }
-      const final = await paperPixels(page, [f.outline], eye, f.probes);
+      const final = await paperPixels(page, [f.outline], eye, f.probes, f.slug);
       readings.finished = final.iou;
       expect(final.iou).toBeGreaterThan(0.94);
       expect(final.colors).toEqual(f.colors);
@@ -166,7 +166,7 @@ export function flatJourney(f: Fixture) {
       await capture("back");
       await button(page, "Reset view").click();
       await page.clock.runFor(32);
-      expect((await paperPixels(page, [f.outline], eye)).hash).toBe(final.hash);
+      expect((await paperPixels(page, [f.outline], eye, [], f.slug)).hash).toBe(final.hash);
       for (let n = total; n > 0; n--) {
         await button(page, "Previous").click();
         await page.clock.fastForward(action(n).durationMs);
@@ -205,7 +205,7 @@ export function flatJourney(f: Fixture) {
           await button(page, "Next fold").click();
           await expect(page.getByRole("slider")).toHaveJSProperty("valueAsNumber", n);
         }
-        const final = await paperPixels(page, [f.outline], eye);
+        const final = await paperPixels(page, [f.outline], eye, [], f.slug);
         expect(final.iou).toBeGreaterThan(0.86);
         await button(page, "Return to starting sheet").press("Space");
         await expect(button(page, "Show finished model")).toBeFocused();

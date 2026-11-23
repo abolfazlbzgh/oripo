@@ -1,3 +1,4 @@
+import { foxOutline } from "./finished-outlines";
 import { foxFolds } from "../../app/lesson/fox";
 import { foxSheet, foxText } from "../../app/lesson/fox.en";
 import { flatJourney } from "./flat-journey";
@@ -35,20 +36,12 @@ flatJourney({
       ],
     ],
   },
-  outline: [
-    [0, -1, 0],
-    [2 / 3, 0, 0],
-    [7 / 13, 4 / 13, 0],
-    [7 / 17, 0, 0],
-    [-7 / 17, 0, 0],
-    [-7 / 13, 4 / 13, 0],
-    [-2 / 3, 0, 0],
-  ],
+  outline: foxOutline,
   probes: [
     [0.045, -0.6, 0],
     [-0.03, -0.84, 0],
     [0.15, -0.13, 0],
     [0.53, 0.16, 0],
   ],
-  colors: ["green", "green", "gold", "gold"],
+  colors: ["apricot", "apricot", "orange", "orange"],
 });

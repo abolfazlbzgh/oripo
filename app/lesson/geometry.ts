@@ -1,4 +1,5 @@
 import { clampProgress, type Point } from "../fold/geometry";
+import { chartPoint, prepareChart, type Chart, type RigidField } from "./rigid-field";
 
 export type Face = { id: string; vertices: readonly string[] };
 type CornerFold = { motion: "right-gusset"; carriedBy?: string };
@@ -12,10 +13,11 @@ export type FoldStep = {
   id: string;
   durationMs: number;
   turns: readonly Turn[];
+  field?: RigidField;
   guides?: readonly string[];
 };
 export type LessonPattern = {
-  version: 1 | 2;
+  version: 1 | 2 | 3;
   lessonId: string;
   sheet: {
     vertices: Readonly<Record<string, Point>>;
@@ -47,6 +49,8 @@ type PreparedStep = {
   durationMs: number;
   turns: PreparedTurn[];
   guides: readonly string[];
+  charts?: readonly ((p: number) => Chart)[];
+  chartOwners?: readonly number[];
 };
 type SheetEdge = { a: number; b: number; faces: number[] };
 export type CompiledLesson = {
@@ -172,7 +176,7 @@ function linkEdges(rest: Pose, faces: CompiledLesson["faces"]) {
 }
 
 export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern): CompiledLesson {
-  requireValue(version === 1 || version === 2, "Unsupported lesson version");
+  requireValue(version === 1 || version === 2 || version === 3, "Unsupported lesson version");
   uniqueIds([lessonId], "lesson");
   uniqueIds(
     steps.map((s) => s.id),
@@ -212,12 +216,48 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
     Object.entries(sheet.creases).map(([id, [a, b]]) => [id, [vertex(a), vertex(b)] as const]),
   );
   const poses: Pose[] = [rest];
-  const prepared = steps.map(({ id, durationMs, turns, guides }) => {
+  const prepared = steps.map(({ id, durationMs, turns, guides, field }): PreparedStep => {
     requireValue(
-      Number.isFinite(durationMs) && durationMs > 0 && turns.length,
+      Number.isFinite(durationMs) && durationMs > 0 && (turns.length || field),
       `Invalid step ${id}`,
     );
     const start = atIndex(poses, poses.length - 1);
+    if (field) {
+      requireValue(
+        version === 3 && !turns.length && guides?.length && guides.every((g) => creases.has(g)),
+        "Invalid coupled field or guides",
+      );
+      requireValue(
+        start.every((p) => Math.abs(p[2]) <= tolerance),
+        "Coupled field requires a flat starting packet",
+      );
+      const charts = faces.map((face) => {
+        let x = 0,
+          y = 0;
+        for (const v of face.vertices) {
+          x += atIndex(start, v)[0];
+          y += atIndex(start, v)[1];
+        }
+        return prepareChart(field, x / face.vertices.length, y / face.vertices.length);
+      });
+      const chartOwners = incident.map((owners) => atIndex(owners, 0));
+      for (const t of [0, 0.125, 0.5, 0.875, 1]) {
+        const transforms = charts.map((chart) => chart(t));
+        const pose = start.map((p, v) =>
+          chartPoint(atIndex(transforms, atIndex(chartOwners, v)), p),
+        );
+        for (const [i, face] of faces.entries())
+          for (const v of face.vertices) {
+            const other = chartPoint(atIndex(transforms, i), atIndex(start, v));
+            requireValue(
+              Math.hypot(...difference(other, atIndex(pose, v))) <= tolerance,
+              `Moving field seam in ${id} at ${vertexIds[v]}`,
+            );
+          }
+        if (t === 1) poses.push(pose);
+      }
+      return { id, durationMs, turns: [], guides, charts, chartOwners };
+    }
     const owner = new Map<number, number>();
     const rotations = turns.map((turn, index): PreparedTurn => {
       const ends = creases.get(turn.crease);
@@ -250,7 +290,7 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
     });
     const coupled = turns.some((t) => t.corner);
     if (coupled) {
-      requireValue(version === 2, "Coupled corners require a version 2 pattern");
+      requireValue(version >= 2, "Coupled corners require a version 2 pattern or newer");
       for (const [i, turn] of turns.entries()) {
         if (!turn.corner) continue;
         requireValue(
@@ -317,5 +357,12 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
 export function poseAt(lesson: CompiledLesson, step: number, progress: number): Pose {
   const p = clampProgress(progress);
   if (p === 0 || p === 1) return atIndex(lesson.poses, step + p);
-  return applyTurns(atIndex(lesson.poses, step), atIndex(lesson.steps, step).turns, p);
+  const action = atIndex(lesson.steps, step),
+    start = atIndex(lesson.poses, step);
+  if (action.charts && action.chartOwners) {
+    const transforms = action.charts.map((chart) => chart(p)),
+      owners = action.chartOwners;
+    return start.map((v, i) => chartPoint(atIndex(transforms, atIndex(owners, i)), v));
+  }
+  return applyTurns(start, action.turns, p);
 }

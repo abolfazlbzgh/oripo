@@ -1,4 +1,5 @@
 import type { Point } from "../fold/geometry";
+import { chartPoint } from "./rigid-field";
 import {
   atIndex,
   rotate,
@@ -16,6 +17,12 @@ export function paperLayers(model: CompiledLesson, heights: HingePlies) {
   function foldOffsets(start: Pose, step: number, progress: number): Pose {
     const result = [...start];
     const action = atIndex(steps, step);
+    if (action.charts)
+      return action.charts.map((chart, i) => {
+        const transform = chart(progress);
+        const [x, y, z] = chartPoint(transform, atIndex(start, i), true);
+        return [x, y, z + 0.0007 * transform.ply * progress] as Point;
+      });
     function pivot(crease: string): Point {
       const setting = heights[action.id];
       const height =
@@ -54,9 +61,19 @@ export function paperLayers(model: CompiledLesson, heights: HingePlies) {
     const [first, second] = edge.faces;
     if (first !== undefined && second !== undefined) {
       const action = steps.findIndex(
-        ({ turns }) =>
+        ({ turns, charts }) =>
+          (charts &&
+            [0.5, 1].some((p) => {
+              const a = atIndex(charts, first)(p),
+                b = atIndex(charts, second)(p);
+              return a.x.some(
+                (v, i) =>
+                  Math.abs(v - atIndex(b.x, i)) > 1e-8 ||
+                  Math.abs(atIndex(a.y, i) - atIndex(b.y, i)) > 1e-8,
+              );
+            })) ||
           turns.findIndex((t) => t.faces.includes(first)) !==
-          turns.findIndex((t) => t.faces.includes(second)),
+            turns.findIndex((t) => t.faces.includes(second)),
       );
       appearsAfter = action < 0 ? Infinity : action;
     }

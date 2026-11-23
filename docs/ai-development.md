@@ -70,3 +70,69 @@ A delayed-hydration check reads the saved theme while the pre-rendered select is
 Sizes use the same Node `gzipSync` settings on each file. The aggregate includes route chunks that load on demand. Camera reset adds 34 raw bytes to the scene. The rest of the growth comes from the site shell, artwork markup and studio UI. The homepage test observes zero requests for the scene until the studio opens. Vite still reports its large-chunk advisory for the renderer.
 
 Physical phone use, spoken output from assistive technology, hosted HTTP behavior and remote CI remain open. Use the validated first fold as a regression fixture while developing the first complete model.
+
+## Phase 3 verification
+
+Codex authored the dart pattern, layer choreography, English instructions, gallery diagram and verification code in the existing checkout. The work began at `f22e11cd70fb495f30c478eee7862f82bfe47ca7` on `feat/studio-ui`. The Sites local-checkout workflow informed responsive review. The project’s MIT license covers the new original work. All geometry is procedural. Dependency versions, the lockfile and the lab’s pure geometry and timing fixtures match the base.
+
+### Local production and geometry checks
+
+| Command                                                                        | Result                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npm.cmd ci`                                                                   | Installed 230 packages from the existing lock and local npm cache, with strict peer checks. Used Node 22.23.2 and npm 10.9.8 on Windows.                                                 |
+| `npm.cmd run typecheck`                                                        | Generated route types and passed strict TypeScript.                                                                                                                                      |
+| `npm.cmd run lint`                                                             | Passed with zero warnings.                                                                                                                                                               |
+| `npm.cmd run format:check`                                                     | Passed for source, tests and documentation.                                                                                                                                              |
+| `npm.cmd test`                                                                 | 49 passed across six files, up from 26. Includes the original 1,001-pose and 1,000-cycle lab checks. The verbose reporter with `--disableConsoleIntercept` prints the dart measurements. |
+| `npm.cmd run build`                                                            | Emitted five published HTML documents in `build/client`, including the full English dart lesson. Vite emitted its 500 kB chunk advisory for the lazy renderer.                           |
+| `npm.cmd run test:smoke`                                                       | 27 Chromium cases passed, up from 19.                                                                                                                                                    |
+| `npm.cmd run test:smoke -- --browser=firefox --grep-invert "one-finger orbit"` | 25 Firefox cases passed, up from 18.                                                                                                                                                     |
+| `npm.cmd run test:smoke -- --browser=webkit --grep-invert "one-finger orbit"`  | 25 WebKit cases passed, up from 18.                                                                                                                                                      |
+
+The Windows Git Bash runs used the repository’s static preview fixture, one browser worker and per-engine output directories. The two native-protocol touch cases ran in Chromium. The final browser reports contain 77 passes with zero failures, retries or skipped cases among the selected tests. An initial restricted Firefox process crashed on blank-page creation. The stock browser ran successfully with local host process permissions. An early Chromium theme test left the guide while its script was loading. It now waits for the guide heading before leaving and retains its failed-request assertion.
+
+The dart’s rest mesh has area 6 and a single boundary of length 10. The tests independently compute flat-fold reflections and the two rotated wing cross-sections for all ten canonical poses. The finished wingspan is 1.501358025 units and the tail keel is 0.3 units high.
+
+| Measurement, in world units                                                  | Maximum absolute error |
+| ---------------------------------------------------------------------------- | ---------------------: |
+| Rigid face edges and diagonals over 9,009 poses (1,001 per action)           |          1.055 × 10⁻¹⁵ |
+| Current hinge endpoints                                                      |                      0 |
+| Shared and moving vertices against an independent per-face rotation          |          2.722 × 10⁻¹⁵ |
+| Canonical landmarks against independent geometry                             |          9.501 × 10⁻¹⁶ |
+| Drift after 1,000 complete forward/backward traversals, including half-steps |                      0 |
+
+Adjacent actions share the exact stored endpoint. A missing ply in the left wing fails validation. A separate Chromium run used the real animation clock for all nine actions and observed 89–108 distinct intermediate progress values per action.
+
+### Browser and visual evidence
+
+The pixel oracle projects independent wing, keel and rectangle outlines into the production camera. It compares their union with the two paper colors in a canvas screenshot. The middle sample has the left wing 42° out and the right packet upright. The final sample has both wings 84° out. Percentages are intersection over union.
+
+| Browser                              | Initial sheet | Intermediate wing | Finished dart |
+| ------------------------------------ | ------------: | ----------------: | ------------: |
+| Chromium Headless Shell 159.0.8154.6 |        99.00% |            92.95% |        95.90% |
+| Firefox 159.0                        |        99.16% |            90.31% |        94.52% |
+| WebKit 27.2                          |        98.88% |            90.38% |        94.69% |
+
+The catalog journey checks every instruction going forward and backward, reverse from a moving wing, replay of the last action and restoration of the original paper pixels. Direct requests and refreshes of the lesson returned HTTP 200 with metadata and all nine instructions even with JavaScript disabled. All five published routes passed direct-load and refresh checks. Both visits to each of `/fr`, `/en/missing`, `/en/lessons/missing-dart` and `/fr/lessons/paper-airplane` returned HTTP 404 and a working recovery link.
+
+Light, Dark and System passed. The reflow suite checked 320, 390, 768 and 1440 CSS pixels at 100% and 200% text size. Both phone widths also passed an actual painted-silhouette check. Keyboard activation retained focus and the polite status identified the completed step. Chromium showed a solid 3px keyboard-focus outline with a 3px offset on Next. Orbit, zoom and reset preserved the pose. Chromium emulated orbit, pinch and a swipe on the notes to scroll. Reduced motion, unavailable WebGL, loss during a wing fold and release of the old context on route exit all passed.
+
+Headed Chrome 157 used WebGL 2 on an NVIDIA RTX 4050 via ANGLE/D3D11. The review covered the initial sheet, folded corners, narrow nose, upright body, moving left wing and finished dart. A low-angle view exposed the keel beneath the wings. The desktop initial and fully reversed PNGs were byte-identical. A full-page screenshot with a paused clock cleared the mobile canvas during capture. The retained mobile images use the actual viewport. Local captures in `.local/phase-3/headed/` include the following files.
+
+- `catalog.png`, `1440-light-initial.png`, `1440-light-left-wing-in-motion.png`
+- `1440-light-finished.png`, `1440-light-keel.png`, `1440-light-reversed.png`
+- `320-light-finished.png`, `390-dark-finished.png`
+
+The monitored journeys reported zero uncaught exceptions, hydration errors, failed required assets or external requests. Fiber emitted its upstream Three.Clock deprecation warning. A headless Chromium driver also reported readback performance warnings. The headed review reported the Clock warning alone.
+
+### JavaScript sizes and handoff
+
+| Client JavaScript in bytes                                            |  Phase 2 raw / gzip |  Phase 3 raw / gzip | Change raw / gzip |
+| --------------------------------------------------------------------- | ------------------: | ------------------: | ----------------: |
+| Lazy scene for the complete dart, compared with the Phase 2 lab scene |   722,463 / 187,477 |   725,589 / 188,997 |   +3,126 / +1,520 |
+| Lazy scene for the lab                                                |   722,463 / 187,477 |   723,807 / 188,087 |     +1,344 / +610 |
+| All emitted client scripts, including the appearance bootstrap        | 1,100,406 / 309,430 | 1,123,055 / 318,903 |  +22,649 / +9,473 |
+
+Sizes use Node’s default `gzipSync` separately on each file, as in Phase 2. Each scene row counts the shared studio plus that model’s drawing module. The aggregate also counts route code, pure geometry, English copy and the route manifest. The live homepage requested 11 scripts and zero scene chunks. Entering the dart fetched the drawing module and shared WebGL studio on demand.
+
+The straight-crease authoring contract is ready for another individually validated model. Physical paper handling and flight, physical-phone input, spoken assistive technology, other GPU hardware, Vercel and remote CI remain unverified. [Authoring handoff](architecture.md#adding-the-next-lesson)

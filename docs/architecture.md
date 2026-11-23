@@ -7,7 +7,7 @@
 | Document shell, language tag, skip link, shared appearance control, route error boundary | `app/root.tsx`, `app/components/shell.tsx`                |
 | Product name, description, document-title format and default locale                      | `app/site.ts`                                             |
 | Registered pages and canonical English URLs                                              | `app/routes.ts`, `app/navigation.ts`                      |
-| Language entry, English homepage, crease guide and fold studio                           | `app/routes/`                                             |
+| Language entry, English homepage, crease guide, lab and complete lesson                  | `app/routes/`                                             |
 | Semantic light/dark tokens, responsive page layout and reduced-motion rules              | `app/styles.css`                                          |
 | Static output, preview and production checks                                             | `react-router.config.ts`, `scripts/preview.mjs`, `tests/` |
 
@@ -38,7 +38,8 @@ The absolute tolerance is `1e-6` world units, one millionth of a panel width. It
 | `app/fold/geometry.ts`        | Defines immutable rest vertices, the signed hinge rotation and the analytic moving-panel pose.   |
 | `app/fold/controller.ts`      | Samples a transition from its start time, starting progress and target.                          |
 | `app/fold/use-fold-player.ts` | Connects commands, motion preference, the angle meter and completion announcements to the scene. |
-| `app/fold/scene.client.tsx`   | Owns the WebGL root, two triangle meshes, crease line, lighting, camera and teardown.            |
+| `app/fold/scene.client.tsx`   | Draws the two lab panels and center crease in the shared studio.                                 |
+| `app/fold/studio.client.tsx`  | Owns the demand-driven WebGL root, lighting, orbit camera, resize observer and teardown.         |
 | `app/routes/first-fold.tsx`   | Pre-renders English instructions, both control groups and the initial sheet description.         |
 
 Next targets 1 and Previous targets 0. Each command samples the current monotonic time before changing direction. A full traversal takes three seconds at constant angular speed. Repeating a target preserves its time anchor. Replay always starts a new forward traversal at 0. A throttled tab catches up on its next frame. The current target's button is disabled, the opposite direction remains available during travel, and Replay stays available throughout playback.
@@ -51,12 +52,36 @@ The materials give each face its own color. A depth-buffer polygon offset draws 
 
 Vitest checks vertex positions, six pairwise distances, invalid inputs, repeatability, timing, reversal and interruption. Playwright serves the production output and checks both unhydrated documents and WebGL 2. Pixel measurements locate the moving face above the sheet at 90°, over the fixed face at 180°, and back at the original pixels after reversal. Separate cases exercise camera inputs, context loss, 320px reflow, motion preferences and resource release on route exit.
 
+## Complete dart lesson
+
+`/en/lessons/paper-airplane` folds one 2 × 3 portrait sheet into a dart in nine actions. A nose-to-tail spine, two tucked corners, two narrower nose folds and two lowered wings form the finished object. The center pre-crease includes its own animated unfold. The sequence, fold senses, moving layers and final angles are specified in [ADR 0003](decisions/0003-authored-dart.md).
+
+### Authoring contract
+
+| Source                                            | Contract                                                                                                                                                                                                                                                   |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app/lesson/geometry.ts`                          | Version 1 patterns have a stable `lessonId`, a flat XY sheet and ordered steps. Name the sheet vertices, list convex faces counterclockwise by vertex ID, and name each crease by two vertex IDs.                                                          |
+| `app/lesson/airplane.ts`                          | Each step has a stable ID, a positive duration in milliseconds and one or more simultaneous turns. A turn names the crease, every participating face and signed right-handed degrees. The initial sheet and these turns determine all ten canonical poses. |
+| `app/lesson/airplane.en.ts`                       | The starting sheet and every step have a title, an imperative instruction and a description of the resulting pose. The step keys are checked against the pattern’s literal IDs at compile time.                                                            |
+| `app/lessons.ts`, `app/routes/paper-airplane.tsx` | The English catalog owns the title, summary, difficulty, availability and URL. The route binds copy and timing by ID and provides the scene loader. It pre-renders the starting instruction, metadata, controls and complete ordered transcript.           |
+
+The dart uses 20 material vertices, 35 edges and 16 convex faces. Every face incident to a junction reads the same vertex. The single outer rim includes both original rear corners. Compilation checks IDs, face winding, edge incidence, connectivity, durations, turns and references. A vertex shared with a stationary face or a different moving packet must lie on each applicable current hinge. Omitting a wing ply fails at this check.
+
+Each step begins with the previous step's canonical coordinate array. Its axis is the normalized line through the crease endpoints in that pose. At progress `p`, Rodrigues' rotation applies the signed angle multiplied by `p` to the original step-start points. Both endpoints return the stored canonical array directly. The two packet turns that pinch the body share the fixed spine. Each wing then rotates four material bands about a crease in the upright body. Camera transforms never enter the pose calculation.
+
+### Playback and drawing
+
+`app/lesson/playback.ts` samples an action index, local start fraction, monotonic start time and target. Repeated commands toward the active destination preserve the clock. An opposite command samples the current fraction before changing direction. Replay travels back to the start of the displayed action, then forwards at its authored speed. At the opening sheet it performs the first action. A long frame can cross the replay turnaround in one sample.
+
+`use-lesson-player.ts` publishes instructions and polite announcements on state changes. The reusable studio hook owns the media query, lazy mount and camera handle. Reduced motion or context loss settles the selected destination. The text player supports the same actions. Leaving and re-entering starts a fresh sheet and releases the prior scene.
+
+`airplane-scene.client.tsx` updates position and normal buffers on the same 16 meshes throughout playback. Green and gold identify the two paper faces. A dashed line marks the active or upcoming crease. Rim lines follow real material edges. A seam gains ink when its incident panels first fold apart. For depth ordering only, a virtual ply is 0.0007 world units thick. The drawing rotates prior offsets about virtual hinges half a ply above a single layer, 1.5 plies above the nose fold and four plies above the closing spine. Exact geometry remains zero-thickness. The renderer explicitly disposes its buffers and materials.
+
 ### Adding the next lesson
 
-Keep the first-fold route and its geometry tests as a reference fixture. Define the next model's rest geometry, hinges and reversible steps independently of its English instructions. For each step, verify the endpoints, intermediate poses and reversal from an interrupted transition. Attach that model to the studio's playback, camera, announcement and text-fallback behaviors.
+1. Work out the physical sequence and paper proportions. Subdivide a single rest sheet wherever any future fold needs a material crease, including its preimages through earlier folds. Identify which packets move and a landmark for each finished action.
+2. Author a version 1 pattern and English copy keyed by its step IDs. Verify the boundary, canonical landmarks, all rigid distances, active seams and mid-turn reversal. The `1e-6` world-unit tolerance applies at the dart’s scale. Establish an appropriate tolerance if the scale changes.
+3. Reuse the lesson clock, DOM player, studio mount and camera controls. Supply the model’s mesh presentation, layer order and useful initial view. Add a direct English path to `app/routes.ts`, `app/navigation.ts` and `publishedPaths`. Publish its catalog entry after the finished shape passes geometry and production pixel checks.
+4. Exercise the new route through direct load, refresh, complete forward and reverse trips, replay, unavailable WebGL, context loss and remount. Retain the independent center-fold lab and its regression tests. Models involving pockets, curved creases or layer interlocking need their own feasibility and collision evidence.
 
-Once a lesson passes validation, register its route in `app/routes.ts`, add its canonical URL to `app/navigation.ts` and include it in `publishedPaths`. Add a card in `app/lessons.ts` with a stable ID, title, summary, format and published address. Supply a matching original preview diagram in the homepage. The crease guide is a separate reading resource. New routes need production direct-load and refresh checks.
-
-The one-hinge model assumes zero-thickness paper. Layer order, additional hinges and collisions need model-specific validation. Device and accessibility coverage are recorded in the [Phase 2 evidence](ai-development.md#phase-2-verification).
-
-The rendering boundary and static hosting decisions are recorded in [ADR 0002](decisions/0002-client-fold-renderer.md) and [ADR 0001](decisions/0001-framework-and-deployment.md).
+The [local Phase 3 measurements](ai-development.md#phase-3-verification) cover the dart and the retained lab. Static hosting and the client-rendering boundary are recorded in [ADR 0001](decisions/0001-framework-and-deployment.md) and [ADR 0002](decisions/0002-client-fold-renderer.md).

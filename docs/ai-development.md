@@ -231,3 +231,7 @@ The isolated build reproduced all 41 client files byte for byte. The local brows
 The owner selected Oripo Studio Compact UX v4. Codex implemented the viewport layout, continuous transport, instruction disclosure and release checks against the existing React and Three.js application. The reference stayed in the design archive. The production mesh, lesson sequences and English step IDs come from the project. The icons are original strokes covered by the project's MIT license.
 
 The prerendered popover, motion-free finish/start controls and keyboard orbit adapt the reference for static documents, reduced motion and keyboard use. Independent coordinate and silhouette tests cover intermediate poses. Physical sheets, real device input and spoken output still need hands-on review. [Transport decision](decisions/0005-continuous-lesson-transport.md) · [Local release evidence](release.md)
+
+## Phase 7 localization and provenance
+
+The owner’s approved design preview guided the layout and interactions. Oripo supplies the production artwork, geometry, timing and English fold manuscripts. Codex drafted the localized interface and lesson text against those manuscripts. Automated checks compare step IDs, interpolation fields and published content in all ten locales. Human linguistic review is `REVIEW_PENDING`, including fold terminology and spoken control labels. The six self-hosted font derivatives carry the SIL Open Font License. [Font sources and licenses](fonts.md) · [Local release evidence](release.md)

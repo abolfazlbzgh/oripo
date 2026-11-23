@@ -1,6 +1,53 @@
 # Local release verification
 
-## Phase 6 local candidate
+## Phase 7 local verification
+
+Phase 7 starts at `a27782881a3eda34fa617132a9f845c2ddc1a1bc`. The public catalog contains Dart airplane, Paper heart and Fox face. Their 9, 12 and 6 steps use the original fold patterns and timings. The English first-fold lab remains available at `/en/lab/first-fold` for regression.
+
+### Local build
+
+On Windows with Node 22.23.2 and npm 10.9.8, `npm.cmd ci --strict-peer-deps` installed 230 packages from the existing offline cache. `npm.cmd run typecheck`, `npm.cmd run lint`, `npm.cmd run format:check`, `npm.cmd test` and `npm.cmd run build` passed. Vitest ran 78 tests in nine files. A clean source copy with its own locked install reproduced all 168 production files byte for byte.
+
+`npm.cmd run test:smoke` passed 187/187 against the production output on loopback. Chromium 159.0.8154.6 passed 65/65, Firefox 159.0 passed 61/61 and WebKit 27.2 passed 61/61. Four touch journeys use Chromium’s DevTools Protocol. The final run recorded zero failures, retries and skips. Firefox used local host process access. Monitored public journeys completed without uncaught errors, hydration warnings, missing assets or requests to other origins.
+
+### Static content and navigation
+
+English Explore is available directly at `/` and canonically at `/en`. Each of the ten locales has an Explore page, a Guide and three complete lessons. The build writes 51 public HTML documents, the internal lab, and matching navigation data. Its sitemap lists the 50 canonical public URLs. A localized recovery document handles unknown paths under each supported locale. Other unknown paths use the English 404.
+
+JavaScript-disabled production checks request and reload each localized page. They verify language, direction, title, description, canonical and alternate URLs, gallery links, guide definitions and every transcript instruction and expected pose. Dictionary parity tests compare all keys, substitution fields, nonempty strings and the 27 English step IDs. Persian and Arabic use RTL. The scrubber and paper coordinates retain their physical direction. [Localized shell ADR](decisions/0006-localized-static-shell.md)
+
+The brand returns to the localized hero. Explore focuses the worktable at `#models` with clearance beneath the sticky header. Production tests cover repeated activation, transitions from Guide and all three lessons, reload and browser history. Switching language preserves the logical page, canvas, camera, fractional fold and active Play all clock. Choosing a different model starts a fresh sheet.
+
+The geometry checks sampled each fold at 1,001 poses. All three models and the lab completed 1,000 forward/reverse trips. The largest measured rigid-distance error among the three public lessons was 1.055e−15 world units. Maximum hinge displacement was zero and maximum seam error was 2.722e−15. The production suite also checks rendered outlines, intermediate seeks, context loss, reduced motion and the text fallback.
+
+### Responsive and accessibility evidence
+
+At a 16 px root font size the header drops the native language name at 1,216 px, shortens model names at 1,040 px and uses the mobile menu at 736 px. At a container width of 18 rem even the wordmark text yields to its accessible icon. Container queries respond to enlarged text. The phone header is 68 px tall plus its border and top safe area. Mobile lessons keep their model picker beside the menu.
+
+Local review covered 320×568, 360×800, 390×844, 768×1024, 1024×768, 1440×900 and 667×375. The checks cover 100% and 200% text, both appearances, next/previous, focus, menu dismissal, touch gestures and the Info sheet. The 24 screenshots and 12 accessibility snapshots are under the ignored `.local/phase-7/screens/` directory. Examples include `en-1440-hero.png`, `fa-320-menu.png`, `ar-320-zoom.png` and `ja-360-info.png`.
+
+The body and muted text tokens on the page background measure 12.70:1 and 6.46:1 in light mode, and 14.39:1 and 9.17:1 in dark mode. The primary action measures 7.80:1 and 8.94:1 respectively. A local keyboard check exercised Home, End, Tab out of the language menu and a French-to-Persian Guide switch. At 320 px with JavaScript disabled, the native menu changed a French Heart lesson to Japanese and then opened Fox in Japanese.
+
+### Production payloads
+
+Cold Chromium visits measured the local scripts and per-file gzip sizes. The English homepage fetched zero scene bytes at 390 and 1440 px. The English Guide also fetched zero scene bytes, with 373,990 raw / 120,131 gzip bytes of JavaScript. The seven-viewport production exercise checked scene isolation on localized Explore and Guide pages in all three browsers.
+
+| Payload in bytes                                                 |  Phase 6 raw / gzip |  Phase 7 raw / gzip |
+| ---------------------------------------------------------------- | ------------------: | ------------------: |
+| All JavaScript files                                             | 1,143,227 / 326,822 | 1,138,259 / 325,004 |
+| English Explore JavaScript                                       |   374,278 / 119,883 |   377,419 / 121,262 |
+| English Explore HTML                                             |       9,383 / 3,179 |      20,992 / 5,435 |
+| All stylesheets, including the script-specific font declarations |     59,748 / 13,399 |     80,403 / 17,638 |
+
+Phase 6 used system fonts. Phase 7 ships 519,828 bytes of WOFF2 in six OFL subsets. Cold English Explore fetched only the 43,732-byte Inter file. Each tested script fetched its own face. Font cmap and CSS range checks found zero missing characters in the current dictionaries and English manuscripts. The build serves only the selected locale’s common copy and the current lesson transcript. [Font attribution and reproducible subsets](fonts.md)
+
+Vite reports a lazy scene chunk above 500 kB. Fiber uses the deprecated Three.Clock, and the software GPU reported ReadPixels stalls on some 3D visits. Playwright’s Node process also reported conflicting terminal color settings. Local logs include `.local/phase-7/release-smoke.log`, `.local/phase-7/release-bundle.log` and `.local/phase-7/release-hashes.json`.
+
+### Owner review
+
+**REVIEW_PENDING** covers human linguistic review of the interface, translated fold directions and terminology in all ten locales. **NOT RUN** covers physical-paper trials, real mobile hardware, spoken screen readers, remote CI and hosted HTTP, caching and redirects. **DEFERRED** covers publication, custom domain and DNS/TLS. Set `ORIPO_SITE_URL` to the verified public HTTPS origin before producing a hosted build. The local build uses `http://127.0.0.1:4173`.
+
+## Phase 6 historical evidence
 
 The release baseline was `6f0d176d47919423fe63a5f160cdcf2d0556995e`. The shared studio is at `f99f246cb933f8a27a72090454e8ddb733ddbd76`. The release application is at `64c17556a3dcd031c471bce8776bcdd79fd3d0f0` on `feat/final-studio-player`. The browser fixture binds its disposable loopback servers in the private port range. This keeps browser restrictions on service ports from intercepting a test navigation.
 

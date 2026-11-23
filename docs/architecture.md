@@ -5,21 +5,21 @@
 | Responsibility                                                                           | Location                                                  |
 | ---------------------------------------------------------------------------------------- | --------------------------------------------------------- |
 | Document shell, language tag, skip link, shared appearance control, route error boundary | `app/root.tsx`, `app/components/shell.tsx`                |
-| Product name, description, document-title format and default locale                      | `app/site.ts`                                             |
-| Registered pages and canonical English URLs                                              | `app/routes.ts`, `app/navigation.ts`                      |
-| Language entry, English homepage, crease guide, lab and three complete lessons           | `app/routes/`                                             |
+| Document-title format, origin, locale metadata and page copy                             | `app/site.ts`, `app/i18n/`                                |
+| Registered pages and localized canonical URLs                                            | `app/routes.ts`, `app/navigation.ts`                      |
+| English default and localized Explore, Guide, internal lab and three lessons             | `app/routes/`                                             |
 | Semantic light/dark tokens, responsive page layout and reduced-motion rules              | `app/styles.css`                                          |
 | Static output, preview and production checks                                             | `react-router.config.ts`, `scripts/preview.mjs`, `tests/` |
 
-English has a literal URL prefix. Only published languages should gain routes. When the second genuine translation is ready, introduce a locale catalog and i18next/react-i18next, set document language and direction from the matched locale, and pre-render its actual pages. Keep stable lesson identifiers separate from translated titles and prose.
+The route registry expands three stable model slugs and the Guide across ten locales. The same root loader supplies the initial document and subsequent static data responses. [Localized shell ADR](decisions/0006-localized-static-shell.md)
 
 ### Appearance and navigation
 
 The daisyUI themes `oripo-light` and `oripo-dark` define paper, ink, pine, terracotta and gold roles in `app/styles.css`. Use the semantic content color for each surface. Material colors identify the paper faces in either theme. The theme tests measure foreground/background pairs against a 4.5:1 text threshold.
 
-`public/appearance.js` runs before the stylesheet on each static document, including the 404. An explicit choice sets the root theme from local storage. System clears the override so the CSS media query can respond to OS changes. With restricted storage, the current document still honors the selection. The shared select reads the applied theme on hydration.
+`public/appearance.js` runs before the stylesheet on each static document, including the 404. The script resolves a saved binary choice or follows the OS preference. The icon swaps subscribe to that state on hydration. With restricted storage the selection applies to the current document.
 
-A skip link and client route changes move focus to the main landmark. Interactive elements use natural document order and explicit zero tab indices for WebKit keyboard navigation. The studio keeps an unavailable playback direction focusable after hydration and guards the corresponding command. Camera controls remain disabled until the scene is ready.
+The skip link targets the main landmark. Explore focuses the worktable heading. Other page changes focus the main landmark. Interactive elements use natural document order and explicit zero tab indices for WebKit keyboard navigation. The studio keeps an unavailable playback direction focusable after hydration and guards the corresponding command. Camera controls remain disabled until the scene is ready.
 
 ## First 3D proof of concept
 
@@ -63,7 +63,7 @@ Vitest checks vertex positions, six pairwise distances, invalid inputs, repeatab
 | `app/lesson/geometry.ts`                          | Version 1 patterns have a stable `lessonId`, a flat XY sheet and ordered steps. Name the sheet vertices, list convex faces counterclockwise by vertex ID, and name each crease by two vertex IDs.                                                          |
 | `app/lesson/airplane.ts`                          | Each step has a stable ID, a positive duration in milliseconds and one or more simultaneous turns. A turn names the crease, every participating face and signed right-handed degrees. The initial sheet and these turns determine all ten canonical poses. |
 | `app/lesson/airplane.en.ts`                       | The starting sheet and every step have a title, an imperative instruction and a description of the resulting pose. The step keys are checked against the pattern’s literal IDs at compile time.                                                            |
-| `app/lessons.ts`, `app/routes/paper-airplane.tsx` | The English catalog owns the title, summary, difficulty, availability and URL. The route binds copy and timing by ID and provides the scene loader. It pre-renders the starting instruction, metadata, controls and complete ordered transcript.           |
+| `app/lessons.ts`, `app/routes/paper-airplane.tsx` | The catalog owns model IDs, sheet types and action counts. The route binds the current locale’s manuscript by step ID and supplies the scene loader. The initial document includes its controls, starting sheet and complete ordered transcript.           |
 
 The dart uses 20 material vertices, 35 edges and 16 convex faces. Every face incident to a junction reads the same vertex. The single outer rim includes both original rear corners. Compilation checks IDs, face winding, edge incidence, connectivity, durations, turns and references. A vertex shared with a stationary face or a different moving packet must lie on each applicable current hinge. Omitting a wing ply fails at this check.
 
@@ -71,15 +71,15 @@ Each step begins with the previous step's canonical coordinate array. Its axis i
 
 ### Playback and drawing
 
-Dart, Heart and Fox share one continuous position from the starting sheet to the final endpoint. The demand-driven renderer and native range sample that same position. The shared player binds the visible step to its authored English instruction. Info pauses the fold and reveals the current instruction and full transcript. The transport decision defines boundary ownership, interruption, keyboard controls and context loss. [ADR 0005](decisions/0005-continuous-lesson-transport.md)
+Dart, Heart and Fox share one continuous position from the starting sheet to the final endpoint. The demand-driven renderer and native range sample that same position. The shared player looks up the current step in the selected locale’s manuscript. Info pauses the fold and reveals the current instruction and full transcript. The transport decision defines boundary ownership, interruption, keyboard controls and context loss. [ADR 0005](decisions/0005-continuous-lesson-transport.md)
 
 `airplane-scene.client.tsx` supplies the dart view and ply heights to `lesson-scene.client.tsx`. That shared drawing updates position and normal buffers on the same 16 dart panels throughout playback. Green and gold identify the two paper faces. A dashed line marks the active or upcoming crease. Rim lines follow real material edges. A seam gains ink when its incident panels first fold apart. For depth ordering only, a virtual ply is 0.0007 world units thick. The drawing rotates prior offsets about virtual hinges half a ply above a single layer, 1.5 plies above the nose fold and four plies above the closing spine. Exact geometry remains zero-thickness. The renderer explicitly disposes its buffers and materials.
 
 ## Three-lesson collection
 
-`app/lessons.ts` contains three playable entries and a separate list of studio resources. The catalog gives each lesson a title, actual paper format, difficulty, action count and literal English URL. A unit check compares those lightweight counts with the fold data. The homepage renders original SVG diagrams. Its module graph contains the catalog and UI without importing Three.js.
+`app/lessons.ts` registers three playable model IDs with their sheet types and action counts. Each locale supplies titles, summaries, difficulty labels and transcripts. The route registry builds their URLs from the same IDs. A unit check compares the action counts with the fold data. The homepage renders original SVG diagrams. Its module graph contains the catalog and UI without importing Three.js.
 
-All three route modules bind stable data to `app/components/lesson-page.tsx`. Each route pre-renders its transcript and loads the studio after hydration. Route exit disposes the old scene and input listeners. A fresh lesson starts at zero with its own motion state. Reduced motion and the text fallback use the same clock endpoints. The lab retains its own analytic hinge and player.
+All three route modules bind stable data to `app/components/lesson-page.tsx`. Each route pre-renders its transcript and loads the studio after hydration. Changing models disposes the previous scene and input listeners and starts the next sheet at zero. Switching the language of the current lesson preserves its camera, canvas, play state and fractional fold position. Reduced motion and the text fallback use the same clock endpoints. The lab retains its own analytic hinge and player.
 
 ### Authoring flat packets
 
@@ -92,8 +92,8 @@ Each convex panel carries paired material and posed coordinates during subdivisi
 ### Adding the next lesson
 
 1. Choose paper proportions, an ordered sequence, the moving layers and finished landmarks. Work out where each crease lies after earlier actions.
-2. Supply a `FlatFold[]` and per-step English copy for an all-flat sequence, or supply an explicit `LessonPattern` for spatial endpoints. Use `flatPlayer` or the existing lesson clock, shared drawing and route template. Retain the step IDs when editing instructions.
-3. Register the literal route and pre-render path. Compare every canonical endpoint to an independent construction. Check rigid distances, seams, closure and reversal within 1e−6 world units at this scale.
+2. Supply a `FlatFold[]` and per-step English copy for an all-flat sequence, or supply an explicit `LessonPattern` for spatial endpoints. Use `flatScene` for a flat packet and bind its timing to the shared lesson player. Retain the step IDs when editing instructions.
+3. Register the locale-independent route and complete each localized transcript. Compare every canonical endpoint to an independent construction. Check rigid distances, seams, closure and reversal within 1e−6 world units at this scale.
 4. Compare production paper pixels to independently projected outlines. Inspect oblique and reverse views, interrupt motion, switch models, and exercise the text player. Then publish its catalog entry.
 
 ### Release verification

@@ -17,9 +17,9 @@ npm ci
 npm run dev
 ```
 
-Open the local address printed by Vite. Start at `/` to choose English, or open `/en` directly. The guide has a shareable address at `/en/guide/crease-notation`. The appearance control follows the system and remembers explicit Light or Dark choices across visits.
+Open the local address printed by Vite. Both `/` and `/en` open English Explore. The brand returns to the top and Explore opens the model gallery at `/{locale}#models`. Guide opens `/{locale}/guide/crease-notation`. The language menu preserves the page and the position of the current fold. The appearance control follows the system and remembers explicit Light or Dark choices across visits.
 
-Run `npm run build` and `npm run preview` to serve the production lessons at the links above. Each page includes the complete ordered instructions in its static HTML. Open Info to read the current fold or expand all steps. Arrow keys scrub the focused timeline and orbit the focused paper. With reduced motion, Next and Previous settle immediately and the middle button switches between the finished model and the starting sheet. The worktable also includes the independent [first-fold laboratory](http://127.0.0.1:4173/en/lab/first-fold) and [crease guide](http://127.0.0.1:4173/en/guide/crease-notation).
+Run `npm run build` and `npm run preview` to serve the production lessons at the links above. Each page includes the complete ordered instructions in its static HTML. Open Info to read the current fold or expand all steps. Arrow keys scrub the focused timeline and orbit the focused paper. With reduced motion, Next and Previous settle immediately and the middle button switches between the finished model and the starting sheet. The three published models and Guide are available in English, Persian, Spanish, French, Simplified Chinese, Arabic, Brazilian Portuguese, German, Japanese and Hindi. The English first-fold lab remains an internal regression fixture.
 
 ## Verify changes
 
@@ -33,7 +33,7 @@ Run `npm run build` and `npm run preview` to serve the production lessons at the
 | `npm run preview`      | Serve the production files at `http://127.0.0.1:4173`.                                     |
 | `npm run test:smoke`   | Use Playwright against the existing production build on disposable loopback ports.         |
 
-Install the test browsers once per locked Playwright version with `npx playwright install --only-shell chromium firefox webkit`. On a minimal Linux runner, add `--with-deps`. Build again after source changes and before the smoke test. By default it runs Chromium, Firefox and WebKit against the production files. Four Chromium DevTools Protocol touch journeys run only in Chromium. To investigate one engine, use e.g. `npm run test:smoke -- --project=firefox`. The application itself requires no credentials or environment variables.
+Install the test browsers once per locked Playwright version with `npx playwright install --only-shell chromium firefox webkit`. On a minimal Linux runner, add `--with-deps`. Build again after source changes and before the smoke test. By default it runs Chromium, Firefox and WebKit against the production files. Four Chromium DevTools Protocol touch journeys run only in Chromium. To investigate one engine, use e.g. `npm run test:smoke -- --project=firefox`. Local builds use the preview origin. Set `ORIPO_SITE_URL` to the verified HTTPS origin before building for hosting. [Locale routes and canonical metadata](docs/decisions/0006-localized-static-shell.md)
 
 ## How the project fits together
 
@@ -43,13 +43,13 @@ React Router Framework Mode and Vite generate static pages with React and TypeSc
 
 1. Draw the finished outline and work backwards to a fold plan. Record the starting proportions, intended moving plies, crease directions and landmark coordinates.
 2. For straight folds that settle flat, define directed lines in the current folded plane as in `app/lesson/fox.ts`. An optional packet ID selects material moved by an earlier action. The authoring helper builds the shared version 1 pattern. Spatial finishes such as the dart can supply a pattern directly.
-3. Key the English instructions by the immutable step IDs. Bind the data to `LessonPage`, add a literal English route and list it for static pre-rendering.
+3. Key each transcript by the immutable step IDs. Bind the model to `LessonPage`, add its locale-independent route module and register the catalog metadata. The registry expands the static paths.
 4. Check rigid distances, hinges, reversals, visible layer colors and an independently drawn silhouette. Add the verified model to the lightweight catalog and run the production journeys.
 
 For a local demo, open a lesson in the production preview, advance to an intermediate fold, orbit the paper, then reverse to the starting sheet. Each transcript includes the expected shape after every step and opens without JavaScript. Physical paper, real touch devices, spoken screen readers and hosted behavior have separate acceptance checks. [Local verification and release checklist](docs/release.md) · [Contributing](CONTRIBUTING.md) · [Security reporting](SECURITY.md)
 
 ## Ownership and licensing
 
-Abolfazl Bazghandi maintains Oripo. The [MIT license](LICENSE) covers original project code. The Oripo SVG mark, crane study, gallery diagrams and crease samples were drawn for this project. Typography uses locally available fonts. Dependencies retain their licenses. Review the rights and attribution for any external artwork, fonts, lesson diagrams or 3D models before adding them. The external design preview stays outside this repository.
+Abolfazl Bazghandi maintains Oripo. The [MIT license](LICENSE) covers original project code. The Oripo SVG mark, crane study, gallery diagrams and crease samples were drawn for this project. Typography uses six self-hosted OFL subsets and system fallbacks. [Font sources and license texts](docs/fonts.md) Dependencies retain their licenses. Review the rights and attribution for any external artwork, fonts, lesson diagrams or 3D models before adding them. The external design preview stays outside this repository.
 
 The static build includes `third-party-licenses.txt` for bundled JavaScript and [additional notices](public/additional-notices.txt) for the styles, generated helpers and Fiber license text. The [development record](docs/ai-development.md) identifies the AI-assisted work and the owner's decisions.

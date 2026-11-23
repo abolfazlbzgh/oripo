@@ -214,6 +214,9 @@ test("pointer orbit, wheel zoom, resize and a preference switch preserve the cur
   await expect(reading).not.toHaveText(afterDrag);
   await page.setViewportSize({ width: 640, height: 680 });
   await atAngle(page, 90);
+  await button(page, "Reset view").click();
+  await expect(reading).toHaveText(initial);
+  await atAngle(page, 90);
   await page.emulateMedia({ reducedMotion: "reduce" });
   await atAngle(page, 180);
   await expect(page.getByRole("status")).toHaveText(/Fold complete/);
@@ -309,6 +312,7 @@ test("missing WebGL leaves the text player usable", async ({ page }) => {
   await expect(page.getByText("3D view unavailable", { exact: true })).toBeVisible();
   await expect(page.locator("canvas")).toHaveCount(0);
   await expect(button(page, "Zoom in")).toBeDisabled();
+  await expect(button(page, "Reset view")).toBeDisabled();
   await button(page, "Next").click();
   await atAngle(page, 180);
   await expect(page.getByRole("heading", { name: "Folded", exact: true })).toBeVisible();
@@ -348,7 +352,7 @@ test("route exit during motion releases the old GL context, and return opens one
     .evaluateHandle((el) => (el instanceof HTMLCanvasElement ? el.getContext("webgl2") : null));
   await button(page, "Next").click();
   await expect(page.getByRole("heading", { name: "Folding", exact: true })).toBeVisible();
-  await page.getByRole("link", { name: "Back to foundation" }).click();
+  await page.getByRole("link", { name: "Back to Explore" }).click();
   await expect(page).toHaveURL(/\/en$/);
   await expect(page.locator("canvas")).toHaveCount(0);
   await expect.poll(() => context.evaluate((gl) => gl?.isContextLost())).toBe(true);

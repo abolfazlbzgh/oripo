@@ -19,7 +19,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import type { FoldPose } from "./controller";
 import { crease, fixedPanel, hingeRotationY, movingPanel, type Panel } from "./geometry";
 
-export type CameraAction = "left" | "right" | "up" | "down" | "closer" | "farther";
+export type CameraAction = "left" | "right" | "up" | "down" | "closer" | "farther" | "reset";
 export type FoldView = { invalidate: () => void; moveCamera: (action: CameraAction) => void };
 type SceneCallbacks = {
   sample: (now: number) => FoldPose;
@@ -86,7 +86,9 @@ function Paper({ sample, ready, cameraChanged }: SceneCallbacks) {
       );
       invalidate();
     }
+    orbit.saveState();
     const move = {
+      reset: () => orbit.reset(),
       left: () => orbit.rotateLeft(turn),
       right: () => orbit.rotateLeft(-turn),
       up: () => orbit.rotateUp(turn),

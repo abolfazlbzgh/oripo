@@ -3,6 +3,7 @@ import { site } from "./site";
 export const pages = {
   foundation: "",
   creaseGuide: "guide/crease-notation",
+  firstFold: "lab/first-fold",
 } as const;
 
 export function englishPath(page: keyof typeof pages) {
@@ -11,4 +12,9 @@ export function englishPath(page: keyof typeof pages) {
   return segment ? `${base}/${segment}` : base;
 }
 
-export const publishedPaths = ["/", englishPath("foundation"), englishPath("creaseGuide")];
+export const publishedPaths = [
+  "/",
+  englishPath("foundation"),
+  englishPath("creaseGuide"),
+  englishPath("firstFold"),
+];

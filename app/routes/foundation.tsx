@@ -20,6 +20,11 @@ export default function Foundation() {
         <Link className="btn btn-primary" to={englishPath("creaseGuide")}>
           Read the crease guide
         </Link>
+        <p className="mt-4">
+          <Link className="link text-primary" to={englishPath("firstFold")}>
+            Open the first-fold lab
+          </Link>
+        </p>
       </div>
       <figure className="swatch">
         <div className="paper-field" aria-hidden="true">

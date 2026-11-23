@@ -7,5 +7,6 @@ export default [
   ...prefix(site.defaultLocale, [
     index("routes/foundation.tsx"),
     route(pages.creaseGuide, "routes/crease-guide.tsx"),
+    route(pages.firstFold, "routes/first-fold.tsx"),
   ]),
 ] satisfies RouteConfig;

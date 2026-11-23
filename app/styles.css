@@ -101,6 +101,7 @@ body {
 
 .masthead-inner {
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 1rem;
   padding-block: 1.15rem;
 }
@@ -123,6 +124,8 @@ body {
 
 .theme-control {
   gap: 0.5rem;
+  flex-wrap: wrap;
+  max-width: 100%;
   font-size: 0.875rem;
 }
 

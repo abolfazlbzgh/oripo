@@ -1,0 +1,166 @@
+.fold-lab {
+  max-width: 64rem;
+}
+.content:has(.fold-lab) {
+  padding-block: clamp(1.5rem, 4vw, 3.25rem);
+}
+.fold-lab > .link {
+  color: var(--color-primary);
+  font-size: 0.9375rem;
+}
+.lab-heading {
+  margin-block: 1.5rem;
+}
+.lab-heading .eyebrow {
+  margin-block-end: 0.45rem;
+}
+.lab-heading h1 {
+  margin-block-end: 0.7rem;
+  font-size: clamp(2.65rem, 6vw, 4.25rem);
+}
+.lab-heading > p:last-child {
+  max-width: 64ch;
+}
+.lab-workbench {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(17rem, 1fr);
+  align-items: start;
+  gap: clamp(1.25rem, 3.5vw, 3rem);
+}
+.lab-figure {
+  overflow: hidden;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+}
+.lab-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1.65;
+  min-height: min(12rem, 75vw);
+  background: color-mix(in srgb, var(--color-base-300) 60%, var(--color-base-200));
+}
+.lab-canvas,
+.lab-canvas canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.lab-placeholder {
+  position: relative;
+  max-width: 42ch;
+  padding: 1.25rem;
+  text-align: center;
+}
+.lab-key,
+.lab-actions,
+.lab-camera-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.lab-key {
+  gap: 0.4rem 1rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.8125rem;
+}
+.lab-key span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.lab-key i {
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--color-base-content) 30%, transparent);
+  border-radius: 2px;
+}
+.key-fixed {
+  background: #95b49f;
+}
+.key-moving {
+  background: #f1ddb0;
+}
+.lab-key .key-crease {
+  height: 2px;
+  background: var(--color-base-content);
+  border: 0;
+}
+.lab-step,
+.lab-reading,
+.lab-help,
+.lab-camera > p,
+.lab-angle {
+  font-size: 0.875rem;
+}
+.lab-step {
+  color: var(--color-primary);
+  font-weight: 650;
+}
+.lab-panel h2 {
+  margin-block: 0.25rem 0.5rem;
+  overflow-wrap: anywhere;
+  font:
+    500 clamp(1.6rem, 1.5rem + 1vw, 2.1rem) / 1.1 Georgia,
+    serif;
+}
+.lab-angle {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-block: 1.15rem;
+  font-variant-numeric: tabular-nums;
+}
+.lab-angle meter {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 0.4rem;
+  margin-block-start: 0.35rem;
+  appearance: none;
+  background: var(--color-base-300);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.lab-angle meter::-webkit-meter-bar {
+  height: 100%;
+  border: 0;
+  background: var(--color-base-300);
+}
+.lab-angle meter::-webkit-meter-optimum-value {
+  background: var(--color-primary);
+}
+.lab-angle meter::-moz-meter-bar {
+  background: var(--color-primary);
+}
+.lab-help {
+  margin-block-start: 0.8rem;
+}
+.lab-camera {
+  min-width: 0;
+  margin-block-start: 1.6rem;
+}
+.lab-camera legend {
+  font-weight: 700;
+}
+.lab-camera-actions {
+  margin-block: 0.65rem;
+}
+.fold-lab .btn {
+  padding-inline: 0.85rem;
+}
+.fold-lab .btn:disabled {
+  background: var(--color-base-200);
+  color: color-mix(in srgb, var(--color-base-content) 72%, var(--color-base-200));
+  border: 1px dashed var(--color-base-300);
+}
+.lab-reading {
+  color: var(--color-secondary);
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 48rem) {
+  .lab-workbench {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

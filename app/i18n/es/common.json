@@ -40,6 +40,11 @@
     "back": "Volver a explorar"
   },
   "models": {
+    "jumping-frog": {
+      "title": "Rana saltarina de cuatro patas",
+      "short": "Rana saltarina",
+      "summary": "Abre los bolsillos de las patas traseras y forma bajo la rana un resorte de papel en reposo."
+    },
     "herringbone-map": {
       "title": "Mapa en espiga",
       "short": "Mapa Miura",

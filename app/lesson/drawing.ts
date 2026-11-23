@@ -11,7 +11,9 @@ import {
 
 type PlyOrigin = number | Point;
 export type HingePlies = Readonly<Record<string, PlyOrigin | Readonly<Record<string, PlyOrigin>>>>;
-export function paperLayers(model: CompiledLesson, heights: HingePlies) {
+export function paperLayers(model: CompiledLesson, heights: HingePlies, plyThickness = 0.0007) {
+  if (!Number.isFinite(plyThickness) || plyThickness <= 0)
+    throw Error("Invalid drawing ply thickness");
   const { faces, steps } = model;
   // Rotate the existing drawing stack about a virtual hinge. The material pose stays exact.
   function foldOffsets(start: Pose, step: number, progress: number): Pose {
@@ -21,7 +23,7 @@ export function paperLayers(model: CompiledLesson, heights: HingePlies) {
       return action.charts.map((chart, i) => {
         const transform = chart(progress);
         const [x, y, z] = chartPoint(transform, atIndex(start, i), true);
-        return [x, y, z + 0.0007 * transform.ply * progress] as Point;
+        return [x, y, z + plyThickness * transform.ply * progress] as Point;
       });
     function pivot(crease: string): Point {
       const setting = heights[action.id];
@@ -34,7 +36,7 @@ export function paperLayers(model: CompiledLesson, heights: HingePlies) {
       const [x, y, z] = typeof height === "number" ? [0, 0, height] : height;
       if (![x, y, z].every(Number.isFinite))
         throw new Error(`Invalid drawing height in ${action.id}`);
-      return [x * 0.0007, y * 0.0007, z * 0.0007];
+      return [x * plyThickness, y * plyThickness, z * plyThickness];
     }
     for (const turn of action.turns) {
       const origin = pivot(turn.crease),

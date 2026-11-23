@@ -10,6 +10,7 @@ export function projectPaper(
   heights: HingePlies,
   palette: PaperPalette,
   eye: Point,
+  plyThickness?: number,
 ) {
   const width = 440,
     height = 312,
@@ -30,7 +31,7 @@ export function projectPaper(
     right = unit(cross([0, 0, 1], toward)),
     up = cross(toward, right);
   const pose = atIndex(model.poses, model.steps.length);
-  const { offsets, outlines } = paperLayers(model, heights);
+  const { offsets, outlines } = paperLayers(model, heights, plyThickness);
   const separation = atIndex(offsets, model.steps.length);
   const projected = model.faces.map(({ vertices }, f) =>
     vertices.map((v): Point => {

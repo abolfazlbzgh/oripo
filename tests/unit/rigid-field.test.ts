@@ -51,8 +51,9 @@ it("closes a waterbomb on the inward branch while both triangular pocket mouths 
           max = Math.max(max, Math.abs(length(q, atIndex(mapped, k)) - length(p, atIndex(tri, k))));
       }
     }
-    const mid = seen.get("1,0,0")!,
-      cap = seen.get("1,1,0")!;
+    const mid = seen.get("1,0,0"),
+      cap = seen.get("1,1,0");
+    if (!mid || !cap) throw Error("Missing waterbomb corners");
     if (n > 0 && n < 1000 && !(mid[0] < 1 && mid[2] > 0 && cap[2] > 0))
       throw Error("Pocket is closed");
     if (n === 500) {
@@ -109,7 +110,8 @@ it("folds four neighboring Miura cells as isometries around one moving vertex", 
         }
       }
     if (n === 1000) {
-      const ridge = seen.get("1.5,1,0")!;
+      const ridge = seen.get("1.5,1,0");
+      if (!ridge) throw Error("Missing ridge");
       expect(ridge[2]).toBeCloseTo(Math.SQRT1_2, 13);
       expect(ridge[1]).toBeCloseTo(Math.sqrt(3) / 2, 13);
     }

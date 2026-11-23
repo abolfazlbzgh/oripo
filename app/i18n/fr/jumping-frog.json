@@ -1,0 +1,109 @@
+{
+  "sheet": {
+    "title": "Feuille carrée",
+    "instruction": "Placez un côté à l’horizontale en haut. La moitié supérieure formera la tête.",
+    "result": "Les quatre coins du carré sont libres."
+  },
+  "steps": {
+    "double-the-square": {
+      "title": "Rétrécir le carré",
+      "instruction": "Rabattez les deux côtés sur la médiane verticale.",
+      "result": "La bande à deux épaisseurs est deux fois plus haute que large."
+    },
+    "mark-first-diagonal": {
+      "title": "Première diagonale",
+      "instruction": "Amenez le coin supérieur gauche du carré du haut sur son coin inférieur droit.",
+      "result": "Le pli relie le bas gauche au haut droit."
+    },
+    "open-first-diagonal": {
+      "title": "Ouvrir la première diagonale",
+      "instruction": "Ramenez le coin en laissant les plis longs fermés.",
+      "result": "Il reste une diagonale dans le carré du haut."
+    },
+    "mark-second-diagonal": {
+      "title": "Seconde diagonale",
+      "instruction": "Amenez le coin supérieur droit sur le coin inférieur gauche du même carré.",
+      "result": "Les diagonales se croisent."
+    },
+    "open-second-diagonal": {
+      "title": "Ouvrir la seconde diagonale",
+      "instruction": "Replacez le coin en haut.",
+      "result": "Une croix marque la tête."
+    },
+    "mark-head-cross": {
+      "title": "Marquer le pli transversal",
+      "instruction": "Rabattez le bord supérieur derrière la bande par le centre de la croix.",
+      "result": "Le bord rejoint le bas du carré de la tête."
+    },
+    "open-head-cross": {
+      "title": "Ouvrir le pli transversal",
+      "instruction": "Remettez le bord supérieur en place.",
+      "result": "Un pli en relief traverse la croix."
+    },
+    "collapse-head": {
+      "title": "Fermer la tête",
+      "instruction": "Tenez le triangle inférieur. Rentrez le milieu de chaque côté et abaissez le triangle supérieur par-dessus.",
+      "result": "Deux poches se logent entre les pans triangulaires."
+    },
+    "raise-front-feet": {
+      "title": "Relever les pattes avant",
+      "instruction": "Amenez les deux coins libres du triangle supérieur à sa pointe. Maintenez le triangle inférieur contre le corps.",
+      "result": "Deux pointes se rejoignent au museau."
+    },
+    "splay-front-feet": {
+      "title": "Écarter les pattes avant",
+      "instruction": "Pliez du milieu de la base au milieu du bord oblique extérieur de chaque rabat et tournez sa pointe vers l’extérieur.",
+      "result": "Les pattes encadrent le museau."
+    },
+    "double-the-tail": {
+      "title": "Doubler la queue",
+      "instruction": "Remontez le bord inférieur jusqu’à la base de la tête.",
+      "result": "Le bas du corps a un bord droit et double."
+    },
+    "narrow-waist": {
+      "title": "Resserrer la taille",
+      "instruction": "Ramenez les côtés vers le milieu sous les pattes avant, avec les épaisseurs inférieures de la tête qui y sont attachées.",
+      "result": "La taille se rétrécit sous les épaules."
+    },
+    "roll-rear-edge": {
+      "title": "Remonter le bord arrière",
+      "instruction": "Remontez encore le bord double à la base du triangle.",
+      "result": "Un rectangle court et épais couvre la taille."
+    },
+    "mark-pockets": {
+      "title": "Marquer les poches",
+      "instruction": "Rabattez les deux coins du haut du rectangle au milieu de son bord inférieur.",
+      "result": "Deux petits triangles se rejoignent entre les pattes arrière."
+    },
+    "open-pocket-marks": {
+      "title": "Ouvrir les repères",
+      "instruction": "Rouvrez seulement ces triangles en gardant le bord arrière relevé.",
+      "result": "Les deux diagonales indiquent les entrées des poches."
+    },
+    "spread-hind-pockets": {
+      "title": "Écarter les poches arrière",
+      "instruction": "Tenez la diagonale intérieure de chaque poche. Soulevez le bord caché et tirez le coin libre sur le côté pour aplatir la poche.",
+      "result": "Le rabat arrière forme une barque pointue aux deux bouts."
+    },
+    "angle-hind-feet": {
+      "title": "Orienter les pattes arrière",
+      "instruction": "Du milieu du grand bord de la barque, pliez jusqu’aux deux tiers de chaque côté oblique. Tournez les pointes vers la queue.",
+      "result": "Quatre pattes entourent le ventre."
+    },
+    "double-the-spring": {
+      "title": "Doubler le ressort",
+      "instruction": "Relevez la queue et les pattes arrière sur la taille en pliant à la base de la tête.",
+      "result": "Le paquet arrière vient sur le ventre."
+    },
+    "return-the-pleat": {
+      "title": "Former le pli de retour",
+      "instruction": "Repliez les pattes vers l’arrière au milieu de la taille doublée. Laissez environ trente degrés d’ouverture.",
+      "result": "La queue forme le deuxième coude du Z."
+    },
+    "ease-the-spring": {
+      "title": "Relâcher le ressort",
+      "instruction": "Ouvrez légèrement le premier coude en maintenant le pli de retour et les pattes ensemble.",
+      "result": "La tête, les quatre pattes et le ressort en relief se voient au repos."
+    }
+  }
+}

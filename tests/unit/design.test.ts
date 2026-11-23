@@ -4,6 +4,8 @@ import { expect, it } from "vitest";
 import { airplanePattern } from "../../app/lesson/airplane";
 import { heartFolds } from "../../app/lesson/heart";
 import { foxFolds } from "../../app/lesson/fox";
+import { frogPattern } from "../../app/lesson/frog";
+import { herringbone } from "../../app/lesson/herringbone";
 import { lessons } from "../../app/lessons";
 import { localPath, publishedPaths } from "../../app/navigation";
 
@@ -20,6 +22,8 @@ it("publishes complete lessons with their actual action counts", () => {
     "paper-heart": heartFolds.length,
     "fox-face": foxFolds.length,
     [masuPattern.lessonId]: masuPattern.steps.length,
+    [frogPattern.lessonId]: frogPattern.steps.length,
+    [herringbone.lessonId]: herringbone.steps.length,
   });
   expect(lessons.every((l) => l.availability === "playable" && l.paper)).toBe(true);
 });

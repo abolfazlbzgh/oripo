@@ -60,7 +60,16 @@ export const mapInfo = {
   difficulty: "intermediate",
   finishedAppearance: { front: "#7051a5", reverse: "#ad88cb", edge: "#453661" },
 } as const satisfies LessonInfo;
-export const lessons = [airplaneInfo, heartInfo, foxInfo, masuInfo, mapInfo] as const;
+export const frogInfo = {
+  id: "jumping-frog",
+  availability: "playable",
+  stepCount: 20,
+  paper: "square",
+  category: "action-animal",
+  difficulty: "intermediate",
+  finishedAppearance: { front: "#528236", reverse: "#82a74e", edge: "#314c28" },
+} as const satisfies LessonInfo;
+export const lessons = [airplaneInfo, heartInfo, foxInfo, masuInfo, frogInfo, mapInfo] as const;
 export type ModelId = (typeof lessons)[number]["id"];
 
 export function groupByDifficulty<T extends { difficulty: Difficulty }>(entries: readonly T[]) {

@@ -1,0 +1,109 @@
+{
+  "sheet": {
+    "title": "正方形纸",
+    "instruction": "将正方形的一条边横放在上方。纸的上半部用来折头。",
+    "result": "四个纸角都是自由的。"
+  },
+  "steps": {
+    "double-the-square": {
+      "title": "折窄正方形",
+      "instruction": "把左右两边折向竖直中线。",
+      "result": "双层长条的高是宽的两倍。"
+    },
+    "mark-first-diagonal": {
+      "title": "第一条对角线",
+      "instruction": "把上方正方形的左上角折到它的右下角。",
+      "result": "折痕从左下通往右上。"
+    },
+    "open-first-diagonal": {
+      "title": "展开第一条线",
+      "instruction": "把纸角翻回去，保持两条长折痕。",
+      "result": "上方正方形留下一条对角线。"
+    },
+    "mark-second-diagonal": {
+      "title": "第二条对角线",
+      "instruction": "把同一正方形的右上角折到左下角。",
+      "result": "两条对角线相交。"
+    },
+    "open-second-diagonal": {
+      "title": "展开第二条线",
+      "instruction": "把纸角放回原位。",
+      "result": "头部出现一个叉形折痕。"
+    },
+    "mark-head-cross": {
+      "title": "反折横线",
+      "instruction": "沿交点把顶边折到纸后。",
+      "result": "顶边到达头部正方形的底边。"
+    },
+    "open-head-cross": {
+      "title": "展开横线",
+      "instruction": "把顶边翻回原位。",
+      "result": "一道横向山折穿过交点。"
+    },
+    "collapse-head": {
+      "title": "合拢头部",
+      "instruction": "按住下方三角形，把左右边的中点推向内侧，让上方三角形盖下来。",
+      "result": "两只折叠的纸袋夹在三角形之间。"
+    },
+    "raise-front-feet": {
+      "title": "抬起前脚",
+      "instruction": "把上层三角形的两个活动角折到顶点，下层留在身体上。",
+      "result": "两只脚尖在鼻端相遇。"
+    },
+    "splay-front-feet": {
+      "title": "分开前脚",
+      "instruction": "从三角形底边中点折到每片外斜边的中点，只将尖端向外翻。",
+      "result": "两只前脚分列鼻端两侧。"
+    },
+    "double-the-tail": {
+      "title": "对折尾部",
+      "instruction": "把底边折到头部的底边。",
+      "result": "身体下端形成双层直边。"
+    },
+    "narrow-waist": {
+      "title": "收窄腰部",
+      "instruction": "把身体两侧连同相接的头部下层从前脚下折向中线。",
+      "result": "肩部下面的腰变窄。"
+    },
+    "roll-rear-edge": {
+      "title": "卷起后边",
+      "instruction": "再把双层后边折到三角形的底边。",
+      "result": "腰上叠着一个厚而短的长方形。"
+    },
+    "mark-pockets": {
+      "title": "标出袋口",
+      "instruction": "把长方形的两个上角折到底边中点。",
+      "result": "后腿之间出现两个相接的小三角形。"
+    },
+    "open-pocket-marks": {
+      "title": "展开袋口折痕",
+      "instruction": "只展开这两个小三角形，保持后边朝上。",
+      "result": "两道斜线标出袋口位置。"
+    },
+    "spread-hind-pockets": {
+      "title": "撑开后腿纸袋",
+      "instruction": "按住各袋内侧的斜线。抬起藏在里面的边，把活动角拉向两侧，压平袋子。",
+      "result": "后片展开成两端尖的小船形。"
+    },
+    "angle-hind-feet": {
+      "title": "折出后脚",
+      "instruction": "从船形长边中点向每条斜边向下三分之二处折，把两尖端转向尾部。",
+      "result": "四只脚分布在腹部周围。"
+    },
+    "double-the-spring": {
+      "title": "对折弹簧",
+      "instruction": "沿头部底边，把整条尾部和后脚一起翻到腰上。",
+      "result": "后片叠在腹部上方。"
+    },
+    "return-the-pleat": {
+      "title": "折出回折",
+      "instruction": "沿双层腰部的中间把后脚折回，留出约三十度开口。",
+      "result": "尾部形成之字形的第二道弯。"
+    },
+    "ease-the-spring": {
+      "title": "放松弹簧",
+      "instruction": "稍微打开第一道弯，让回折和两只后脚保持在一起。",
+      "result": "静止时可看清头、四只脚和隆起的纸弹簧。"
+    }
+  }
+}

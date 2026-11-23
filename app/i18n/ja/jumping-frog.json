@@ -1,0 +1,109 @@
+{
+  "sheet": {
+    "title": "正方形の紙",
+    "instruction": "上の辺を水平に置きます。上半分で頭を作ります。",
+    "result": "四つの角が自由な正方形です。"
+  },
+  "steps": {
+    "double-the-square": {
+      "title": "細長く折る",
+      "instruction": "左右の辺を縦の中心線に合わせます。",
+      "result": "縦が横の二倍の二枚重ねの帯になります。"
+    },
+    "mark-first-diagonal": {
+      "title": "一つ目の対角線",
+      "instruction": "上半分の正方形の左上の角を、その正方形の右下の角に合わせます。",
+      "result": "左下から右上へ折り筋がつきます。"
+    },
+    "open-first-diagonal": {
+      "title": "一つ目を開く",
+      "instruction": "長い折り目を押さえて、角を上に戻します。",
+      "result": "上の正方形に斜めの筋が残ります。"
+    },
+    "mark-second-diagonal": {
+      "title": "二つ目の対角線",
+      "instruction": "同じ正方形の右上の角を左下に合わせます。",
+      "result": "二本の対角線が交わります。"
+    },
+    "open-second-diagonal": {
+      "title": "二つ目を開く",
+      "instruction": "角を元に戻します。",
+      "result": "頭の部分に十字の筋ができます。"
+    },
+    "mark-head-cross": {
+      "title": "横の山折り",
+      "instruction": "対角線の交点を通るように上の辺を裏へ折ります。",
+      "result": "上の辺が頭の正方形の底辺に合います。"
+    },
+    "open-head-cross": {
+      "title": "横の筋を開く",
+      "instruction": "上の辺を戻します。",
+      "result": "交点を通る横の山折りが残ります。"
+    },
+    "collapse-head": {
+      "title": "頭をたたむ",
+      "instruction": "下の三角を押さえ、左右の辺の中点を内側へ押し、上の三角をかぶせます。",
+      "result": "三角の間に二つの袋がたたまれます。"
+    },
+    "raise-front-feet": {
+      "title": "前足を上げる",
+      "instruction": "上の三角の左右の角を頂点に合わせます。下の三角は胴につけたままにします。",
+      "result": "二つの先が鼻の位置で合います。"
+    },
+    "splay-front-feet": {
+      "title": "前足を広げる",
+      "instruction": "底辺の中央と各ひだの外側の斜辺の中点を結んで折り、先だけ外へ返します。",
+      "result": "前足が鼻の両脇へ開きます。"
+    },
+    "double-the-tail": {
+      "title": "下端を折る",
+      "instruction": "下の辺を頭の底辺まで折り上げます。",
+      "result": "胴の下に二重のまっすぐな辺ができます。"
+    },
+    "narrow-waist": {
+      "title": "胴を細くする",
+      "instruction": "前足の下で胴の両側を中央に寄せます。つながっている頭の下の層も一緒に折ります。",
+      "result": "肩の下の胴が細くなります。"
+    },
+    "roll-rear-edge": {
+      "title": "後ろの辺を上げる",
+      "instruction": "二重の下辺をもう一度、頭の底辺まで折ります。",
+      "result": "胴の上に短く厚い長方形が重なります。"
+    },
+    "mark-pockets": {
+      "title": "袋の折り筋",
+      "instruction": "長方形の左右の上角を下辺の中央に合わせます。",
+      "result": "後ろ足の間で小さな三角が二つ合います。"
+    },
+    "open-pocket-marks": {
+      "title": "袋の筋を開く",
+      "instruction": "後ろの辺を上げたまま、二つの三角だけ開きます。",
+      "result": "二本の斜めの筋が袋の口を示します。"
+    },
+    "spread-hind-pockets": {
+      "title": "後ろの袋を開く",
+      "instruction": "各袋の内側の対角線を押さえ、隠れた縁を起こします。自由な角を横に引き出し、袋を平らにします。",
+      "result": "両端がとがった舟の形になります。"
+    },
+    "angle-hind-feet": {
+      "title": "後ろ足を向ける",
+      "instruction": "舟の長い辺の中点から各斜辺を三分の二下った点へ折り、先を後方に返します。",
+      "result": "おなかの周りに四本の足ができます。"
+    },
+    "double-the-spring": {
+      "title": "ばねを二重にする",
+      "instruction": "頭の底辺で、後ろ足と胴の後ろ全体をおなかに折り上げます。",
+      "result": "後ろの束がおなかに重なります。"
+    },
+    "return-the-pleat": {
+      "title": "段折りを作る",
+      "instruction": "二重の胴の中ほどで後ろ足を折り返し、折り返しを三十度ほど開けておきます。",
+      "result": "後ろの段がばねの二つ目の曲がりになります。"
+    },
+    "ease-the-spring": {
+      "title": "ばねをゆるめる",
+      "instruction": "後ろ足と折り返しをまとめたまま、最初の折り目を少し開きます。",
+      "result": "頭と四本の足、浮き上がったばねが静止した状態で見えます。"
+    }
+  }
+}

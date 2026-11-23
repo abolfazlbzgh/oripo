@@ -53,6 +53,8 @@ export async function paperPixels(
         colored = 0,
         hash = 2166136261;
       function hue(r: number, g: number, b: number) {
+        if (finish === "jumping-frog")
+          return g - b > 40 && g - r > 11 && r - b > 12 ? "leaf" : "other";
         if (finish === "herringbone-map") return b - r > 17 && r - g > 12 ? "violet" : "other";
         if (finish === "masu-box")
           return g - r > 26 && b - r > 22 && Math.abs(b - g) < 25 ? "teal" : "other";

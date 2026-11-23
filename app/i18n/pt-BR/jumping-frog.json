@@ -1,0 +1,109 @@
+{
+  "sheet": {
+    "title": "Folha quadrada",
+    "instruction": "Deixe um lado do quadrado na horizontal em cima. A metade superior será a cabeça.",
+    "result": "Os quatro cantos estão livres."
+  },
+  "steps": {
+    "double-the-square": {
+      "title": "Estreitar o quadrado",
+      "instruction": "Leve as duas laterais até a linha vertical do meio.",
+      "result": "A tira dupla tem o dobro da altura em relação à largura."
+    },
+    "mark-first-diagonal": {
+      "title": "Primeira diagonal",
+      "instruction": "Dobre o canto superior esquerdo do quadrado de cima até o canto inferior direito dele.",
+      "result": "O vinco vai de baixo à esquerda até cima à direita."
+    },
+    "open-first-diagonal": {
+      "title": "Abrir a primeira diagonal",
+      "instruction": "Devolva o canto ao lugar sem abrir as dobras compridas.",
+      "result": "Fica uma diagonal no quadrado de cima."
+    },
+    "mark-second-diagonal": {
+      "title": "Segunda diagonal",
+      "instruction": "Leve o canto superior direito ao inferior esquerdo do mesmo quadrado.",
+      "result": "As diagonais se cruzam."
+    },
+    "open-second-diagonal": {
+      "title": "Abrir a segunda diagonal",
+      "instruction": "Volte o canto à posição inicial.",
+      "result": "Um X marca a cabeça."
+    },
+    "mark-head-cross": {
+      "title": "Inverter o vinco transversal",
+      "instruction": "Dobre a borda superior para trás pelo centro do X.",
+      "result": "A borda alcança a base do quadrado da cabeça."
+    },
+    "open-head-cross": {
+      "title": "Abrir o vinco transversal",
+      "instruction": "Volte a borda de cima ao lugar.",
+      "result": "Um vinco em relevo passa pelo X."
+    },
+    "collapse-head": {
+      "title": "Fechar a cabeça",
+      "instruction": "Segure o triângulo inferior. Empurre os pontos médios das laterais para dentro e abaixe o triângulo superior por cima.",
+      "result": "Dois bolsos ficam entre as camadas triangulares."
+    },
+    "raise-front-feet": {
+      "title": "Levantar as patas dianteiras",
+      "instruction": "Leve os dois cantos livres do triângulo de cima até o vértice. Mantenha o triângulo inferior junto ao corpo.",
+      "result": "Duas pontas se encontram no focinho."
+    },
+    "splay-front-feet": {
+      "title": "Afastar as patas dianteiras",
+      "instruction": "Faça um vinco do meio da base até o meio da borda inclinada externa de cada aba levantada e vire só a ponta para fora.",
+      "result": "As patas ficam nos dois lados do focinho."
+    },
+    "double-the-tail": {
+      "title": "Dobrar a cauda",
+      "instruction": "Suba a borda de baixo até a base da cabeça.",
+      "result": "O corpo termina em uma borda reta e dupla."
+    },
+    "narrow-waist": {
+      "title": "Estreitar a cintura",
+      "instruction": "Leve os lados ao centro por baixo das patas dianteiras, junto com as camadas inferiores da cabeça presas a eles.",
+      "result": "A cintura fica estreita abaixo dos ombros."
+    },
+    "roll-rear-edge": {
+      "title": "Levantar a borda traseira",
+      "instruction": "Leve mais uma vez a borda traseira dupla até a base do triângulo.",
+      "result": "Um retângulo curto e grosso fica sobre a cintura."
+    },
+    "mark-pockets": {
+      "title": "Marcar os bolsos",
+      "instruction": "Dobre os dois cantos de cima do retângulo até o meio da borda de baixo.",
+      "result": "Dois triângulos se encontram entre as patas traseiras."
+    },
+    "open-pocket-marks": {
+      "title": "Soltar as marcas",
+      "instruction": "Abra apenas os dois triângulos e mantenha a borda traseira levantada.",
+      "result": "As diagonais indicam as aberturas dos bolsos."
+    },
+    "spread-hind-pockets": {
+      "title": "Abrir os bolsos traseiros",
+      "instruction": "Segure a diagonal interna de cada bolso. Levante a borda escondida e puxe a ponta livre para o lado até achatar.",
+      "result": "A aba se alarga e fica parecida com um barco de duas pontas."
+    },
+    "angle-hind-feet": {
+      "title": "Virar as patas traseiras",
+      "instruction": "Do meio do lado longo do barco, marque até dois terços de cada lado inclinado. Vire as pontas em direção à cauda.",
+      "result": "As quatro patas cercam a barriga."
+    },
+    "double-the-spring": {
+      "title": "Dobrar a mola",
+      "instruction": "Erga toda a cauda com as patas traseiras sobre a cintura, dobrando na base da cabeça.",
+      "result": "O pacote traseiro fica sobre a barriga."
+    },
+    "return-the-pleat": {
+      "title": "Fazer a dobra de retorno",
+      "instruction": "Dobre as patas de volta no meio da cintura dupla. Deixe a dobra aberta cerca de trinta graus.",
+      "result": "A cauda forma a segunda curva de um Z."
+    },
+    "ease-the-spring": {
+      "title": "Soltar a mola",
+      "instruction": "Abra um pouco a primeira curva, mantendo as patas e a dobra de retorno juntas.",
+      "result": "A cabeça, as quatro patas e a mola levantada aparecem em repouso."
+    }
+  }
+}

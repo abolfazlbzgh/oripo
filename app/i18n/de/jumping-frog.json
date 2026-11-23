@@ -1,0 +1,109 @@
+{
+  "sheet": {
+    "title": "Quadratisches Blatt",
+    "instruction": "Lege eine Kante waagerecht nach oben. Aus der oberen Hälfte entsteht der Kopf.",
+    "result": "Alle vier Ecken des Quadrats sind frei."
+  },
+  "steps": {
+    "double-the-square": {
+      "title": "Quadrat verschmälern",
+      "instruction": "Lege beide Seitenkanten auf die senkrechte Mittellinie.",
+      "result": "Der doppelte Streifen ist doppelt so hoch wie breit."
+    },
+    "mark-first-diagonal": {
+      "title": "Erste Diagonale",
+      "instruction": "Falte die linke obere Ecke des oberen Quadrats auf dessen rechte untere Ecke.",
+      "result": "Der Falz läuft von links unten nach rechts oben."
+    },
+    "open-first-diagonal": {
+      "title": "Erste Diagonale öffnen",
+      "instruction": "Lege die Ecke zurück und lass die langen Falten geschlossen.",
+      "result": "Im oberen Quadrat bleibt ein diagonaler Falz."
+    },
+    "mark-second-diagonal": {
+      "title": "Zweite Diagonale",
+      "instruction": "Lege die rechte obere Ecke auf die linke untere Ecke desselben Quadrats.",
+      "result": "Die Diagonalen kreuzen sich."
+    },
+    "open-second-diagonal": {
+      "title": "Zweite Diagonale öffnen",
+      "instruction": "Bringe die Ecke wieder an ihren Platz.",
+      "result": "Ein X markiert den Kopf."
+    },
+    "mark-head-cross": {
+      "title": "Querfalte nach hinten",
+      "instruction": "Falte die Oberkante hinter den Streifen, genau durch das Zentrum des X.",
+      "result": "Die Kante trifft auf die Unterseite des Kopfquadrats."
+    },
+    "open-head-cross": {
+      "title": "Querfalte öffnen",
+      "instruction": "Klappe die obere Kante zurück.",
+      "result": "Ein quer verlaufender Bergfalz geht durch das X."
+    },
+    "collapse-head": {
+      "title": "Kopf zusammenschieben",
+      "instruction": "Halte das untere Dreieck fest. Drücke die Seitenmitten nach innen und senke das obere Dreieck darüber.",
+      "result": "Zwei Taschen liegen zwischen den dreieckigen Lagen."
+    },
+    "raise-front-feet": {
+      "title": "Vorderfüße anheben",
+      "instruction": "Falte die beiden freien Ecken des oberen Dreiecks zur Spitze. Lass das untere Dreieck am Körper liegen.",
+      "result": "Zwei Spitzen treffen an der Nase zusammen."
+    },
+    "splay-front-feet": {
+      "title": "Vorderfüße spreizen",
+      "instruction": "Falte von der Mitte der Grundkante zur Mitte der äußeren Schräge jedes angehobenen Flügels. Lege nur die Spitze nach außen.",
+      "result": "Die Vorderfüße zeigen seitlich an der Nase vorbei."
+    },
+    "double-the-tail": {
+      "title": "Hinterteil doppeln",
+      "instruction": "Lege die Unterkante an die Grundkante des Kopfes.",
+      "result": "Das Hinterteil hat eine doppelte gerade Kante."
+    },
+    "narrow-waist": {
+      "title": "Taille verschmälern",
+      "instruction": "Falte die Seiten unter den freien Vorderfüßen zur Mitte und nimm die daran hängenden unteren Kopflagen mit.",
+      "result": "Unter den Schultern entsteht eine schmale Taille."
+    },
+    "roll-rear-edge": {
+      "title": "Hinterkante hochlegen",
+      "instruction": "Lege die doppelte Hinterkante erneut an die Grundkante des Dreiecks.",
+      "result": "Ein kurzes dickes Rechteck liegt quer über der Taille."
+    },
+    "mark-pockets": {
+      "title": "Taschen vorfalzen",
+      "instruction": "Lege die oberen Ecken des Rechtecks auf die Mitte seiner unteren Kante.",
+      "result": "Zwei kleine Dreiecke treffen zwischen den Hinterbeinen zusammen."
+    },
+    "open-pocket-marks": {
+      "title": "Taschenfalze öffnen",
+      "instruction": "Öffne nur die beiden Dreiecke und lass die Hinterkante hochgefaltet.",
+      "result": "Die Diagonalen markieren die Taschenöffnungen."
+    },
+    "spread-hind-pockets": {
+      "title": "Hintere Taschen spreizen",
+      "instruction": "Halte die innere Diagonale jeder Tasche. Hebe den verdeckten Rand und ziehe die lose Ecke zur Seite, bis die Tasche flach liegt.",
+      "result": "Die hintere Lasche bildet ein Boot mit zwei Spitzen."
+    },
+    "angle-hind-feet": {
+      "title": "Hinterfüße ausrichten",
+      "instruction": "Falte von der Mitte der langen Bootskante bis zu zwei Dritteln jeder Schräge hinunter. Lege die freien Spitzen nach hinten.",
+      "result": "Vier Füße umgeben den Bauch."
+    },
+    "double-the-spring": {
+      "title": "Feder doppeln",
+      "instruction": "Lege das ganze Hinterteil mit den Füßen an der Grundkante des Kopfes über die Taille.",
+      "result": "Das hintere Paket liegt auf dem Bauch."
+    },
+    "return-the-pleat": {
+      "title": "Rückfalte legen",
+      "instruction": "Falte die Hinterfüße in der Mitte der doppelten Taille zurück. Lass die Rückfalte etwa dreißig Grad offen.",
+      "result": "Das Hinterteil bildet den zweiten Knick eines Z."
+    },
+    "ease-the-spring": {
+      "title": "Feder entspannen",
+      "instruction": "Öffne den ersten Knick leicht und halte Rückfalte und Hinterfüße zusammen.",
+      "result": "Kopf, vier Füße und die abstehende Feder sind in Ruhestellung sichtbar."
+    }
+  }
+}

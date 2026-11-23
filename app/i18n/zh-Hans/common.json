@@ -40,6 +40,11 @@
     "back": "返回探索"
   },
   "models": {
+    "jumping-frog": {
+      "title": "四足跳蛙",
+      "short": "跳蛙",
+      "summary": "翻开后腿的两个纸袋，再在腹部折出回折弹簧，观察它静止时的形状。"
+    },
     "herringbone-map": {
       "title": "人字折叠地图",
       "short": "三浦地图",

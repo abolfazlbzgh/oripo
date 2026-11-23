@@ -40,6 +40,11 @@
     "back": "Back to Explore"
   },
   "models": {
+    "jumping-frog": {
+      "title": "Four-foot jumping frog",
+      "short": "Jumping frog",
+      "summary": "Open two hidden leg pockets and fold a return pleat under a four-foot frog. The lesson shows the spring at rest."
+    },
     "herringbone-map": {
       "title": "Herringbone map",
       "short": "Miura map",

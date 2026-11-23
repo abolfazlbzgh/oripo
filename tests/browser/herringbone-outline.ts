@@ -1,3 +1,4 @@
+import { atIndex } from "../../app/lesson/geometry";
 import type { Point } from "./paper-pixels";
 
 // Measured in the ideal finished grid: a full panel edge projects to 0.45
@@ -11,11 +12,18 @@ export function mapOutline(): Point[][] {
       ? [-19 / 30, -1 / 3, 7 / 60, 17 / 30, 61 / 60, 7 / 6]
       : [-0.9, -0.75, -0.3, 0.15, 0.6, 0.9];
     const zs = odd ? [0.2, 0.6, 0, 0.6, 0, 0.2] : [0.4, 0.6, 0, 0.6, 0, 0.4];
-    rows.push(xs.map((x, c) => [x, y, zs[c]!] as Point));
+    rows.push(xs.map((x, c) => [x, y, atIndex(zs, c)] as Point));
   }
   return rows
     .slice(0, -1)
     .flatMap((row, r) =>
-      row.slice(0, -1).map((p, c) => [p, row[c + 1]!, rows[r + 1]![c + 1]!, rows[r + 1]![c]!]),
+      row
+        .slice(0, -1)
+        .map((p, c) => [
+          p,
+          atIndex(row, c + 1),
+          atIndex(atIndex(rows, r + 1), c + 1),
+          atIndex(atIndex(rows, r + 1), c),
+        ]),
     );
 }

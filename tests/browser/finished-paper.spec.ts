@@ -5,6 +5,7 @@ import { lessons, type ModelId } from "../../app/lessons";
 import { paperPixels, type Point } from "./paper-pixels";
 import { finishedOutlines } from "./finished-outlines";
 const studioEyes: Record<ModelId, Point> = {
+  "jumping-frog": [0.55, -1.15, 2.75],
   "herringbone-map": [1.6, -3.5, 3.9],
   "paper-airplane": [2.4, -3.35, 4],
   "paper-heart": [0, -0.75, 3.4],
@@ -104,6 +105,9 @@ test("gallery previews retain the independently constructed silhouettes at phone
     for (const { id, finishedAppearance } of lessons) {
       const img = page.locator(`img[src="/previews/${id}.png"]`);
       await img.scrollIntoViewIfNeeded();
+      await expect
+        .poll(() => img.evaluate((el: HTMLImageElement) => el.naturalWidth))
+        .toBeGreaterThan(0);
       const score = await img.evaluate(
         async (el, { polygons, eye, palette }) => {
           const image = el as HTMLImageElement;
@@ -183,6 +187,14 @@ test("gallery previews retain the independently constructed silhouettes at phone
       );
       expect(score.iou, id).toBeGreaterThan(0.96);
       expect(score.palette, id).toBeGreaterThan(0.85);
+      if (!dark)
+        console.log(
+          id,
+          info.project.name,
+          "preview IoU and palette coverage",
+          score.iou,
+          score.palette,
+        );
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,

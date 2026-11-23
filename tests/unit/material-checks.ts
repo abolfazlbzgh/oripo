@@ -39,8 +39,9 @@ export function materialChecks(m: CompiledLesson) {
         for (const { v, w, d } of pairs)
           rigid = Math.max(rigid, Math.abs(distance(atIndex(p, v), atIndex(p, w)) - d));
         for (const turn of step.turns) {
-          for (const v of m.creases.get(turn.crease)!)
-            hinge = Math.max(hinge, distance(atIndex(p, v), atIndex(start, v)));
+          const ends = m.creases.get(turn.crease);
+          if (!ends) throw Error("Unknown material hinge");
+          for (const v of ends) hinge = Math.max(hinge, distance(atIndex(p, v), atIndex(start, v)));
         }
         if (step.charts)
           for (const [k, f] of m.faces.entries()) {

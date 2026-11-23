@@ -40,6 +40,11 @@
     "back": "Revenir aux modèles"
   },
   "models": {
+    "jumping-frog": {
+      "title": "Grenouille sauteuse à quatre pattes",
+      "short": "Grenouille sauteuse",
+      "summary": "Ouvrez les poches des pattes arrière et formez un ressort de papier sous la grenouille au repos."
+    },
     "herringbone-map": {
       "title": "Carte à chevrons",
       "short": "Carte Miura",

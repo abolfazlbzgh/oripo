@@ -1,0 +1,109 @@
+{
+  "sheet": {
+    "title": "A square sheet",
+    "instruction": "Place a square with a straight edge at the top. The top half will become the head.",
+    "result": "One flat square has four free corners."
+  },
+  "steps": {
+    "double-the-square": {
+      "title": "Narrow the square",
+      "instruction": "Fold both side edges in to meet on the vertical centerline.",
+      "result": "A double-thickness strip is twice as tall as it is wide."
+    },
+    "mark-first-diagonal": {
+      "title": "Mark the first diagonal",
+      "instruction": "Fold the upper left corner across the top square to the opposite lower corner of that square.",
+      "result": "The crease runs from its lower left to upper right."
+    },
+    "open-first-diagonal": {
+      "title": "Open the first diagonal",
+      "instruction": "Return the corner to the top without opening the long side folds.",
+      "result": "A diagonal remains in the top square."
+    },
+    "mark-second-diagonal": {
+      "title": "Mark the second diagonal",
+      "instruction": "Fold the upper right corner to the lower left corner of the same square.",
+      "result": "The second diagonal crosses the first."
+    },
+    "open-second-diagonal": {
+      "title": "Open the second diagonal",
+      "instruction": "Lift the corner back into place.",
+      "result": "An X marks the head."
+    },
+    "mark-head-cross": {
+      "title": "Reverse the cross crease",
+      "instruction": "Fold the top edge behind the strip through the center of the X.",
+      "result": "The top edge meets the bottom of the head square."
+    },
+    "open-head-cross": {
+      "title": "Open the cross crease",
+      "instruction": "Return the top edge to its starting position.",
+      "result": "A crosswise ridge passes through the X."
+    },
+    "collapse-head": {
+      "title": "Collapse the head",
+      "instruction": "Hold the lower triangle still. Push the side midpoints inward and let the upper triangle come down over them.",
+      "result": "Two folded pockets lie between the triangular covers."
+    },
+    "raise-front-feet": {
+      "title": "Raise the front feet",
+      "instruction": "Take the two loose corners of the upper triangle up to its apex. Leave the lower triangle against the body.",
+      "result": "Two tips meet at the nose."
+    },
+    "splay-front-feet": {
+      "title": "Open the front stance",
+      "instruction": "From the center of the triangle base, crease to the midpoint of each raised flap’s outer slope. Turn just its tip outward.",
+      "result": "Two front feet point to either side of the nose."
+    },
+    "double-the-tail": {
+      "title": "Double the tail",
+      "instruction": "Bring the bottom edge up to the base of the head.",
+      "result": "The lower body has a doubled straight edge."
+    },
+    "narrow-waist": {
+      "title": "Narrow the waist",
+      "instruction": "Bring the body edges to the center under the free front feet. Include the lower head plies attached to those edges.",
+      "result": "A narrow waist sits below the shoulders."
+    },
+    "roll-rear-edge": {
+      "title": "Roll up the rear edge",
+      "instruction": "Bring the doubled rear edge up to the triangle base again.",
+      "result": "A short, thick rectangle rests across the waist."
+    },
+    "mark-pockets": {
+      "title": "Mark the pocket hinges",
+      "instruction": "On the raised rectangle fold its two upper corners down to the center of its lower edge.",
+      "result": "Two small triangles meet between the hind legs."
+    },
+    "open-pocket-marks": {
+      "title": "Release the pocket marks",
+      "instruction": "Open just those two triangles, keeping the rear edge folded up.",
+      "result": "The two diagonals locate the mouths of the pockets."
+    },
+    "spread-hind-pockets": {
+      "title": "Spread the hind pockets",
+      "instruction": "Hold the inner diagonal of each pocket. Lift the buried rim and ease its loose corner sideways until the pocket flattens.",
+      "result": "The rear flap widens into a boat shape with a point on each side."
+    },
+    "angle-hind-feet": {
+      "title": "Angle the hind feet",
+      "instruction": "From the middle of the long boat edge, crease toward a point two thirds down each sloping side. Fold the free tips toward the tail.",
+      "result": "Four distinct feet surround the belly."
+    },
+    "double-the-spring": {
+      "title": "Double the spring",
+      "instruction": "Lift the whole tail and hind feet over the waist along the base of the head.",
+      "result": "The rear packet doubles onto the belly."
+    },
+    "return-the-pleat": {
+      "title": "Return the pleat",
+      "instruction": "Bend the hind feet back across the middle of the doubled waist, leaving the return about thirty degrees open.",
+      "result": "The folded-back tail forms the second bend of a Z."
+    },
+    "ease-the-spring": {
+      "title": "Ease the spring",
+      "instruction": "Open the first bend slightly, keeping the return crease and both hind feet together.",
+      "result": "The head, four feet and a raised spring are visible. The model shows the resting fold."
+    }
+  }
+}

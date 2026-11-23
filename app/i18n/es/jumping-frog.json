@@ -1,0 +1,109 @@
+{
+  "sheet": {
+    "title": "Hoja cuadrada",
+    "instruction": "Coloca un lado horizontal arriba. La mitad superior formará la cabeza.",
+    "result": "El cuadrado tiene cuatro esquinas libres."
+  },
+  "steps": {
+    "double-the-square": {
+      "title": "Estrechar el cuadrado",
+      "instruction": "Lleva ambos lados al eje vertical central.",
+      "result": "La tira de dos capas mide el doble de alto que de ancho."
+    },
+    "mark-first-diagonal": {
+      "title": "Primera diagonal",
+      "instruction": "Lleva la esquina superior izquierda del cuadrado de arriba a su esquina inferior derecha.",
+      "result": "La diagonal va de abajo a la izquierda hacia arriba a la derecha."
+    },
+    "open-first-diagonal": {
+      "title": "Abrir la primera diagonal",
+      "instruction": "Devuelve la punta sin abrir los pliegues largos.",
+      "result": "Queda una diagonal en el cuadrado superior."
+    },
+    "mark-second-diagonal": {
+      "title": "Segunda diagonal",
+      "instruction": "Lleva la esquina superior derecha a la inferior izquierda del mismo cuadrado.",
+      "result": "Las dos diagonales se cruzan."
+    },
+    "open-second-diagonal": {
+      "title": "Abrir la segunda diagonal",
+      "instruction": "Devuelve la esquina a su sitio.",
+      "result": "Una X marca la cabeza."
+    },
+    "mark-head-cross": {
+      "title": "Marcar el pliegue transversal",
+      "instruction": "Dobla el borde superior hacia atrás por el centro de la X.",
+      "result": "El borde llega a la base del cuadrado superior."
+    },
+    "open-head-cross": {
+      "title": "Abrir la marca transversal",
+      "instruction": "Devuelve el borde superior a su posición inicial.",
+      "result": "Una cresta transversal atraviesa la X."
+    },
+    "collapse-head": {
+      "title": "Cerrar la cabeza",
+      "instruction": "Sujeta el triángulo inferior. Empuja hacia dentro los puntos medios laterales y baja el triángulo superior sobre ellos.",
+      "result": "Dos bolsillos quedan entre las capas triangulares."
+    },
+    "raise-front-feet": {
+      "title": "Levantar las patas delanteras",
+      "instruction": "Lleva las dos puntas sueltas del triángulo superior hasta su vértice. Sujeta el triángulo inferior contra el cuerpo.",
+      "result": "Dos puntas se juntan en el hocico."
+    },
+    "splay-front-feet": {
+      "title": "Separar las patas delanteras",
+      "instruction": "Desde el centro de la base, marca hasta la mitad del borde oblicuo exterior de cada solapa y gira solo su punta hacia fuera.",
+      "result": "Las patas apuntan a ambos lados del hocico."
+    },
+    "double-the-tail": {
+      "title": "Doblar la cola",
+      "instruction": "Sube el borde inferior hasta la base de la cabeza.",
+      "result": "El cuerpo termina en un borde recto y doble."
+    },
+    "narrow-waist": {
+      "title": "Estrechar la cintura",
+      "instruction": "Lleva los laterales hacia el centro por debajo de las patas delanteras, con las capas inferiores de la cabeza que llevan unidas.",
+      "result": "La cintura queda más estrecha que los hombros."
+    },
+    "roll-rear-edge": {
+      "title": "Subir el borde trasero",
+      "instruction": "Lleva otra vez el borde trasero doble a la base del triángulo.",
+      "result": "Un rectángulo corto y grueso cubre la cintura."
+    },
+    "mark-pockets": {
+      "title": "Marcar los bolsillos",
+      "instruction": "Dobla las dos esquinas superiores del rectángulo hasta el centro de su borde inferior.",
+      "result": "Dos triángulos se juntan entre las patas traseras."
+    },
+    "open-pocket-marks": {
+      "title": "Soltar las marcas",
+      "instruction": "Abre solo los dos triángulos, dejando el borde trasero doblado.",
+      "result": "Dos diagonales señalan las bocas de los bolsillos."
+    },
+    "spread-hind-pockets": {
+      "title": "Abrir los bolsillos traseros",
+      "instruction": "Sujeta la diagonal interior de cada bolsillo. Levanta el borde oculto y lleva la punta libre hacia el lado hasta aplanarlo.",
+      "result": "La solapa forma una barca con una punta a cada lado."
+    },
+    "angle-hind-feet": {
+      "title": "Orientar las patas traseras",
+      "instruction": "Desde el centro del lado largo de la barca, marca hasta dos tercios de cada lado inclinado. Dobla las puntas hacia la cola.",
+      "result": "Cuatro patas rodean el vientre."
+    },
+    "double-the-spring": {
+      "title": "Doblar el resorte",
+      "instruction": "Sube toda la cola con las patas traseras por la base de la cabeza, sobre la cintura.",
+      "result": "El paquete trasero descansa sobre el vientre."
+    },
+    "return-the-pleat": {
+      "title": "Hacer el pliegue de retorno",
+      "instruction": "Dobla las patas hacia atrás por el centro de la cintura doblada. Deja la vuelta abierta unos treinta grados.",
+      "result": "La cola forma el segundo ángulo de una Z."
+    },
+    "ease-the-spring": {
+      "title": "Aflojar el resorte",
+      "instruction": "Abre un poco el primer ángulo manteniendo juntas las patas y el pliegue de retorno.",
+      "result": "Se ven la cabeza, las cuatro patas y el resorte en reposo."
+    }
+  }
+}

@@ -24,10 +24,11 @@ export function createLessonMount(
   finished: PaperPalette,
   view: Viewpoint,
   heights: HingePlies,
+  plyThickness?: number,
 ) {
   const { faces, steps, creases } = model;
 
-  const { offsets, foldOffsets, outlines } = paperLayers(model, heights);
+  const { offsets, foldOffsets, outlines } = paperLayers(model, heights, plyThickness);
 
   function geometryWithPositions(count: number) {
     const geometry = new BufferGeometry();

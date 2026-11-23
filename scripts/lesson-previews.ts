@@ -1,5 +1,6 @@
 import { masu, masuHingePlies } from "../app/lesson/masu";
 import { herringbone, mapHingePlies, mapEye } from "../app/lesson/herringbone";
+import { frog, frogHingePlies, frogEye, frogPlyThickness } from "../app/lesson/frog";
 import type { CompiledLesson } from "../app/lesson/geometry";
 import type { HingePlies } from "../app/lesson/drawing";
 import type { Point } from "../app/fold/geometry";
@@ -18,7 +19,16 @@ function flat(id: ModelId, folds: readonly FlatFold[]) {
     eye: [0, -0.18, 1] as Point,
   };
 }
-const previews = {
+const previews: Record<
+  ModelId,
+  () => { model: CompiledLesson; heights: HingePlies; eye: Point; plyThickness?: number }
+> = {
+  "jumping-frog": () => ({
+    model: frog,
+    heights: frogHingePlies,
+    eye: frogEye,
+    plyThickness: frogPlyThickness,
+  }),
   "herringbone-map": () => ({ model: herringbone, heights: mapHingePlies, eye: mapEye }),
   "masu-box": () => ({ model: masu, heights: masuHingePlies, eye: [2, -3, 3] as Point }),
   "paper-airplane": () => ({
@@ -28,15 +38,15 @@ const previews = {
   }),
   "paper-heart": () => flat("paper-heart", heartFolds),
   "fox-face": () => flat("fox-face", foxFolds),
-} satisfies Record<ModelId, () => { model: CompiledLesson; heights: HingePlies; eye: Point }>;
+};
 
 export function lessonPreviews() {
   return new Map(
     lessons.map((lesson) => {
-      const { model, heights, eye } = previews[lesson.id]();
+      const { model, heights, eye, plyThickness } = previews[lesson.id]();
       return [
         "/previews/" + lesson.id + ".png",
-        projectPaper(model, heights, lesson.finishedAppearance, eye),
+        projectPaper(model, heights, lesson.finishedAppearance, eye, plyThickness),
       ];
     }),
   );

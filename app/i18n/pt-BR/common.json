@@ -40,6 +40,11 @@
     "back": "Voltar aos modelos"
   },
   "models": {
+    "jumping-frog": {
+      "title": "Rã saltadora de quatro patas",
+      "short": "Rã saltadora",
+      "summary": "Abra dois bolsos para as patas traseiras e faça uma mola de papel sob a rã em repouso."
+    },
     "herringbone-map": {
       "title": "Mapa em espinha de peixe",
       "short": "Mapa Miura",

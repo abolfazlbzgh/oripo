@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "Oripo Inter";
+  src: url("/fonts/inter-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range:
+    U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+0178, U+1E9E, U+2000-206F, U+20AC, U+2212;
+}
+
+@font-face {
+  font-family: "Oripo Vazirmatn";
+  src: url("/fonts/vazirmatn-fa.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range:
+    U+0020-007E, U+00A0, U+00AB, U+00B0, U+00B7, U+00BB, U+00D7, U+0600-06FF, U+0750-077F,
+    U+2000-206F, U+2212;
+}
+
+@font-face {
+  font-family: "Oripo Noto Arabic";
+  src: url("/fonts/noto-arabic.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range:
+    U+0020-007E, U+00A0, U+00AB, U+00B0, U+00B7, U+00BB, U+00D7, U+0600-06FF, U+0750-077F,
+    U+2000-206F, U+2212;
+}
+
+@font-face {
+  font-family: "Oripo Noto Devanagari";
+  src: url("/fonts/noto-devanagari.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range:
+    U+0020-007E, U+00A0, U+00AB, U+00B0, U+00B7, U+00BB, U+00D7, U+0900-097F, U+2000-206F, U+2212;
+}
+
+@font-face {
+  font-family: "Oripo Noto SC";
+  src: url("/fonts/noto-sc.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range:
+    U+0020-007E, U+00A0, U+00AB, U+00B0, U+00B7, U+00BB, U+00D7, U+2000-206F, U+2212, U+2236,
+    U+3000-303F, U+3400-9FFF, U+FF01-FF60;
+}
+
+@font-face {
+  font-family: "Oripo Noto JP";
+  src: url("/fonts/noto-jp.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range:
+    U+0020-007E, U+00A0, U+00AB, U+00B0, U+00B7, U+00BB, U+00D7, U+2000-206F, U+2212, U+2236,
+    U+3000-30FF, U+3400-9FFF, U+FF01-FF60;
+}
+
+html.font-latin {
+  --body-font: "Oripo Inter", "Segoe UI", system-ui, sans-serif;
+  --heading-font: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+}
+html.font-fa {
+  --body-font: "Oripo Vazirmatn", Vazirmatn, Tahoma, system-ui, sans-serif;
+  --heading-font: var(--body-font);
+}
+html.font-ar {
+  --body-font: "Oripo Noto Arabic", "Noto Sans Arabic", Tahoma, system-ui, sans-serif;
+  --heading-font: var(--body-font);
+}
+html.font-zh {
+  --body-font: "Oripo Noto SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --heading-font: var(--body-font);
+}
+html.font-ja {
+  --body-font: "Oripo Noto JP", "Hiragino Sans", Meiryo, system-ui, sans-serif;
+  --heading-font: var(--body-font);
+}
+html.font-hi {
+  --body-font: "Oripo Noto Devanagari", "Noto Sans Devanagari", "Nirmala UI", system-ui, sans-serif;
+  --heading-font: var(--body-font);
+}

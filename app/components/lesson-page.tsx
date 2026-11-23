@@ -144,10 +144,11 @@ export function LessonPage({
         <summary>Read all {total} steps</summary>
         <p>{sheetText.instruction}</p>
         <ol>
-          {lesson.steps.map(({ id, title, instruction }) => (
+          {lesson.steps.map(({ id, title, instruction, result }) => (
             <li key={id}>
               <strong>{title}</strong>
               <p>{instruction}</p>
+              <p>{result}</p>
             </li>
           ))}
         </ol>

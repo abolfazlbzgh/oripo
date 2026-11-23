@@ -66,7 +66,11 @@ test.describe("static dart instructions", () => {
       if (!(await details.evaluate((el) => el.hasAttribute("open"))))
         await details.locator("summary").click();
       await expect(details.getByRole("listitem")).toHaveCount(9);
-      await expect(details.getByText(airplaneText["right-wing"].instruction)).toBeVisible();
+      for (const [index, id] of actions.entries()) {
+        const item = details.getByRole("listitem").nth(index);
+        await expect(item.getByText(airplaneText[id].instruction, { exact: true })).toBeVisible();
+        await expect(item.getByText(airplaneText[id].result, { exact: true })).toBeVisible();
+      }
     }
   });
 });
@@ -223,7 +227,7 @@ test("missing WebGL provides all nine text poses, the transcript and instant rev
   await expect(meter(page)).toHaveJSProperty("value", 8);
 });
 
-test.describe("touch on the dart workbench", () => {
+test.describe("touch on the dart workbench", { tag: "@cdp" }, () => {
   test.use({ hasTouch: true, viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
   test("one-finger orbit and pinch leave the current fold intact while a swipe on the notes scrolls", async ({
     page,

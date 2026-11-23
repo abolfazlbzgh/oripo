@@ -53,6 +53,15 @@ export function flatJourney(f: Fixture) {
           expect(await response?.text()).toContain(copy(total).instruction);
           await expect(page.getByRole("heading", { level: 1 })).toHaveText(f.title);
           await expect(page.locator("details li")).toHaveCount(total);
+          const transcript = page.locator("details");
+          await transcript.locator("summary").focus();
+          if (!(await transcript.evaluate((element) => element.hasAttribute("open"))))
+            await page.keyboard.press("Enter");
+          for (let n = 1; n <= total; n++) {
+            const step = transcript.getByRole("listitem").nth(n - 1);
+            await expect(step.getByText(copy(n).instruction, { exact: true })).toBeVisible();
+            await expect(step.getByText(copy(n).result, { exact: true })).toBeVisible();
+          }
           await expect(button(page, "Next")).toBeDisabled();
         }
         expect(errors).toEqual([]);
@@ -218,7 +227,7 @@ export function flatJourney(f: Fixture) {
       });
     }
 
-    test.describe("touch workbench", () => {
+    test.describe("touch workbench", { tag: "@cdp" }, () => {
       test.use({ hasTouch: true, viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
       test("one-finger orbit, pinch and a swipe outside the canvas preserve the fold", async ({
         page,

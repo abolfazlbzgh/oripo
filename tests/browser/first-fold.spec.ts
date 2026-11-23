@@ -229,7 +229,7 @@ test("pointer orbit, wheel zoom, resize and a preference switch preserve the cur
   await expect(page.getByRole("status")).toHaveText(/Replay complete/);
 });
 
-test.describe("narrow touch viewport", () => {
+test.describe("narrow touch viewport", { tag: "@cdp" }, () => {
   test.use({
     viewport: { width: 320, height: 720 },
     hasTouch: true,

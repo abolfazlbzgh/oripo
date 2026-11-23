@@ -1,13 +1,9 @@
-export function FoldDiagram({
-  guide = false,
-  airplane = false,
-}: {
-  guide?: boolean;
-  airplane?: boolean;
-}) {
+type Diagram = "paper-airplane" | "paper-heart" | "fox-face" | "first-fold" | "crease-guide";
+
+export function FoldDiagram({ kind }: { kind: Diagram }) {
   return (
     <svg className="fold-diagram" viewBox="0 0 220 156" fill="none" aria-hidden="true">
-      {airplane ? (
+      {kind === "paper-airplane" ? (
         <g stroke="#466453" strokeWidth="1.5" strokeLinejoin="round">
           <path d="M198 10 72 134 68 119Z" fill="#ac895f" />
           <path d="M198 10 53 62 21 90 68 119Z" fill="#a5bda9" />
@@ -15,7 +11,32 @@ export function FoldDiagram({
           <path d="M198 10 53 62 142 57Z" fill="#e4c396" />
           <path d="M198 10 142 57 148 118Z" fill="#d6b282" />
         </g>
-      ) : guide ? (
+      ) : kind === "paper-heart" ? (
+        <g
+          transform="translate(110 107) scale(133 -133)"
+          stroke="#66503b"
+          strokeWidth=".012"
+          strokeLinejoin="round"
+        >
+          <path
+            d="M0 -.25 .55 .30 .55 .45 .35 .65 .15 .65 0 .50 -.15 .65 -.35 .65 -.55 .45 -.55 .30Z"
+            fill="#dfb780"
+          />
+          <path d="M0 -.25V.5M-.25 0V.65M.25 0V.65" />
+        </g>
+      ) : kind === "fox-face" ? (
+        <g
+          transform="translate(110 47) scale(94 -94)"
+          stroke="#61523d"
+          strokeWidth=".016"
+          strokeLinejoin="round"
+        >
+          <path d="M-.667 0 -.538 .308 -.412 0 .412 0 .538 .308 .667 0 0 -1Z" fill="#d9b07b" />
+          <path d="M-.667 0H.667L0 -1Z" fill="#e7c18c" />
+          <path d="M0 -1 -.24 -.64 0 -.4 .24 -.64Z" fill="#98b9a5" />
+          <path d="M0 -1V0M-.2 -.7H.2" />
+        </g>
+      ) : kind === "crease-guide" ? (
         <>
           <path d="m28 86 66-38 49 22-65 39z" fill="#dab391" />
           <path d="m78 109 65-39 48-43-61 36z" fill="#f2d6ac" />

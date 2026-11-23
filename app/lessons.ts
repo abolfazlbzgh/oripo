@@ -1,7 +1,5 @@
 import { englishPath } from "./navigation";
 
-type PublishedLesson = { id: string; title: string; summary: string; href: string; format: string };
-
 export const foxInfo = {
   id: "fox-face",
   title: "Fox face",
@@ -9,6 +7,7 @@ export const foxInfo = {
   availability: "playable",
   level: "Beginner",
   paper: "Square sheet",
+  stepCount: 6,
   href: englishPath("foxFace"),
   format: "Playable lesson",
 } as const;
@@ -20,6 +19,7 @@ export const heartInfo = {
   availability: "playable",
   level: "Beginner",
   paper: "Square sheet",
+  stepCount: 12,
   href: englishPath("paperHeart"),
   format: "Playable lesson",
 } as const;
@@ -30,13 +30,16 @@ export const airplaneInfo = {
   summary: "Turn a portrait rectangle into a pointed dart with two swept wings and a narrow body.",
   availability: "playable",
   level: "Beginner",
+  stepCount: 9,
   href: englishPath("paperAirplane"),
   paper: "2 × 3 rectangle",
   format: "Playable lesson",
 } as const;
 
-export const lessons = [
-  airplaneInfo,
+// Lightweight catalog metadata keeps fold construction out of the homepage bundle.
+export const lessons = [airplaneInfo, heartInfo, foxInfo] as const;
+
+export const studioResources = [
   {
     id: "first-fold",
     title: "The first fold",
@@ -45,4 +48,11 @@ export const lessons = [
     href: englishPath("firstFold"),
     format: "Interactive demonstration",
   },
-] as const satisfies readonly PublishedLesson[];
+  {
+    id: "crease-guide",
+    title: "Crease notation",
+    summary: "Read the lines on the page. See how a valley differs from a mountain fold.",
+    href: englishPath("creaseGuide"),
+    format: "Field guide",
+  },
+] as const;

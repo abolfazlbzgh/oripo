@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { PaperStudy } from "../components/paper-study";
 import { FoldDiagram } from "../components/fold-diagram";
-import { lessons } from "../lessons";
+import { lessons, studioResources } from "../lessons";
 import { englishPath } from "../navigation";
 import { pageTitle } from "../site";
 
@@ -31,10 +31,14 @@ export default function Foundation() {
           <h2 id="collection">On the worktable</h2>
         </div>
         <div className="library-grid">
-          {lessons.map((lesson) => (
+          {[...lessons, ...studioResources].map((lesson) => (
             <article key={lesson.id} className="resource">
-              <div className="diagram-field">
-                <FoldDiagram airplane={lesson.id === "paper-airplane"} />
+              <div
+                className={
+                  lesson.id === "crease-guide" ? "diagram-field notation-field" : "diagram-field"
+                }
+              >
+                <FoldDiagram kind={lesson.id} />
               </div>
               <div>
                 <p className="category">{lesson.format}</p>
@@ -43,24 +47,15 @@ export default function Foundation() {
                     {lesson.title}
                   </Link>
                 </h3>
+                {"stepCount" in lesson && (
+                  <p className="lesson-facts">
+                    {lesson.level} · {lesson.stepCount} steps · {lesson.paper}
+                  </p>
+                )}
                 <p>{lesson.summary}</p>
               </div>
             </article>
           ))}
-          <article className="resource">
-            <div className="diagram-field notation-field">
-              <FoldDiagram guide />
-            </div>
-            <div>
-              <p className="category">Field guide</p>
-              <h3>
-                <Link tabIndex={0} to={englishPath("creaseGuide")}>
-                  Crease notation
-                </Link>
-              </h3>
-              <p>Read the lines on the page. See how a valley differs from a mountain fold.</p>
-            </div>
-          </article>
         </div>
       </section>
     </>

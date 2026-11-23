@@ -1,7 +1,7 @@
 export const site = {
   name: "Oripo",
   description:
-    "Fold a dart paper airplane step by step in the Oripo 3D studio, try a single valley fold, or explore crease notation.",
+    "Fold a dart paper airplane, paper heart or fox face from one sheet. Follow each fold in 3D and reverse it in the Oripo studio.",
   defaultLocale: "en",
 } as const;
 

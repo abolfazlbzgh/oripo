@@ -1,12 +1,27 @@
 import { readFileSync } from "node:fs";
 import { expect, it } from "vitest";
-import { lessons } from "../../app/lessons";
+import { airplanePattern } from "../../app/lesson/airplane";
+import { heartFolds } from "../../app/lesson/heart";
+import { foxFolds } from "../../app/lesson/fox";
+import { lessons, studioResources } from "../../app/lessons";
 import { publishedPaths } from "../../app/navigation";
 
 it("gives each gallery demonstration a unique ID and a published address", () => {
-  expect(new Set(lessons.map((lesson) => lesson.id)).size).toBe(lessons.length);
-  expect(new Set(lessons.map((lesson) => lesson.href)).size).toBe(lessons.length);
-  for (const lesson of lessons) expect(publishedPaths).toContain(lesson.href);
+  const items = [...lessons, ...studioResources];
+  expect(new Set(items.map((lesson) => lesson.id)).size).toBe(items.length);
+  expect(new Set(items.map((lesson) => lesson.href)).size).toBe(items.length);
+  for (const lesson of items) expect(publishedPaths).toContain(lesson.href);
+});
+
+it("publishes exactly three complete lessons with their actual action counts", () => {
+  expect(lessons.map((l) => [l.id, l.stepCount])).toEqual([
+    [airplanePattern.lessonId, airplanePattern.steps.length],
+    ["paper-heart", heartFolds.length],
+    ["fox-face", foxFolds.length],
+  ]);
+  expect(
+    lessons.every((l) => l.availability === "playable" && l.level === "Beginner" && l.paper),
+  ).toBe(true);
 });
 
 const css = readFileSync(new URL("../../app/styles.css", import.meta.url), "utf8");

@@ -53,6 +53,7 @@ export function flatJourney(f: Fixture) {
           expect(await response?.text()).toContain(copy(total).instruction);
           await expect(page.getByRole("heading", { level: 1 })).toHaveText(f.title);
           await expect(page.locator("details li")).toHaveCount(total);
+          await button(page, "Read step instructions").click();
           const transcript = page.locator("details");
           await transcript.locator("summary").focus();
           if (!(await transcript.evaluate((element) => element.hasAttribute("open"))))
@@ -62,7 +63,7 @@ export function flatJourney(f: Fixture) {
             await expect(step.getByText(copy(n).instruction, { exact: true })).toBeVisible();
             await expect(step.getByText(copy(n).result, { exact: true })).toBeVisible();
           }
-          await expect(button(page, "Next")).toBeDisabled();
+          await expect(button(page, "Next fold")).toBeDisabled();
         }
         expect(errors).toEqual([]);
       } finally {
@@ -94,19 +95,19 @@ export function flatJourney(f: Fixture) {
       await page.keyboard.press("Enter");
       await expect(page).toHaveURL(new RegExp(route + "$"));
       await expect(page.getByRole("main")).toBeFocused();
-      await expect(button(page, "Orbit left")).toBeEnabled();
+      await expect(button(page, "Zoom in")).toBeEnabled();
       expect(scenes.length).toBeGreaterThan(0);
       await page.clock.pauseAt(new Date("2026-01-01T10:02:00Z"));
       const canvas = page.locator("canvas");
       const capture = async (name: string) => {
         await canvas.screenshot({ path: info.outputPath(name + ".png") });
       };
-      const meter = page.getByRole("meter");
+      const progress = page.getByRole("slider");
       async function endpoint(n: number) {
-        await expect(meter).toHaveJSProperty("value", n);
-        await expect(
-          page.getByRole("region", { name: "Fold instruction" }).getByRole("heading"),
-        ).toHaveText(n ? copy(n).title : f.sheet.title);
+        await expect(progress).toHaveJSProperty("valueAsNumber", n);
+        await expect(page.locator(".instruction-body h2")).toHaveText(
+          copy(Math.min(n + 1, total)).title,
+        );
         await expect(
           page.getByRole("img", { name: n ? copy(n).result : f.sheet.result, exact: true }),
         ).toBeVisible();
@@ -118,13 +119,13 @@ export function flatJourney(f: Fixture) {
       await capture("flat");
       for (let n = 1; n <= total; n++) {
         const duration = action(n).durationMs;
-        await button(page, "Next").focus();
+        await button(page, "Next fold").focus();
         await page.keyboard.press("Enter");
-        await expect(button(page, "Next")).toBeFocused();
+        await expect(button(page, "Next fold")).toBeFocused();
         const middle = f.middles[n];
         if (middle) {
           await page.clock.fastForward(duration / 2);
-          await expect(meter).toHaveJSProperty("value", n - 0.5);
+          await expect(progress).toHaveJSProperty("valueAsNumber", n - 0.5);
           const mid = await paperPixels(page, middle, eye);
           readings["mid-" + n] = mid.iou;
           expect(mid.iou).toBeGreaterThan(0.92);
@@ -132,13 +133,17 @@ export function flatJourney(f: Fixture) {
           await capture("mid-" + n);
           await button(page, "Previous").click();
           await page.clock.fastForward(duration / 4);
-          await expect(meter).toHaveJSProperty("value", n - 0.75);
-          await button(page, "Next").click();
+          await expect(progress).toHaveJSProperty("valueAsNumber", n - 0.75);
+          await button(page, "Next fold").click();
           await page.clock.fastForward(duration / 4);
           expect((await paperPixels(page, middle, eye)).hash).toBe(mid.hash);
-          await button(page, "Replay").click();
+          await progress.fill(String(n - 1));
           await page.clock.fastForward(duration / 2);
-          await expect(meter).toHaveJSProperty("value", n - 1);
+          await expect(progress).toHaveJSProperty("valueAsNumber", n - 1);
+          await progress.fill(String(n - 0.5));
+          await page.clock.runFor(32);
+          expect((await paperPixels(page, middle, eye)).hash).toBe(mid.hash);
+          await button(page, "Next fold").click();
         }
         await page.clock.fastForward(duration);
         await endpoint(n);
@@ -149,13 +154,13 @@ export function flatJourney(f: Fixture) {
       expect(final.colors).toEqual(f.colors);
       await expect(page.getByRole("status")).toContainText(copy(total).result);
       await capture("finished");
-      await button(page, "Orbit right").click();
-      await button(page, "Tilt down").click();
+      await page.locator(".studio-canvas").press("ArrowRight");
+      await page.locator(".studio-canvas").press("ArrowDown");
       await button(page, "Zoom in").click();
       await page.clock.runFor(32);
       await endpoint(total);
       await capture("angled");
-      for (let i = 0; i < 8; i++) await button(page, "Tilt down").click();
+      for (let i = 0; i < 8; i++) await page.locator(".studio-canvas").press("ArrowDown");
       await page.clock.runFor(32);
       await capture("back");
       await button(page, "Reset view").click();
@@ -168,7 +173,7 @@ export function flatJourney(f: Fixture) {
       }
       await capture("reversed");
       expect((await paperPixels(page, diamond, eye)).hash).toBe(flat.hash);
-      await page.getByRole("link", { name: "Back to Explore" }).click();
+      await page.getByRole("banner").getByRole("link", { name: "Oripo", exact: true }).click();
       await expect(page.getByRole("heading", { name: "On the worktable" })).toBeVisible();
       expect(errors).toEqual([]);
       console.info(
@@ -188,11 +193,11 @@ export function flatJourney(f: Fixture) {
         await page.setViewportSize({ width, height: 844 });
         await page.emulateMedia({ colorScheme: "dark", reducedMotion: "reduce" });
         expect((await page.goto(route))?.status()).toBe(200);
-        await expect(button(page, "Orbit left")).toBeEnabled();
+        await expect(button(page, "Zoom in")).toBeEnabled();
         const theme = page.getByLabel("Appearance");
         await theme.selectOption("oripo-light");
         expect((await page.reload())?.status()).toBe(200);
-        await expect(button(page, "Orbit left")).toBeEnabled();
+        await expect(button(page, "Zoom in")).toBeEnabled();
         await expect(theme).toHaveValue("oripo-light");
         await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
         for (const choice of ["oripo-dark", "system"]) {
@@ -200,15 +205,16 @@ export function flatJourney(f: Fixture) {
           await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
         }
         for (let n = 1; n <= total; n++) {
-          await button(page, "Next").click();
-          await expect(page.getByRole("meter")).toHaveJSProperty("value", n);
+          await button(page, "Next fold").click();
+          await expect(page.getByRole("slider")).toHaveJSProperty("valueAsNumber", n);
         }
         const final = await paperPixels(page, [f.outline], eye);
         expect(final.iou).toBeGreaterThan(0.86);
-        await button(page, "Replay").focus();
-        await page.keyboard.press("Space");
-        await expect(button(page, "Replay")).toBeFocused();
-        await expect(page.getByRole("status")).toContainText("Replay complete");
+        await button(page, "Return to starting sheet").press("Space");
+        await expect(button(page, "Show finished model")).toBeFocused();
+        await expect(page.getByRole("slider")).toHaveJSProperty("valueAsNumber", 0);
+        await button(page, "Show finished model").press("Space");
+        await expect(page.getByRole("status")).toContainText(copy(total).result);
         await page.emulateMedia({ reducedMotion: "no-preference" });
         await button(page, "Previous").click();
         await page.locator("canvas").evaluate((c) => {
@@ -220,8 +226,8 @@ export function flatJourney(f: Fixture) {
         });
         await expect(page.getByText("3D view unavailable", { exact: true })).toBeVisible();
         await expect(page.locator("canvas")).toHaveCount(0);
-        await expect(page.getByRole("meter")).toHaveJSProperty("value", total - 1);
-        await button(page, "Next").click();
+        await expect(page.getByRole("slider")).toHaveJSProperty("valueAsNumber", total - 1);
+        await button(page, "Next fold").click();
         await expect(page.getByRole("status")).toContainText(copy(total).result);
         expect(errors).toEqual([]);
       });
@@ -236,10 +242,10 @@ export function flatJourney(f: Fixture) {
       }) => {
         const errors = watchBrowser(page, baseURL);
         await page.goto(route);
-        await expect(button(page, "Orbit left")).toBeEnabled();
-        await button(page, "Next").tap();
+        await expect(button(page, "Zoom in")).toBeEnabled();
+        await button(page, "Next fold").tap();
         await inspectByTouch(page, context);
-        await expect(page.getByRole("meter")).toHaveJSProperty("value", 1);
+        await expect(page.getByRole("slider")).toHaveJSProperty("valueAsNumber", 1);
         await expect(page.getByRole("status")).toContainText(copy(1).result);
         expect(errors).toEqual([]);
       });
@@ -260,14 +266,16 @@ export function flatJourney(f: Fixture) {
       await page.goto(route);
       await expect(page.getByText("3D view unavailable", { exact: true })).toBeVisible();
       for (let n = 1; n <= total; n++) {
-        await button(page, "Next").click();
-        await expect(page.getByRole("meter")).toHaveJSProperty("value", n);
+        await button(page, "Next fold").click();
+        await expect(page.getByRole("slider")).toHaveJSProperty("valueAsNumber", n);
       }
-      await expect(page.locator(".lab-placeholder")).toContainText(copy(total).result);
-      await button(page, "Replay").click();
-      await expect(page.getByRole("status")).toContainText("Replay complete");
+      await expect(page.locator(".studio-placeholder")).toContainText(copy(total).result);
+      await button(page, "Return to starting sheet").click();
+      await expect(page.getByRole("slider")).toHaveJSProperty("valueAsNumber", 0);
+      await button(page, "Show finished model").click();
+      await expect(page.getByRole("status")).toContainText(copy(total).result);
       for (let n = total; n > 0; n--) await button(page, "Previous").click();
-      await expect(page.getByRole("meter")).toHaveJSProperty("value", 0);
+      await expect(page.getByRole("slider")).toHaveJSProperty("valueAsNumber", 0);
       expect(errors).toEqual([]);
     });
   });

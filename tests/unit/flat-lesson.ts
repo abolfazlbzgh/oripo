@@ -169,12 +169,12 @@ export function verifyFlatLesson(
             if (cycle === 0 && dir === "next") {
               const back = commandLesson(folds, motion, "previous", clock);
               const forward = commandLesson(folds, back, "next", clock);
-              const replay = commandLesson(folds, forward, "replay", clock);
-              for (const m of [back, forward, replay])
+              const paused = commandLesson(folds, forward, "pause", clock);
+              for (const m of [back, forward, paused])
                 expect(sampleLesson(folds, m, clock).progress).toBe(0.5);
-              expect(sampleLesson(folds, replay, clock + duration / 4).progress).toBe(0.25);
-              expect(sampleLesson(folds, replay, clock + duration / 2).progress).toBe(0);
-              expect(sampleLesson(folds, replay, clock + 1.5 * duration).progress).toBe(1);
+              expect(sampleLesson(folds, paused, clock + duration).progress).toBe(0.5);
+              const resume = commandLesson(folds, paused, "play", clock);
+              expect(sampleLesson(folds, resume, clock + duration / 2).position).toBe(i + 1);
               expect(
                 sampleLesson(folds, commandLesson(folds, back, "next", clock, true), clock)
                   .position,
@@ -184,9 +184,8 @@ export function verifyFlatLesson(
             const end = sampleLesson(folds, motion, clock);
             const target = dir === "next" ? 1 : 0;
             if (
-              end.step !== i ||
-              end.progress !== target ||
-              poseAt(model, i, end.progress) !== model.poses[i + target]
+              end.position !== i + target ||
+              poseAt(model, end.step, end.progress) !== model.poses[i + target]
             )
               throw Error("Wrong canonical endpoint");
           }

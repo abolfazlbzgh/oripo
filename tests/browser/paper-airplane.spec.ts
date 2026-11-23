@@ -19,7 +19,7 @@ const actions = [
 ] as const;
 const durations = [1600, 1600, 1500, 1500, 1800, 1800, 1800, 1500, 1500];
 const button = (page: Page, name: string) => page.getByRole("button", { name, exact: true });
-const meter = (page: Page) => page.getByRole("meter", { name: "Lesson progress" });
+const progress = (page: Page) => page.getByRole("slider", { name: "Lesson progress" });
 const test = previewTest.extend<{ errors: string[] }>({
   errors: [
     async ({ page, baseURL, javaScriptEnabled }, use) => {
@@ -32,15 +32,15 @@ const test = previewTest.extend<{ errors: string[] }>({
 });
 
 async function ready(page: Page) {
-  await expect(button(page, "Orbit left")).toBeEnabled();
+  await expect(button(page, "Zoom in")).toBeEnabled();
   await expect(page.locator("canvas")).toHaveCount(1);
 }
 async function endpoint(page: Page, n: number) {
   const copy = n ? airplaneText[atIndex(actions, n - 1)] : sheetText;
-  const notes = page.getByRole("region", { name: "Fold instruction" });
-  await expect(meter(page)).toHaveJSProperty("value", n);
-  await expect(notes.getByRole("heading")).toHaveText(copy.title);
-  await expect(notes.getByText(copy.instruction, { exact: true })).toBeVisible();
+  const upcoming = airplaneText[atIndex(actions, Math.min(n, actions.length - 1))];
+  await expect(progress(page)).toHaveJSProperty("valueAsNumber", n);
+  await expect(page.locator(".instruction-body h2")).toHaveText(upcoming.title);
+  await expect(page.locator(".current-instruction")).toHaveText(upcoming.instruction);
   await expect(page.getByRole("img", { name: copy.result, exact: true })).toBeVisible();
 }
 
@@ -53,7 +53,10 @@ test.describe("static dart instructions", () => {
       const response = await visit();
       expect(response?.status()).toBe(200);
       const html = await response?.text();
-      expect(html).toContain("<h1>Dart paper airplane</h1>");
+      expect(html).toContain("Dart paper airplane");
+      await expect(page.getByRole("heading", { level: 1 })).toHaveAccessibleName(
+        "Dart paper airplane",
+      );
       expect(html).toContain(airplaneText["right-wing"].instruction);
       await expect(page).toHaveTitle("Dart paper airplane · Oripo");
       await expect(page.locator('meta[name="description"]')).toHaveAttribute(
@@ -61,7 +64,8 @@ test.describe("static dart instructions", () => {
         /pointed dart/,
       );
       await expect(page.locator("canvas")).toHaveCount(0);
-      await expect(button(page, "Next")).toBeDisabled();
+      await expect(button(page, "Next fold")).toBeDisabled();
+      await button(page, "Read step instructions").click();
       const details = page.locator("details");
       if (!(await details.evaluate((el) => el.hasAttribute("open"))))
         await details.locator("summary").click();
@@ -105,21 +109,21 @@ test("playable catalog to nine folds, in-flight reversal, final dart, replay and
   expect(flat.iou).toBeGreaterThan(0.93);
   const samples: Record<string, typeof flat> = { flat };
   for (let n = 1; n <= 9; n++) {
-    const next = button(page, "Next");
+    const next = button(page, "Next fold");
     await next.focus();
     await page.keyboard.press("Enter");
     await expect(next).toBeFocused();
     await expect(next).toBeDisabled();
     if (n === 8) {
       await page.clock.fastForward(750);
-      await expect(meter(page)).toHaveJSProperty("value", 7.5);
+      await expect(progress(page)).toHaveJSProperty("valueAsNumber", 7.5);
       const mid = await dartPixels(page, { left: 42, right: 0 });
       expect(mid.iou).toBeGreaterThan(0.9);
       samples.mid = mid;
       await button(page, "Previous").click();
-      await expect(meter(page)).toHaveJSProperty("value", 7.5);
+      await expect(progress(page)).toHaveJSProperty("valueAsNumber", 7.5);
       await page.clock.fastForward(375);
-      await expect(meter(page)).toHaveJSProperty("value", 7.25);
+      await expect(progress(page)).toHaveJSProperty("valueAsNumber", 7.25);
       await next.click();
       await page.clock.fastForward(375);
       expect((await dartPixels(page, { left: 42, right: 0 })).hash).toBe(mid.hash);
@@ -135,12 +139,10 @@ test("playable catalog to nine folds, in-flight reversal, final dart, replay and
   expect(samples.mid).toBeDefined();
   expect(dart.hash).not.toBe(samples.mid?.hash);
   samples.finished = dart;
-  await button(page, "Replay").click();
-  await page.clock.fastForward(750);
-  await expect(meter(page)).toHaveJSProperty("value", 8.5);
-  await page.clock.fastForward(750);
-  await expect(meter(page)).toHaveJSProperty("value", 8);
-  await page.clock.fastForward(1500);
+  await button(page, "Replay all folds").click();
+  await page.clock.fastForward(800);
+  await expect(progress(page)).toHaveJSProperty("valueAsNumber", 0.5);
+  await page.clock.fastForward(durations.reduce((sum, d) => sum + d, 0) - 800);
   await endpoint(page, 9);
   expect((await dartPixels(page, { left: 84, right: 84 })).hash).toBe(dart.hash);
   for (let n = 9; n > 0; n--) {
@@ -177,14 +179,14 @@ for (const width of [320, 390])
       await expect(page.locator("html")).toHaveCSS("color-scheme", scheme);
     }
     for (let n = 1; n <= 9; n++) {
-      await button(page, "Next").click();
+      await button(page, "Next fold").click();
       await endpoint(page, n);
     }
     const screenshot = await dartPixels(page, { left: 84, right: 84 });
     expect(screenshot.iou).toBeGreaterThan(0.86);
     const reading = page.locator(".lab-reading"),
       home = await reading.innerText();
-    await button(page, "Orbit right").click();
+    await page.locator(".studio-canvas").press("ArrowRight");
     await expect(reading).not.toHaveText(home);
     const angled = await reading.innerText();
     await button(page, "Zoom in").click();
@@ -193,10 +195,9 @@ for (const width of [320, 390])
     await button(page, "Reset view").click();
     await expect(reading).toHaveText(home);
     expect((await dartPixels(page, { left: 84, right: 84 })).hash).toBe(screenshot.hash);
-    await button(page, "Replay").focus();
-    await page.keyboard.press("Space");
-    await expect(page.getByRole("status")).toContainText("Replay complete");
-    await expect(button(page, "Replay")).toBeFocused();
+    await button(page, "Return to starting sheet").press("Space");
+    await endpoint(page, 0);
+    await expect(button(page, "Show finished model")).toBeFocused();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
@@ -216,15 +217,15 @@ test("missing WebGL provides all nine text poses, the transcript and instant rev
   await page.goto(path);
   await expect(page.getByText("3D view unavailable", { exact: true })).toBeVisible();
   for (let n = 1; n <= 9; n++) {
-    await button(page, "Next").click();
-    await expect(page.locator(".lab-placeholder")).toContainText(
+    await button(page, "Next fold").click();
+    await expect(page.locator(".studio-placeholder")).toContainText(
       airplaneText[atIndex(actions, n - 1)].result,
     );
   }
   await expect(page.locator("canvas")).toHaveCount(0);
   await expect(button(page, "Reset view")).toBeDisabled();
   await button(page, "Previous").click();
-  await expect(meter(page)).toHaveJSProperty("value", 8);
+  await expect(progress(page)).toHaveJSProperty("valueAsNumber", 8);
 });
 
 test.describe("touch on the dart workbench", { tag: "@cdp" }, () => {
@@ -235,7 +236,7 @@ test.describe("touch on the dart workbench", { tag: "@cdp" }, () => {
   }) => {
     await page.goto(path);
     await ready(page);
-    await button(page, "Next").tap();
+    await button(page, "Next fold").tap();
     await inspectByTouch(page, context);
     await endpoint(page, 1);
   });
@@ -247,9 +248,9 @@ test("loss of a real context during a wing fold preserves its destination in the
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto(path);
   await ready(page);
-  for (let n = 0; n < 7; n++) await button(page, "Next").click();
+  for (let n = 0; n < 7; n++) await button(page, "Next fold").click();
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  await button(page, "Next").click();
+  await button(page, "Next fold").click();
   await page.locator("canvas").evaluate((c) => {
     const extension =
       c instanceof HTMLCanvasElement && c.getContext("webgl2")?.getExtension("WEBGL_lose_context");
@@ -257,9 +258,9 @@ test("loss of a real context during a wing fold preserves its destination in the
     extension.loseContext();
   });
   await expect(page.getByText("3D view unavailable", { exact: true })).toBeVisible();
-  await expect(page.locator(".lab-placeholder")).toContainText(airplaneText["left-wing"].result);
-  await expect(meter(page)).toHaveJSProperty("value", 8);
-  await button(page, "Next").click();
+  await expect(page.locator(".studio-placeholder")).toContainText(airplaneText["left-wing"].result);
+  await expect(progress(page)).toHaveJSProperty("valueAsNumber", 8);
+  await button(page, "Next fold").click();
   await expect(page.getByRole("status")).toContainText("Your dart is complete");
 });
 
@@ -271,12 +272,12 @@ test("switching motion preference settles the selected step and back navigation 
   const context = await page
     .locator("canvas")
     .evaluateHandle((c) => (c instanceof HTMLCanvasElement ? c.getContext("webgl2") : null));
-  await button(page, "Next").click();
+  await button(page, "Next fold").click();
   await page.emulateMedia({ reducedMotion: "reduce" });
   await endpoint(page, 1);
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  await button(page, "Next").click();
-  await page.getByRole("link", { name: "Back to Explore" }).click();
+  await button(page, "Next fold").click();
+  await page.getByRole("banner").getByRole("link", { name: "Oripo", exact: true }).click();
   await expect(page.locator("canvas")).toHaveCount(0);
   await expect.poll(() => context.evaluate((gl) => gl?.isContextLost())).toBe(true);
   await context.dispose();

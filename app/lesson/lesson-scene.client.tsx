@@ -130,8 +130,8 @@ export function createLessonMount(
     });
     let lastPosition = -1;
     let lastGuide = -1;
-    function draw({ step, progress, position, travel }: ReturnType<Sample>) {
-      const guideStep = travel === "rest" ? position : step;
+    function draw({ step, progress, position }: ReturnType<Sample>) {
+      const guideStep = position === steps.length ? steps.length : step;
       if (position === lastPosition && guideStep === lastGuide) return;
       lastPosition = position;
       lastGuide = guideStep;
@@ -182,7 +182,7 @@ export function createLessonMount(
     return { group, draw, dispose };
   }
 
-  function Paper({ sample }: { sample: Sample }) {
+  function Paper({ sample, active }: { sample: Sample; active: () => boolean }) {
     const parent = useRef<Group>(null);
     const paper = useRef<ReturnType<typeof makePaper> | null>(null);
     const invalidate = useThree((state) => state.invalidate);
@@ -199,6 +199,7 @@ export function createLessonMount(
       };
     }, []);
     useFrame(() => {
+      if (!active()) return;
       const pose = sample(performance.now());
       paper.current?.draw(pose);
       if (pose.travel !== "rest") invalidate();
@@ -206,6 +207,14 @@ export function createLessonMount(
     return <group ref={parent} />;
   }
 
-  return (host: HTMLDivElement, callbacks: StudioCallbacks & { sample: Sample }) =>
-    mountStudio(host, callbacks, view, <Paper sample={callbacks.sample} />);
+  return (
+    host: HTMLDivElement,
+    callbacks: StudioCallbacks & { sample: Sample; active: () => boolean },
+  ) =>
+    mountStudio(
+      host,
+      callbacks,
+      view,
+      <Paper sample={callbacks.sample} active={callbacks.active} />,
+    );
 }

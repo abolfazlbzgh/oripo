@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation, useMatch } from "react-router";
+import { lessons } from "../lessons";
+import { PlayerIcon } from "./player-icon";
 import { englishPath } from "../navigation";
 
 function Brand() {
@@ -56,8 +58,10 @@ function Appearance() {
 export function Header() {
   const home = englishPath("foundation");
   const onHome = useMatch({ path: home, end: true });
+  const match = useMatch("/en/lessons/:model");
+  const model = lessons.find((item) => item.id === match?.params.model);
   return (
-    <header className="masthead">
+    <header className={model ? "masthead studio-masthead" : "masthead"}>
       <div className="frame masthead-inner">
         <Brand />
         <nav aria-label="Main navigation">
@@ -71,6 +75,49 @@ export function Header() {
             Crease guide
           </NavLink>
         </nav>
+        {model && (
+          <div className="model-picker" key={model.id}>
+            <h1 aria-label={model.title}>
+              <button
+                type="button"
+                tabIndex={0}
+                popoverTarget="model-links"
+                aria-label={`Choose model, ${model.title}`}
+              >
+                {model.title}
+                <PlayerIcon name="down" />
+              </button>
+            </h1>
+            <div id="model-links" popover="auto" className="model-links">
+              <nav aria-label="Choose a lesson">
+                {lessons.map((item) => (
+                  <Link
+                    tabIndex={0}
+                    key={item.id}
+                    to={item.href}
+                    aria-current={item.id === model.id ? "page" : undefined}
+                    onClick={(event) =>
+                      event.currentTarget.closest<HTMLElement>("[popover]")?.hidePopover()
+                    }
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </nav>
+              <nav className="compact-navigation" aria-label="Explore Oripo">
+                <Link tabIndex={0} to={home}>
+                  Explore
+                </Link>
+                <Link tabIndex={0} to={englishPath("firstFold")}>
+                  3D studio
+                </Link>
+                <Link tabIndex={0} to={englishPath("creaseGuide")}>
+                  Crease guide
+                </Link>
+              </nav>
+            </div>
+          </div>
+        )}
         <Appearance />
       </div>
     </header>

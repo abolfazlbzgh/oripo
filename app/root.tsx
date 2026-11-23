@@ -7,6 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
   isRouteErrorResponse,
+  useMatch,
 } from "react-router";
 import { Footer, Header, RouteFocus } from "./components/shell";
 import { englishPath } from "./navigation";
@@ -17,11 +18,19 @@ import "./styles.css";
 export const meta = () => [{ name: "description", content: site.description }];
 
 export function Layout({ children }: { children: ReactNode }) {
+  const lesson = useMatch("/en/lessons/:model");
   return (
     <html lang={site.defaultLocale} suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="viewport"
+          content={
+            lesson
+              ? "width=device-width, initial-scale=1, viewport-fit=cover"
+              : "width=device-width, initial-scale=1"
+          }
+        />
         <Meta />
         <link rel="icon" type="image/svg+xml" href="/oripo.svg" />
         <script src="/appearance.js"></script>

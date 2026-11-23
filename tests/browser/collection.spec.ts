@@ -31,8 +31,8 @@ test("leaving before the scene downloads creates no abandoned WebGL context", as
   try {
     await page.goto("/en/lessons/fox-face", { waitUntil: "domcontentloaded" });
     await requested;
-    await expect(page.getByRole("button", { name: "Next", exact: true })).toBeDisabled();
-    await page.getByRole("link", { name: "Back to Explore" }).click();
+    await expect(page.getByRole("button", { name: "Next fold", exact: true })).toBeDisabled();
+    await page.getByRole("banner").getByRole("link", { name: "Oripo", exact: true }).click();
     await expect(page.getByRole("main")).toBeFocused();
   } finally {
     release();
@@ -48,8 +48,8 @@ test("leaving before the scene downloads creates no abandoned WebGL context", as
     await page.evaluate(() => performance.getEntriesByName("oripo-webgl-request").length),
   ).toBe(0);
   await page.getByRole("link", { name: "Fox face", exact: true }).click();
-  await expect(page.getByRole("button", { name: "Orbit left" })).toBeEnabled();
-  await expect(page.getByRole("meter")).toHaveJSProperty("value", 0);
+  await expect(page.getByRole("button", { name: "Zoom in" })).toBeEnabled();
+  await expect(page.getByRole("slider")).toHaveJSProperty("valueAsNumber", 0);
   await expect(page.locator("canvas")).toHaveCount(1);
   expect(errors).toEqual([]);
 });
@@ -113,23 +113,23 @@ test("switches dart to heart to fox to dart during playback and releases each st
   for (const title of ["Dart paper airplane", "Paper heart", "Fox face", "Dart paper airplane"]) {
     await models.getByRole("link", { name: title, exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(title);
-    await expect(page.getByRole("button", { name: "Orbit left" })).toBeEnabled();
+    await expect(page.getByRole("button", { name: "Zoom in" })).toBeEnabled();
     const canvas = page.locator("canvas"),
-      meter = page.getByRole("meter");
+      progress = page.getByRole("slider");
     await expect(canvas).toHaveCount(1);
-    await expect(meter).toHaveJSProperty("value", 0);
+    await expect(progress).toHaveJSProperty("valueAsNumber", 0);
     await expect(page.getByRole("button", { name: "Previous", exact: true })).toBeDisabled();
     const live = await counts();
     expect(live.every((n, i) => n > (idle[i] ?? 0))).toBe(true);
     contexts.push(
       await canvas.evaluateHandle((c) => (c as HTMLCanvasElement).getContext("webgl2")),
     );
-    await page.getByRole("button", { name: "Next", exact: true }).click();
+    await page.getByRole("button", { name: "Next fold", exact: true }).click();
     await expect
-      .poll(() => meter.evaluate((el) => (el as HTMLMeterElement).value))
+      .poll(() => progress.evaluate((el) => (el as HTMLInputElement).valueAsNumber))
       .toBeGreaterThan(0);
-    await expect(meter).not.toHaveJSProperty("value", 1);
-    await page.getByRole("link", { name: "Back to Explore" }).click();
+    await expect(progress).not.toHaveJSProperty("valueAsNumber", 1);
+    await page.getByRole("banner").getByRole("link", { name: "Oripo", exact: true }).click();
     await expect(page.locator("canvas")).toHaveCount(0);
   }
   await expect.poll(counts).toEqual(idle);

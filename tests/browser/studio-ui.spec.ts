@@ -101,7 +101,7 @@ for (const width of [320, 390, 768, 1440]) {
       await page.goto(path);
       await expect(page.getByLabel("Appearance")).toBeEnabled();
       if (path === englishPath("firstFold") || path.startsWith("/en/lessons/"))
-        await expect(page.getByRole("button", { name: "Orbit left" })).toBeEnabled();
+        await expect(page.getByRole("button", { name: "Zoom in", exact: true })).toBeEnabled();
       for (const scale of ["100%", "200%"]) {
         const offscreen = await page.evaluate(
           ({ scale, width }) => {

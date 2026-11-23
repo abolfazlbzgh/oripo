@@ -1,58 +1,86 @@
-import { clampProgress } from "../fold/geometry";
-import type { FoldCommand } from "../fold/controller";
 import { atIndex, type FoldStep } from "./geometry";
 
 type Timing = readonly Pick<FoldStep, "durationMs">[];
+export type LessonCommand = "next" | "previous" | "play" | "pause";
 export type LessonMotion = {
-  step: number;
   from: number;
-  target: 0 | 1;
+  target: number;
   start: number;
-  replay: boolean;
+  mode: "idle" | "step" | "all";
 };
-export const initialLessonMotion: LessonMotion = {
-  step: 0,
-  from: 0,
-  target: 0,
-  start: 0,
-  replay: false,
-};
-export type Travel = "forward" | "reverse" | "rest";
 
-export function sampleLesson(steps: Timing, motion: LessonMotion, now: number) {
-  const elapsed = Math.max(0, now - motion.start) / atIndex(steps, motion.step).durationMs;
-  const rewinding = motion.replay && elapsed < motion.from;
-  const target = rewinding ? 0 : motion.target;
-  const progress =
-    motion.replay && !rewinding
-      ? clampProgress(elapsed - motion.from)
-      : clampProgress(motion.from + (target ? elapsed : -elapsed));
-  const travel: Travel = progress === target ? "rest" : target ? "forward" : "reverse";
-  const position = motion.step + progress;
-  const canNext = travel === "rest" ? position < steps.length : travel === "reverse";
-  const canPrevious = travel === "rest" ? position > 0 : travel === "forward" || rewinding;
-  return { step: motion.step, progress, position, travel, canNext, canPrevious };
+function paused(position: number): LessonMotion {
+  return { from: position, target: position, start: 0, mode: "idle" };
 }
 
-export function settleLesson(motion: LessonMotion): LessonMotion {
-  return { ...motion, from: motion.target, replay: false };
+export const initialLessonMotion = paused(0);
+
+export function seekLesson(steps: Timing, position: number) {
+  return paused(Number.isNaN(position) ? 0 : Math.max(0, Math.min(steps.length, position)));
+}
+
+// Every sample starts at the command's anchor, including after a throttled frame.
+// One unit is an authored fold; each segment keeps its own duration.
+export function sampleLesson(steps: Timing, motion: LessonMotion, now: number) {
+  const { from, target } = motion;
+  let elapsed = Math.max(0, now - motion.start);
+  let position = from;
+  const direction = Math.sign(target - from);
+  while (position !== target && elapsed > 0) {
+    const i = direction > 0 ? Math.floor(position) : Math.ceil(position) - 1;
+    const end = direction > 0 ? Math.min(i + 1, target) : Math.max(i, target);
+    const duration = atIndex(steps, i).durationMs;
+    const remaining = Math.abs(end - position) * duration;
+    if (elapsed < remaining) {
+      position += (direction * elapsed) / duration;
+      break;
+    }
+    position = end;
+    elapsed -= remaining;
+  }
+  const travel = position === target ? "rest" : direction > 0 ? "forward" : "reverse";
+  const step =
+    travel === "reverse"
+      ? Math.ceil(position) - 1
+      : Math.min(Math.floor(position), steps.length - 1);
+  return {
+    position,
+    step,
+    progress: position - step,
+    travel,
+    canNext:
+      (position < steps.length || travel === "reverse") &&
+      !(motion.mode === "step" && travel === "forward"),
+    canPrevious:
+      (position > 0 || travel === "forward") && !(motion.mode === "step" && travel === "reverse"),
+  } as const;
 }
 
 export function commandLesson(
   steps: Timing,
   motion: LessonMotion,
-  command: FoldCommand,
+  command: LessonCommand,
   now: number,
   instant = false,
+  displayed = sampleLesson(steps, motion, now).position,
 ): LessonMotion {
-  const pose = sampleLesson(steps, motion, now);
-  if ((command === "previous" && !pose.canPrevious) || (command === "next" && !pose.canNext))
-    return motion;
-  let step = pose.step;
-  if (pose.travel === "rest") {
-    step = command === "next" ? pose.position : Math.max(0, pose.position - 1);
+  if (command === "pause") return paused(displayed);
+  if (command === "play") {
+    const from = displayed === steps.length ? 0 : displayed;
+    if (instant) return paused(displayed === steps.length ? 0 : steps.length);
+    return { from, target: steps.length, start: now, mode: "all" };
   }
-  const target = command === "previous" ? 0 : 1;
-  const from = instant ? target : step === pose.step ? pose.progress : pose.position - step;
-  return { step, from, target, start: now, replay: !instant && command === "replay" && from > 0 };
+  const target =
+    command === "next"
+      ? Math.min(steps.length, Math.floor(displayed) + 1)
+      : Math.max(0, Math.ceil(displayed) - 1);
+  if (target === displayed || instant) return paused(target);
+  if (motion.mode === "step" && motion.target === target) return motion;
+  return { from: displayed, target, start: now, mode: "step" };
+}
+
+// Loss of motion/rendering finishes an explicitly requested single fold. During
+// continuous play the last displayed pose is the reader's place in the lesson.
+export function settleLesson(motion: LessonMotion, displayed: number) {
+  return paused(motion.mode === "step" ? motion.target : displayed);
 }

@@ -45,7 +45,9 @@ try {
         if (message.type() === "warning") warnings.add(message.text());
       });
       await page.goto(`http://127.0.0.1:${server.address().port}${route}`);
-      await page.locator(route === "/en" ? "select:enabled" : ".lab-camera:enabled").waitFor();
+      await page
+        .locator(route === "/en" ? "select:enabled" : ".lab-camera:enabled, .studio-camera:enabled")
+        .waitFor();
       await page.waitForFunction(
         () => performance.getEntriesByName("first-contentful-paint").length > 0,
       );

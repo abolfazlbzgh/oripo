@@ -8,6 +8,7 @@ export default [
     index("routes/foundation.tsx"),
     route(pages.creaseGuide, "routes/crease-guide.tsx"),
     route(pages.firstFold, "routes/first-fold.tsx"),
+    route(pages.foxFace, "routes/fox-face.tsx"),
     route(pages.paperHeart, "routes/paper-heart.tsx"),
     route(pages.paperAirplane, "routes/paper-airplane.tsx"),
   ]),

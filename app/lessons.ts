@@ -2,6 +2,17 @@ import { englishPath } from "./navigation";
 
 type PublishedLesson = { id: string; title: string; summary: string; href: string; format: string };
 
+export const foxInfo = {
+  id: "fox-face",
+  title: "Fox face",
+  summary: "Turn back two pointed ears and lift one loose tip to give a fox its two-tone muzzle.",
+  availability: "playable",
+  level: "Beginner",
+  paper: "Square sheet",
+  href: englishPath("foxFace"),
+  format: "Playable lesson",
+} as const;
+
 export const heartInfo = {
   id: "paper-heart",
   title: "Paper heart",

@@ -1,5 +1,79 @@
 # Local release verification
 
+## Phase 8B · Six playable lessons
+
+The catalog contains three Beginner lessons and three Intermediate lessons. The four-foot jumping frog joins Masu in the Intermediate tier alongside the four-band herringbone map. The full nine-lesson milestone still needs three verified Advanced models. The source branch for this increment was `feat/nine-lessons-finished-colors` at `6a096965fbfeb4df0850ec31a17b9befe45c9a5e`. [Model selection and rights](decisions/0008-intermediate-constructions.md)
+
+### Paper measurements
+
+| Model                  | Actions | Vertices / edges / faces |  Poses | Worst rigid error | Worst seam error | Worst independent landmark error | Collision candidate pairs |
+| ---------------------- | ------: | ------------------------ | -----: | ----------------: | ---------------: | -------------------------------: | ------------------------: |
+| Four-foot jumping frog |      20 | 145 / 344 / 200          | 20,020 |         1.055e−15 |        2.436e−16 |                        8.951e−16 |                 6,035,869 |
+| Herringbone map        |      15 | 30 / 49 / 20             | 15,015 |         7.772e−16 |        8.671e−16 |                        6.497e−16 |                   156,776 |
+
+Both material meshes are connected disks. The acceptance tolerance is 1e−6 world units. The geometry tests sampled each action at 1,001 fractions including both canonical boundaries. Fixed hinge displacement was zero. Both models returned exactly to their starting coordinates after 1,000 full traversals and passed 25 seeded interruption, reversal, seek and resume cases each. The collision oracle found zero transverse penetrations at 31 interior fractions per action. The Masu control reproduced its original 697,312 candidate pairs. Coplanar contact is part of the intended folded stack.
+
+At half opening, each pinned frog pocket had 0.176777 units of rim clearance and 0.235702 units of tip clearance. Its unloaded Z-pleat had 0.038627 units of clearance at the return hinge. The front and rear foot pairs each span 0.6 units. Probes distinguished eight plies at each flattened outer hind foot and sixteen near its root. The map finished with two ridges 0.6 units high, a projected band spacing of √5/6 units and a minimum projected panel area of 0.083853 square units.
+
+### Production build and static output
+
+On Windows, Node 22.23.2 and npm 10.9.8 installed 230 locked packages with `npm.cmd ci --strict-peer-deps`. Typecheck, zero-warning ESLint, Prettier, all 96 Vitest cases in 15 files, and the production build passed. The Phase 8 baseline was 85 unit cases. The dependency manifest and lockfile have the same contents as the starting revision.
+
+The registry generates 80 canonical pages in ten locales, 81 public HTML entries including the English root alias and 82 entries including the internal lab. The build also supplies eleven recovery documents. The production HTTP check compared direct and repeat requests for all 82 routes with the built HTML, yielding 164 matching 200 responses. Four withheld slugs in each locale, each requested twice, returned 80 real 404 responses with the correct language and `noindex`. The sitemap matched the canonical registry exactly.
+
+The frog uses `#528236` / `#82a74e` / `#314c28` for its finished front, reverse and edge. The map uses `#7051a5` / `#ad88cb` / `#453661`. Build-time projection produced a 6,359-byte frog and a 7,336-byte map. The six PNGs total 32,860 bytes. Regenerating the four legacy previews from the starting revision produced the same SHA-256 digests as the new build. Both new manuscripts have the complete sheet and per-action instructions and results in all ten locales. The local font and CSS audit found zero missing characters.
+
+| JavaScript measured on a cold Chromium visit, bytes |  Phase 8 raw / gzip | Phase 8B raw / gzip | Increase in gzip bytes |
+| --------------------------------------------------- | ------------------: | ------------------: | ---------------------: |
+| All emitted client scripts                          | 1,144,372 / 327,767 | 1,158,846 / 334,199 |                  6,432 |
+| English Explore                                     |   377,259 / 121,145 |   378,936 / 121,363 |                    218 |
+| Explore scene requests                              |               0 / 0 |               0 / 0 |                      0 |
+| Masu through scene readiness                        | 1,123,248 / 318,718 | 1,128,439 / 320,479 |                  1,761 |
+| Frog through scene readiness                        |                   — | 1,133,127 / 322,611 |                      — |
+| Map through scene readiness                         |                   — | 1,127,051 / 320,002 |                      — |
+
+The cold Explore HTML was 22,988 raw bytes and 5,633 gzipped. Both desktop and phone-width Explore requested zero scene bytes. Vite still flags the large lazy renderer chunk. Its server build also reports the shared static and dynamic imports of the three English Intermediate manuscripts. The local browser reports the existing Three.Clock deprecation and occasional SwiftShader stalls during pixel readback. Full measurements live in `.local/phase-8b/bundle.json`.
+
+### Production browser images
+
+`npm.cmd run test:smoke` ran the complete suite against the production output on loopback. All 238 cases passed in 10.2 minutes, up from the four-lesson baseline of 208. The final run recorded zero failed, skipped, retried or flaky cases. Four Chromium journeys use the DevTools touch protocol. Firefox ran with local host browser-process access.
+
+| Browser               | Passed |
+| --------------------- | -----: |
+| Chromium 159.0.8154.6 |     82 |
+| Firefox 159.0         |     78 |
+| WebKit 27.2           |     78 |
+
+The suite exercised direct load and refresh, localized metadata and transcripts, right-to-left layout, 320/390/768/1440 px widths, phone landscape, double text, reduced motion, both themes, keyboard focus return and announcements. Every new action also ran in the text player with WebGL disabled. Tests triggered context loss, delayed scene loads and scene disposal while switching across the catalog. Monitored normal journeys reported zero uncaught errors, hydration mismatches, failed required assets or unexpected outbound requests.
+
+Six supplemental journeys forced each new scene module to return HTTP 503 in each engine. Both lessons exposed their text controls, reached the final result and stepped back. Restoring the asset and refreshing produced one live canvas at the starting sheet in all six cases. The results are in `.local/phase-8b/asset-recovery.json`.
+
+An earlier run caught a Firefox timing issue in the gallery test when it asked a lazy image to decode before its request began. The test now waits for a positive intrinsic width before decoding and applies the original silhouette and pigment thresholds. The complete final JSON report is `.local/phase-8b/acceptance.json`, with 186 PNGs in `.local/phase-8b/acceptance-browser/`. All six thumbnails also matched byte for byte between the development server and the production assets.
+
+The independent masks use the frog head, feet and Z-pleat coordinates and the map’s row and ridge spacing. The live canvas and transparent gallery PNGs are measured separately. The percentages below are intersections over union across Chromium, Firefox and WebKit. The last column measures the proportion of the PNG’s opaque paper pixels in the two finished pigments.
+
+| Model           | Live oblique |  Phone front |   Phone rear | Gallery outline | Gallery pigment coverage |
+| --------------- | -----------: | -----------: | -----------: | --------------: | -----------------------: |
+| Jumping frog    | 96.28–97.78% | 95.80–97.73% | 96.24–97.49% |          96.32% |                   89.40% |
+| Herringbone map | 98.87–98.96% | 99.02–99.59% | 98.55–99.56% |          98.08% |                   92.39% |
+
+The last 0.001 of each new model’s timeline still contained zero finished-hue pixels in all three engines. The endpoint introduced the pigments and backing out restored the instructional stock. The suite compares the initial canvas PNG with the complete reverse traversal and checks the gallery at phone width, double text and both themes.
+
+### Headed inspection
+
+Visible Chrome 157.0.8103.79 used ANGLE Vulkan SwiftShader. Twelve studio captures cover the starting sheet, working fold, completed oblique, front and rear views, and reversal for each model. The starting and reversed PNGs were byte-identical for both. Independent projections over the saved headed pixels gave these intersections over union.
+
+| Model           | Oblique |  Front |   Rear |
+| --------------- | ------: | -----: | -----: |
+| Jumping frog    |  98.10% | 98.98% | 98.89% |
+| Herringbone map |  99.42% | 99.59% | 99.24% |
+
+The contact sheet is `.local/phase-8b/headed-contact.png` and the six pixel measurements are in `.local/phase-8b/headed/silhouettes.json`. Three additional production captures in the evidence directory show the working geometry at higher magnification. The paired pocket mouths are visible in `paired-open-pockets.png`, the frog’s Z profile in `resting-spring.png` and the alternate ridges and troughs in `open-channels.png`.
+
+### Physical and editorial acceptance
+
+Human linguistic review of both manuscripts in all ten locales is `REVIEW_PENDING`. Physical folding and frog launch, real-phone input, hardware-GPU acceptance, spoken screen-reader output and hosted verification are **NOT RUN** in Phase 8B. The next three lessons require maker-rated Advanced plans with documented rights and per-model proofs of the needed geometry. For example, a bird can require an inside reverse in a three-dimensional packet, and a flower can require a layer-preserving sink and nested eversion. [Feasibility record](phase-8-models.md)
+
 ## Phase 8 local verification
 
 The local catalog adds one Intermediate lesson, the 18-action Masu box. The original three lessons retain their IDs, steps, timings and Beginner difficulty. Five candidates remain outside the registry. The [feasibility matrix](phase-8-models.md) records the construction, difficulty evidence and rights decisions for all six proposals. The nine-lesson release gate remains open.

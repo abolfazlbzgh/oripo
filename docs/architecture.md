@@ -2,7 +2,9 @@
 
 ## Current lesson authoring
 
-The published registry now includes the intermediate Masu box. Version 2 adds a right-angle gusset for moving seams. Each model supplies its own endpoint palette. Explore projects those endpoints during the static build. [Construction and appearance ADR](decisions/0007-coupled-corners-and-finished-paper.md)
+The six published lessons share one transport and renderer. Version 1 rotates material packets about current hinges. Version 2 carries the corners of the Masu box on its rising end walls. Version 3 describes the coupled rigid panels of the frog’s head and rear pockets and the map’s alternating ridges. All versions use the same welded material vertices and canonical poses. [Masu construction and appearance](decisions/0007-coupled-corners-and-finished-paper.md) · [Frog and herringbone construction](decisions/0008-intermediate-constructions.md)
+
+For each version 3 action, the compiler reads the material faces in their flat starting pose. It prepares a local rigid transform for each face, checks that all incident transforms agree at shared vertices and caches the endpoint. The sampler applies these transforms at absolute progress. The renderer transports each face’s prior layer offset with its local axes. Virtual ply separation affects drawing only. Both the production build and the live studio resolve appearance from the catalog and use the same endpoint geometry, layer order and eye position. The gallery requests static PNGs.
 
 ## Foundation
 
@@ -102,4 +104,4 @@ Each convex panel carries paired material and posed coordinates during subdivisi
 
 ### Release verification
 
-The three lessons share a static transcript with instructions and expected poses. The one-crease lab retains its own geometry and player. The default production suite exercises all three browser engines, including route exit during playback and before the scene module finishes downloading. The [release record](release.md) includes the measured route costs, paper protocols and hosted acceptance steps.
+Each published lesson has a static transcript with instructions and expected poses. The one-crease lab retains its own geometry and player. The default production suite exercises all three browser engines, including route exit during playback and before the scene module finishes downloading. It also compares the finished canvas and gallery images against independent material outlines. The release record includes route costs, paper protocols and hosted acceptance steps. [Release verification](release.md)

@@ -239,3 +239,9 @@ The owner’s approved design preview guided the layout and interactions. Oripo 
 ## Phase 8 authorship and review
 
 Codex checked six proposed fold sequences, constructed the Masu mesh and moving corner constraints, drafted all ten Masu manuscripts and generated the four catalog images from the production meshes. The numerical and visual tests use separately derived outlines and landmarks. These are automated independent constructions by the implementer. Human folding trials, linguistic review and external geometry review are still open. The daisyUI skill informed the grouped Explore catalog. The user retained the approved shell and local-only release process. See the [model selection record](phase-8-models.md).
+
+## Phase 8B authorship and review
+
+Codex authored the two single-sheet constructions, rigid-panel solvers, layer specifications, independent landmark and silhouette tests, endpoint pigments and original manuscripts. Each of the ten locales has two new transcripts covering 35 actions, each with an instruction and an expected result. Human linguistic review for all ten locales is `REVIEW_PENDING`. The CJK subsets were rebuilt from their pinned OFL sources. The daisyUI skill guided integration with the existing lesson interface.
+
+Maker references informed the choice of traditional constructions and their difficulty. The published assets contain project-generated geometry and images and original wording. Rendered evidence includes headed software-WebGL views and complete reversal. Physical folding, real-phone input, hardware-GPU acceptance and spoken screen-reader output are **NOT RUN** for this phase. [Construction provenance and rights](decisions/0008-intermediate-constructions.md) · [Release evidence](release.md)

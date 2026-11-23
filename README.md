@@ -1,13 +1,15 @@
 # Oripo
 
-**Origami in Motion.** Fold a single sheet in 3D, from a first dart to a lined Masu box. Use Next fold to make one fold, Play to continue through the lesson or the timeline to stop at any angle. Drag the paper to inspect its layers.
+**Origami in Motion.** Fold a single sheet in 3D. Start with a dart, heart or fox, then try a lined Masu box, a four-foot jumping frog or a corrugated map. Use Next fold to make one fold, Play to continue through the lesson or the timeline to stop at any angle. Drag the paper to inspect its layers.
 
-| English lesson                                                         | Starting paper           | Actions |
-| ---------------------------------------------------------------------- | ------------------------ | ------: |
-| [Dart paper airplane](http://127.0.0.1:4173/en/lessons/paper-airplane) | 2 × 3 portrait rectangle |       9 |
-| [Paper heart](http://127.0.0.1:4173/en/lessons/paper-heart)            | Square, corner up        |      12 |
-| [Fox face](http://127.0.0.1:4173/en/lessons/fox-face)                  | Square, corner up        |       6 |
-| [Masu box](http://127.0.0.1:4173/en/lessons/masu-box)                  | Square, corner up        |      18 |
+| English lesson                                                         | Starting paper            | Actions |
+| ---------------------------------------------------------------------- | ------------------------- | ------: |
+| [Dart paper airplane](http://127.0.0.1:4173/en/lessons/paper-airplane) | 2 × 3 portrait rectangle  |       9 |
+| [Paper heart](http://127.0.0.1:4173/en/lessons/paper-heart)            | Square, corner up         |      12 |
+| [Fox face](http://127.0.0.1:4173/en/lessons/fox-face)                  | Square, corner up         |       6 |
+| [Masu box](http://127.0.0.1:4173/en/lessons/masu-box)                  | Square, corner up         |      18 |
+| [Jumping frog](http://127.0.0.1:4173/en/lessons/jumping-frog)          | 2 × 2 square              |      20 |
+| [Herringbone map](http://127.0.0.1:4173/en/lessons/herringbone-map)    | 3 × 2 landscape rectangle |      15 |
 
 ## Run locally
 
@@ -44,8 +46,10 @@ React Router Framework Mode and Vite generate static pages with React and TypeSc
 
 1. Draw the finished outline and work backwards to a fold plan. Record the starting proportions, intended moving plies, crease directions and landmark coordinates.
 2. For straight folds that settle flat, define directed lines in the current folded plane as in `app/lesson/fox.ts`. An optional packet ID selects material moved by an earlier action. The authoring helper builds the shared version 1 pattern. Spatial finishes such as the dart can supply a pattern directly.
-3. Key each transcript by the immutable step IDs. Bind the model to `LessonPage`, add its locale-independent route module and register the catalog metadata. The registry expands the static paths.
-4. Check rigid distances, hinges, reversals, visible layer colors and an independently drawn silhouette. Add the verified model to the lightweight catalog and run the production journeys.
+3. For a moving seam, start with a separate analytic fixture. Version 2 can carry a right-angle gusset on a rotating wall. A version 3 action starts flat and declares a whole-sheet `field` or named face packets in `regions`, registered crease IDs in `guides` and an empty `turns` array. Ordinary turns can surround a coupled action. See the worked waterbomb, rear-pocket and map constructions. [Authoring contract](docs/decisions/0008-intermediate-constructions.md)
+4. Key all ten lesson transcripts by immutable step IDs. Bind the model to `LessonPage`, add its locale-independent route module, and register its paper, tier, action count and front, reverse and edge pigments in `app/lessons.ts`. The registry expands the static paths.
+5. Supply the shared scene mount and build-time projection with the same compiled pattern, virtual ply heights, thickness and eye position. Register the projection in `scripts/lesson-previews.ts`. Running `npm run build` writes the finished transparent PNG into `build/client/previews/`.
+6. Derive expected front, oblique and rear landmarks from the fold plan. Use `materialChecks` for all pairwise panel distances, seam agreement, endpoints and reversal. Probe contact order and openings separately, run the transverse collision scan, then compare the gallery and live canvas against the independent outlines in the production browsers.
 
 For a local demo, open a lesson in the production preview, advance to an intermediate fold, orbit the paper, then reverse to the starting sheet. Each transcript includes the expected shape after every step and opens without JavaScript. Physical paper, real touch devices, spoken screen readers and hosted behavior have separate acceptance checks. [Local verification and release checklist](docs/release.md) · [Contributing](CONTRIBUTING.md) · [Security reporting](SECURITY.md)
 

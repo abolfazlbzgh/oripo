@@ -1,5 +1,18 @@
 # Phase 8 model selection
 
+## Phase 8B decisions
+
+| Candidate                         | Decision and evidence                                                                                                                                                                                                                                                                                                          |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Four-foot jumping frog            | Published at `jumping-frog`. The square gatefold, paired waterbomb flaps, two pinned rear pockets and thick return pleat match the selected Intermediate maker sequence. The simpler card and beginner frog remain distinct references.                                                                                        |
+| Traditional herringbone map       | Published at `herringbone-map`. OrigamiUSA rates traditional herringbone Low Intermediate in its tessellation criteria. Through-ply diagonal marks produce four chevron columns with alternating ridge sense. The open channels and regular edge spacing give this geometric lesson a different finish from the frog and Masu. |
+| Locked butterfly                  | Held. The attributed locked-body sequence lacks a clear adaptation grant. Other common butterfly variants carry beginner or easy-intermediate ratings.                                                                                                                                                                         |
+| Eight-petal flower and tulip head | Held. The first requires a layered sink and eight petal eversions. The second requires inflation around retained tucks. Each needs an independent moving-layer and clearance fixture.                                                                                                                                          |
+
+The selection record gives the maker sources, contradictions, original construction plans and rights decisions. Three Beginner and three Intermediate lessons are published. The three Advanced places remain open. [Intermediate selection record](decisions/0008-intermediate-constructions.md)
+
+## Phase 8 starting assessment
+
 The compiler accepts disjoint packets rotating about axes fixed in each step's starting pose. A material seam between packets must lie on every incident hinge. The flat authoring helper splits selected plies and can select an earlier packet. Neither mechanism carries a shared off-axis corner through a collapse. Render-only layer offsets cannot supply the missing material motion.
 
 | Candidate and sequence reviewed                                                                                                                                                                                                     | Human difficulty evidence                                                                                                                                                                     | Construction, layer order and release decision                                                                                                                                                                                                           |

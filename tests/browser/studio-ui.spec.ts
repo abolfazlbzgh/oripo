@@ -12,6 +12,7 @@ test("appearance applies before hydration, survives navigation and reload, then 
   const appearance = page.getByRole("combobox", { name: "Appearance" });
   await appearance.selectOption("oripo-dark");
   await page.getByRole("link", { name: "Crease notation", exact: true }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Crease notation" })).toBeVisible();
   await expect(appearance).toHaveValue("oripo-dark");
   // Use a fresh document so browser form-state restoration cannot enable the prerendered select.
   await page.goto("about:blank");

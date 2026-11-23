@@ -51,9 +51,14 @@ test("English navigation works at phone width with system and explicit themes", 
 });
 
 test("unknown pages and unsupported locales return a recoverable HTTP 404", async ({ page }) => {
-  for (const path of ["/en/missing", "/fr"]) {
-    const response = await page.goto(path);
-    expect(response?.status()).toBe(404);
+  for (const path of [
+    "/en/missing",
+    "/fr",
+    "/en/lessons/missing-dart",
+    "/fr/lessons/paper-airplane",
+  ]) {
+    expect((await page.goto(path))?.status()).toBe(404);
+    expect((await page.reload())?.status()).toBe(404);
     await expect(page.getByRole("heading", { name: "Page not found" })).toBeVisible();
     await page.getByRole("link", { name: "Choose a language" }).click();
     await expect(page).toHaveURL(/\/$/);

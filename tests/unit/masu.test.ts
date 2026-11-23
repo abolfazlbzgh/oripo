@@ -1,3 +1,4 @@
+import { checkPenetrations } from "./material-collisions";
 import { paperLayers } from "../../app/lesson/drawing";
 import { masuHingePlies } from "../../app/lesson/masu";
 import { commandLesson, sampleLesson, initialLessonMotion } from "../../app/lesson/playback";
@@ -163,63 +164,8 @@ it("keeps panel lengths and both moving corner traces through all eighteen folds
   console.log("Masu 18018 samples", { rigid, seam, hinge, endpoint, drift });
 });
 
-function pierces(a: Point, b: Point, tri: [Point, Point, Point]) {
-  const [p, q, r] = tri,
-    u = difference(q, p),
-    v = difference(r, p),
-    normal = cross(u, v);
-  const da = dot(normal, difference(a, p)),
-    db = dot(normal, difference(b, p));
-  if (da * db >= 0 || Math.min(Math.abs(da), Math.abs(db)) < 1e-10) return false;
-  const f = da / (da - db),
-    h: Point = [
-      a[0] + f * (b[0] - a[0]) - p[0],
-      a[1] + f * (b[1] - a[1]) - p[1],
-      a[2] + f * (b[2] - a[2]) - p[2],
-    ];
-  const n2 = dot(normal, normal),
-    s = dot(cross(h, v), normal) / n2,
-    t = dot(cross(u, h), normal) / n2;
-  return s > 1e-8 && t > 1e-8 && s + t < 1 - 1e-8;
-}
-it("finds no transverse penetration between material triangles during any fold", () => {
-  let checked = 0;
-  for (let i = 0; i < box.steps.length; i++)
-    for (let n = 1; n < 32; n++) {
-      const pose = poseAt(box, i, n / 32);
-      const triangles = box.faces.map((f) => points(f.vertices, pose));
-      const bounds = triangles.map((tri) =>
-        [0, 1, 2].map(
-          (k) =>
-            [
-              Math.min(...tri.map((p) => atIndex(p, k))),
-              Math.max(...tri.map((p) => atIndex(p, k))),
-            ] as const,
-        ),
-      );
-      for (const [a, first] of triangles.entries())
-        for (let b = a + 1; b < triangles.length; b++) {
-          if (
-            atIndex(bounds, a).some(
-              ([lo, hi], j) =>
-                lo > atIndex(atIndex(bounds, b), j)[1] + 1e-8 ||
-                hi < atIndex(atIndex(bounds, b), j)[0] - 1e-8,
-            )
-          )
-            continue;
-          checked++;
-          const second = atIndex(triangles, b);
-          for (let j = 0; j < 3; j++)
-            if (
-              pierces(atIndex(first, j), atIndex(first, (j + 1) % 3), second) ||
-              pierces(atIndex(second, j), atIndex(second, (j + 1) % 3), first)
-            )
-              throw Error(`Material penetration in fold ${i + 1}, t=${n}/32, panels ${a}/${b}`);
-        }
-    }
-  console.log("Masu candidate triangle pairs", checked);
-});
-
+it("finds no transverse penetration between material triangles during any fold", () =>
+  checkPenetrations(box));
 it("rejects reversed corner coupling and missing multilayer packets", () => {
   const wrong = structuredClone(masuPattern);
   const gusset = atIndex(wrong.steps[12].turns, 1);

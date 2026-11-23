@@ -1,5 +1,11 @@
 import { clampProgress, type Point } from "../fold/geometry";
-import { chartPoint, prepareChart, type Chart, type RigidField } from "./rigid-field";
+import {
+  chartPoint,
+  prepareChart,
+  stationaryChart,
+  type Chart,
+  type RigidField,
+} from "./rigid-field";
 
 export type Face = { id: string; vertices: readonly string[] };
 type CornerFold = { motion: "right-gusset"; carriedBy?: string };
@@ -14,6 +20,7 @@ export type FoldStep = {
   durationMs: number;
   turns: readonly Turn[];
   field?: RigidField;
+  regions?: readonly { field: RigidField; faces: readonly string[] }[];
   guides?: readonly string[];
 };
 export type LessonPattern = {
@@ -216,13 +223,13 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
     Object.entries(sheet.creases).map(([id, [a, b]]) => [id, [vertex(a), vertex(b)] as const]),
   );
   const poses: Pose[] = [rest];
-  const prepared = steps.map(({ id, durationMs, turns, guides, field }): PreparedStep => {
+  const prepared = steps.map(({ id, durationMs, turns, guides, field, regions }): PreparedStep => {
     requireValue(
-      Number.isFinite(durationMs) && durationMs > 0 && (turns.length || field),
+      Number.isFinite(durationMs) && durationMs > 0 && (turns.length || field || regions?.length),
       `Invalid step ${id}`,
     );
     const start = atIndex(poses, poses.length - 1);
-    if (field) {
+    if (field || regions) {
       requireValue(
         version === 3 && !turns.length && guides?.length && guides.every((g) => creases.has(g)),
         "Invalid coupled field or guides",
@@ -231,14 +238,25 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
         start.every((p) => Math.abs(p[2]) <= tolerance),
         "Coupled field requires a flat starting packet",
       );
+      const assigned = new Map<string, RigidField>();
+      requireValue(!(field && regions), "Ambiguous field assignment");
+      for (const region of regions ?? []) {
+        requireValue(region.faces.length, "Empty field region");
+        for (const face of region.faces) {
+          requireValue(faceIds.includes(face) && !assigned.has(face), "Invalid field packet");
+          assigned.set(face, region.field);
+        }
+      }
       const charts = faces.map((face) => {
+        const local = field ?? assigned.get(face.id);
+        if (!local) return stationaryChart;
         let x = 0,
           y = 0;
         for (const v of face.vertices) {
           x += atIndex(start, v)[0];
           y += atIndex(start, v)[1];
         }
-        return prepareChart(field, x / face.vertices.length, y / face.vertices.length);
+        return prepareChart(local, x / face.vertices.length, y / face.vertices.length);
       });
       const chartOwners = incident.map((owners) => atIndex(owners, 0));
       for (const t of [0, 0.125, 0.5, 0.875, 1]) {

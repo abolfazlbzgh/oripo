@@ -1,7 +1,7 @@
 import type { Point } from "../fold/geometry";
 import { atIndex, type Face, type LessonPattern } from "./geometry";
 
-type XY = readonly [number, number];
+export type XY = readonly [number, number];
 export type FlatFold = {
   id: string;
   line: readonly [XY, XY];
@@ -17,14 +17,14 @@ export const diamond: readonly XY[] = [
   [0, -1],
   [1, 0],
 ];
-type Corner = { material: XY; posed: XY };
+export type Corner = { material: XY; posed: XY };
 type Panel = { corners: Corner[]; history: string[] };
 // Only used to weld coincident intersections during authoring, in unit-diagonal coordinates.
 const epsilon = 1e-10;
 const materialKey = ([x, y]: XY) => `${Math.round(x / epsilon)},${Math.round(y / epsilon)}`;
 const lerp = (a: XY, b: XY, t: number): XY => [a[0] + t * (b[0] - a[0]), a[1] + t * (b[1] - a[1])];
 
-function splitPanel(corners: Corner[], distances: number[]) {
+export function splitPanel(corners: Corner[], distances: number[]) {
   const moving: Corner[] = [],
     fixed: Corner[] = [];
   for (const [i, a] of corners.entries()) {
@@ -95,6 +95,25 @@ export function flatPattern(
     hinges.set(id, [atIndex(hinge, 0).material, atIndex(hinge, hinge.length - 1).material]);
   }
 
+  const { vertices, faces, creases } = weldPanels(panels, hinges);
+  const steps = folds.map(({ id, durationMs, sense }) => ({
+    id,
+    durationMs,
+    turns: [
+      {
+        crease: id,
+        degrees: sense === "front" ? 180 : -180,
+        faces: faces.filter((_, i) => atIndex(panels, i).history.includes(id)).map((f) => f.id),
+      },
+    ],
+  }));
+  return { version: 1, lessonId, sheet: { vertices, faces, creases }, steps };
+}
+
+export function weldPanels(
+  panels: readonly { corners: Corner[] }[],
+  hinges: ReadonlyMap<string, readonly [XY, XY]>,
+) {
   const points = new Map(
     panels.flatMap(({ corners }) =>
       corners.map(({ material }) => [materialKey(material), material] as const),
@@ -133,16 +152,5 @@ export function flatPattern(
   const creases = Object.fromEntries(
     [...hinges].map(([id, [a, b]]) => [id, [vertex(a), vertex(b)] as const]),
   );
-  const steps = folds.map(({ id, durationMs, sense }) => ({
-    id,
-    durationMs,
-    turns: [
-      {
-        crease: id,
-        degrees: sense === "front" ? 180 : -180,
-        faces: faces.filter((_, i) => atIndex(panels, i).history.includes(id)).map((f) => f.id),
-      },
-    ],
-  }));
-  return { version: 1, lessonId, sheet: { vertices, faces, creases }, steps };
+  return { vertices, faces, creases };
 }

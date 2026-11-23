@@ -223,6 +223,19 @@ test("the stage leaves paper clear of the rail and transport at seven viewport s
       expect(boxes.paperBottom).toBeLessThanOrEqual(boxes.barTop + 1);
       expect(boxes.canvasHeight).toBeGreaterThan(75);
       expect(boxes.stageBottom).toBeLessThanOrEqual(height);
+
+      await page.getByRole("button", { name: /Choose model/ }).press("Enter");
+      const menu = page.locator("#model-links");
+      await expect(
+        menu.getByRole("navigation", { name: "Choose a lesson" }).getByRole("link"),
+      ).toHaveCount(3);
+      const bounds = await menu.boundingBox();
+      if (!bounds) throw Error("Missing model picker");
+      expect(bounds.x).toBeGreaterThanOrEqual(0);
+      expect(bounds.x + bounds.width).toBeLessThanOrEqual(width + 0.5);
+      expect(bounds.y + bounds.height).toBeLessThanOrEqual(height + 0.5);
+      await page.keyboard.press("Escape");
+      await expect(menu).toBeHidden();
     }
   }
   expect(errors).toEqual([]);

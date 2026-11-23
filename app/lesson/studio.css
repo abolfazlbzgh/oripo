@@ -475,6 +475,13 @@ body:has(.lesson-studio) > .footer-inner {
     color: var(--color-base-content);
   }
 }
+@container (max-width:24rem) {
+  .model-links {
+    inset-inline: max(8px, env(safe-area-inset-left)) max(8px, env(safe-area-inset-right));
+    width: auto;
+    max-height: 65dvh;
+  }
+}
 @container (max-width:17rem) {
   .studio-masthead .wordmark {
     font-size: 0;

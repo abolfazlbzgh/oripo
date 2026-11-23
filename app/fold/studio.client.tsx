@@ -30,7 +30,13 @@ extend({
   ShadowMaterial,
 });
 
-type Viewpoint = { position: [number, number, number]; minDistance: number; maxDistance: number };
+export type Viewpoint = {
+  position: [number, number, number];
+  minDistance: number;
+  maxDistance: number;
+  inspectBack?: boolean;
+  shadowZ?: number;
+};
 const turn = Math.PI / 12;
 
 function Studio({
@@ -47,7 +53,7 @@ function Studio({
     orbit.minDistance = view.minDistance;
     orbit.maxDistance = view.maxDistance;
     orbit.minPolarAngle = Math.PI / 24;
-    orbit.maxPolarAngle = Math.PI / 2 - Math.PI / 24;
+    orbit.maxPolarAngle = (view.inspectBack ? Math.PI : Math.PI / 2) - Math.PI / 24;
     orbit.cursorStyle = "grab";
     function reportView() {
       cameraChanged(
@@ -90,7 +96,7 @@ function Studio({
         shadow-normalBias={0.008}
         shadow-radius={3}
       />
-      <mesh position-z={-0.035} receiveShadow>
+      <mesh position-z={view.shadowZ ?? -0.035} receiveShadow>
         <planeGeometry args={[8, 8]} />
         <shadowMaterial transparent opacity={0.18} depthWrite={false} />
       </mesh>

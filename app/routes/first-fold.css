@@ -229,7 +229,7 @@
   border: 0;
   border-top: 2px dashed #aa673c;
 }
-.airplane-lesson .lab-stage {
+.complete-lesson .lab-stage {
   aspect-ratio: 1.65;
 }
 .lesson-result,
@@ -283,40 +283,40 @@
   padding-inline: 0;
 }
 @media (max-width: 52rem) {
-  .airplane-lesson .studio-heading {
+  .complete-lesson .studio-heading {
     margin-block-end: 1rem;
   }
-  .airplane-lesson .studio-heading h1 {
+  .complete-lesson .studio-heading h1 {
     font-size: clamp(2rem, 6vw, 3rem);
   }
-  .airplane-lesson .lab-workbench {
+  .complete-lesson .lab-workbench {
     row-gap: 0.8rem;
   }
-  .airplane-lesson .lab-view,
-  .airplane-lesson .lab-notes {
+  .complete-lesson .lab-view,
+  .complete-lesson .lab-notes {
     display: contents;
   }
-  .airplane-lesson .lab-panel {
+  .complete-lesson .lab-panel {
     order: 1;
     padding: 0;
     border: 0;
   }
-  .airplane-lesson .pose {
+  .complete-lesson .pose {
     margin: 0;
   }
-  .airplane-lesson .pose h2 {
+  .complete-lesson .pose h2 {
     font-size: 1.7rem;
     margin-block: 0.2rem;
   }
-  .airplane-lesson .transport {
+  .complete-lesson .transport {
     order: 2;
     padding-block-start: 0;
   }
-  .airplane-lesson .lab-camera {
+  .complete-lesson .lab-camera {
     order: 3;
     margin-block-start: 0;
   }
-  .airplane-lesson .lab-key {
+  .complete-lesson .lab-key {
     gap: 0.3rem 0.6rem;
     padding: 0.55rem 0.75rem;
   }

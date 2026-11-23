@@ -6,7 +6,7 @@ import { commandLesson, initialLessonMotion, sampleLesson, settleLesson } from "
 
 type Reading = ReturnType<typeof sampleLesson>;
 type Instruction = { title: string; instruction: string; result: string };
-type PlayerLesson = {
+export type PlayerLesson = {
   sheet: Instruction;
   steps: readonly (Instruction & { id: string; durationMs: number })[];
   loadScene: () => Promise<StudioMount<Reading>>;

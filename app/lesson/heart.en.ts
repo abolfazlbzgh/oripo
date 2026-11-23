@@ -1,0 +1,75 @@
+import type { HeartStepId } from "./heart";
+
+export const heartSheet = {
+  title: "Start with a diamond",
+  instruction: "Set a square green side up, with one corner pointing toward you.",
+  result: "A flat green square stands on one corner.",
+};
+
+export const heartText = {
+  "mark-center": {
+    title: "Mark the centerline",
+    instruction: "Bring the right corner over to the left corner. Press the long vertical fold.",
+    result: "A gold triangle lies to the left of the centerline.",
+  },
+  "open-center": {
+    title: "Open the vertical fold",
+    instruction: "Swing the same corner back to the right. Keep the diamond facing you.",
+    result: "The square is open with a vertical crease.",
+  },
+  "mark-across": {
+    title: "Find the middle",
+    instruction: "Bring the top corner down to the bottom corner. Press along the horizontal fold.",
+    result: "A gold triangle points toward you.",
+  },
+  "open-across": {
+    title: "Open the diamond",
+    instruction: "Lift the top layer back up. Find the crossing of the two creases.",
+    result: "The open green diamond has two creases crossing at its center.",
+  },
+  "top-to-center": {
+    title: "Bring the top to the center",
+    instruction: "Fold the top corner down until its point touches the crossing.",
+    result: "A small gold triangle sits below a short horizontal top edge.",
+  },
+  "bottom-to-top": {
+    title: "Raise the bottom point",
+    instruction:
+      "Bring the bottom corner up to the middle of the short top edge. Press the new lower edge flat.",
+    result: "A broad gold flap covers the middle of the packet.",
+  },
+  "lift-left": {
+    title: "Lift the left half",
+    instruction:
+      "Hold the midpoint of the lower edge. Swing its left end up with every layer until that half of the edge lies on the vertical centerline.",
+    result: "The old left corner points up, forming the first lobe.",
+  },
+  "lift-right": {
+    title: "Lift the right half",
+    instruction: "Swing the right end of the lower edge up to meet its partner on the centerline.",
+    result: "Two high points frame a V above a single lower tip.",
+  },
+  "soften-left": {
+    title: "Turn the left side behind",
+    instruction:
+      "Lift the heart clear of the table. Bend the outermost left point behind the stack on the short vertical guide.",
+    result: "The left side has a short straight edge.",
+  },
+  "soften-right": {
+    title: "Match the right side",
+    instruction: "Bend the right side point behind by the same amount.",
+    result: "The two sides have matching flat edges.",
+  },
+  "left-lobe": {
+    title: "Shape the left lobe",
+    instruction:
+      "Bend the very top of the left point behind, keeping its crease parallel to the top edge of the original flap.",
+    result: "The left lobe has a short level top and the center notch stays open.",
+  },
+  "right-lobe": {
+    title: "Finish the heart",
+    instruction:
+      "Fold the right tip behind at the same height as the left. Press both little folds flat.",
+    result: "Your paper heart has two broad lobes, a V-shaped notch and a sharp lower point.",
+  },
+} satisfies Record<HeartStepId, typeof heartSheet>;

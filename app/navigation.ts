@@ -4,6 +4,7 @@ export const pages = {
   foundation: "",
   creaseGuide: "guide/crease-notation",
   firstFold: "lab/first-fold",
+  paperHeart: "lessons/paper-heart",
   paperAirplane: "lessons/paper-airplane",
 } as const;
 
@@ -19,4 +20,5 @@ export const publishedPaths = [
   englishPath("creaseGuide"),
   englishPath("firstFold"),
   englishPath("paperAirplane"),
+  englishPath("paperHeart"),
 ];

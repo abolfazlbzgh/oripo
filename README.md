@@ -1,6 +1,6 @@
 # Oripo
 
-**Origami in Motion.** Choose one of three beginner lessons and fold a single sheet in 3D. Next folds the paper, Previous reverses it and Replay repeats the current action. Orbit and zoom to inspect the layers.
+**Origami in Motion.** Choose one of three beginner lessons and fold a single sheet in 3D. Use Next fold to make one fold, Play to continue through the lesson or the timeline to stop at any angle. Drag the paper to inspect its layers.
 
 | English lesson                                                         | Starting paper           | Actions |
 | ---------------------------------------------------------------------- | ------------------------ | ------: |
@@ -19,7 +19,7 @@ npm run dev
 
 Open the local address printed by Vite. Start at `/` to choose English, or open `/en` directly. The guide has a shareable address at `/en/guide/crease-notation`. The appearance control follows the system and remembers explicit Light or Dark choices across visits.
 
-Run `npm run build` and `npm run preview` to serve the production lessons at the links above. Each page includes the complete ordered instructions in its static HTML. Keyboard buttons operate both playback and camera. Reduced motion settles each command immediately. The worktable also includes the independent [first-fold laboratory](http://127.0.0.1:4173/en/lab/first-fold) and [crease guide](http://127.0.0.1:4173/en/guide/crease-notation).
+Run `npm run build` and `npm run preview` to serve the production lessons at the links above. Each page includes the complete ordered instructions in its static HTML. Open Info to read the current fold or expand all steps. Arrow keys scrub the focused timeline and orbit the focused paper. With reduced motion, Next and Previous settle immediately and the middle button switches between the finished model and the starting sheet. The worktable also includes the independent [first-fold laboratory](http://127.0.0.1:4173/en/lab/first-fold) and [crease guide](http://127.0.0.1:4173/en/guide/crease-notation).
 
 ## Verify changes
 

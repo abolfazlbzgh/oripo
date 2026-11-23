@@ -71,9 +71,7 @@ Each step begins with the previous step's canonical coordinate array. Its axis i
 
 ### Playback and drawing
 
-`app/lesson/playback.ts` samples an action index, local start fraction, monotonic start time and target. Repeated commands toward the active destination preserve the clock. An opposite command samples the current fraction before changing direction. Replay travels back to the start of the displayed action, then forwards at its authored speed. At the opening sheet it performs the first action. A long frame can cross the replay turnaround in one sample.
-
-`use-lesson-player.ts` publishes instructions and polite announcements on state changes. The reusable studio hook owns the media query, lazy mount and camera handle. Reduced motion or context loss settles the selected destination. The text player supports the same actions. Leaving and re-entering starts a fresh sheet and releases the prior scene.
+Dart, Heart and Fox share one continuous position from the starting sheet to the final endpoint. The demand-driven renderer and native range sample that same position. The shared player binds the visible step to its authored English instruction. Info pauses the fold and reveals the current instruction and full transcript. The transport decision defines boundary ownership, interruption, keyboard controls and context loss. [ADR 0005](decisions/0005-continuous-lesson-transport.md)
 
 `airplane-scene.client.tsx` supplies the dart view and ply heights to `lesson-scene.client.tsx`. That shared drawing updates position and normal buffers on the same 16 dart panels throughout playback. Green and gold identify the two paper faces. A dashed line marks the active or upcoming crease. Rim lines follow real material edges. A seam gains ink when its incident panels first fold apart. For depth ordering only, a virtual ply is 0.0007 world units thick. The drawing rotates prior offsets about virtual hinges half a ply above a single layer, 1.5 plies above the nose fold and four plies above the closing spine. Exact geometry remains zero-thickness. The renderer explicitly disposes its buffers and materials.
 

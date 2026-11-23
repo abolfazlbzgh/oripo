@@ -1,8 +1,52 @@
 # Local release verification
 
+## Phase 6 local candidate
+
+The release baseline was `6f0d176d47919423fe63a5f160cdcf2d0556995e`. The shared studio is at `f99f246cb933f8a27a72090454e8ddb733ddbd76`. The release application and test sources are at `64c17556a3dcd031c471bce8776bcdd79fd3d0f0` on `feat/final-studio-player`. The handoff commit updates documentation.
+
+| Local check                   | Observed result                                                                                                                                                                                                                                                                                                                                                                                                |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Locked installation and build | Node 22.23.2 and npm 10.9.8. `npm ci --strict-peer-deps` installed 230 packages using the existing offline npm cache. A second clean installation from the candidate Git archive passed all 67 unit tests and reproduced all 44 client files byte for byte.                                                                                                                                                    |
+| Source and unit gates         | `npm run typecheck`, `npm run lint`, `npm run format:check`, `npm test` and `npm run build` passed.                                                                                                                                                                                                                                                                                                            |
+| Production browser matrix     | `npm run test:smoke` ran against the static build on loopback. Chromium 159.0.8154.6 passed 48/48, Firefox 159.0 passed 44/44 and WebKit 27.2 passed 44/44. The four Chromium-only journeys used emulated touch. The final matrix had zero failures, retries or skips. The Windows sandbox crashed before Firefox could open a page, so the matrix used host browser process access with the pinned toolchain. |
+| HTTP, fallback and lifecycle  | Seven published pages returned 200 on direct load and reload. Seven unsupported paths returned 404 on both visits. All three transcripts opened with JavaScript disabled. Missing WebGL, context loss, model changes, aborted mounts and renderer teardown passed. Monitored normal journeys produced zero hydration errors, failed assets or external requests.                                               |
+| Geometry                      | At 1,001 samples per action the maximum rigid-distance errors for Dart, Heart, Fox and the lab were 1.055e−15, 3.331e−16, 4.441e−16 and 2.220e−16 world units. Maximum hinge displacement was zero and maximum seam error was 2.722e−15. Each completed 1,000 forward/reverse cycles with zero measured drift. Fractional seeks were also checked against independent coordinates and projected silhouettes.   |
+
+The Phase 5 checkout was reverified at 61 unit and 115 production-browser checks. Phase 6 retains the lab and all three authored lessons. The timeline can pause on a partial reverse or continue across folds of different durations. [Transport and boundary semantics](decisions/0005-continuous-lesson-transport.md)
+
+### Viewport and accessibility evidence
+
+Screenshots cover 320×568, 360×800, 390×844, 768×1024, 1024×768, 1440×900 and 667×375. Review included Light and Dark, partial and finished folds, open instructions, enlarged text and keyboard focus. The layout suite exercised the stage and open model picker at all seven sizes at 100% and 200% root text size. The rail and transport stayed clear of the paper area. At 390×844 the Fox canvas grew from about 215px to 351px tall with all three playback actions in view. The mobile sheet scrolls independently and dismisses after a touch fling. The labeled reading area, transcript and Close control are keyboard-reachable, and closing returns focus to Info. With reduced motion, the user can inspect either endpoint immediately. The Chromium visual review used WebGL 2 with SwiftShader.
+
+Chromium measured Next label contrast at 7.80:1 in Light and 8.94:1 in Dark. The unfilled range track measured 4.00:1 and 6.27:1 against its surface. Keyboard focus on Next had a solid 3px outline. Before/after screenshots, browser reports, layout measurements and output hashes are in ignored `.local/phase-6/`.
+
+### Bundle evidence
+
+`node scripts/measure.mjs` measured raw bytes and gzip bytes per script. The homepage fetched zero scene chunks in fresh Chromium contexts at 390px and 1440px. `npm ls three --all` resolved one shared Three 0.187.0.
+
+| JavaScript bytes, raw / gzip |             Phase 5 |             Phase 6 |
+| ---------------------------- | ------------------: | ------------------: |
+| All scripts                  | 1,136,556 / 324,358 | 1,143,227 / 326,822 |
+| Homepage, cold               |   372,093 / 118,939 |   374,278 / 119,883 |
+| Dart, cold                   | 1,111,501 / 314,024 | 1,117,033 / 316,105 |
+| Heart, cold                  | 1,113,833 / 314,816 | 1,119,365 / 316,887 |
+| Fox, cold                    | 1,112,552 / 314,541 | 1,118,084 / 316,612 |
+
+The player, instruction disclosure, input handling and shared model navigation added 6,671 raw / 2,464 gzip bytes across scripts. All emitted CSS rose from 46,425 / 10,245 to 59,748 / 13,399 bytes, including the responsive studio stylesheet. Each lesson drew from at most one callback per animation frame in the Chromium probe, with zero additional frames during a 350 ms observation after settling. The project continues to use the Phase 5 lockfile and dependency notices. Vite still reports the large lazy scene chunk, Fiber still uses the deprecated Three.Clock, and SwiftShader can report ReadPixels stalls.
+
+### Owner-managed publication
+
+1. From the release repository in Git Bash, verify the private origin and its remote main history. Once the tested local main is ready and the remote accepts a fast-forward or is empty, the owner's command is `git push -u origin main`. Preserve unexpected remote work.
+2. Review GitHub's hosted Quality run for that SHA. Then import `abolfazlbzgh/oripo` in Vercel using **Other**, project root `./`, install `npm ci`, build `npm run build` and output `build/client`. These settings are recorded in `vercel.json`.
+3. On the assigned preview URL, check the seven pages and their refreshes, missing routes, model playback, and the response/cache headers for HTML, hashed assets and `appearance.js`. Record physical-paper, real-device and spoken screen-reader trials separately.
+
+**NOT RUN** covers GitHub-hosted CI, Vercel HTTP and caching, real devices, spoken screen readers and the paper trials below. Custom domain, DNS/TLS, public visibility and release tagging are deferred to the owner.
+
+## Phase 5 historical evidence
+
 Phase 5 passed locally on Windows with Node 22.23.2 and npm 10.9.8. The starting commit was `645abdd83018c511af41973abd2085e0823e6787` on `feat/origami-lesson-collection`. The tested application and build tooling are at `64d79f7d94fdcd234fc16c2c3529aab3d6634cf8` on `chore/release-hardening`. The subsequent handoff commit contains documentation. Preview, publication and promotion require owner approval.
 
-## Local gates
+### Phase 5 gates
 
 | Gate                | Command or method                                                                                                                                                                                                                              | Result                                                                                                                                                                                                                                                                                                |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -51,12 +95,3 @@ All trials below are **NOT RUN**. Use one two-sided sheet per trial and follow t
 | Heart          | Start with a square, corner up. Open the two diagonal marks and use their crossing for the top flap. After step 8, check that the two folded lower edges meet and leave a central V. Turn the side and lobe tips behind. Look for two level lobe tops, an open notch and one bottom point. |
 | Fox            | Start with a square, corner up. Check the doubled triangle after opening the forehead crease. Lift just the upper loose chin tip at step 4. Fold both ear packets behind and compare the two pointed ears, straight forehead and visible lower chin ply.                                   |
 | First-fold lab | On a square, leave the left half still, bring the right outside edge to the left edge, then open it along the same crease. Record whether the color descriptions match both endpoints.                                                                                                     |
-
-## Phase 6 checklist
-
-1. **Local ancestry.** Record `git rev-parse chore/release-hardening`, inspect `git log --reverse --oneline main..chore/release-hardening` and run `git merge-base --is-ancestor main chore/release-hardening`. The local main is the bootstrap `c24630e195f9a87f6176cee498011a4f3ae52b62`. The foundation, lab, studio, dart and collection commits are on the same line of history.
-2. **Private GitHub review — NOT RUN.** After authorization, confirm the personal account, private visibility and branch rules with the owner. Inspect `gh repo view abolfazlbzgh/oripo --json visibility,defaultBranchRef` and `git ls-remote --heads origin`. If remote main exists, fetch it and verify it is an ancestor of the candidate. Stop on divergence. If the remote is empty, get approval to establish the bootstrap as main first. Check whether any automatic deployment integration is active before pushing.
-3. **Hosted CI — NOT RUN.** With permission for a private branch and PR, use `git push -u origin chore/release-hardening`, open the review against main, then run `gh pr checks <PR-number> --watch`. Inspect the Quality run for the chosen SHA, exact toolchain, build and all three browser counts. Promote only after review and separate merge approval, preserving the original commits through the repository's reviewed merge policy. Leave main intact on an unexpected history or failing gate.
-4. **Vercel HTTP and cache — NOT RUN.** With separate preview authorization, select the reviewed SHA, Node 22.x, framework Other (`framework: null`), install `npm ci`, build `npm run build` and output `build/client`. Check the build log's actual Node/npm versions. Run a Preview deployment. With its assigned origin, GET each of the seven paths in `app/navigation.ts` and refresh each in a browser. Verify initial content, titles and three transcripts. GET the seven misses in `tests/browser/production.spec.ts` and exercise recovery. Inspect response headers with `curl -sS -D - -o /dev/null "$PREVIEW/en"` and repeat for a real hashed asset, a missing route and `/appearance.js`. Record status, cache policy and repeated responses for HTML, immutable assets and unversioned files. [Vercel static configuration](https://vercel.com/docs/project-configuration/vercel-json)
-5. **Physical touch — NOT RUN.** Record the phone, OS and browser. Complete a fold one-handed, orbit and pinch the canvas, scroll from the instructions, rotate the phone, reverse the fold and return to the catalog. **Spoken screen reader — NOT RUN.** Record the reader/browser pair. Navigate headings and the transcript, use Next/Previous/Replay, listen for one meaningful status at the destination and check recovery with WebGL unavailable. Complete the paper trials above and record discrepancies by step ID.
-6. **Public release and custom DNS — NOT RUN.** Review attribution, personal information, private reporting, hosted evidence and manual results with the owner. Public visibility, production deployment and a domain such as `oripo.byabolfazl.com` each require approval. Check DNS and TLS only after authorized configuration.

@@ -224,4 +224,10 @@ Physical folding and handling, actual phone input, spoken screen-reader output, 
 
 The owner selected three English lessons, retained the static stack and required physical, assistive-technology and hosted evidence before making release claims. Codex reviewed the repository, exposed the existing expected-pose copy in the static transcripts, extended the production tests and CI workflow, and prepared the license notices and contributor handoff. Git records the owner's requested local commit identity. Human review of the final changes and hands-on acceptance remain open.
 
-The isolated build reproduced all 41 client files byte for byte. The local browser checks used the real production renderer, including independent projected silhouettes and forward/reverse journeys. The [Phase 5 verification record](release.md) gives commands, scope, exceptions and the later release gates.
+The isolated build reproduced all 41 client files byte for byte. The local browser checks used the real production renderer, including independent projected silhouettes and forward/reverse journeys. The [Phase 5 verification record](release.md#phase-5-historical-evidence) gives commands, scope, exceptions and the later release gates.
+
+## Phase 6 studio handoff
+
+The owner selected Oripo Studio Compact UX v4. Codex implemented the viewport layout, continuous transport, instruction disclosure and release checks against the existing React and Three.js application. The reference stayed in the design archive. The production mesh, lesson sequences and English step IDs come from the project. The icons are original strokes covered by the project's MIT license.
+
+The prerendered popover, motion-free finish/start controls and keyboard orbit adapt the reference for static documents, reduced motion and keyboard use. Independent coordinate and silhouette tests cover intermediate poses. Physical sheets, real device input and spoken output still need hands-on review. [Transport decision](decisions/0005-continuous-lesson-transport.md) · [Local release evidence](release.md)

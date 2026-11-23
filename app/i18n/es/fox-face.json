@@ -1,0 +1,39 @@
+{
+  "sheet": {
+    "title": "Empieza con la hoja en rombo",
+    "instruction": "Coloca una hoja cuadrada con la cara verde hacia arriba y una esquina apuntando hacia ti. Esta esquina será la barbilla.",
+    "result": "El rombo verde está plano, con una punta hacia abajo."
+  },
+  "steps": {
+    "fold-triangle": {
+      "title": "Forma un triángulo de dos capas",
+      "instruction": "Lleva la esquina superior hasta la inferior. Marca el borde superior largo y haz que las dos puntas sueltas coincidan.",
+      "result": "Queda un triángulo dorado ancho con el borde superior recto y dos puntas sueltas en la barbilla."
+    },
+    "mark-forehead": {
+      "title": "Marca el centro",
+      "instruction": "Lleva la esquina derecha hasta la izquierda con las dos capas. Marca el pliegue desde el centro de la frente hasta la barbilla.",
+      "result": "El triángulo de dos capas queda doblado por la mitad a lo largo del eje de la cara."
+    },
+    "open-forehead": {
+      "title": "Abre la cara",
+      "instruction": "Despliega esas dos capas hacia la derecha. Mantén arriba el borde largo doblado.",
+      "result": "El triángulo ancho vuelve a estar abierto, con una línea de pliegue central."
+    },
+    "lift-muzzle": {
+      "title": "Levanta una punta para formar el hocico",
+      "instruction": "Separa las dos puntas de la barbilla. Dobla solo la superior hacia arriba por el eje central hasta un poco más de la mitad del camino a la frente. Deja la punta inferior hacia abajo.",
+      "result": "El hocico verde queda sobre la cara dorada, justo encima de la barbilla verde y puntiaguda."
+    },
+    "left-ear": {
+      "title": "Levanta la oreja izquierda",
+      "instruction": "Sujeta la barbilla y levanta la cara de la mesa. Desde el centro del borde superior, marca un punto a dos tercios de la distancia hasta la esquina izquierda. Dobla todas las capas de esa esquina hacia atrás por la línea que une la barbilla con la marca. La oreja asoma por encima de la frente.",
+      "result": "La oreja izquierda puntiaguda sobresale por encima de la cabeza y la esquina derecha aún apunta hacia un lado."
+    },
+    "right-ear": {
+      "title": "Iguala la oreja derecha",
+      "instruction": "Dobla la esquina derecha hacia atrás por la línea simétrica que parte de la barbilla. Alinea las puntas de las orejas por encima de la frente y aplana las mejillas.",
+      "result": "La cara del zorro tiene dos orejas puntiagudas, una frente recta y un hocico verde que se estrecha hacia la barbilla."
+    }
+  }
+}

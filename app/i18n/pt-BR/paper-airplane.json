@@ -1,0 +1,54 @@
+{
+  "sheet": {
+    "title": "Comece com um retângulo",
+    "instruction": "Coloque um retângulo de 2 × 3 com o lado verde para cima e uma das bordas curtas no alto. O meio dessa borda será o nariz do avião.",
+    "result": "O retângulo verde está plano, com as bordas longas orientadas do nariz até a cauda."
+  },
+  "steps": {
+    "mark-spine": {
+      "title": "Marque o eixo central",
+      "instruction": "Leve a borda longa da direita até a borda longa da esquerda. Vinque a dobra de cima para baixo.",
+      "result": "O verso dourado fica voltado para cima no retângulo comprido e dobrado."
+    },
+    "open-sheet": {
+      "title": "Abra a folha",
+      "instruction": "Desdobre a metade direita. Mantenha a borda curta no alto e use o vinco central como guia.",
+      "result": "A folha volta a ficar plana, com um vinco no meio."
+    },
+    "left-corner": {
+      "title": "Dobre o canto esquerdo para dentro",
+      "instruction": "Dobre o canto superior esquerdo para dentro até que a metade esquerda da borda superior fique sobre o eixo. O ponto central da borda superior não se move.",
+      "result": "Um triângulo dourado cobre a parte superior esquerda da folha verde."
+    },
+    "right-corner": {
+      "title": "Dobre o canto direito para dentro",
+      "instruction": "Leve o canto superior direito até o mesmo eixo. Faça as duas bordas dobradas se encontrarem no nariz.",
+      "result": "Dois triângulos dourados se encontram no eixo, logo abaixo do nariz pontudo."
+    },
+    "left-taper": {
+      "title": "Estreite o lado esquerdo",
+      "instruction": "Levante a borda inclinada esquerda pegando as duas camadas. Leve toda a borda até o eixo central e marque o novo vinco.",
+      "result": "Uma borda dobrada mais longa desce do nariz pelo lado esquerdo."
+    },
+    "right-taper": {
+      "title": "Estreite o lado direito",
+      "instruction": "Leve a borda inclinada direita e a camada de baixo até o eixo central. Alinhe a borda com a dobra da esquerda.",
+      "result": "Os dois lados do nariz agora são longos, afilados e simétricos."
+    },
+    "close-body": {
+      "title": "Feche a fuselagem",
+      "instruction": "Levante os dois lados ao longo do eixo até juntá-los. Segure as metades fechadas na vertical, com os cantos dobrados para dentro.",
+      "result": "As camadas ficam juntas e de pé acima do eixo. A ponta e a cauda continuam alinhadas."
+    },
+    "left-wing": {
+      "title": "Abaixe a asa esquerda",
+      "instruction": "Na cauda, meça um décimo do comprimento da folha a partir do eixo, de baixo para cima. Dobre as camadas da esquerda para fora pela linha que liga o nariz a essa marca. Pare um pouco acima da horizontal.",
+      "result": "A asa esquerda se abre para o lado enquanto as camadas da direita ficam na vertical."
+    },
+    "right-wing": {
+      "title": "Abaixe a asa direita",
+      "instruction": "Abaixe as camadas da direita pela linha simétrica. Deixe as duas asas ligeiramente inclinadas para cima e aperte a quilha estreita que fica embaixo delas.",
+      "result": "Seu dardo está pronto. As duas asas em flecha partem do mesmo nariz, com uma quilha vertical entre elas."
+    }
+  }
+}

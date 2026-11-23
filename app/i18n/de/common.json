@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "explore": "Entdecken",
+    "guide": "Falthilfe",
+    "main": "Hauptnavigation",
+    "footer": "Navigation in der Fußzeile",
+    "skip": "Zum Inhalt springen",
+    "menu": "Menü",
+    "language": "Sprache wechseln",
+    "dark": "Dunkles Design",
+    "choose": "Modell wählen. Ausgewählt: {model}",
+    "models": "Eine Anleitung wählen"
+  },
+  "home": {
+    "tagline": "Origami in Bewegung",
+    "title": "Ein Blatt.",
+    "emphasis": "Unendlich viele Möglichkeiten.",
+    "intro": "Entdecke, wie aus einem einzigen Blatt eine Figur entsteht. Folge jedem Faltschritt in 3D, drehe das Papier und falte es Schritt für Schritt wieder auf.",
+    "browse": "Modelle entdecken",
+    "read": "Falthilfe lesen",
+    "gallery": "Auf dem Falttisch",
+    "study": "Papierstudie",
+    "crane": "Der Kranich",
+    "alt": "Ein salbeigrüner Papierkranich mit langen, spitzen Flügeln und gefaltetem Schnabel.",
+    "beginner": "Für Einsteiger",
+    "square": "Quadratisches Blatt",
+    "rectangle": "Rechteck im Format 2 × 3",
+    "count": "{n} Schritte",
+    "lesson": "Interaktive Anleitung"
+  },
+  "guide": {
+    "title": "Faltzeichen",
+    "intro": "Lies die Faltzeichen von der Seite des Papiers, die dir zugewandt ist. Die Linie zeigt, in welche Richtung du faltest.",
+    "valley": "Talfalte",
+    "valleyText": "Eine gestrichelte Linie steht für eine Talfalte. Falte beide Seiten zu dir hin, sodass die Faltlinie unten in einem V liegt.",
+    "mountain": "Bergfalte",
+    "mountainText": "Eine Strich-Punkt-Linie steht für eine Bergfalte. Falte die Seiten von dir weg, sodass die Faltlinie wie ein Grat hervorsteht.",
+    "back": "Zurück zu den Modellen"
+  },
+  "models": {
+    "paper-airplane": {
+      "title": "Papierflieger in Pfeilform",
+      "short": "Flieger",
+      "summary": "Falte aus einem hochkant liegenden Rechteck einen spitzen Papierflieger mit zwei gepfeilten Flügeln und schmalem Rumpf."
+    },
+    "paper-heart": {
+      "title": "Papierherz",
+      "short": "Herz",
+      "summary": "Falte ein Quadrat zu einem Herz mit zwei breiten Bögen, einer Kerbe in der Mitte und einer Spitze unten."
+    },
+    "fox-face": {
+      "title": "Fuchsgesicht",
+      "short": "Fuchs",
+      "summary": "Falte zwei Ecken nach hinten zu spitzen Ohren und klappe eine lose Spitze für die zweifarbige Schnauze nach oben."
+    }
+  },
+  "player": {
+    "studio": "Faltstudio für das Modell {model}",
+    "step": "Schritt {n} von {total}",
+    "finished": "Anleitung abgeschlossen",
+    "modelComplete": "Modell fertig",
+    "starting": "Ungefaltetes Blatt",
+    "progress": "Fortschritt der Anleitung",
+    "playback": "Wiedergabe der Anleitung",
+    "previous": "Zurück",
+    "previousFold": "Vorherige Faltung",
+    "next": "Weiter",
+    "done": "Fertig",
+    "pause": "Wiedergabe anhalten",
+    "play": "Alle Schritte abspielen",
+    "replay": "Alle Schritte erneut abspielen",
+    "toStart": "Zum ungefalteten Blatt zurückkehren",
+    "toEnd": "Fertiges Modell anzeigen",
+    "info": "Anleitung zu diesem Schritt lesen",
+    "close": "Anleitung schließen",
+    "instructions": "Faltanleitung",
+    "all": "Alle {n} Schritte lesen",
+    "gestures": "Ziehe, um das Papier von allen Seiten zu betrachten. Zoome mit zwei Fingern oder dem Mausrad. Setze den Tastaturfokus auf das Papier und drehe es mit den Pfeiltasten.",
+    "instant": "Mit „Weiter“ und „Zurück“ gehst du einen Faltschritt vor oder zurück. Die mittlere Taste wechselt zwischen dem fertigen Modell und dem ungefalteten Blatt.",
+    "orbit": "Ziehe oder nutze die Pfeiltasten, um die Ansicht zu drehen",
+    "unavailable": "3D-Ansicht nicht verfügbar",
+    "openInfo": "Öffne die Info, um die Faltanleitung zu lesen.",
+    "camera": "Kameraansicht",
+    "closer": "Vergrößern",
+    "farther": "Verkleinern",
+    "reset": "Ansicht zurücksetzen",
+    "reading": "Drehwinkel {bearing}°, Höhenwinkel {elevation}°, Vergrößerung {zoom}×.",
+    "value": "Schritt {n} von {total}. {title}. Zu {percent} % gefaltet.",
+    "reached": "Schritt {n} von {total} erreicht. {description}",
+    "reverse": "Schritt {n} von {total} wird rückgängig gemacht. {title}.",
+    "paused": "Pause bei Schritt {n} von {total}. {title}.",
+    "showing": "Schritt {n} von {total} wird gezeigt. {title}."
+  },
+  "error": {
+    "title": "Seite nicht gefunden",
+    "failed": "Diese Seite konnte nicht geladen werden",
+    "body": "Unter dieser Adresse gibt es keine veröffentlichte Seite.",
+    "recovery": "Weiterführende Links"
+  },
+  "seo": {
+    "home": "Falte aus einem einzigen Blatt einen Papierflieger, ein Herz oder ein Fuchsgesicht. Im Faltstudio von Oripo kannst du jeden Schritt in 3D vorwärts und rückwärts verfolgen."
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "explore": "探索",
+    "guide": "指南",
+    "main": "主导航",
+    "footer": "页脚导航",
+    "skip": "跳到正文",
+    "menu": "网站菜单",
+    "language": "切换语言",
+    "dark": "深色模式",
+    "choose": "选择模型，当前为{model}",
+    "models": "选择教程"
+  },
+  "home": {
+    "tagline": "动起来的折纸",
+    "title": "一张纸。",
+    "emphasis": "无限可能。",
+    "intro": "看一张纸怎样慢慢成形。跟着三维演示折每一道折痕，转动纸张看看另一面，也可以一步步展开，回到最初的模样。",
+    "browse": "探索折纸",
+    "read": "阅读指南",
+    "gallery": "折纸工作台",
+    "study": "纸艺习作",
+    "crane": "纸鹤",
+    "alt": "一只灰绿色的纸鹤，翅膀修长尖细，喙由纸角折成。",
+    "beginner": "入门",
+    "square": "正方形纸",
+    "rectangle": "宽长比为 2∶3 的长方形纸",
+    "count": "{n} 步",
+    "lesson": "互动教程"
+  },
+  "guide": {
+    "title": "折痕符号",
+    "intro": "从纸张朝向你的一面来看图。折痕线的样式标明了纸要往哪个方向折。",
+    "valley": "谷折",
+    "valleyText": "虚线表示谷折。把折痕两侧的纸朝自己折起，让折痕落在 V 字的底部。",
+    "mountain": "山折",
+    "mountainText": "点划线表示山折。把折痕两侧的纸向背面折，让中间的折痕像山脊一样凸起。",
+    "back": "返回探索"
+  },
+  "models": {
+    "paper-airplane": {
+      "title": "飞镖式纸飞机",
+      "short": "纸飞机",
+      "summary": "把竖放的长方形纸折成飞镖式飞机，机头尖，两翼向后掠，机身细窄。"
+    },
+    "paper-heart": {
+      "title": "纸心",
+      "short": "纸心",
+      "summary": "把正方形纸折成一颗心，两瓣宽宽的，中间有凹口，下方是一个尖角。"
+    },
+    "fox-face": {
+      "title": "狐狸脸",
+      "short": "狐狸",
+      "summary": "向后折出两只尖耳朵，再翻起一个自由的纸尖，折出狐狸双色的口鼻。"
+    }
+  },
+  "player": {
+    "studio": "{model}折纸工作室",
+    "step": "第 {n} 步／共 {total} 步",
+    "finished": "教程已完成",
+    "modelComplete": "模型已折好",
+    "starting": "起始纸张",
+    "progress": "教程进度",
+    "playback": "教程播放控制",
+    "previous": "上一步",
+    "previousFold": "回到上一折",
+    "next": "下一折",
+    "done": "已完成",
+    "pause": "暂停播放",
+    "play": "播放全部折叠步骤",
+    "replay": "重播全部折叠步骤",
+    "toStart": "回到起始纸张",
+    "toEnd": "查看成品",
+    "info": "阅读本步说明",
+    "close": "关闭说明",
+    "instructions": "折叠说明",
+    "all": "阅读全部 {n} 步",
+    "gestures": "拖动可转动视角，双指缩放或滚动滚轮可放大、缩小。也可以将键盘焦点移到纸上，再用方向键转动。",
+    "instant": "“下一折”和“上一步”每次移动一折。中间的按钮可以在成品和起始纸张之间切换。",
+    "orbit": "拖动或按方向键转动视角",
+    "unavailable": "无法显示三维视图",
+    "openInfo": "打开说明按钮即可查看折法。",
+    "camera": "观察视角",
+    "closer": "放大",
+    "farther": "缩小",
+    "reset": "重置视角",
+    "reading": "水平转角 {bearing}°，仰角 {elevation}°，缩放 {zoom} 倍",
+    "value": "第 {n} 步，共 {total} 步，{title}，本折已完成 {percent}%",
+    "reached": "已到达第 {n} 步，共 {total} 步。{description}",
+    "reverse": "正在倒放第 {n} 步，共 {total} 步。{title}。",
+    "paused": "已暂停在第 {n} 步，共 {total} 步。{title}。",
+    "showing": "正在演示第 {n} 步，共 {total} 步。{title}。"
+  },
+  "error": {
+    "title": "找不到页面",
+    "failed": "无法加载此页面",
+    "body": "这个地址没有对应的已发布页面。",
+    "recovery": "返回可用页面"
+  },
+  "seo": {
+    "home": "用一张纸折出飞镖式纸飞机、纸心或狐狸脸。在 Oripo 折纸工作室里观看每一步的三维演示，也可以倒放折叠动作。"
+  }
+}

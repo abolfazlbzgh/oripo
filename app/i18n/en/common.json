@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "explore": "Explore",
+    "guide": "Guide",
+    "main": "Main navigation",
+    "footer": "Footer navigation",
+    "skip": "Skip to content",
+    "menu": "Site menu",
+    "language": "Change language",
+    "dark": "Dark mode",
+    "choose": "Choose model, {model}",
+    "models": "Choose a lesson"
+  },
+  "home": {
+    "tagline": "Origami in Motion",
+    "title": "One sheet.",
+    "emphasis": "Endless possibilities.",
+    "intro": "Discover how a single sheet takes shape. Follow each fold in 3D, turn the paper in your hands, and trace it back to the beginning.",
+    "browse": "Explore origami",
+    "read": "Read the guide",
+    "gallery": "On the worktable",
+    "study": "Paper study",
+    "crane": "The crane",
+    "alt": "A sage paper crane with long pointed wings and a folded beak.",
+    "beginner": "Beginner",
+    "square": "Square sheet",
+    "rectangle": "2 × 3 rectangle",
+    "count": "{n} steps",
+    "lesson": "Playable lesson"
+  },
+  "guide": {
+    "title": "Crease notation",
+    "intro": "Read a fold from the side of the paper facing you. The crease line tells you which way the paper bends.",
+    "valley": "Valley fold",
+    "valleyText": "A dashed line marks a valley. Bring the two sides toward you so the crease sits at the bottom of a V.",
+    "mountain": "Mountain fold",
+    "mountainText": "A dash-dot line marks a mountain. Fold the sides away from you so the crease rises into a ridge.",
+    "back": "Back to Explore"
+  },
+  "models": {
+    "paper-airplane": {
+      "title": "Dart paper airplane",
+      "short": "Dart",
+      "summary": "Turn a portrait rectangle into a pointed dart with two swept wings and a narrow body."
+    },
+    "paper-heart": {
+      "title": "Paper heart",
+      "short": "Heart",
+      "summary": "Fold a square into two broad lobes with a center notch and a pointed base."
+    },
+    "fox-face": {
+      "title": "Fox face",
+      "short": "Fox",
+      "summary": "Turn back two pointed ears and lift one loose tip to give a fox its two-tone muzzle."
+    }
+  },
+  "player": {
+    "studio": "{model} folding studio",
+    "step": "Step {n} / {total}",
+    "finished": "Lesson complete",
+    "modelComplete": "Model complete",
+    "starting": "Starting sheet",
+    "progress": "Lesson progress",
+    "playback": "Lesson playback",
+    "previous": "Previous",
+    "previousFold": "Previous fold",
+    "next": "Next fold",
+    "done": "Complete",
+    "pause": "Pause playback",
+    "play": "Play all folds",
+    "replay": "Replay all folds",
+    "toStart": "Return to starting sheet",
+    "toEnd": "Show finished model",
+    "info": "Read step instructions",
+    "close": "Close instructions",
+    "instructions": "Instruction text",
+    "all": "Read all {n} steps",
+    "gestures": "Drag to orbit. Pinch or scroll to zoom. Focus the paper and use the arrow keys to turn it.",
+    "instant": "Next and Previous move one fold at a time. The middle button switches between the finished model and the starting sheet.",
+    "orbit": "Drag or use arrow keys to orbit",
+    "unavailable": "3D view unavailable",
+    "openInfo": "Open Info for the folding instructions.",
+    "camera": "Camera view",
+    "closer": "Zoom in",
+    "farther": "Zoom out",
+    "reset": "Reset view",
+    "reading": "{bearing}° around · {elevation}° above · {zoom}× zoom",
+    "value": "Step {n} of {total}, {title}, {percent}% folded",
+    "reached": "Reached step {n} of {total}. {description}",
+    "reverse": "Reversing step {n} of {total}. {title}.",
+    "paused": "Paused at step {n} of {total}. {title}.",
+    "showing": "Showing step {n} of {total}. {title}."
+  },
+  "error": {
+    "title": "Page not found",
+    "failed": "This page could not load",
+    "body": "This address does not match a published page.",
+    "recovery": "Recovery"
+  },
+  "seo": {
+    "home": "Fold a dart paper airplane, paper heart or fox face from one sheet. Follow each fold in 3D and reverse it in the Oripo studio."
+  }
+}

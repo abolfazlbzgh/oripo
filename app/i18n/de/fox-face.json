@@ -1,0 +1,39 @@
+{
+  "sheet": {
+    "title": "Lege ein Quadrat auf die Spitze",
+    "instruction": "Lege ein Quadrat mit der grünen Seite nach oben so vor dich, dass eine Ecke zu dir zeigt. Die dir zugewandte Ecke wird zum Kinn.",
+    "result": "Die grüne Raute liegt flach, mit einer Ecke nach unten."
+  },
+  "steps": {
+    "fold-triangle": {
+      "title": "Bilde ein zweilagiges Dreieck",
+      "instruction": "Lege die obere Ecke auf die untere. Richte die beiden losen Spitzen bündig aus und streiche die lange Oberkante fest.",
+      "result": "Ein breites goldenes Dreieck hat oben eine gerade Kante und am Kinn zwei lose Spitzen."
+    },
+    "mark-forehead": {
+      "title": "Markiere die Mitte",
+      "instruction": "Falte die rechte Ecke mit beiden Lagen zur linken. Streiche den Falz von der Stirnmitte bis zum Kinn fest.",
+      "result": "Das zweilagige Dreieck ist entlang der Gesichtsmitte zusammengefaltet."
+    },
+    "open-forehead": {
+      "title": "Öffne das Gesicht",
+      "instruction": "Klappe die beiden Lagen wieder nach rechts. Die lange gefaltete Kante bleibt oben.",
+      "result": "Das breite Dreieck ist wieder offen. Ein Falz verläuft durch seine Mitte."
+    },
+    "lift-muzzle": {
+      "title": "Hebe eine Spitze für die Schnauze an",
+      "instruction": "Trenne die beiden Spitzen am Kinn. Klappe nur die obere Spitze entlang der Mittellinie nach oben, etwas über die Hälfte der Strecke zur Stirn hinaus. Lass die untere Spitze nach unten zeigen.",
+      "result": "Auf dem goldenen Gesicht liegt eine grüne Schnauze über einem spitzen grünen Kinn."
+    },
+    "left-ear": {
+      "title": "Stelle das linke Ohr auf",
+      "instruction": "Halte das Kinn fest und hebe das Gesicht vom Tisch. Markiere auf der Oberkante einen Punkt bei zwei Dritteln der Strecke von ihrer Mitte zur linken Ecke. Falte alle Lagen dieser Ecke entlang der Linie vom Kinn zur Markierung nach hinten. Das Ohr ragt über die Stirn hinaus.",
+      "result": "Das spitze linke Ohr steht über dem Kopf. Die rechte Ecke zeigt noch zur Seite."
+    },
+    "right-ear": {
+      "title": "Gleiche das rechte Ohr an",
+      "instruction": "Falte die rechte Ecke entlang der spiegelbildlichen Linie vom Kinn aus nach hinten. Richte die Ohrspitzen oberhalb der Stirn auf gleicher Höhe aus und drücke die Wangen flach.",
+      "result": "Dein Fuchsgesicht hat zwei spitze Ohren, eine gerade Stirn und eine grüne Schnauze, die zum Kinn hin schmaler wird."
+    }
+  }
+}

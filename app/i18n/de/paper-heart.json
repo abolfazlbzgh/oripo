@@ -1,0 +1,69 @@
+{
+  "sheet": {
+    "title": "Lege ein Quadrat auf die Spitze",
+    "instruction": "Lege ein Quadrat mit der grünen Seite nach oben so vor dich, dass eine Ecke zu dir zeigt.",
+    "result": "Das grüne Quadrat liegt flach und steht auf einer Spitze."
+  },
+  "steps": {
+    "mark-center": {
+      "title": "Markiere die Mittellinie",
+      "instruction": "Führe die rechte Ecke auf die linke Ecke. Streiche den langen senkrechten Falz fest.",
+      "result": "Links von der Mittellinie liegt ein goldenes Dreieck."
+    },
+    "open-center": {
+      "title": "Öffne den senkrechten Falz",
+      "instruction": "Klappe dieselbe Ecke wieder nach rechts. Lass die Raute mit der Spitze zu dir liegen.",
+      "result": "Das Quadrat ist offen und hat einen senkrechten Falz."
+    },
+    "mark-across": {
+      "title": "Finde die Mitte",
+      "instruction": "Lege die obere Ecke auf die untere. Streiche den waagerechten Falz fest.",
+      "result": "Ein goldenes Dreieck zeigt mit der Spitze zu dir."
+    },
+    "open-across": {
+      "title": "Öffne die Raute",
+      "instruction": "Klappe die obere Lage wieder nach oben. Suche den Schnittpunkt der beiden Falze.",
+      "result": "In der Mitte der offenen grünen Raute kreuzen sich zwei Falze."
+    },
+    "top-to-center": {
+      "title": "Falte die obere Spitze zur Mitte",
+      "instruction": "Falte die obere Ecke so weit nach unten, bis ihre Spitze den Schnittpunkt berührt.",
+      "result": "Unter einer kurzen waagerechten Oberkante liegt ein kleines goldenes Dreieck."
+    },
+    "bottom-to-top": {
+      "title": "Hebe die untere Spitze an",
+      "instruction": "Führe die untere Ecke zur Mitte der kurzen Oberkante. Streiche die neue untere Kante flach.",
+      "result": "Eine breite goldene Lasche bedeckt die Mitte des gefalteten Papiers."
+    },
+    "lift-left": {
+      "title": "Hebe die linke Hälfte an",
+      "instruction": "Halte die Mitte der Unterkante fest. Schwenke ihr linkes Ende mit allen Lagen nach oben, bis diese Hälfte der Kante auf der senkrechten Mittellinie liegt.",
+      "result": "Die ursprüngliche linke Ecke zeigt nun nach oben und bildet den ersten Herzbogen."
+    },
+    "lift-right": {
+      "title": "Hebe die rechte Hälfte an",
+      "instruction": "Schwenke das rechte Ende der Unterkante nach oben, bis es auf der Mittellinie auf das andere Ende trifft.",
+      "result": "Die beiden oberen Spitzen bilden ein V über einer einzelnen unteren Spitze."
+    },
+    "soften-left": {
+      "title": "Falte die linke Seite nach hinten",
+      "instruction": "Hebe das Herz vom Tisch. Knicke die äußerste linke Spitze entlang der kurzen senkrechten Hilfslinie hinter alle Lagen.",
+      "result": "Die linke Seite hat eine kurze gerade Kante."
+    },
+    "soften-right": {
+      "title": "Gleiche die rechte Seite an",
+      "instruction": "Knicke die rechte seitliche Spitze ebenso weit nach hinten.",
+      "result": "Die geraden Kanten auf beiden Seiten sind gleich lang."
+    },
+    "left-lobe": {
+      "title": "Forme den linken Herzbogen",
+      "instruction": "Knicke das oberste Stück der linken Spitze nach hinten. Der Falz soll parallel zur Oberkante der ursprünglichen Lasche verlaufen.",
+      "result": "Der linke Herzbogen hat oben eine kurze waagerechte Kante. Die Kerbe in der Mitte bleibt offen."
+    },
+    "right-lobe": {
+      "title": "Vollende das Herz",
+      "instruction": "Knicke die rechte Spitze auf Höhe der linken nach hinten. Streiche die beiden kleinen Falze flach.",
+      "result": "Dein Papierherz hat zwei breite Bögen, eine V-förmige Kerbe und unten eine ausgeprägte Spitze."
+    }
+  }
+}

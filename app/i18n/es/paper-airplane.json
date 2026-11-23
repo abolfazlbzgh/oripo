@@ -1,0 +1,54 @@
+{
+  "sheet": {
+    "title": "Empieza con un rectángulo",
+    "instruction": "Coloca un rectángulo de 2 × 3 con la cara verde hacia arriba y uno de los lados cortos arriba. El punto medio de ese lado será el morro del avión.",
+    "result": "El rectángulo verde está plano, con los lados largos orientados del morro a la cola."
+  },
+  "steps": {
+    "mark-spine": {
+      "title": "Marca el eje central",
+      "instruction": "Lleva el borde largo derecho hasta el borde largo izquierdo. Marca el pliegue de arriba abajo.",
+      "result": "Queda un rectángulo largo doblado, con el reverso dorado hacia arriba."
+    },
+    "open-sheet": {
+      "title": "Abre la hoja",
+      "instruction": "Despliega la mitad derecha. Mantén el borde corto arriba y toma como guía el pliegue central.",
+      "result": "La hoja vuelve a quedar plana, con una línea de pliegue en el centro."
+    },
+    "left-corner": {
+      "title": "Dobla la esquina izquierda hacia dentro",
+      "instruction": "Dobla la esquina superior izquierda hasta que el tramo izquierdo del borde superior coincida con el eje central. El punto medio del borde superior no se mueve.",
+      "result": "Un triángulo dorado cubre la parte superior izquierda de la hoja verde."
+    },
+    "right-corner": {
+      "title": "Dobla la esquina derecha hacia dentro",
+      "instruction": "Lleva la esquina superior derecha hasta el mismo eje. Haz que los dos bordes doblados coincidan en el morro.",
+      "result": "Los dos triángulos dorados se juntan en el eje, debajo del morro puntiagudo."
+    },
+    "left-taper": {
+      "title": "Estrecha el lado izquierdo",
+      "instruction": "Levanta el borde inclinado izquierdo junto con las dos capas de papel. Lleva todo el borde hasta el eje central y marca el nuevo pliegue.",
+      "result": "Desde el morro baja por la izquierda un borde doblado más largo."
+    },
+    "right-taper": {
+      "title": "Estrecha el lado derecho",
+      "instruction": "Lleva el borde inclinado derecho y la capa que tiene debajo hasta el eje central. Alinéalo con el pliegue izquierdo.",
+      "result": "Los dos lados del morro forman puntas largas y simétricas."
+    },
+    "close-body": {
+      "title": "Aprieta el fuselaje",
+      "instruction": "Levanta los dos lados por el eje central hasta juntarlos. Sujeta ambas mitades cerradas en vertical con las esquinas dobladas por dentro.",
+      "result": "Las capas quedan juntas y en vertical sobre el eje. La punta y la cola siguen alineadas."
+    },
+    "left-wing": {
+      "title": "Baja el ala izquierda",
+      "instruction": "En la cola, mide desde el eje hacia arriba una décima parte de la longitud de la hoja. Dobla las capas izquierdas hacia fuera por la línea que une el morro con esa marca. Deja el ala apenas por encima de la horizontal.",
+      "result": "El ala izquierda queda extendida mientras las capas de la derecha siguen en vertical."
+    },
+    "right-wing": {
+      "title": "Baja el ala derecha",
+      "instruction": "Baja juntas las capas derechas por la línea simétrica. Deja ambas alas ligeramente inclinadas hacia arriba y aprieta la quilla estrecha que queda debajo.",
+      "result": "El dardo está terminado. Del mismo morro salen dos alas en flecha con una quilla vertical entre ellas."
+    }
+  }
+}

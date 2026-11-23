@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "explore": "Explorar",
+    "guide": "Guia",
+    "main": "Navegação principal",
+    "footer": "Navegação do rodapé",
+    "skip": "Pular para o conteúdo",
+    "menu": "Menu do site",
+    "language": "Mudar de idioma",
+    "dark": "Modo escuro",
+    "choose": "Escolher modelo. Modelo atual: {model}",
+    "models": "Escolher uma aula"
+  },
+  "home": {
+    "tagline": "Origami em movimento",
+    "title": "Uma folha.",
+    "emphasis": "Infinitas possibilidades.",
+    "intro": "Descubra como uma única folha ganha forma. Acompanhe cada dobra em 3D, gire o papel e desfaça as dobras até voltar ao começo.",
+    "browse": "Explorar modelos",
+    "read": "Ler o guia",
+    "gallery": "Na mesa de trabalho",
+    "study": "Estudo em papel",
+    "crane": "O tsuru",
+    "alt": "Um tsuru de papel verde-sálvia com asas longas e pontudas e bico dobrado.",
+    "beginner": "Iniciante",
+    "square": "Folha quadrada",
+    "rectangle": "Retângulo de 2 × 3",
+    "count": "{n} etapas",
+    "lesson": "Aula interativa"
+  },
+  "guide": {
+    "title": "Símbolos das dobras",
+    "intro": "Observe a dobra pelo lado do papel que está voltado para você. A linha do vinco indica para que lado dobrar.",
+    "valley": "Dobra em vale",
+    "valleyText": "Uma linha tracejada indica uma dobra em vale. Traga os dois lados na sua direção para que o vinco fique no fundo de um V.",
+    "mountain": "Dobra em montanha",
+    "mountainText": "Uma linha de traços e pontos indica uma dobra em montanha. Dobre os lados para longe de você para que o vinco forme uma crista.",
+    "back": "Voltar aos modelos"
+  },
+  "models": {
+    "paper-airplane": {
+      "title": "Avião de papel tipo dardo",
+      "short": "Dardo",
+      "summary": "Comece com um retângulo na vertical e faça um dardo de nariz pontudo, duas asas em flecha e fuselagem estreita."
+    },
+    "paper-heart": {
+      "title": "Coração de papel",
+      "short": "Coração",
+      "summary": "Dobre um quadrado para formar duas curvas largas no alto, com um recorte no centro e uma ponta na base."
+    },
+    "fox-face": {
+      "title": "Rosto de raposa",
+      "short": "Raposa",
+      "summary": "Dobre dois cantos para trás para formar as orelhas e levante uma ponta solta para fazer o focinho da raposa em duas cores."
+    }
+  },
+  "player": {
+    "studio": "Ateliê de origami: {model}",
+    "step": "Etapa {n} de {total}",
+    "finished": "Aula concluída",
+    "modelComplete": "Modelo concluído",
+    "starting": "Folha inicial",
+    "progress": "Progresso da aula",
+    "playback": "Reprodução da aula",
+    "previous": "Anterior",
+    "previousFold": "Dobra anterior",
+    "next": "Próxima dobra",
+    "done": "Concluído",
+    "pause": "Pausar reprodução",
+    "play": "Reproduzir todas as dobras",
+    "replay": "Repetir todas as dobras",
+    "toStart": "Voltar à folha inicial",
+    "toEnd": "Mostrar o modelo pronto",
+    "info": "Ler as instruções da etapa",
+    "close": "Fechar instruções",
+    "instructions": "Instruções da dobra",
+    "all": "Ler as {n} etapas",
+    "gestures": "Arraste para girar a visualização. Faça o gesto de pinça ou use a roda do mouse para ajustar o zoom. Com o foco no papel, use as setas do teclado para girá-lo.",
+    "instant": "Os botões “Próxima dobra” e “Anterior” avançam ou voltam uma dobra por vez. O botão central alterna entre o modelo pronto e a folha inicial.",
+    "orbit": "Arraste ou use as setas do teclado para girar a visualização",
+    "unavailable": "Visualização 3D indisponível",
+    "openInfo": "Abra as informações para ler as instruções da dobra.",
+    "camera": "Visualização da câmera",
+    "closer": "Aproximar",
+    "farther": "Afastar",
+    "reset": "Restaurar visualização",
+    "reading": "Rotação: {bearing}°. Elevação: {elevation}°. Zoom: {zoom}×.",
+    "value": "Etapa {n} de {total}. {title}. Dobra {percent}% concluída.",
+    "reached": "Você chegou à etapa {n} de {total}. {description}",
+    "reverse": "Desfazendo a etapa {n} de {total}. {title}.",
+    "paused": "Em pausa na etapa {n} de {total}. {title}.",
+    "showing": "Exibindo a etapa {n} de {total}. {title}."
+  },
+  "error": {
+    "title": "Página não encontrada",
+    "failed": "Não foi possível carregar esta página",
+    "body": "Este endereço não corresponde a nenhuma página publicada.",
+    "recovery": "Links para continuar"
+  },
+  "seo": {
+    "home": "Faça um avião de papel tipo dardo, um coração ou um rosto de raposa com uma só folha. Acompanhe e desfaça cada dobra em 3D no ateliê Oripo."
+  }
+}

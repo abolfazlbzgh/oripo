@@ -1,0 +1,39 @@
+{
+  "sheet": {
+    "title": "Partez d’un carré en losange",
+    "instruction": "Posez un carré face verte vers le haut, une pointe dirigée vers vous. La pointe la plus proche de vous formera le menton.",
+    "result": "Le losange vert est à plat, un coin pointé vers le bas."
+  },
+  "steps": {
+    "fold-triangle": {
+      "title": "Formez un triangle à deux épaisseurs",
+      "instruction": "Ramenez la pointe du haut sur celle du bas. Alignez les deux pointes libres et marquez le long bord du haut.",
+      "result": "Le large triangle doré présente un bord supérieur droit et deux pointes libres au menton."
+    },
+    "mark-forehead": {
+      "title": "Marquez le milieu",
+      "instruction": "Ramenez le coin droit sur le coin gauche en prenant les deux épaisseurs. Marquez le pli du milieu du front jusqu’au menton.",
+      "result": "Le double triangle est plié en deux le long de l’axe du visage."
+    },
+    "open-forehead": {
+      "title": "Dépliez le visage",
+      "instruction": "Rouvrez les deux épaisseurs vers la droite. Gardez le long bord plié en haut.",
+      "result": "Le large triangle est de nouveau ouvert, un pli descendant en son milieu."
+    },
+    "lift-muzzle": {
+      "title": "Relevez une pointe pour le museau",
+      "instruction": "Séparez les deux pointes du menton. Relevez uniquement celle du dessus le long de l’axe central, un peu au-delà de la moitié de la distance jusqu’au front. Laissez l’autre pointe dirigée vers le bas.",
+      "result": "Un museau vert apparaît sur la face dorée, au-dessus d’un menton vert et pointu."
+    },
+    "left-ear": {
+      "title": "Relevez l’oreille gauche",
+      "instruction": "Tenez le menton et soulevez le visage de la table. En partant du milieu du bord supérieur, marquez un point aux deux tiers de la distance jusqu’au coin gauche. Rabattez toutes les épaisseurs de ce coin vers l’arrière suivant la ligne qui relie le menton au repère. L’oreille dépasse au-dessus du front.",
+      "result": "L’oreille gauche pointue se dresse au-dessus de la tête, tandis que le coin droit pointe encore sur le côté."
+    },
+    "right-ear": {
+      "title": "Ajustez l’oreille droite",
+      "instruction": "Rabattez le coin droit vers l’arrière suivant la ligne symétrique partant du menton. Alignez les pointes des oreilles au-dessus du front et aplatissez les joues.",
+      "result": "Votre renard a deux oreilles pointues, un front droit et un museau vert qui s’affine jusqu’au menton."
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "sheet": {
+    "title": "Comece com o quadrado em forma de losango",
+    "instruction": "Coloque uma folha quadrada com o lado verde para cima e um canto apontando para você.",
+    "result": "O quadrado verde está plano, na posição de losango."
+  },
+  "steps": {
+    "mark-center": {
+      "title": "Marque o eixo vertical",
+      "instruction": "Leve o canto direito até o esquerdo. Marque o longo vinco vertical.",
+      "result": "Um triângulo dourado fica à esquerda do eixo central."
+    },
+    "open-center": {
+      "title": "Abra a dobra vertical",
+      "instruction": "Desdobre o mesmo canto para a direita. Mantenha a ponta do losango voltada para você.",
+      "result": "O quadrado está aberto, com um vinco vertical."
+    },
+    "mark-across": {
+      "title": "Encontre o meio",
+      "instruction": "Leve o canto superior até o inferior. Marque o vinco horizontal.",
+      "result": "Um triângulo dourado aponta para você."
+    },
+    "open-across": {
+      "title": "Abra o losango",
+      "instruction": "Desdobre a camada de cima, levantando-a. Localize o cruzamento dos dois vincos.",
+      "result": "Os dois vincos se cruzam no centro do losango verde aberto."
+    },
+    "top-to-center": {
+      "title": "Leve a ponta de cima ao centro",
+      "instruction": "Dobre o canto superior para baixo até que a ponta toque o cruzamento.",
+      "result": "Surge um pequeno triângulo dourado abaixo de uma borda superior curta e horizontal."
+    },
+    "bottom-to-top": {
+      "title": "Levante a ponta de baixo",
+      "instruction": "Leve o canto inferior até o meio da borda curta de cima. Pressione a nova borda inferior para achatá-la.",
+      "result": "Uma aba dourada larga cobre o meio das camadas dobradas."
+    },
+    "lift-left": {
+      "title": "Levante a metade esquerda",
+      "instruction": "Segure o meio da borda inferior. Leve a extremidade esquerda para cima com todas as camadas até que essa metade da borda fique sobre o eixo vertical.",
+      "result": "O canto que estava à esquerda aponta para cima e forma o primeiro lóbulo do coração."
+    },
+    "lift-right": {
+      "title": "Levante a metade direita",
+      "instruction": "Leve a extremidade direita da borda inferior para cima até encontrar a outra no eixo central.",
+      "result": "Duas pontas no alto delimitam um V, com uma única ponta na base."
+    },
+    "soften-left": {
+      "title": "Dobre o lado esquerdo para trás",
+      "instruction": "Levante o coração da mesa. Seguindo a pequena guia vertical, dobre a ponta que mais se projeta à esquerda para trás de todas as camadas.",
+      "result": "O lado esquerdo fica com uma borda curta e reta."
+    },
+    "soften-right": {
+      "title": "Acerte o lado direito",
+      "instruction": "Dobre a ponta do lado direito para trás na mesma medida.",
+      "result": "Os dois lados agora têm bordas retas iguais."
+    },
+    "left-lobe": {
+      "title": "Modele o lóbulo esquerdo",
+      "instruction": "Dobre para trás o extremo superior da ponta esquerda, deixando o vinco paralelo à borda de cima da aba original.",
+      "result": "O lóbulo esquerdo fica com um topo curto e horizontal. O recorte no centro continua aberto."
+    },
+    "right-lobe": {
+      "title": "Finalize o coração",
+      "instruction": "Dobre a ponta direita para trás na mesma altura da esquerda. Achate as duas dobras pequenas.",
+      "result": "Seu coração de papel tem dois lóbulos largos, um recorte em V e uma ponta bem definida na base."
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "sheet": {
+    "title": "Beginne mit einem Rechteck",
+    "instruction": "Lege ein Rechteck im Format 2 × 3 mit der grünen Seite nach oben so vor dich, dass eine kurze Kante oben liegt. Ihre Mitte wird zur Flugzeugnase.",
+    "result": "Das grüne Rechteck liegt flach. Seine langen Seiten verlaufen von der Nase zum Heck."
+  },
+  "steps": {
+    "mark-spine": {
+      "title": "Markiere die Längsachse",
+      "instruction": "Lege die rechte lange Kante auf die linke lange Kante. Streiche den Falz von oben nach unten fest.",
+      "result": "Die goldene Rückseite des langen, gefalteten Rechtecks zeigt nach oben."
+    },
+    "open-sheet": {
+      "title": "Öffne das Blatt",
+      "instruction": "Klappe die rechte Hälfte wieder auf. Lass die kurze Kante oben und nutze den mittleren Falz als Orientierung.",
+      "result": "Das Blatt liegt wieder flach und hat einen Falz in der Mitte."
+    },
+    "left-corner": {
+      "title": "Falte die linke Ecke ein",
+      "instruction": "Falte die obere linke Ecke nach innen, bis die linke Hälfte der oberen Kante auf der Längsachse liegt. Die Mitte der oberen Kante bleibt an ihrem Platz.",
+      "result": "Ein goldenes Dreieck bedeckt die linke obere Ecke des grünen Blatts."
+    },
+    "right-corner": {
+      "title": "Falte die rechte Ecke ein",
+      "instruction": "Falte die obere rechte Ecke zur selben Mittellinie. Richte die beiden umgelegten Kanten an der Nase bündig aus.",
+      "result": "Zwei goldene Dreiecke stoßen unterhalb der spitzen Nase an der Längsachse zusammen."
+    },
+    "left-taper": {
+      "title": "Verschmälere die linke Seite",
+      "instruction": "Hebe die schräge linke Kante mit beiden Papierlagen an. Lege die ganze Kante auf die Längsachse und streiche den neuen Falz fest.",
+      "result": "Eine längere gefaltete Kante verläuft von der Nase an der linken Seite entlang."
+    },
+    "right-taper": {
+      "title": "Verschmälere die rechte Seite",
+      "instruction": "Lege die schräge rechte Kante mit der darunterliegenden Lage auf die Längsachse. Richte sie am linken Falz aus.",
+      "result": "Beide Seiten laufen gleichmäßig in einer langen, schmalen Nase zusammen."
+    },
+    "close-body": {
+      "title": "Drücke den Rumpf zusammen",
+      "instruction": "Klappe die beiden Hälften entlang der Längsachse nach oben zusammen. Halte sie aufrecht aneinander, mit den eingefalteten Ecken innen.",
+      "result": "Die Lagen stehen dicht aneinander über der Längsachse. Spitze und Heck liegen weiterhin in einer Linie."
+    },
+    "left-wing": {
+      "title": "Senke den linken Flügel",
+      "instruction": "Miss am Heck von der Längsachse aus ein Zehntel der Blattlänge nach oben ab. Falte die linken Lagen entlang der Linie von der Nase bis zu dieser Markierung nach außen. Lass den Flügel knapp über der Waagerechten stehen.",
+      "result": "Der linke Flügel ist ausgebreitet, während die rechten Lagen aufrecht stehen bleiben."
+    },
+    "right-wing": {
+      "title": "Senke den rechten Flügel",
+      "instruction": "Senke die rechten Lagen entlang der spiegelbildlichen Linie ab. Lass beide Flügel leicht nach oben geneigt und drücke den schmalen Kiel darunter zusammen.",
+      "result": "Dein Papierflieger ist fertig. Von der gemeinsamen Nase gehen zwei gepfeilte Flügel aus, zwischen denen ein senkrechter Kiel verläuft."
+    }
+  }
+}

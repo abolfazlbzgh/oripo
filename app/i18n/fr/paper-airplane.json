@@ -1,0 +1,54 @@
+{
+  "sheet": {
+    "title": "Partez d’un rectangle",
+    "instruction": "Placez un rectangle de 2 × 3 face verte vers le haut, un petit côté en haut. Le milieu de ce côté deviendra le nez de l’avion.",
+    "result": "Le rectangle vert est à plat, ses grands côtés orientés du nez vers la queue."
+  },
+  "steps": {
+    "mark-spine": {
+      "title": "Marquez l’axe du fuselage",
+      "instruction": "Ramenez le grand bord droit sur le grand bord gauche. Marquez le pli de haut en bas.",
+      "result": "Le revers doré se trouve au-dessus du long rectangle plié."
+    },
+    "open-sheet": {
+      "title": "Ouvrez la feuille",
+      "instruction": "Dépliez la moitié droite. Gardez le petit côté en haut et prenez le pli central comme repère.",
+      "result": "La feuille est de nouveau à plat, avec un pli sur toute sa ligne médiane."
+    },
+    "left-corner": {
+      "title": "Rabattez le coin gauche",
+      "instruction": "Pliez le coin supérieur gauche vers l’intérieur jusqu’à placer la moitié gauche du bord supérieur sur l’axe central. Le milieu du bord supérieur reste fixe.",
+      "result": "Un triangle doré recouvre le haut de la feuille verte à gauche."
+    },
+    "right-corner": {
+      "title": "Rabattez le coin droit",
+      "instruction": "Ramenez le coin supérieur droit sur le même axe. Faites coïncider les deux bords rabattus au niveau du nez.",
+      "result": "Deux triangles dorés se rejoignent sur l’axe, sous un nez pointu."
+    },
+    "left-taper": {
+      "title": "Affinez le côté gauche",
+      "instruction": "Soulevez le bord oblique gauche en prenant les deux épaisseurs. Ramenez tout le bord sur l’axe et marquez le nouveau pli.",
+      "result": "Un bord plié plus long descend du nez le long du côté gauche."
+    },
+    "right-taper": {
+      "title": "Affinez le côté droit",
+      "instruction": "Ramenez le bord oblique droit et l’épaisseur qui se trouve dessous sur l’axe central. Alignez ce bord avec le pli de gauche.",
+      "result": "De chaque côté du nez apparaît la même longue pointe effilée."
+    },
+    "close-body": {
+      "title": "Pincez le fuselage",
+      "instruction": "Relevez les deux côtés le long de l’axe pour les réunir. Tenez les deux moitiés fermées à la verticale, les coins rabattus à l’intérieur.",
+      "result": "Les épaisseurs se dressent l’une contre l’autre au-dessus de l’axe. La pointe et la queue restent alignées."
+    },
+    "left-wing": {
+      "title": "Abaissez l’aile gauche",
+      "instruction": "À la queue, mesurez vers le haut, à partir de l’axe, un dixième de la longueur de la feuille. Rabattez les épaisseurs de gauche vers l’extérieur suivant la ligne qui relie le nez à ce repère. Arrêtez-vous juste au-dessus de l’horizontale.",
+      "result": "L’aile gauche s’étend sur le côté tandis que les épaisseurs de droite restent verticales."
+    },
+    "right-wing": {
+      "title": "Abaissez l’aile droite",
+      "instruction": "Abaissez ensemble les épaisseurs de droite suivant la ligne symétrique. Gardez les deux ailes légèrement relevées et pincez l’étroite quille en dessous.",
+      "result": "Votre avion est terminé. Les deux ailes en flèche partent du même nez, avec une quille verticale entre elles."
+    }
+  }
+}

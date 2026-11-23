@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "explore": "Explorar",
+    "guide": "Guía",
+    "main": "Navegación principal",
+    "footer": "Navegación al pie de página",
+    "skip": "Saltar al contenido",
+    "menu": "Menú del sitio",
+    "language": "Cambiar de idioma",
+    "dark": "Modo oscuro",
+    "choose": "Elegir modelo. Modelo actual: {model}",
+    "models": "Elegir una lección"
+  },
+  "home": {
+    "tagline": "Origami en movimiento",
+    "title": "Una hoja.",
+    "emphasis": "Infinitas posibilidades.",
+    "intro": "Descubre cómo cobra forma una sola hoja. Sigue cada pliegue en 3D, gira el papel y deshaz los pliegues hasta volver al principio.",
+    "browse": "Explorar modelos",
+    "read": "Leer la guía",
+    "gallery": "En la mesa de trabajo",
+    "study": "Estudio en papel",
+    "crane": "La grulla",
+    "alt": "Una grulla de papel verde salvia, con alas largas y puntiagudas y el pico doblado.",
+    "beginner": "Principiante",
+    "square": "Hoja cuadrada",
+    "rectangle": "Rectángulo de 2 × 3",
+    "count": "{n} pasos",
+    "lesson": "Lección interactiva"
+  },
+  "guide": {
+    "title": "Símbolos de los pliegues",
+    "intro": "Interpreta cada pliegue mirando la cara del papel que tienes delante. La línea indica hacia dónde se dobla el papel.",
+    "valley": "Pliegue en valle",
+    "valleyText": "Una línea de trazos indica un valle. Acerca ambos lados hacia ti para que el pliegue quede en el fondo de una V.",
+    "mountain": "Pliegue en montaña",
+    "mountainText": "Una línea de trazos y puntos indica una montaña. Dobla los lados alejándolos de ti para que el pliegue forme una cresta.",
+    "back": "Volver a explorar"
+  },
+  "models": {
+    "paper-airplane": {
+      "title": "Avión de papel tipo dardo",
+      "short": "Dardo",
+      "summary": "Convierte un rectángulo colocado en vertical en un dardo de punta afilada, con alas en flecha y fuselaje estrecho."
+    },
+    "paper-heart": {
+      "title": "Corazón de papel",
+      "short": "Corazón",
+      "summary": "Dobla un cuadrado para formar dos lóbulos anchos con una hendidura en el centro y una punta en la base."
+    },
+    "fox-face": {
+      "title": "Cara de zorro",
+      "short": "Zorro",
+      "summary": "Dobla dos esquinas hacia atrás para formar las orejas y levanta una punta suelta para dar al zorro un hocico de dos colores."
+    }
+  },
+  "player": {
+    "studio": "Taller de origami: {model}",
+    "step": "Paso {n} de {total}",
+    "finished": "Lección terminada",
+    "modelComplete": "Modelo terminado",
+    "starting": "Hoja inicial",
+    "progress": "Progreso de la lección",
+    "playback": "Reproducción de la lección",
+    "previous": "Anterior",
+    "previousFold": "Pliegue anterior",
+    "next": "Siguiente",
+    "done": "Terminado",
+    "pause": "Pausar la reproducción",
+    "play": "Reproducir todos los pliegues",
+    "replay": "Volver a reproducir todos los pliegues",
+    "toStart": "Volver a la hoja inicial",
+    "toEnd": "Ver el modelo terminado",
+    "info": "Leer las instrucciones del paso",
+    "close": "Cerrar las instrucciones",
+    "instructions": "Instrucciones del pliegue",
+    "all": "Leer los {n} pasos",
+    "gestures": "Arrastra para girar la vista. Pellizca la pantalla o usa la rueda del ratón para acercar o alejar. Con el foco en el papel, usa las flechas del teclado para girarlo.",
+    "instant": "«Siguiente» y «Anterior» avanzan o retroceden un pliegue. El botón central alterna entre el modelo terminado y la hoja inicial.",
+    "orbit": "Arrastra o usa las flechas del teclado para girar la vista",
+    "unavailable": "Vista 3D no disponible",
+    "openInfo": "Abre el botón de información para leer cómo hacer el pliegue.",
+    "camera": "Vista de la cámara",
+    "closer": "Acercar",
+    "farther": "Alejar",
+    "reset": "Restablecer la vista",
+    "reading": "Giro: {bearing}°. Elevación: {elevation}°. Aumento: {zoom}×.",
+    "value": "Paso {n} de {total}. {title}. Pliegue al {percent} %.",
+    "reached": "Has llegado al paso {n} de {total}. {description}",
+    "reverse": "Deshaciendo el paso {n} de {total}. {title}.",
+    "paused": "En pausa en el paso {n} de {total}. {title}.",
+    "showing": "Mostrando el paso {n} de {total}. {title}."
+  },
+  "error": {
+    "title": "Página no encontrada",
+    "failed": "No se pudo cargar esta página",
+    "body": "Esta dirección no corresponde a ninguna página publicada.",
+    "recovery": "Enlaces para continuar"
+  },
+  "seo": {
+    "home": "Haz un avión de papel tipo dardo, un corazón o una cara de zorro con una sola hoja. Sigue y deshaz cada pliegue en 3D en el taller de Oripo."
+  }
+}

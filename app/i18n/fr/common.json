@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "explore": "Explorer",
+    "guide": "Guide",
+    "main": "Navigation principale",
+    "footer": "Navigation de pied de page",
+    "skip": "Aller au contenu",
+    "menu": "Menu du site",
+    "language": "Changer de langue",
+    "dark": "Mode sombre",
+    "choose": "Choisir un modèle. Modèle actuel : {model}",
+    "models": "Choisir une leçon"
+  },
+  "home": {
+    "tagline": "L’origami en mouvement",
+    "title": "Une feuille.",
+    "emphasis": "Des possibilités infinies.",
+    "intro": "Découvrez comment une simple feuille prend forme. Suivez chaque pli en 3D, faites pivoter le papier et défaites les plis pour revenir au point de départ.",
+    "browse": "Explorer les modèles",
+    "read": "Lire le guide",
+    "gallery": "Sur la table de pliage",
+    "study": "Étude en papier",
+    "crane": "La grue",
+    "alt": "Une grue en papier vert sauge aux longues ailes pointues et au bec replié.",
+    "beginner": "Débutant",
+    "square": "Feuille carrée",
+    "rectangle": "Rectangle de 2 × 3",
+    "count": "{n} étapes",
+    "lesson": "Leçon interactive"
+  },
+  "guide": {
+    "title": "Notation des plis",
+    "intro": "Lisez le pli en regardant la face du papier tournée vers vous. Le tracé indique dans quel sens plier.",
+    "valley": "Pli vallée",
+    "valleyText": "Une ligne en tirets indique un pli vallée. Ramenez les deux côtés vers vous pour que le pli se trouve au creux d’un V.",
+    "mountain": "Pli montagne",
+    "mountainText": "Une ligne alternant tirets et points indique un pli montagne. Rabattez les côtés à l’opposé de vous pour que le pli forme une arête.",
+    "back": "Revenir aux modèles"
+  },
+  "models": {
+    "paper-airplane": {
+      "title": "Avion en papier en flèche",
+      "short": "Avion",
+      "summary": "Pliez un rectangle placé à la verticale pour former un avion au nez pointu, aux ailes en flèche et au fuselage étroit."
+    },
+    "paper-heart": {
+      "title": "Cœur en papier",
+      "short": "Cœur",
+      "summary": "Pliez un carré pour former deux lobes larges séparés par un creux et réunis en pointe à la base."
+    },
+    "fox-face": {
+      "title": "Tête de renard",
+      "short": "Renard",
+      "summary": "Rabattez deux coins vers l’arrière pour dessiner les oreilles et relevez une pointe libre pour donner au renard son museau bicolore."
+    }
+  },
+  "player": {
+    "studio": "Atelier de pliage : {model}",
+    "step": "Étape {n} sur {total}",
+    "finished": "Leçon terminée",
+    "modelComplete": "Modèle terminé",
+    "starting": "Feuille de départ",
+    "progress": "Progression dans la leçon",
+    "playback": "Lecture de la leçon",
+    "previous": "Précédent",
+    "previousFold": "Pli précédent",
+    "next": "Pli suivant",
+    "done": "Terminé",
+    "pause": "Mettre en pause",
+    "play": "Lire tous les plis",
+    "replay": "Rejouer tous les plis",
+    "toStart": "Revenir à la feuille de départ",
+    "toEnd": "Afficher le modèle terminé",
+    "info": "Lire les instructions de l’étape",
+    "close": "Fermer les instructions",
+    "instructions": "Instructions de pliage",
+    "all": "Lire les {n} étapes",
+    "gestures": "Faites glisser pour tourner autour du papier. Pincez l’écran ou utilisez la molette pour zoomer. Au clavier, placez le focus sur le papier et utilisez les flèches pour le faire pivoter.",
+    "instant": "« Pli suivant » et « Précédent » avancent ou reculent d’un pli. Le bouton du milieu permet de passer du modèle terminé à la feuille de départ et inversement.",
+    "orbit": "Faites glisser ou utilisez les flèches du clavier pour tourner autour du papier",
+    "unavailable": "Vue 3D indisponible",
+    "openInfo": "Ouvrez les informations pour lire les instructions de pliage.",
+    "camera": "Point de vue",
+    "closer": "Zoom avant",
+    "farther": "Zoom arrière",
+    "reset": "Rétablir la vue initiale",
+    "reading": "Rotation : {bearing}°. Élévation : {elevation}°. Zoom : {zoom}×.",
+    "value": "Étape {n} sur {total}. {title}. Pli réalisé à {percent} %.",
+    "reached": "Étape {n} sur {total} atteinte. {description}",
+    "reverse": "Pli en cours de dépliage, étape {n} sur {total}. {title}.",
+    "paused": "En pause à l’étape {n} sur {total}. {title}.",
+    "showing": "Lecture de l’étape {n} sur {total}. {title}."
+  },
+  "error": {
+    "title": "Page introuvable",
+    "failed": "Le chargement de cette page a échoué",
+    "body": "Cette adresse ne correspond à aucune page publiée.",
+    "recovery": "Liens pour poursuivre la visite"
+  },
+  "seo": {
+    "home": "Avec une seule feuille, pliez un avion en flèche, un cœur ou une tête de renard. Suivez et défaites chaque pli en 3D dans l’atelier Oripo."
+  }
+}

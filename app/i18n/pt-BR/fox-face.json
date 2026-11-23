@@ -1,0 +1,39 @@
+{
+  "sheet": {
+    "title": "Comece com o quadrado em forma de losango",
+    "instruction": "Coloque uma folha quadrada com o lado verde para cima e um canto apontando para você. O canto mais próximo será o queixo.",
+    "result": "O losango verde está plano, com uma ponta voltada para baixo."
+  },
+  "steps": {
+    "fold-triangle": {
+      "title": "Forme um triângulo de duas camadas",
+      "instruction": "Leve o canto superior até o inferior. Alinhe as duas pontas soltas e marque o vinco ao longo da borda comprida de cima.",
+      "result": "O triângulo dourado e largo tem uma borda superior reta e duas pontas soltas no queixo."
+    },
+    "mark-forehead": {
+      "title": "Marque o meio",
+      "instruction": "Leve o canto direito até o esquerdo, pegando as duas camadas. Marque o vinco do meio da testa até o queixo.",
+      "result": "O triângulo de duas camadas fica dobrado ao meio no eixo central do rosto."
+    },
+    "open-forehead": {
+      "title": "Abra o rosto",
+      "instruction": "Desdobre as duas camadas para a direita. Mantenha a borda longa dobrada no alto.",
+      "result": "O triângulo largo volta a ficar aberto, com um vinco no meio."
+    },
+    "lift-muzzle": {
+      "title": "Levante uma ponta para fazer o focinho",
+      "instruction": "Separe as duas pontas do queixo. Dobre apenas a de cima para o alto pelo eixo central, até passar um pouco da metade do caminho para a testa. Deixe a outra ponta voltada para baixo.",
+      "result": "Um focinho verde aparece no rosto dourado, acima do queixo verde e pontudo."
+    },
+    "left-ear": {
+      "title": "Levante a orelha esquerda",
+      "instruction": "Segure o queixo e levante o rosto da mesa. A partir do meio da borda superior, marque um ponto a dois terços da distância até o canto esquerdo. Dobre todas as camadas desse canto para trás pela linha que liga o queixo à marca. A orelha aparece acima da testa.",
+      "result": "A orelha esquerda pontuda se ergue acima da cabeça enquanto o canto direito ainda aponta para o lado."
+    },
+    "right-ear": {
+      "title": "Acerte a orelha direita",
+      "instruction": "Dobre o canto direito para trás pela linha simétrica que parte do queixo. Alinhe as pontas das orelhas acima da testa e achate as bochechas.",
+      "result": "Sua raposa tem duas orelhas pontudas, uma testa reta e um focinho verde que se afina até o queixo."
+    }
+  }
+}

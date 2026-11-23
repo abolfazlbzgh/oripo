@@ -1,0 +1,69 @@
+{
+  "sheet": {
+    "title": "Partez d’un carré en losange",
+    "instruction": "Posez un carré face verte vers le haut, une pointe dirigée vers vous.",
+    "result": "Le carré vert est à plat, tourné en losange."
+  },
+  "steps": {
+    "mark-center": {
+      "title": "Marquez l’axe vertical",
+      "instruction": "Ramenez le coin droit sur le coin gauche. Marquez le long pli vertical.",
+      "result": "Un triangle doré se trouve à gauche de l’axe vertical."
+    },
+    "open-center": {
+      "title": "Ouvrez le pli vertical",
+      "instruction": "Dépliez le même coin vers la droite. Gardez la pointe du losange dirigée vers vous.",
+      "result": "Le carré ouvert porte un pli vertical."
+    },
+    "mark-across": {
+      "title": "Repérez le milieu",
+      "instruction": "Ramenez le coin du haut sur celui du bas. Marquez le pli horizontal.",
+      "result": "Une pointe du triangle doré est tournée vers vous."
+    },
+    "open-across": {
+      "title": "Ouvrez le losange",
+      "instruction": "Relevez la couche supérieure pour la déplier. Repérez l’intersection des deux plis.",
+      "result": "Les deux plis se croisent au centre du losange vert ouvert."
+    },
+    "top-to-center": {
+      "title": "Ramenez le haut au centre",
+      "instruction": "Rabattez le coin supérieur jusqu’à ce que sa pointe touche l’intersection.",
+      "result": "Un petit triangle doré apparaît sous un court bord supérieur horizontal."
+    },
+    "bottom-to-top": {
+      "title": "Relevez la pointe du bas",
+      "instruction": "Ramenez le coin inférieur jusqu’au milieu du petit bord du haut. Aplatissez le nouveau bord inférieur.",
+      "result": "Un large rabat doré recouvre le milieu du pliage."
+    },
+    "lift-left": {
+      "title": "Relevez la moitié gauche",
+      "instruction": "Maintenez le milieu du bord inférieur. Relevez son extrémité gauche avec toutes les épaisseurs jusqu’à placer cette moitié du bord sur l’axe vertical.",
+      "result": "Le coin qui se trouvait à gauche pointe vers le haut et forme le premier lobe."
+    },
+    "lift-right": {
+      "title": "Relevez la moitié droite",
+      "instruction": "Relevez l’extrémité droite du bord inférieur pour la joindre à l’autre sur l’axe vertical.",
+      "result": "Deux pointes encadrent un V en haut, avec une seule pointe en bas."
+    },
+    "soften-left": {
+      "title": "Rabattez le côté gauche vers l’arrière",
+      "instruction": "Soulevez le cœur de la table. Suivez le petit repère vertical pour rabattre la pointe la plus à gauche derrière toutes les épaisseurs.",
+      "result": "Un court bord droit apparaît sur le côté gauche."
+    },
+    "soften-right": {
+      "title": "Ajustez le côté droit",
+      "instruction": "Rabattez vers l’arrière la pointe qui dépasse à droite, sur la même largeur.",
+      "result": "Les deux côtés présentent des bords droits identiques."
+    },
+    "left-lobe": {
+      "title": "Formez le lobe gauche",
+      "instruction": "Rabattez vers l’arrière le sommet de la pointe gauche. Gardez le pli parallèle au bord supérieur du rabat d’origine.",
+      "result": "Le lobe gauche a un court bord horizontal au sommet, et le creux central reste ouvert."
+    },
+    "right-lobe": {
+      "title": "Terminez le cœur",
+      "instruction": "Rabattez la pointe droite vers l’arrière à la même hauteur que la gauche. Aplatissez les deux petits plis.",
+      "result": "Votre cœur en papier a deux lobes larges, un creux en V et une pointe bien nette à la base."
+    }
+  }
+}

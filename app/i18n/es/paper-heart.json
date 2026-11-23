@@ -1,0 +1,69 @@
+{
+  "sheet": {
+    "title": "Empieza con la hoja en rombo",
+    "instruction": "Coloca una hoja cuadrada con la cara verde hacia arriba y una esquina apuntando hacia ti.",
+    "result": "El cuadrado verde está plano, con una esquina hacia abajo."
+  },
+  "steps": {
+    "mark-center": {
+      "title": "Marca el eje central",
+      "instruction": "Lleva la esquina derecha hasta la izquierda. Marca el pliegue vertical de extremo a extremo.",
+      "result": "Queda un triángulo dorado a la izquierda del eje central."
+    },
+    "open-center": {
+      "title": "Abre el pliegue vertical",
+      "instruction": "Vuelve a desplegar esa esquina hacia la derecha. Mantén el rombo orientado hacia ti.",
+      "result": "El cuadrado está abierto y tiene una línea de pliegue vertical."
+    },
+    "mark-across": {
+      "title": "Encuentra el centro",
+      "instruction": "Lleva la esquina superior hasta la inferior. Marca el pliegue horizontal.",
+      "result": "Un triángulo dorado apunta hacia ti."
+    },
+    "open-across": {
+      "title": "Abre el rombo",
+      "instruction": "Levanta la capa superior y despliégala hacia arriba. Localiza el punto donde se cruzan los dos pliegues.",
+      "result": "Las dos líneas de pliegue se cruzan en el centro del rombo verde abierto."
+    },
+    "top-to-center": {
+      "title": "Lleva la punta superior al centro",
+      "instruction": "Dobla la esquina superior hacia abajo hasta que la punta toque la intersección.",
+      "result": "Queda un triángulo dorado pequeño debajo de un borde superior corto y horizontal."
+    },
+    "bottom-to-top": {
+      "title": "Levanta la punta inferior",
+      "instruction": "Lleva la esquina inferior hasta el punto medio del borde superior corto. Aplana el nuevo borde inferior.",
+      "result": "Una solapa dorada ancha cubre el centro de las capas dobladas."
+    },
+    "lift-left": {
+      "title": "Levanta la mitad izquierda",
+      "instruction": "Sujeta el punto medio del borde inferior. Lleva su extremo izquierdo hacia arriba con todas las capas hasta que esa mitad del borde coincida con el eje vertical.",
+      "result": "La que era la esquina izquierda apunta hacia arriba y forma el primer lóbulo."
+    },
+    "lift-right": {
+      "title": "Levanta la mitad derecha",
+      "instruction": "Lleva el extremo derecho del borde inferior hacia arriba hasta juntarlo con el otro en el eje central.",
+      "result": "Las dos puntas superiores enmarcan una V sobre una sola punta inferior."
+    },
+    "soften-left": {
+      "title": "Dobla el extremo izquierdo hacia atrás",
+      "instruction": "Levanta el corazón de la mesa. Dobla la punta que más sobresale por la izquierda hacia la parte de atrás, siguiendo la guía vertical corta.",
+      "result": "En el lado izquierdo queda un borde recto y corto."
+    },
+    "soften-right": {
+      "title": "Iguala el extremo derecho",
+      "instruction": "Dobla la punta del lado derecho hacia atrás la misma distancia.",
+      "result": "Los dos lados tienen bordes rectos iguales."
+    },
+    "left-lobe": {
+      "title": "Da forma al lóbulo izquierdo",
+      "instruction": "Dobla hacia atrás el extremo superior de la punta izquierda. Haz el pliegue paralelo al borde superior de la solapa original.",
+      "result": "El lóbulo izquierdo tiene un borde superior corto y horizontal. La hendidura central queda abierta."
+    },
+    "right-lobe": {
+      "title": "Termina el corazón",
+      "instruction": "Dobla la punta derecha hacia atrás a la misma altura que la izquierda. Aplana los dos pliegues pequeños.",
+      "result": "El corazón de papel tiene dos lóbulos anchos, una hendidura en V y una punta inferior bien marcada."
+    }
+  }
+}

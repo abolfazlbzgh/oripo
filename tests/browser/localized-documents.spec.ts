@@ -1,3 +1,4 @@
+import { lessons } from "../../app/lessons";
 import { readdirSync } from "node:fs";
 import { readCopy } from "./locale-copy";
 import { expect } from "@playwright/test";
@@ -12,6 +13,7 @@ import { foxText, foxSheet } from "../../app/lesson/fox.en";
 
 const origin = siteOrigin(process.env.ORIPO_SITE_URL);
 const english = {
+  "masu-box": readCopy("en", "masu-box"),
   "paper-airplane": { sheet: sheetText, steps: airplaneText },
   "paper-heart": { sheet: heartSheet, steps: heartText },
   "fox-face": { sheet: foxSheet, steps: foxText },
@@ -67,7 +69,7 @@ test.describe("first HTTP documents", () => {
               common.home.title + " " + common.home.emphasis,
             );
             await expect(page.locator("#models")).toHaveText(common.home.gallery);
-            await expect(page.locator(".library article")).toHaveCount(3);
+            await expect(page.locator(".library article")).toHaveCount(lessons.length);
           } else if (logical === "creaseGuide") {
             await expect(page.locator("h1")).toHaveText(title);
             await expect(page.locator("dd")).toHaveText([

@@ -1,3 +1,4 @@
+import { lessons } from "../../app/lessons";
 import { expect } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
 
@@ -5,6 +6,7 @@ for (const [slug, first, second, total] of [
   ["paper-airplane", 1600, 1600, 9],
   ["paper-heart", 1400, 1400, 12],
   ["fox-face", 1500, 1400, 6],
+  ["masu-box", 1800, 1800, 18],
 ] as const) {
   test(`${slug} plays through a boundary, pauses mid-fold and cancels the clock on seek`, async ({
     page,
@@ -228,7 +230,7 @@ test("the stage leaves paper clear of the rail and transport at seven viewport s
       const menu = page.locator("#model-links");
       await expect(
         menu.getByRole("navigation", { name: "Choose a lesson" }).getByRole("link"),
-      ).toHaveCount(3);
+      ).toHaveCount(lessons.length);
       const bounds = await menu.boundingBox();
       if (!bounds) throw Error("Missing model picker");
       expect(bounds.x).toBeGreaterThanOrEqual(0);

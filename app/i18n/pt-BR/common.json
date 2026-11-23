@@ -23,6 +23,8 @@
     "crane": "O tsuru",
     "alt": "Um tsuru de papel verde-sálvia com asas longas e pontudas e bico dobrado.",
     "beginner": "Iniciante",
+    "intermediate": "Intermediário",
+    "advanced": "Avançado",
     "square": "Folha quadrada",
     "rectangle": "Retângulo de 2 × 3",
     "count": "{n} etapas",
@@ -52,6 +54,11 @@
       "title": "Rosto de raposa",
       "short": "Raposa",
       "summary": "Dobre dois cantos para trás para formar as orelhas e levante uma ponta solta para fazer o focinho da raposa em duas cores."
+    },
+    "masu-box": {
+      "title": "Caixa masu",
+      "short": "Masu",
+      "summary": "Erga quatro paredes e cubra os cantos com as abas para firmar uma caixa aberta."
     }
   },
   "player": {
@@ -98,6 +105,6 @@
     "recovery": "Links para continuar"
   },
   "seo": {
-    "home": "Faça um avião de papel tipo dardo, um coração ou um rosto de raposa com uma só folha. Acompanhe e desfaça cada dobra em 3D no ateliê Oripo."
+    "home": "Escolha um modelo, acompanhe cada dobra em 3D e desfaça o percurso até a folha inicial."
   }
 }

@@ -23,6 +23,8 @@
     "crane": "La grulla",
     "alt": "Una grulla de papel verde salvia, con alas largas y puntiagudas y el pico doblado.",
     "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzado",
     "square": "Hoja cuadrada",
     "rectangle": "Rectángulo de 2 × 3",
     "count": "{n} pasos",
@@ -52,6 +54,11 @@
       "title": "Cara de zorro",
       "short": "Zorro",
       "summary": "Dobla dos esquinas hacia atrás para formar las orejas y levanta una punta suelta para dar al zorro un hocico de dos colores."
+    },
+    "masu-box": {
+      "title": "Caja masu",
+      "short": "Masu",
+      "summary": "Levanta cuatro paredes y envuelve las esquinas con las solapas para formar una caja abierta."
     }
   },
   "player": {
@@ -98,6 +105,6 @@
     "recovery": "Enlaces para continuar"
   },
   "seo": {
-    "home": "Haz un avión de papel tipo dardo, un corazón o una cara de zorro con una sola hoja. Sigue y deshaz cada pliegue en 3D en el taller de Oripo."
+    "home": "Elige un modelo, sigue cada pliegue en 3D y vuelve desde la figura terminada hasta la hoja."
   }
 }

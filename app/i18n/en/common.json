@@ -23,6 +23,8 @@
     "crane": "The crane",
     "alt": "A sage paper crane with long pointed wings and a folded beak.",
     "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
     "square": "Square sheet",
     "rectangle": "2 × 3 rectangle",
     "count": "{n} steps",
@@ -52,6 +54,11 @@
       "title": "Fox face",
       "short": "Fox",
       "summary": "Turn back two pointed ears and lift one loose tip to give a fox its two-tone muzzle."
+    },
+    "masu-box": {
+      "title": "Masu box",
+      "short": "Masu",
+      "summary": "Raise four walls from a square and wrap the end flaps over the corners to lock an open box."
     }
   },
   "player": {
@@ -98,6 +105,6 @@
     "recovery": "Recovery"
   },
   "seo": {
-    "home": "Fold a dart paper airplane, paper heart or fox face from one sheet. Follow each fold in 3D and reverse it in the Oripo studio."
+    "home": "Choose a model, watch each fold in 3D and retrace it from the finished shape to one sheet."
   }
 }

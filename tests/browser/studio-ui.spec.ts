@@ -114,7 +114,7 @@ for (const width of [320, 390, 768, 1440]) {
           ({ scale, width }) => {
             document.documentElement.style.fontSize = scale;
             const visibleControls = Array.from(
-              document.querySelectorAll<HTMLElement>("a,button,select,summary,h1,h2,h3"),
+              document.querySelectorAll<HTMLElement>("a,button,select,summary,h1,h2,h3,h4"),
             ).filter((el) => el.getClientRects().length && !el.matches(".skip-link,.sr-only"));
             const clipped = visibleControls
               .filter((el) => {

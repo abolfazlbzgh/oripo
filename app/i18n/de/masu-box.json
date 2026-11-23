@@ -1,0 +1,99 @@
+{
+  "sheet": {
+    "title": "Ausgangsquadrat",
+    "instruction": "Lege das Quadrat mit einer Spitze zu dir. Die gewünschte Farbe für den Innenboden zeigt nach unten.",
+    "result": "Alle vier Spitzen liegen flach."
+  },
+  "steps": {
+    "mark-across": {
+      "title": "Querdiagonale vorfalten",
+      "instruction": "Lege die hintere Spitze auf die vordere und streiche die Faltkante fest.",
+      "result": "Die Spitze des doppelten Dreiecks zeigt zu dir."
+    },
+    "open-across": {
+      "title": "Quadrat öffnen",
+      "instruction": "Lege die hintere Spitze zurück.",
+      "result": "Eine Falte verbindet die linke und die rechte Spitze."
+    },
+    "mark-center": {
+      "title": "Längsdiagonale vorfalten",
+      "instruction": "Lege die rechte Spitze auf die linke und falze die Kante.",
+      "result": "Die seitlichen Spitzen liegen aufeinander."
+    },
+    "open-center": {
+      "title": "Mitte finden",
+      "instruction": "Öffne die rechte Hälfte und suche den Schnittpunkt der Falten.",
+      "result": "Die Diagonalen kreuzen sich in der Blattmitte."
+    },
+    "left-to-center": {
+      "title": "Linke Spitze einschlagen",
+      "instruction": "Falte die linke Ecke zum Schnittpunkt und streiche die Kante glatt.",
+      "result": "Ein Dreieck bedeckt den linken Teil des Blattes."
+    },
+    "right-to-center": {
+      "title": "Rechte Spitze einschlagen",
+      "instruction": "Falte die rechte Ecke zum selben Schnittpunkt.",
+      "result": "Beide Spitzen treffen sich in der Mitte."
+    },
+    "end-tips": {
+      "title": "Enden einschlagen",
+      "instruction": "Falte die vordere und die hintere Spitze zur Mitte.",
+      "result": "Vier Laschen bilden ein kleineres Quadrat."
+    },
+    "mark-ends": {
+      "title": "Stirnwände vorfalten",
+      "instruction": "Führe die gefalteten Kanten vorn und hinten zur quer verlaufenden Mittelfalte und falze sie.",
+      "result": "Zwei Falten markieren die Ränder des Bodens."
+    },
+    "open-end-marks": {
+      "title": "Wandfalten öffnen",
+      "instruction": "Lege beide Kanten an ihren Platz im kleinen Quadrat zurück.",
+      "result": "Zwei parallele Falten begrenzen den Boden."
+    },
+    "release-ends": {
+      "title": "Lange Enden öffnen",
+      "instruction": "Klappe die vordere und die hintere Ecklasche ganz auf. Lass die seitlichen Laschen liegen.",
+      "result": "Zwei lange Spitzen ragen aus der Form."
+    },
+    "mark-sides": {
+      "title": "Seitenwände vorfalten",
+      "instruction": "Falte die langen Kanten links und rechts zur Längsmittellinie. Falze beide Lagen.",
+      "result": "Zwei Falten laufen längs durch den Streifen."
+    },
+    "stand-sides": {
+      "title": "Seiten aufstellen",
+      "instruction": "Öffne die langen Falten halb, bis die Wände senkrecht zum Boden stehen.",
+      "result": "Eine Rinne liegt zwischen den Wänden."
+    },
+    "raise-far-end": {
+      "title": "Hinteres Ende aufstellen",
+      "instruction": "Hebe das hintere Ende an seiner Bodenfalte an und drücke beide Eckdiagonalen nach innen.",
+      "result": "Zwei Dreieckspaare liegen innen an der Stirnwand."
+    },
+    "bend-far-tip": {
+      "title": "Hintere Spitze abwinkeln",
+      "instruction": "Knicke die spitze Hälfte eine Wandhöhe oberhalb des Randes rechtwinklig nach außen.",
+      "result": "Die Spitze ragt nach außen."
+    },
+    "line-far-wall": {
+      "title": "Hintere Wand auskleiden",
+      "instruction": "Schlage die Lasche über den Rand und die Eckfalten nach innen. Drücke die Spitze auf den Boden.",
+      "result": "Die Ecken sind bedeckt und die Spitze reicht zur Mitte."
+    },
+    "raise-near-end": {
+      "title": "Vorderes Ende aufstellen",
+      "instruction": "Hebe das vordere Ende an der Bodenfalte an und führe beide Eckdiagonalen nach innen.",
+      "result": "Die letzten Dreieckspaare liegen innen an der Wand."
+    },
+    "bend-near-tip": {
+      "title": "Vordere Spitze abwinkeln",
+      "instruction": "Knicke die Spitze wie hinten eine Wandhöhe über dem Rand nach außen.",
+      "result": "Die letzte Spitze zeigt zu dir."
+    },
+    "line-near-wall": {
+      "title": "Schachtel verriegeln",
+      "instruction": "Schlage die Lasche über den vorderen Rand und die Ecken. Drücke die Spitze auf die Bodenmitte.",
+      "result": "Vier aufrechte Wände umgeben den quadratischen Boden. Die Laschen halten die Ecken fest."
+    }
+  }
+}

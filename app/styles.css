@@ -167,7 +167,8 @@ body {
 }
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: var(--serif);
   font-weight: 400;
   line-height: 1.05;
@@ -293,6 +294,18 @@ h1 {
 h2 {
   font-size: clamp(2.1rem, 3.5vw, 3.25rem);
 }
+.tier-heading {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+  align-items: center;
+  gap: 0.6rem;
+  margin-block: 1rem;
+  font-size: 1.25rem;
+}
+.library-tier + .library-tier {
+  margin-block-start: 2rem;
+}
 .library-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -316,10 +329,10 @@ h2 {
   height: clamp(10rem, 17vw, 15rem);
   background: var(--sage-field);
 }
-.resource:nth-child(2) .diagram-field {
+.resource[data-model="paper-heart"] .diagram-field {
   background: color-mix(in srgb, var(--color-secondary) 12%, var(--color-base-200));
 }
-.resource:nth-child(3) .diagram-field {
+.resource[data-model="fox-face"] .diagram-field {
   background: color-mix(in srgb, var(--color-accent) 25%, var(--color-base-200));
 }
 .fold-diagram {
@@ -334,11 +347,11 @@ h2 {
   font-size: 0.75rem;
   color: var(--color-secondary);
 }
-.resource h3 {
+.resource h4 {
   font-size: clamp(1.6rem, 2.2vw, 2.2rem);
   margin-block: 0.35rem 0.55rem;
 }
-.resource h3 a::after {
+.resource h4 a::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -454,7 +467,17 @@ h2 {
 }
 
 html:not(.font-latin)
-  :is(h1, h2, h3, .eyebrow, .category, .step-indicator, .instruction-step, .study figcaption span) {
+  :is(
+    h1,
+    h2,
+    h3,
+    h4,
+    .eyebrow,
+    .category,
+    .step-indicator,
+    .instruction-step,
+    .study figcaption span
+  ) {
   letter-spacing: normal;
   line-height: 1.25;
 }

@@ -1,0 +1,99 @@
+{
+  "sheet": {
+    "title": "起始方纸",
+    "instruction": "将方纸摆成菱形，一角朝向自己。希望在盒底看到的颜色朝下。",
+    "result": "四个角平铺在桌面上。"
+  },
+  "steps": {
+    "mark-across": {
+      "title": "折出横向对角线",
+      "instruction": "将远端的角对准近端的角，压实折痕。",
+      "result": "双层三角形的尖端朝向自己。"
+    },
+    "open-across": {
+      "title": "展开方纸",
+      "instruction": "将远端的角放回原处。",
+      "result": "一道折痕连接左右两角。"
+    },
+    "mark-center": {
+      "title": "折出纵向对角线",
+      "instruction": "将右角对准左角，压实折痕。",
+      "result": "左右两角重合。"
+    },
+    "open-center": {
+      "title": "找出中心",
+      "instruction": "展开右半边，找到两道折痕的交点。",
+      "result": "两条对角线在纸心相交。"
+    },
+    "left-to-center": {
+      "title": "左角折向中心",
+      "instruction": "将左角折到交点，压平折边。",
+      "result": "一个三角形盖在纸的左半部。"
+    },
+    "right-to-center": {
+      "title": "右角折向中心",
+      "instruction": "将右角折到同一交点。",
+      "result": "两尖角在中心相接。"
+    },
+    "end-tips": {
+      "title": "折入两端",
+      "instruction": "把近端和远端的角都折到中心。",
+      "result": "四片纸瓣拼成一个小正方形。"
+    },
+    "mark-ends": {
+      "title": "压出端壁折痕",
+      "instruction": "把近端和远端的两条折边分别折到横向中线，压出折痕。",
+      "result": "盒底的两条边界已标出。"
+    },
+    "open-end-marks": {
+      "title": "展开端壁折痕",
+      "instruction": "把这两条边翻回小正方形的边缘。",
+      "result": "两道平行折痕标出盒底的位置。"
+    },
+    "release-ends": {
+      "title": "展开两端尖角",
+      "instruction": "完全打开近端和远端的角，左右纸瓣保持折起。",
+      "result": "两个长尖角向两端伸出。"
+    },
+    "mark-sides": {
+      "title": "压出侧壁折痕",
+      "instruction": "把左右两条长边向纵向中线折，压实两层纸。",
+      "result": "两道折痕沿纸条的长边延伸。"
+    },
+    "stand-sides": {
+      "title": "立起侧壁",
+      "instruction": "把两条长边打开一半，使侧壁与盒底垂直。",
+      "result": "两壁之间形成一道槽。"
+    },
+    "raise-far-end": {
+      "title": "立起远端盒壁",
+      "instruction": "沿盒底折痕抬起远端，同时将两个盒角的对角线向内推。",
+      "result": "两对三角形贴在端壁内侧。"
+    },
+    "bend-far-tip": {
+      "title": "向外折远端尖角",
+      "instruction": "在高出盒口一层盒壁高度的位置，把尖端那一半向外折成直角。",
+      "result": "尖角伸向盒外。"
+    },
+    "line-far-wall": {
+      "title": "包住远端盒壁",
+      "instruction": "把伸出的纸瓣翻过盒口，向内盖住两边的角褶，再把尖角压到盒底。",
+      "result": "角褶被盖住，尖角到达盒底中心。"
+    },
+    "raise-near-end": {
+      "title": "立起近端盒壁",
+      "instruction": "沿盒底折痕抬起近端，同时将两角的对角线向内推。",
+      "result": "最后两对三角形贴在近端盒壁内侧。"
+    },
+    "bend-near-tip": {
+      "title": "向外折近端尖角",
+      "instruction": "像远端一样，在高出盒口一层盒壁高度处向外折尖角。",
+      "result": "最后一个尖角朝向自己。"
+    },
+    "line-near-wall": {
+      "title": "固定纸盒",
+      "instruction": "把纸瓣翻过近端盒口，盖住角褶，将尖角压在盒底中心。",
+      "result": "四壁围住方形盒底，两端的纸瓣固定住盒角。"
+    }
+  }
+}

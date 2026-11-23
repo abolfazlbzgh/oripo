@@ -1,0 +1,99 @@
+{
+  "sheet": {
+    "title": "Quadrado inicial",
+    "instruction": "Coloque o quadrado como um losango com uma ponta voltada para você. Deixe a cor desejada para o fundo virada para baixo.",
+    "result": "As quatro pontas estão estendidas."
+  },
+  "steps": {
+    "mark-across": {
+      "title": "Marque a diagonal transversal",
+      "instruction": "Leve a ponta mais distante até a mais próxima e vinque a dobra.",
+      "result": "O triângulo de duas camadas aponta para você."
+    },
+    "open-across": {
+      "title": "Abra o quadrado",
+      "instruction": "Devolva a ponta distante ao lugar.",
+      "result": "Um vinco liga as pontas esquerda e direita."
+    },
+    "mark-center": {
+      "title": "Marque a diagonal longitudinal",
+      "instruction": "Leve a ponta direita até a esquerda e vinque.",
+      "result": "As pontas laterais coincidem."
+    },
+    "open-center": {
+      "title": "Encontre o centro",
+      "instruction": "Abra a metade direita e localize o cruzamento dos vincos.",
+      "result": "As diagonais se cruzam no centro."
+    },
+    "left-to-center": {
+      "title": "Dobre a ponta esquerda",
+      "instruction": "Leve a ponta esquerda ao cruzamento e pressione o vinco.",
+      "result": "Um triângulo cobre a parte esquerda da folha."
+    },
+    "right-to-center": {
+      "title": "Dobre a ponta direita",
+      "instruction": "Leve a ponta direita ao mesmo cruzamento.",
+      "result": "As duas pontas se encontram no centro."
+    },
+    "end-tips": {
+      "title": "Dobre as extremidades",
+      "instruction": "Leve as pontas próxima e distante ao centro.",
+      "result": "Quatro abas formam um quadrado menor."
+    },
+    "mark-ends": {
+      "title": "Marque as paredes das extremidades",
+      "instruction": "Leve as duas bordas dobradas das extremidades ao vinco central transversal e pressione.",
+      "result": "Dois vincos delimitam o fundo."
+    },
+    "open-end-marks": {
+      "title": "Reabra os vincos das paredes",
+      "instruction": "Volte as duas bordas à posição que tinham no quadrado pequeno.",
+      "result": "Duas marcas paralelas delimitam o fundo."
+    },
+    "release-ends": {
+      "title": "Solte as extremidades",
+      "instruction": "Desdobre as pontas próxima e distante sem abrir as abas laterais.",
+      "result": "Duas pontas compridas se estendem além das abas."
+    },
+    "mark-sides": {
+      "title": "Marque as laterais",
+      "instruction": "Leve as bordas longas da esquerda e da direita à linha central longitudinal. Vinque as duas camadas.",
+      "result": "Dois vincos percorrem o comprimento da tira."
+    },
+    "stand-sides": {
+      "title": "Erga as laterais",
+      "instruction": "Abra as dobras até a metade e deixe as paredes em ângulo reto com o fundo.",
+      "result": "Forma-se um canal entre as paredes."
+    },
+    "raise-far-end": {
+      "title": "Levante a extremidade distante",
+      "instruction": "Erga a extremidade pelo vinco do fundo enquanto empurra para dentro as diagonais dos dois cantos.",
+      "result": "Dois pares de triângulos encostam no interior da parede."
+    },
+    "bend-far-tip": {
+      "title": "Vire a ponta para fora",
+      "instruction": "Uma altura de parede acima da borda, dobre a metade pontuda para fora em ângulo reto.",
+      "result": "A ponta se projeta para fora da caixa."
+    },
+    "line-far-wall": {
+      "title": "Forre a parede distante",
+      "instruction": "Passe a aba por cima da borda, cobrindo os cantos por dentro. Pressione a ponta contra o fundo.",
+      "result": "Os cantos ficam cobertos e a ponta chega ao centro."
+    },
+    "raise-near-end": {
+      "title": "Levante a extremidade próxima",
+      "instruction": "Erga a extremidade pelo vinco do fundo e guie as diagonais dos cantos para dentro.",
+      "result": "Os últimos pares de triângulos encostam na parede."
+    },
+    "bend-near-tip": {
+      "title": "Vire a ponta próxima",
+      "instruction": "Dobre a ponta para fora, uma altura de parede acima da borda, como do outro lado.",
+      "result": "A última ponta está voltada para você."
+    },
+    "line-near-wall": {
+      "title": "Trave a caixa",
+      "instruction": "Passe a aba por cima da borda próxima, cubra os cantos e pressione a ponta no centro do fundo.",
+      "result": "Quatro paredes cercam o fundo quadrado. As abas prendem os cantos."
+    }
+  }
+}

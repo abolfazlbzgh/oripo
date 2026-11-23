@@ -1,0 +1,99 @@
+{
+  "sheet": {
+    "title": "Starting square",
+    "instruction": "Set one square down like a diamond, with one corner pointing toward you. Put the color you want on the inside floor face down.",
+    "result": "Four tips surround the uncreased sheet."
+  },
+  "steps": {
+    "mark-across": {
+      "title": "Mark the crosswise diagonal",
+      "instruction": "Bring the far tip to the near tip and crease the folded edge.",
+      "result": "The doubled triangle points toward you."
+    },
+    "open-across": {
+      "title": "Open the square",
+      "instruction": "Return the far tip to its starting place.",
+      "result": "A crease joins the left and right tips."
+    },
+    "mark-center": {
+      "title": "Mark the lengthwise diagonal",
+      "instruction": "Bring the right tip to the left tip and crease.",
+      "result": "The two side tips coincide."
+    },
+    "open-center": {
+      "title": "Find the center",
+      "instruction": "Open the right half again. Find the crossing of the two marks.",
+      "result": "The diagonals meet at the middle of the square."
+    },
+    "left-to-center": {
+      "title": "Fold the left tip in",
+      "instruction": "Bring the left corner to the crossing and press its new edge.",
+      "result": "One triangle covers the left part of the sheet."
+    },
+    "right-to-center": {
+      "title": "Fold the right tip in",
+      "instruction": "Bring the right corner to the same crossing.",
+      "result": "Two tips meet above the center."
+    },
+    "end-tips": {
+      "title": "Bring both ends in",
+      "instruction": "Fold the near and far tips to the crossing.",
+      "result": "Four flaps meet in a smaller square."
+    },
+    "mark-ends": {
+      "title": "Mark the end walls",
+      "instruction": "Bring both folded end edges to the crosswise center crease. Press each fold.",
+      "result": "The edges meet and the two floor boundaries are creased."
+    },
+    "open-end-marks": {
+      "title": "Reopen the wall marks",
+      "instruction": "Lift both end edges back to the smaller square.",
+      "result": "Two parallel marks bound the future floor."
+    },
+    "release-ends": {
+      "title": "Release the long ends",
+      "instruction": "Unfold the near and far corner flaps. Keep the left and right flaps down.",
+      "result": "Two long points extend beyond the side flaps."
+    },
+    "mark-sides": {
+      "title": "Mark the side walls",
+      "instruction": "Fold the long left and right edges to the lengthwise centerline. Crease through both plies.",
+      "result": "The side-wall hinges run the length of the strip."
+    },
+    "stand-sides": {
+      "title": "Stand the sides up",
+      "instruction": "Open both long folds halfway until the side walls stand at right angles to the floor.",
+      "result": "A channel runs between the two upright walls."
+    },
+    "raise-far-end": {
+      "title": "Raise the far end",
+      "instruction": "Lift the far end on its floor mark. Push both corner diagonals inward as the end rises.",
+      "result": "Two triangle pairs lie against the inside of the standing end."
+    },
+    "bend-far-tip": {
+      "title": "Bend the far tip out",
+      "instruction": "One wall-height above the rim, bend the pointed half of the extension outward to a right angle.",
+      "result": "The point projects outside the box."
+    },
+    "line-far-wall": {
+      "title": "Line the far wall",
+      "instruction": "Roll the extension inward over the rim and down over both gussets. Press the tip onto the floor.",
+      "result": "The far corners are covered and the tip reaches the center."
+    },
+    "raise-near-end": {
+      "title": "Raise the near end",
+      "instruction": "Lift the near end on its floor mark while guiding both corner diagonals inward.",
+      "result": "The last two pairs of triangles sit inside the near end."
+    },
+    "bend-near-tip": {
+      "title": "Bend the near tip out",
+      "instruction": "Bend the pointed half outward, one wall-height above the rim, just as at the far end.",
+      "result": "The last point extends toward you."
+    },
+    "line-near-wall": {
+      "title": "Lock the box",
+      "instruction": "Wrap the extension over the near rim, cover the gussets and press the point to the floor center.",
+      "result": "Four upright walls enclose an open square. The end flaps hold the corners in place."
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { lessonPreviews } from "./lesson-previews";
 import { mkdir, readFile, unlink, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { locales, localeCodes } from "../app/i18n/locales";
@@ -13,6 +14,8 @@ const escape = (text: string) =>
     .replaceAll('"', "&quot;");
 export async function writeStaticFiles(build: string, app: string) {
   const client = join(build, "client");
+  await mkdir(join(client, "previews"), { recursive: true });
+  for (const [path, image] of lessonPreviews()) await writeFile(join(client, path), image);
   // Every supported URL has its own document. Retire the framework’s generated SPA entry.
   await unlink(join(client, "__spa-fallback.html"));
   const origin = siteOrigin(process.env.ORIPO_SITE_URL);

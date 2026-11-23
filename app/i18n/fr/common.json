@@ -23,6 +23,8 @@
     "crane": "La grue",
     "alt": "Une grue en papier vert sauge aux longues ailes pointues et au bec replié.",
     "beginner": "Débutant",
+    "intermediate": "Intermédiaire",
+    "advanced": "Avancé",
     "square": "Feuille carrée",
     "rectangle": "Rectangle de 2 × 3",
     "count": "{n} étapes",
@@ -52,6 +54,11 @@
       "title": "Tête de renard",
       "short": "Renard",
       "summary": "Rabattez deux coins vers l’arrière pour dessiner les oreilles et relevez une pointe libre pour donner au renard son museau bicolore."
+    },
+    "masu-box": {
+      "title": "Boîte masu",
+      "short": "Masu",
+      "summary": "Dressez quatre parois et rabattez les pointes sur les coins pour fermer les plis d’une boîte ouverte."
     }
   },
   "player": {
@@ -98,6 +105,6 @@
     "recovery": "Liens pour poursuivre la visite"
   },
   "seo": {
-    "home": "Avec une seule feuille, pliez un avion en flèche, un cœur ou une tête de renard. Suivez et défaites chaque pli en 3D dans l’atelier Oripo."
+    "home": "Choisissez un modèle, suivez les plis en 3D et revenez à la feuille de départ."
   }
 }

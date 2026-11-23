@@ -1,3 +1,4 @@
+import { lessons } from "../../app/lessons";
 import { hydrationControl } from "./shell-helpers";
 import { expect } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
@@ -109,7 +110,7 @@ test("switches dart to heart to fox to dart during playback and releases each st
   const models = page
     .locator(".library article")
     .filter({ has: page.getByText("Playable lesson", { exact: true }) });
-  await expect(models).toHaveCount(3);
+  await expect(models).toHaveCount(lessons.length);
   const contexts = [];
   for (const title of ["Dart paper airplane", "Paper heart", "Fox face", "Dart paper airplane"]) {
     await models.getByRole("link", { name: title, exact: true }).click();

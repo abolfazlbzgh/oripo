@@ -1,0 +1,99 @@
+{
+  "sheet": {
+    "title": "Cuadrado inicial",
+    "instruction": "Coloca el cuadrado en forma de rombo con una punta hacia ti. Deja hacia abajo el color que quieres para el fondo.",
+    "result": "Las cuatro puntas están extendidas."
+  },
+  "steps": {
+    "mark-across": {
+      "title": "Marca la diagonal transversal",
+      "instruction": "Lleva la punta lejana hasta la cercana y marca el doblez.",
+      "result": "El triángulo de dos capas apunta hacia ti."
+    },
+    "open-across": {
+      "title": "Abre el cuadrado",
+      "instruction": "Devuelve la punta lejana a su sitio.",
+      "result": "Un pliegue une las puntas izquierda y derecha."
+    },
+    "mark-center": {
+      "title": "Marca la diagonal longitudinal",
+      "instruction": "Lleva la punta derecha hasta la izquierda y marca.",
+      "result": "Las dos puntas laterales coinciden."
+    },
+    "open-center": {
+      "title": "Localiza el centro",
+      "instruction": "Abre de nuevo la mitad derecha y busca el cruce de las marcas.",
+      "result": "Las diagonales se cruzan en el centro."
+    },
+    "left-to-center": {
+      "title": "Dobla la punta izquierda",
+      "instruction": "Lleva la esquina izquierda al cruce y presiona el pliegue.",
+      "result": "Un triángulo cubre la parte izquierda."
+    },
+    "right-to-center": {
+      "title": "Dobla la punta derecha",
+      "instruction": "Lleva la esquina derecha al mismo cruce.",
+      "result": "Las puntas se tocan en el centro."
+    },
+    "end-tips": {
+      "title": "Dobla los extremos",
+      "instruction": "Lleva la punta cercana y la lejana al cruce.",
+      "result": "Cuatro solapas forman un cuadrado menor."
+    },
+    "mark-ends": {
+      "title": "Marca las paredes de los extremos",
+      "instruction": "Lleva los dos bordes doblados de los extremos al pliegue central transversal y marca.",
+      "result": "Los pliegues señalan dos límites del fondo."
+    },
+    "open-end-marks": {
+      "title": "Abre las marcas",
+      "instruction": "Devuelve ambos bordes a su lugar en el cuadrado pequeño.",
+      "result": "Dos marcas paralelas delimitan el fondo."
+    },
+    "release-ends": {
+      "title": "Libera los extremos",
+      "instruction": "Desdobla las puntas cercana y lejana sin abrir las solapas laterales.",
+      "result": "Sobresalen dos puntas largas."
+    },
+    "mark-sides": {
+      "title": "Marca las paredes laterales",
+      "instruction": "Lleva los bordes izquierdo y derecho a la línea central longitudinal. Marca ambas capas.",
+      "result": "Dos pliegues recorren la tira."
+    },
+    "stand-sides": {
+      "title": "Levanta los lados",
+      "instruction": "Abre los pliegues a medias hasta que las paredes formen ángulos rectos con el fondo.",
+      "result": "Queda un canal entre dos paredes."
+    },
+    "raise-far-end": {
+      "title": "Levanta el extremo lejano",
+      "instruction": "Levanta el extremo por la marca del fondo mientras empujas hacia dentro las diagonales de sus dos esquinas.",
+      "result": "Dos pares de triángulos descansan contra el interior de la pared."
+    },
+    "bend-far-tip": {
+      "title": "Dobla la punta hacia fuera",
+      "instruction": "A una altura de pared por encima del borde, dobla la parte puntiaguda hacia fuera en ángulo recto.",
+      "result": "La punta sobresale por fuera."
+    },
+    "line-far-wall": {
+      "title": "Forra la pared lejana",
+      "instruction": "Pasa la solapa por encima del borde y de las esquinas. Aprieta la punta contra el fondo.",
+      "result": "Las esquinas quedan cubiertas y la punta llega al centro."
+    },
+    "raise-near-end": {
+      "title": "Levanta el extremo cercano",
+      "instruction": "Levanta el extremo por su marca mientras empujas las diagonales de las dos esquinas hacia dentro.",
+      "result": "Los últimos triángulos quedan dentro de la caja."
+    },
+    "bend-near-tip": {
+      "title": "Dobla la punta cercana",
+      "instruction": "Como en el otro extremo, dobla la punta hacia fuera a una altura de pared por encima del borde.",
+      "result": "La punta se extiende hacia ti."
+    },
+    "line-near-wall": {
+      "title": "Fija la caja",
+      "instruction": "Envuelve el borde cercano con la solapa, cubre las esquinas y presiona la punta en el centro.",
+      "result": "Cuatro paredes rodean un fondo cuadrado. Las solapas sujetan las esquinas."
+    }
+  }
+}

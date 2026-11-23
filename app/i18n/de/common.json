@@ -23,6 +23,8 @@
     "crane": "Der Kranich",
     "alt": "Ein salbeigrüner Papierkranich mit langen, spitzen Flügeln und gefaltetem Schnabel.",
     "beginner": "Für Einsteiger",
+    "intermediate": "Mittelstufe",
+    "advanced": "Fortgeschritten",
     "square": "Quadratisches Blatt",
     "rectangle": "Rechteck im Format 2 × 3",
     "count": "{n} Schritte",
@@ -52,6 +54,11 @@
       "title": "Fuchsgesicht",
       "short": "Fuchs",
       "summary": "Falte zwei Ecken nach hinten zu spitzen Ohren und klappe eine lose Spitze für die zweifarbige Schnauze nach oben."
+    },
+    "masu-box": {
+      "title": "Masu-Schachtel",
+      "short": "Masu",
+      "summary": "Richte vier Wände auf und schlage die Endlaschen über die Ecken, bis eine offene Schachtel entsteht."
     }
   },
   "player": {
@@ -98,6 +105,6 @@
     "recovery": "Weiterführende Links"
   },
   "seo": {
-    "home": "Falte aus einem einzigen Blatt einen Papierflieger, ein Herz oder ein Fuchsgesicht. Im Faltstudio von Oripo kannst du jeden Schritt in 3D vorwärts und rückwärts verfolgen."
+    "home": "Wähle ein Modell, verfolge die Faltungen in 3D und kehre von der fertigen Figur zum Ausgangsblatt zurück."
   }
 }

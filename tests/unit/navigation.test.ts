@@ -1,3 +1,4 @@
+import { lessons } from "../../app/lessons";
 import { expect, it } from "vitest";
 import { matchRoutes } from "react-router";
 import routes from "../../app/routes";
@@ -20,9 +21,9 @@ it("preserves the guide hierarchy in every locale", () => {
 });
 it("enumerates all public routes once and keeps a single internal lab", () => {
   expect(localeCodes).toEqual(["en", "fa", "es", "fr", "zh-Hans", "ar", "pt-BR", "de", "ja", "hi"]);
-  expect(canonicalPaths).toHaveLength(50);
-  expect(publishedPaths).toHaveLength(51);
-  expect(prerenderPaths).toHaveLength(52);
+  expect(canonicalPaths).toHaveLength(localeCodes.length * (2 + lessons.length));
+  expect(publishedPaths).toHaveLength(canonicalPaths.length + 1);
+  expect(prerenderPaths).toHaveLength(publishedPaths.length + 1);
   expect(new Set(prerenderPaths).size).toBe(prerenderPaths.length);
   expect(publishedPaths).not.toContain(labPath);
   for (const path of prerenderPaths) {

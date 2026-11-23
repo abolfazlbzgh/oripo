@@ -41,7 +41,17 @@ export const foxInfo = {
   finishedAppearance: { front: "#efb797", reverse: "#d5712e", edge: "#814521" },
 } as const satisfies LessonInfo;
 
-export const lessons = [airplaneInfo, heartInfo, foxInfo] as const;
+export const masuInfo = {
+  id: "masu-box",
+  availability: "playable",
+  stepCount: 18,
+  paper: "square",
+  category: "container",
+  difficulty: "intermediate",
+  finishedAppearance: { front: "#448b91", reverse: "#64a5a0", edge: "#285359" },
+} as const satisfies LessonInfo;
+
+export const lessons = [airplaneInfo, heartInfo, foxInfo, masuInfo] as const;
 export type ModelId = (typeof lessons)[number]["id"];
 
 export function groupByDifficulty<T extends { difficulty: Difficulty }>(entries: readonly T[]) {

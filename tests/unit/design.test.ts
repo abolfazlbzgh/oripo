@@ -1,3 +1,4 @@
+import { masuPattern } from "../../app/lesson/masu";
 import { readFileSync } from "node:fs";
 import { expect, it } from "vitest";
 import { airplanePattern } from "../../app/lesson/airplane";
@@ -13,12 +14,13 @@ it("gives each gallery demonstration a unique ID and a published address", () =>
   for (const lesson of items) expect(publishedPaths).toContain(localPath("en", lesson.id));
 });
 
-it("publishes exactly three complete lessons with their actual action counts", () => {
-  expect(lessons.map((l) => [l.id, l.stepCount])).toEqual([
-    [airplanePattern.lessonId, airplanePattern.steps.length],
-    ["paper-heart", heartFolds.length],
-    ["fox-face", foxFolds.length],
-  ]);
+it("publishes complete lessons with their actual action counts", () => {
+  expect(Object.fromEntries(lessons.map((l) => [l.id, l.stepCount]))).toEqual({
+    [airplanePattern.lessonId]: airplanePattern.steps.length,
+    "paper-heart": heartFolds.length,
+    "fox-face": foxFolds.length,
+    [masuPattern.lessonId]: masuPattern.steps.length,
+  });
   expect(lessons.every((l) => l.availability === "playable" && l.paper)).toBe(true);
 });
 

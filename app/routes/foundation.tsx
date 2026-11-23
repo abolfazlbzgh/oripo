@@ -1,9 +1,8 @@
 import { Link } from "react-router";
 import { PaperStudy } from "../components/paper-study";
-import { FoldDiagram } from "../components/fold-diagram";
 import { ExploreLink } from "../components/explore-link";
 import { useI18n } from "../i18n/context";
-import { lessons } from "../lessons";
+import { lessons, groupByDifficulty } from "../lessons";
 import { localPath } from "../navigation";
 
 export default function Foundation() {
@@ -38,28 +37,43 @@ export default function Foundation() {
             {home.gallery}
           </h2>
         </div>
-        <div className="library-grid">
-          {lessons.map((lesson) => (
-            <article key={lesson.id} className="resource">
-              <div className="diagram-field" dir="ltr">
-                <FoldDiagram kind={lesson.id} />
-              </div>
-              <div className="card-copy">
-                <p className="category">{home.lesson}</p>
-                <h3>
-                  <Link tabIndex={0} to={localPath(locale, lesson.id)}>
-                    {models[lesson.id].title}
-                  </Link>
-                </h3>
-                <p className="lesson-facts">
-                  {home.beginner} · {format(home.count, { n: lesson.stepCount })} ·{" "}
-                  {home[lesson.paper]}
-                </p>
-                <p>{models[lesson.id].summary}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+        {groupByDifficulty(lessons).map(({ difficulty, entries }) => (
+          <section className="library-tier" key={difficulty} aria-labelledby={"tier-" + difficulty}>
+            <h3 className="tier-heading" id={"tier-" + difficulty}>
+              {home[difficulty]}{" "}
+              <span className="badge badge-soft">{format("{n}", { n: entries.length })}</span>
+            </h3>
+            <div className="library-grid">
+              {entries.map((lesson) => (
+                <article key={lesson.id} className="resource" data-model={lesson.id}>
+                  <div className="diagram-field" dir="ltr">
+                    <img
+                      className="fold-diagram"
+                      src={"/previews/" + lesson.id + ".png"}
+                      width="440"
+                      height="312"
+                      loading="lazy"
+                      alt=""
+                    />
+                  </div>
+                  <div className="card-copy">
+                    <p className="category">{home.lesson}</p>
+                    <h4>
+                      <Link tabIndex={0} to={localPath(locale, lesson.id)}>
+                        {models[lesson.id].title}
+                      </Link>
+                    </h4>
+                    <p className="lesson-facts">
+                      {home[lesson.difficulty]} · {format(home.count, { n: lesson.stepCount })} ·{" "}
+                      {home[lesson.paper]}
+                    </p>
+                    <p>{models[lesson.id].summary}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
       </section>
     </>
   );

@@ -1,3 +1,4 @@
+import masuText from "./en/masu-box.json";
 import type { Locale } from "./locales";
 import type { Common, Transcript } from "./messages";
 import { airplaneText, sheetText } from "../lesson/airplane.en";
@@ -11,6 +12,7 @@ const lessonFiles = import.meta.glob<Transcript>(["./*/*.json", "!./*/common.jso
   import: "default",
 });
 const english = {
+  "masu-box": masuText,
   "paper-airplane": { sheet: sheetText, steps: airplaneText },
   "paper-heart": { sheet: heartSheet, steps: heartText },
   "fox-face": { sheet: foxSheet, steps: foxText },

@@ -1,0 +1,99 @@
+{
+  "sheet": {
+    "title": "Carré de départ",
+    "instruction": "Posez le carré en losange, une pointe vers vous. Placez la couleur souhaitée pour le fond contre la table.",
+    "result": "Les quatre pointes sont à plat."
+  },
+  "steps": {
+    "mark-across": {
+      "title": "Marquer la diagonale transversale",
+      "instruction": "Amenez la pointe éloignée sur la pointe proche et marquez le pli.",
+      "result": "Le triangle double pointe vers vous."
+    },
+    "open-across": {
+      "title": "Rouvrir le carré",
+      "instruction": "Remettez la pointe éloignée à sa place.",
+      "result": "Un pli relie les pointes gauche et droite."
+    },
+    "mark-center": {
+      "title": "Marquer la diagonale longitudinale",
+      "instruction": "Amenez la pointe droite sur la pointe gauche et marquez le pli.",
+      "result": "Les deux pointes latérales se superposent."
+    },
+    "open-center": {
+      "title": "Repérer le centre",
+      "instruction": "Rouvrez la moitié droite et repérez le croisement des plis.",
+      "result": "Les diagonales se rencontrent au centre."
+    },
+    "left-to-center": {
+      "title": "Rabattre la pointe gauche",
+      "instruction": "Amenez le coin gauche au croisement et aplatissez le pli.",
+      "result": "Un triangle recouvre la partie gauche."
+    },
+    "right-to-center": {
+      "title": "Rabattre la pointe droite",
+      "instruction": "Amenez le coin droit au même croisement.",
+      "result": "Les deux pointes se touchent au centre."
+    },
+    "end-tips": {
+      "title": "Rabattre les extrémités",
+      "instruction": "Amenez les pointes proche et éloignée au croisement.",
+      "result": "Les quatre rabats forment un carré plus petit."
+    },
+    "mark-ends": {
+      "title": "Marquer les parois des bouts",
+      "instruction": "Ramenez les deux bords pliés des extrémités sur la diagonale transversale et marquez.",
+      "result": "Deux plis délimitent le fond."
+    },
+    "open-end-marks": {
+      "title": "Rouvrir les deux plis",
+      "instruction": "Ramenez les deux bords à leur position dans le petit carré.",
+      "result": "Deux marques parallèles encadrent le fond."
+    },
+    "release-ends": {
+      "title": "Libérer les pointes",
+      "instruction": "Dépliez les pointes proche et éloignée en gardant les rabats latéraux en place.",
+      "result": "Deux longues pointes dépassent."
+    },
+    "mark-sides": {
+      "title": "Marquer les côtés",
+      "instruction": "Pliez les bords gauche et droit vers la ligne médiane longitudinale en appuyant sur les deux épaisseurs.",
+      "result": "Deux longs plis traversent la bande."
+    },
+    "stand-sides": {
+      "title": "Dresser les côtés",
+      "instruction": "Rouvrez ces plis à moitié pour placer les côtés à angle droit avec le fond.",
+      "result": "Les parois forment une rigole."
+    },
+    "raise-far-end": {
+      "title": "Relever le bout éloigné",
+      "instruction": "Soulevez le bout éloigné au pli du fond. Rentrez les deux diagonales des coins en même temps.",
+      "result": "Deux paires de triangles se couchent contre la paroi intérieure."
+    },
+    "bend-far-tip": {
+      "title": "Plier la pointe vers l’extérieur",
+      "instruction": "À une hauteur de paroi au-dessus du bord, pliez la moitié pointue à angle droit vers l’extérieur.",
+      "result": "La pointe dépasse à l’extérieur."
+    },
+    "line-far-wall": {
+      "title": "Doubler la paroi éloignée",
+      "instruction": "Rabattez le papier par-dessus le bord et les deux coins, puis plaquez la pointe sur le fond.",
+      "result": "Les coins sont couverts et la pointe atteint le centre."
+    },
+    "raise-near-end": {
+      "title": "Relever le bout proche",
+      "instruction": "Soulevez le bout proche sur son pli en poussant les diagonales des coins vers l’intérieur.",
+      "result": "Les deux derniers coins sont repliés à l’intérieur."
+    },
+    "bend-near-tip": {
+      "title": "Plier la pointe proche",
+      "instruction": "Comme au bout opposé, pliez la pointe vers l’extérieur à une hauteur de paroi au-dessus du bord.",
+      "result": "La pointe se dirige vers vous."
+    },
+    "line-near-wall": {
+      "title": "Bloquer la boîte",
+      "instruction": "Rabattez la bande par-dessus le bord proche et les coins. Appuyez la pointe au centre du fond.",
+      "result": "Quatre parois entourent le fond carré. Les rabats maintiennent les coins."
+    }
+  }
+}

@@ -57,11 +57,16 @@ export function flatPattern(
     id,
     line: [a, b],
     packet,
+    sense,
   } of folds) {
+    if (sense !== "front" && sense !== "back") throw new Error(`Invalid fold sense in ${id}`);
+    if (packet !== undefined && !hinges.has(packet))
+      throw new Error(`Unknown earlier packet ${packet}`);
     const dx = b[0] - a[0],
       dy = b[1] - a[1],
       length = Math.hypot(dx, dy);
-    if (!(length > epsilon)) throw new Error(`Invalid flat hinge in ${id}`);
+    if (!Number.isFinite(length) || length <= epsilon)
+      throw new Error(`Invalid flat hinge in ${id}`);
     const nx = -dy / length,
       ny = dx / length;
     const side = ([x, y]: XY) => (x - a[0]) * nx + (y - a[1]) * ny;

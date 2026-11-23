@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
-import { publishedPaths } from "../../app/navigation";
+import { englishPath, publishedPaths } from "../../app/navigation";
 
 test("appearance applies before hydration, survives navigation and reload, then follows the system", async ({
   page,
@@ -100,6 +100,8 @@ for (const width of [320, 390, 768, 1440]) {
     for (const path of publishedPaths) {
       await page.goto(path);
       await expect(page.getByLabel("Appearance")).toBeEnabled();
+      if (path === englishPath("firstFold") || path.startsWith("/en/lessons/"))
+        await expect(page.getByRole("button", { name: "Orbit left" })).toBeEnabled();
       for (const scale of ["100%", "200%"]) {
         const offscreen = await page.evaluate(
           ({ scale, width }) => {

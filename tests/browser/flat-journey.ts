@@ -1,3 +1,4 @@
+import { inspectByTouch } from "./studio-touch";
 import { expect, type Page } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
 import { paperPixels, type Point } from "./paper-pixels";
@@ -68,8 +69,24 @@ export function flatJourney(f: Fixture) {
       await page.setViewportSize({ width: 1280, height: 920 });
       await page.emulateMedia({ colorScheme: "light", reducedMotion: "no-preference" });
       await page.clock.install({ time: new Date("2026-01-01T10:00:00Z") });
-      await page.goto(route);
+      const scenes: string[] = [];
+      page.on("request", (r) => {
+        if (/\/(?:studio|(?:[\w-]+-)?scene)\.client-/.test(r.url())) scenes.push(r.url());
+      });
+      await page.goto("/en");
+      await expect(page.getByLabel("Appearance")).toBeEnabled();
+      const card = page
+        .getByRole("article")
+        .filter({ has: page.getByRole("link", { name: f.title, exact: true }) });
+      await expect(card.getByText("Playable lesson")).toBeVisible();
+      await expect(card.getByText(`Beginner · ${total} steps · Square sheet`)).toBeVisible();
+      expect(scenes).toEqual([]);
+      await card.getByRole("link").focus();
+      await page.keyboard.press("Enter");
+      await expect(page).toHaveURL(new RegExp(route + "$"));
+      await expect(page.getByRole("main")).toBeFocused();
       await expect(button(page, "Orbit left")).toBeEnabled();
+      expect(scenes.length).toBeGreaterThan(0);
       await page.clock.pauseAt(new Date("2026-01-01T10:02:00Z"));
       const canvas = page.locator("canvas");
       const capture = async (name: string) => {
@@ -94,6 +111,7 @@ export function flatJourney(f: Fixture) {
         const duration = action(n).durationMs;
         await button(page, "Next").focus();
         await page.keyboard.press("Enter");
+        await expect(button(page, "Next")).toBeFocused();
         const middle = f.middles[n];
         if (middle) {
           await page.clock.fastForward(duration / 2);
@@ -141,6 +159,8 @@ export function flatJourney(f: Fixture) {
       }
       await capture("reversed");
       expect((await paperPixels(page, diamond, eye)).hash).toBe(flat.hash);
+      await page.getByRole("link", { name: "Back to Explore" }).click();
+      await expect(page.getByRole("heading", { name: "On the worktable" })).toBeVisible();
       expect(errors).toEqual([]);
       console.info(
         f.slug,
@@ -148,6 +168,72 @@ export function flatJourney(f: Fixture) {
         "production silhouette IoU",
         JSON.stringify(readings),
       );
+    });
+
+    for (const width of [320, 390]) {
+      test(`reduced-motion playback and themes survive refresh at ${width}px`, async ({
+        page,
+        baseURL,
+      }) => {
+        const errors = watchBrowser(page, baseURL);
+        await page.setViewportSize({ width, height: 844 });
+        await page.emulateMedia({ colorScheme: "dark", reducedMotion: "reduce" });
+        expect((await page.goto(route))?.status()).toBe(200);
+        await expect(button(page, "Orbit left")).toBeEnabled();
+        const theme = page.getByLabel("Appearance");
+        await theme.selectOption("oripo-light");
+        expect((await page.reload())?.status()).toBe(200);
+        await expect(button(page, "Orbit left")).toBeEnabled();
+        await expect(theme).toHaveValue("oripo-light");
+        await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
+        for (const choice of ["oripo-dark", "system"]) {
+          await theme.selectOption(choice);
+          await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
+        }
+        for (let n = 1; n <= total; n++) {
+          await button(page, "Next").click();
+          await expect(page.getByRole("meter")).toHaveJSProperty("value", n);
+        }
+        const final = await paperPixels(page, [f.outline], eye);
+        expect(final.iou).toBeGreaterThan(0.86);
+        await button(page, "Replay").focus();
+        await page.keyboard.press("Space");
+        await expect(button(page, "Replay")).toBeFocused();
+        await expect(page.getByRole("status")).toContainText("Replay complete");
+        await page.emulateMedia({ reducedMotion: "no-preference" });
+        await button(page, "Previous").click();
+        await page.locator("canvas").evaluate((c) => {
+          const loss = (c as HTMLCanvasElement)
+            .getContext("webgl2")
+            ?.getExtension("WEBGL_lose_context");
+          if (!loss) throw Error("Context loss extension unavailable");
+          loss.loseContext();
+        });
+        await expect(page.getByText("3D view unavailable", { exact: true })).toBeVisible();
+        await expect(page.locator("canvas")).toHaveCount(0);
+        await expect(page.getByRole("meter")).toHaveJSProperty("value", total - 1);
+        await button(page, "Next").click();
+        await expect(page.getByRole("status")).toContainText(copy(total).result);
+        expect(errors).toEqual([]);
+      });
+    }
+
+    test.describe("touch workbench", () => {
+      test.use({ hasTouch: true, viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
+      test("one-finger orbit, pinch and a swipe outside the canvas preserve the fold", async ({
+        page,
+        context,
+        baseURL,
+      }) => {
+        const errors = watchBrowser(page, baseURL);
+        await page.goto(route);
+        await expect(button(page, "Orbit left")).toBeEnabled();
+        await button(page, "Next").tap();
+        await inspectByTouch(page, context);
+        await expect(page.getByRole("meter")).toHaveJSProperty("value", 1);
+        await expect(page.getByRole("status")).toContainText(copy(1).result);
+        expect(errors).toEqual([]);
+      });
     });
 
     test("preserves all text poses without WebGL", async ({ page, baseURL }) => {

@@ -50,6 +50,31 @@ export function verifyFlatLesson(
       expect(perimeter).toBeCloseTo(4 * Math.SQRT2, 12);
     });
 
+    it("rejects an unknown packet, invalid hinge or sense, and a missing moving panel", () => {
+      const first = atIndex(folds, 0);
+      expect(() => flatPattern(id, diamond, [{ ...first, packet: "missing-ply" }])).toThrow(
+        /Unknown earlier packet/,
+      );
+      expect(() =>
+        flatPattern(id, diamond, [
+          {
+            ...first,
+            line: [
+              [0, 0],
+              [Infinity, 0],
+            ],
+          },
+        ]),
+      ).toThrow(/Invalid flat hinge/);
+      expect(() =>
+        flatPattern(id, diamond, [Object.assign({ ...first }, { sense: "sideways" })]),
+      ).toThrow(/Invalid fold sense/);
+      const broken = structuredClone(pattern);
+      const turn = atIndex(atIndex(broken.steps, 0).turns, 0);
+      Object.assign(turn, { faces: turn.faces.slice(1) });
+      expect(() => compileLesson(broken)).toThrow(/Off-axis seam/);
+    });
+
     it("matches independent planar landmarks at every canonical pose", () => {
       let error = 0;
       for (const [stage, pose] of model.poses.entries())

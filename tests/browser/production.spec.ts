@@ -56,6 +56,9 @@ test("unknown pages and unsupported locales return a recoverable HTTP 404", asyn
     "/fr",
     "/en/lessons/missing-dart",
     "/fr/lessons/paper-airplane",
+    "/fr/lessons/paper-heart",
+    "/fr/lessons/fox-face",
+    "/en/lessons/unknown-model",
   ]) {
     expect((await page.goto(path))?.status()).toBe(404);
     expect((await page.reload())?.status()).toBe(404);

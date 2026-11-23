@@ -40,7 +40,8 @@ export function createLessonMount(
     const action = atIndex(steps, step);
     for (const turn of action.turns) {
       const height = heights[action.id];
-      if (height === undefined) throw new Error(`Missing drawing height for ${turn.crease}`);
+      if (height === undefined || !Number.isFinite(height))
+        throw new Error(`Invalid drawing height in ${action.id}`);
       const origin: Point = [0, 0, height * 0.0007];
       const angle = turnAngle(turn.degrees, progress);
       for (const f of turn.faces) result[f] = rotate(atIndex(start, f), origin, turn.axis, angle);

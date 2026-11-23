@@ -381,6 +381,10 @@ test("route exit during motion releases the old GL context, and return opens one
   await expect(page.locator("canvas")).toHaveCount(0);
   await expect.poll(() => context.evaluate((gl) => gl?.isContextLost())).toBe(true);
   await context.dispose();
+  // Complete the catalog's required image before the next route retires its request.
+  await page
+    .locator('img[src="/paper-crane.svg"]')
+    .evaluate((el) => (el as HTMLImageElement).decode());
   await page.getByRole("link", { name: "Open the 3D studio" }).click();
   await rendered(page);
   await atAngle(page, 0);

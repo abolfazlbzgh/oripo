@@ -40,6 +40,11 @@
     "back": "Volver a explorar"
   },
   "models": {
+    "herringbone-map": {
+      "title": "Mapa en espiga",
+      "short": "Mapa Miura",
+      "summary": "Pliega cuatro capas en crestas de zigzag que acortan el mapa en ambas direcciones."
+    },
     "paper-airplane": {
       "title": "Avión de papel tipo dardo",
       "short": "Dardo",

@@ -40,6 +40,11 @@
     "back": "Voltar aos modelos"
   },
   "models": {
+    "herringbone-map": {
+      "title": "Mapa em espinha de peixe",
+      "short": "Mapa Miura",
+      "summary": "Comprima quatro camadas em cristas de zigue-zague para encurtar o mapa nas duas direções."
+    },
     "paper-airplane": {
       "title": "Avião de papel tipo dardo",
       "short": "Dardo",

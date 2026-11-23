@@ -13,6 +13,7 @@ import { foxText, foxSheet } from "../../app/lesson/fox.en";
 
 const origin = siteOrigin(process.env.ORIPO_SITE_URL);
 const english = {
+  "herringbone-map": readCopy("en", "herringbone-map"),
   "masu-box": readCopy("en", "masu-box"),
   "paper-airplane": { sheet: sheetText, steps: airplaneText },
   "paper-heart": { sheet: heartSheet, steps: heartText },

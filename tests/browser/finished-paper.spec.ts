@@ -5,6 +5,7 @@ import { lessons, type ModelId } from "../../app/lessons";
 import { paperPixels, type Point } from "./paper-pixels";
 import { finishedOutlines } from "./finished-outlines";
 const studioEyes: Record<ModelId, Point> = {
+  "herringbone-map": [1.6, -3.5, 3.9],
   "paper-airplane": [2.4, -3.35, 4],
   "paper-heart": [0, -0.75, 3.4],
   "fox-face": [0, -0.75, 3.4],

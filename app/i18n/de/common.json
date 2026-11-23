@@ -40,6 +40,11 @@
     "back": "Zurück zu den Modellen"
   },
   "models": {
+    "herringbone-map": {
+      "title": "Karte mit Fischgrätfaltung",
+      "short": "Miura-Karte",
+      "summary": "Schiebe vier Papierlagen zu Zickzackrippen zusammen, die die Karte in beiden Richtungen verkürzen."
+    },
     "paper-airplane": {
       "title": "Papierflieger in Pfeilform",
       "short": "Flieger",

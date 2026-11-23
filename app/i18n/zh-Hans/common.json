@@ -40,6 +40,11 @@
     "back": "返回探索"
   },
   "models": {
+    "herringbone-map": {
+      "title": "人字折叠地图",
+      "short": "三浦地图",
+      "summary": "把四层纸收成起伏的锯齿，让地图沿两个方向缩短。"
+    },
     "paper-airplane": {
       "title": "飞镖式纸飞机",
       "short": "纸飞机",

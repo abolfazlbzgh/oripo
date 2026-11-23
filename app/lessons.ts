@@ -51,7 +51,16 @@ export const masuInfo = {
   finishedAppearance: { front: "#448b91", reverse: "#64a5a0", edge: "#285359" },
 } as const satisfies LessonInfo;
 
-export const lessons = [airplaneInfo, heartInfo, foxInfo, masuInfo] as const;
+export const mapInfo = {
+  id: "herringbone-map",
+  availability: "playable",
+  stepCount: 15,
+  paper: "rectangle",
+  category: "corrugation",
+  difficulty: "intermediate",
+  finishedAppearance: { front: "#7051a5", reverse: "#ad88cb", edge: "#453661" },
+} as const satisfies LessonInfo;
+export const lessons = [airplaneInfo, heartInfo, foxInfo, masuInfo, mapInfo] as const;
 export type ModelId = (typeof lessons)[number]["id"];
 
 export function groupByDifficulty<T extends { difficulty: Difficulty }>(entries: readonly T[]) {

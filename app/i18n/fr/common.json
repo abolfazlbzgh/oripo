@@ -40,6 +40,11 @@
     "back": "Revenir aux modèles"
   },
   "models": {
+    "herringbone-map": {
+      "title": "Carte à chevrons",
+      "short": "Carte Miura",
+      "summary": "Resserrez quatre épaisseurs de papier en chevrons pour raccourcir la carte dans les deux sens."
+    },
     "paper-airplane": {
       "title": "Avion en papier en flèche",
       "short": "Avion",

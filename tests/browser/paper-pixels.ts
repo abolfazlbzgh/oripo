@@ -1,4 +1,5 @@
 import type { Page } from "@playwright/test";
+import type { ModelId } from "../../app/lessons";
 export type Point = [number, number, number];
 
 export async function paperPixels(
@@ -6,7 +7,7 @@ export async function paperPixels(
   polygons: Point[][],
   eye: Point,
   probes: Point[] = [],
-  finish?: "paper-airplane" | "paper-heart" | "fox-face" | "masu-box",
+  finish?: ModelId,
   includeTeachingInk = false,
 ) {
   const png = await page.locator("canvas").screenshot();
@@ -52,6 +53,7 @@ export async function paperPixels(
         colored = 0,
         hash = 2166136261;
       function hue(r: number, g: number, b: number) {
+        if (finish === "herringbone-map") return b - r > 17 && r - g > 12 ? "violet" : "other";
         if (finish === "masu-box")
           return g - r > 26 && b - r > 22 && Math.abs(b - g) < 25 ? "teal" : "other";
         if (finish === "paper-airplane") return b - g > 6 && g - r > 7 && b > 95 ? "blue" : "other";

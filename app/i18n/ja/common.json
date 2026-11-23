@@ -40,6 +40,11 @@
     "back": "作品一覧に戻る"
   },
   "models": {
+    "herringbone-map": {
+      "title": "矢羽根折りの地図",
+      "short": "ミウラ折り",
+      "summary": "四枚重ねの紙に折り筋をつけ、縦横に縮む山と谷を作ります。"
+    },
     "paper-airplane": {
       "title": "ダーツ型の紙飛行機",
       "short": "紙飛行機",

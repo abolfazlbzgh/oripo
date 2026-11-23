@@ -1,0 +1,84 @@
+{
+  "sheet": {
+    "title": "Rectángulo apaisado",
+    "instruction": "Coloca una hoja de 3 × 2 con un lado largo hacia ti. Divídela en cuatro franjas iguales paralelas a ese lado.",
+    "result": "Los lados largos quedan horizontales."
+  },
+  "steps": {
+    "stack-far": {
+      "title": "Doblar el cuarto lejano",
+      "instruction": "Lleva el borde más alejado a la línea central.",
+      "result": "Dos franjas quedan cara a cara."
+    },
+    "stack-middle": {
+      "title": "Invertir el pliegue central",
+      "instruction": "Dobla las dos franjas lejanas por detrás de la hoja sobre la línea central.",
+      "result": "Se superponen tres franjas."
+    },
+    "stack-near": {
+      "title": "Cerrar el acordeón",
+      "instruction": "Pliega el paquete hacia ti por la línea del cuarto más cercano. Alinea los extremos cortos.",
+      "result": "Cuatro capas forman una tira estrecha."
+    },
+    "mark-west": {
+      "title": "Marcar la diagonal 1",
+      "instruction": "Mide 1/12 de la longitud desde la izquierda en el borde cercano y 2/12 en el lejano. Une los puntos y dobla el extremo izquierdo por delante.",
+      "result": "Un pliegue oblicuo atraviesa las cuatro capas."
+    },
+    "unmark-west": {
+      "title": "Abrir la diagonal 1",
+      "instruction": "Despliega el extremo sin abrir el acordeón longitudinal.",
+      "result": "La tira recupera su longitud y conserva la marca 1."
+    },
+    "mark-west-middle": {
+      "title": "Marcar la diagonal 2",
+      "instruction": "Mide 4/12 de la longitud desde la izquierda en el borde cercano y 5/12 en el lejano. Une los puntos y dobla el extremo izquierdo por detrás.",
+      "result": "Un pliegue oblicuo atraviesa las cuatro capas."
+    },
+    "unmark-west-middle": {
+      "title": "Abrir la diagonal 2",
+      "instruction": "Despliega el extremo sin abrir el acordeón longitudinal.",
+      "result": "La tira recupera su longitud y conserva la marca 2."
+    },
+    "mark-east-middle": {
+      "title": "Marcar la diagonal 3",
+      "instruction": "Mide 7/12 de la longitud desde la izquierda en el borde cercano y 8/12 en el lejano. Une los puntos y dobla el extremo derecho por delante.",
+      "result": "Un pliegue oblicuo atraviesa las cuatro capas."
+    },
+    "unmark-east-middle": {
+      "title": "Abrir la diagonal 3",
+      "instruction": "Despliega el extremo sin abrir el acordeón longitudinal.",
+      "result": "La tira recupera su longitud y conserva la marca 3."
+    },
+    "mark-east": {
+      "title": "Marcar la diagonal 4",
+      "instruction": "Mide 10/12 de la longitud desde la izquierda en el borde cercano y 11/12 en el lejano. Une los puntos y dobla el extremo derecho por detrás.",
+      "result": "Un pliegue oblicuo atraviesa las cuatro capas."
+    },
+    "unmark-east": {
+      "title": "Abrir la diagonal 4",
+      "instruction": "Despliega el extremo sin abrir el acordeón longitudinal.",
+      "result": "La tira recupera su longitud y conserva la marca 4."
+    },
+    "release-near": {
+      "title": "Abrir la franja cercana",
+      "instruction": "Deshaz el último pliegue largo y sujeta juntas las otras franjas.",
+      "result": "El cuarto más cercano queda libre."
+    },
+    "release-middle": {
+      "title": "Abrir la franja central",
+      "instruction": "Saca el paquete oculto hacia delante por la línea central.",
+      "result": "Quedan juntas las dos franjas lejanas."
+    },
+    "release-far": {
+      "title": "Abrir la última franja",
+      "instruction": "Separa el último par y alisa suavemente la hoja.",
+      "result": "Cuatro zigzags cruzan tres pliegues transversales."
+    },
+    "gather-ridges": {
+      "title": "Levantar las crestas",
+      "instruction": "Desde la izquierda, levanta el primer y el tercer zigzag y hunde el segundo y el cuarto. Acerca los lados e invierte cada pliegue transversal al cruzar un zigzag.",
+      "result": "Dos crestas alternan con dos surcos. El mapa se ha acortado en ambas direcciones."
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { atIndex } from "../../app/lesson/geometry";
 import { dartOutline } from "./dart-pixels";
+import { mapOutline } from "./herringbone-outline";
 import type { Point } from "./paper-pixels";
 
 export const heartOutline: Point[] = [
@@ -34,6 +35,7 @@ const walls = floor.map((p, i) => {
   return [p, q, [q[0], q[1], 0.5], [p[0], p[1], 0.5]] as Point[];
 });
 export const finishedOutlines = {
+  "herringbone-map": mapOutline(),
   "masu-box": [floor, ...walls],
   "paper-heart": [heartOutline],
   "fox-face": [foxOutline],

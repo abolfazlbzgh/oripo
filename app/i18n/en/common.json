@@ -40,6 +40,11 @@
     "back": "Back to Explore"
   },
   "models": {
+    "herringbone-map": {
+      "title": "Herringbone map",
+      "short": "Miura map",
+      "summary": "Gather a four-ply map into zigzag ridges that shorten the sheet in both directions."
+    },
     "paper-airplane": {
       "title": "Dart paper airplane",
       "short": "Dart",

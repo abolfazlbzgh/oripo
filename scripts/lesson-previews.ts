@@ -1,4 +1,5 @@
 import { masu, masuHingePlies } from "../app/lesson/masu";
+import { herringbone, mapHingePlies, mapEye } from "../app/lesson/herringbone";
 import type { CompiledLesson } from "../app/lesson/geometry";
 import type { HingePlies } from "../app/lesson/drawing";
 import type { Point } from "../app/fold/geometry";
@@ -18,6 +19,7 @@ function flat(id: ModelId, folds: readonly FlatFold[]) {
   };
 }
 const previews = {
+  "herringbone-map": () => ({ model: herringbone, heights: mapHingePlies, eye: mapEye }),
   "masu-box": () => ({ model: masu, heights: masuHingePlies, eye: [2, -3, 3] as Point }),
   "paper-airplane": () => ({
     model: airplane,

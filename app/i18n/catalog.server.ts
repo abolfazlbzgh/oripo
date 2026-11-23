@@ -1,4 +1,5 @@
 import masuText from "./en/masu-box.json";
+import mapText from "./en/herringbone-map.json";
 import type { Locale } from "./locales";
 import type { Common, Transcript } from "./messages";
 import { airplaneText, sheetText } from "../lesson/airplane.en";
@@ -12,6 +13,7 @@ const lessonFiles = import.meta.glob<Transcript>(["./*/*.json", "!./*/common.jso
   import: "default",
 });
 const english = {
+  "herringbone-map": mapText,
   "masu-box": masuText,
   "paper-airplane": { sheet: sheetText, steps: airplaneText },
   "paper-heart": { sheet: heartSheet, steps: heartText },

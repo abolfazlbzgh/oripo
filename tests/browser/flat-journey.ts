@@ -1,7 +1,7 @@
 import { hydrationControl, setDark } from "./shell-helpers";
 import { inspectByTouch } from "./studio-touch";
 import { expect, type Page } from "@playwright/test";
-import { test, watchBrowser } from "./preview";
+import { disableWebGL, test, watchBrowser } from "./preview";
 import { paperPixels, type Point } from "./paper-pixels";
 
 export const diamond: Point[][] = [
@@ -250,16 +250,7 @@ export function flatJourney(f: Fixture) {
 
     test("preserves all text poses without WebGL", async ({ page, baseURL }) => {
       const errors = watchBrowser(page, baseURL);
-      await page.addInitScript(() => {
-        const get = HTMLCanvasElement.prototype.getContext;
-        HTMLCanvasElement.prototype.getContext = function (
-          this: HTMLCanvasElement,
-          type: string,
-          ...args: unknown[]
-        ) {
-          return type === "webgl2" ? null : Reflect.apply(get, this, [type, ...args]);
-        } as typeof get;
-      });
+      await disableWebGL(page);
       await page.goto(route);
       await expect(page.getByText("3D view unavailable", { exact: true })).toBeVisible();
       for (let n = 1; n <= total; n++) {

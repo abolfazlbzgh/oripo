@@ -1,4 +1,6 @@
+import { atIndex } from "../../app/lesson/geometry";
 import { lessons } from "../../app/lessons";
+import { readCopy } from "./locale-copy";
 import { hydrationControl } from "./shell-helpers";
 import { expect } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
@@ -62,7 +64,7 @@ declare global {
   }
 }
 
-test("switches dart to heart to fox to dart during playback and releases each studio", async ({
+test("switches between every published lesson during playback and releases each studio", async ({
   page,
   baseURL,
 }) => {
@@ -112,7 +114,8 @@ test("switches dart to heart to fox to dart during playback and releases each st
     .filter({ has: page.getByText("Playable lesson", { exact: true }) });
   await expect(models).toHaveCount(lessons.length);
   const contexts = [];
-  for (const title of ["Dart paper airplane", "Paper heart", "Fox face", "Dart paper airplane"]) {
+  const titles = lessons.map((model) => readCopy("en", "common").models[model.id].title);
+  for (const title of [...titles, atIndex(titles, 0)]) {
     await models.getByRole("link", { name: title, exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(title);
     await expect(page.getByRole("button", { name: "Zoom in" })).toBeEnabled();

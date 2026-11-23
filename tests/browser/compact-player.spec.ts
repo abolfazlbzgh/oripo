@@ -7,6 +7,8 @@ for (const [slug, first, second, total] of [
   ["paper-heart", 1400, 1400, 12],
   ["fox-face", 1500, 1400, 6],
   ["masu-box", 1800, 1800, 18],
+  ["herringbone-map", 1400, 1400, 15],
+  ["jumping-frog", 1600, 1600, 20],
 ] as const) {
   test(`${slug} plays through a boundary, pauses mid-fold and cancels the clock on seek`, async ({
     page,

@@ -3,6 +3,19 @@ import { once } from "node:events";
 import { test as base, type Page } from "@playwright/test";
 import { createPreviewServer } from "../../scripts/preview.mjs";
 
+export async function disableWebGL(page: Page) {
+  await page.addInitScript(() => {
+    const get = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = function (
+      this: HTMLCanvasElement,
+      type: string,
+      ...args: unknown[]
+    ) {
+      return type === "webgl2" ? null : Reflect.apply(get, this, [type, ...args]);
+    } as typeof get;
+  });
+}
+
 async function openBrowserPreview() {
   const server = createPreviewServer();
   // Some hosts assign a browser-blocked service port to listen(0), even on loopback.

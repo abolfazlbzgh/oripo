@@ -19,7 +19,9 @@ function bytes(files) {
   return { raw, gzip };
 }
 
-const lessons = readdirSync(new URL("en/lessons/", client)).map((slug) => "/en/lessons/" + slug);
+const lessons = readdirSync(new URL("en/lessons/", client), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => "/en/lessons/" + entry.name);
 const server = createPreviewServer().listen(0, "127.0.0.1");
 await once(server, "listening");
 let browser;
@@ -29,16 +31,18 @@ try {
   for (const width of [1440, 390]) {
     const routes =
       width === 1440
-        ? ["/en", "/en/lab/first-fold", ...lessons]
+        ? ["/en", "/en/guide/crease-notation", "/en/lab/first-fold", ...lessons]
         : ["/en", "/en/lessons/paper-heart"];
     for (const route of routes) {
       const page = await browser.newPage({
         viewport: { width, height: width === 1440 ? 900 : 844 },
       });
       const requested = new Set();
+      const fonts = new Set();
       const warnings = new Set();
       page.on("response", (response) => {
         const file = new URL(response.url()).pathname.slice(1);
+        if (response.ok() && file.endsWith(".woff2")) fonts.add(file);
         if (response.ok() && scripts.has(file)) requested.add(file);
       });
       page.on("console", (message) => {
@@ -46,14 +50,20 @@ try {
       });
       await page.goto(`http://127.0.0.1:${server.address().port}${route}`);
       await page
-        .locator(route === "/en" ? "select:enabled" : ".lab-camera:enabled, .studio-camera:enabled")
-        .waitFor();
+        .locator(
+          route === "/en" || route.includes("/guide/")
+            ? ".theme-controller:enabled"
+            : ".lab-camera:enabled, .studio-camera:enabled",
+        )
+        .first()
+        .waitFor({ state: "attached" });
       await page.waitForFunction(
         () => performance.getEntriesByName("first-contentful-paint").length > 0,
       );
       const fcpMs = await page.evaluate(
         () => performance.getEntriesByName("first-contentful-paint")[0].startTime,
       );
+      await page.evaluate(() => globalThis.document.fonts.ready);
       const scenes = [...requested].filter(
         (file) => file.includes(".client-") && !file.includes("/entry.client-"),
       );
@@ -63,6 +73,9 @@ try {
         fcpMs,
         scripts: requested.size,
         coldJs: bytes(requested),
+        html: bytes([route.slice(1) + "/index.html"]),
+        fontBytes: bytes(fonts).raw,
+        fonts: [...fonts],
         sceneJs: bytes(scenes),
         scenes,
         warnings: [...warnings],

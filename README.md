@@ -33,7 +33,7 @@ Run `npm run build` and `npm run preview` to serve the production lessons at the
 | `npm run preview`      | Serve the production files at `http://127.0.0.1:4173`.                                     |
 | `npm run test:smoke`   | Use Playwright against the existing production build on disposable loopback ports.         |
 
-Install the Chromium test browser once per Playwright version with `npx playwright install --only-shell chromium`. The cross-browser suites also use `npx playwright install firefox webkit`. On a minimal Linux runner, add `--with-deps`. Build again after source changes and before the smoke test. The application itself requires no credentials or environment variables.
+Install the test browsers once per locked Playwright version with `npx playwright install --only-shell chromium firefox webkit`. On a minimal Linux runner, add `--with-deps`. Build again after source changes and before the smoke test. By default it runs Chromium, Firefox and WebKit against the production files. Four Chromium DevTools Protocol touch journeys run only in Chromium. To investigate one engine, use e.g. `npm run test:smoke -- --project=firefox`. The application itself requires no credentials or environment variables.
 
 ## How the project fits together
 
@@ -46,8 +46,10 @@ React Router Framework Mode and Vite generate static pages with React and TypeSc
 3. Key the English instructions by the immutable step IDs. Bind the data to `LessonPage`, add a literal English route and list it for static pre-rendering.
 4. Check rigid distances, hinges, reversals, visible layer colors and an independently drawn silhouette. Add the verified model to the lightweight catalog and run the production journeys.
 
-The next release checks cover physical paper, actual touch devices, spoken screen readers and authorized hosting. [Architecture and authoring](docs/architecture.md#adding-the-next-lesson) · [Fold plans](docs/decisions/0004-flat-packet-lessons.md) · [Phase 4 verification](docs/ai-development.md#phase-4-verification)
+For a local demo, open a lesson in the production preview, advance to an intermediate fold, orbit the paper, then reverse to the starting sheet. Each transcript includes the expected shape after every step and opens without JavaScript. Physical paper, real touch devices, spoken screen readers and hosted behavior have separate acceptance checks. [Local verification and release checklist](docs/release.md) · [Contributing](CONTRIBUTING.md) · [Security reporting](SECURITY.md)
 
 ## Ownership and licensing
 
 Abolfazl Bazghandi maintains Oripo. The [MIT license](LICENSE) covers original project code. The Oripo SVG mark, crane study, gallery diagrams and crease samples were drawn for this project. Typography uses locally available fonts. Dependencies retain their licenses. Review the rights and attribution for any external artwork, fonts, lesson diagrams or 3D models before adding them. The external design preview stays outside this repository.
+
+The static build includes `third-party-licenses.txt` for bundled JavaScript and [additional notices](public/additional-notices.txt) for the styles, generated helpers and Fiber license text. The [development record](docs/ai-development.md) identifies the AI-assisted work and the owner's decisions.

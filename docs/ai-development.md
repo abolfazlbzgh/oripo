@@ -219,3 +219,9 @@ Sizes are bytes, shown as raw / gzip. Cold JavaScript counts the distinct succes
 The homepage requested 11 scripts and zero scene chunks on each build. Static homepage HTML grew by 1,690 / 404 bytes, the lab by 9 / 9 and the dart by 94 / 22. New static lesson HTML measured 9,145 / 3,143 for the heart and 8,776 / 3,081 for the fox. The numerical receipts are `.local/phase-4/baseline-sizes.json` and `final-sizes.json`.
 
 Physical folding and handling, actual phone input, spoken screen-reader output, Vercel routing/caching and remote GitHub CI remain open release checks. All Phase 4 Git operations were local.
+
+## Phase 5 review and authorship
+
+The owner selected three English lessons, retained the static stack and required physical, assistive-technology and hosted evidence before making release claims. Codex reviewed the repository, exposed the existing expected-pose copy in the static transcripts, extended the production tests and CI workflow, and prepared the license notices and contributor handoff. Git records the owner's requested local commit identity. Human review of the final changes and hands-on acceptance remain open.
+
+The isolated build reproduced all 41 client files byte for byte. The local browser checks used the real production renderer, including independent projected silhouettes and forward/reverse journeys. The [Phase 5 verification record](release.md) gives commands, scope, exceptions and the later release gates.

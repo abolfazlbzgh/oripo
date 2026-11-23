@@ -98,6 +98,6 @@ Each convex panel carries paired material and posed coordinates during subdivisi
 3. Register the literal route and pre-render path. Compare every canonical endpoint to an independent construction. Check rigid distances, seams, closure and reversal within 1e−6 world units at this scale.
 4. Compare production paper pixels to independently projected outlines. Inspect oblique and reverse views, interrupt motion, switch models, and exercise the text player. Then publish its catalog entry.
 
-### Phase 5 handoff
+### Release verification
 
-Release hardening can begin from the three-lesson branch. Keep the dart and the one-crease lab as separate regression fixtures. Try both square lessons with two-sided paper, test orbit and scroll on a physical phone, and listen to the spoken step announcements. Hosted route/cache checks and remote CI require a separately authorized release workflow. [Local measurements and production browser results](ai-development.md#phase-4-verification)
+The three lessons share a static transcript with instructions and expected poses. The one-crease lab retains its own geometry and player. The default production suite exercises all three browser engines, including route exit during playback and before the scene module finishes downloading. The [release record](release.md) includes the measured route costs, paper protocols and hosted acceptance steps.

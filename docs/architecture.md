@@ -7,7 +7,7 @@
 | Document shell, language tag, skip link, shared appearance control, route error boundary | `app/root.tsx`, `app/components/shell.tsx`                |
 | Product name, description, document-title format and default locale                      | `app/site.ts`                                             |
 | Registered pages and canonical English URLs                                              | `app/routes.ts`, `app/navigation.ts`                      |
-| Language entry, English homepage, crease guide, lab and complete lesson                  | `app/routes/`                                             |
+| Language entry, English homepage, crease guide, lab and three complete lessons           | `app/routes/`                                             |
 | Semantic light/dark tokens, responsive page layout and reduced-motion rules              | `app/styles.css`                                          |
 | Static output, preview and production checks                                             | `react-router.config.ts`, `scripts/preview.mjs`, `tests/` |
 
@@ -75,13 +75,29 @@ Each step begins with the previous step's canonical coordinate array. Its axis i
 
 `use-lesson-player.ts` publishes instructions and polite announcements on state changes. The reusable studio hook owns the media query, lazy mount and camera handle. Reduced motion or context loss settles the selected destination. The text player supports the same actions. Leaving and re-entering starts a fresh sheet and releases the prior scene.
 
-`airplane-scene.client.tsx` updates position and normal buffers on the same 16 meshes throughout playback. Green and gold identify the two paper faces. A dashed line marks the active or upcoming crease. Rim lines follow real material edges. A seam gains ink when its incident panels first fold apart. For depth ordering only, a virtual ply is 0.0007 world units thick. The drawing rotates prior offsets about virtual hinges half a ply above a single layer, 1.5 plies above the nose fold and four plies above the closing spine. Exact geometry remains zero-thickness. The renderer explicitly disposes its buffers and materials.
+`airplane-scene.client.tsx` supplies the dart view and ply heights to `lesson-scene.client.tsx`. That shared drawing updates position and normal buffers on the same 16 dart panels throughout playback. Green and gold identify the two paper faces. A dashed line marks the active or upcoming crease. Rim lines follow real material edges. A seam gains ink when its incident panels first fold apart. For depth ordering only, a virtual ply is 0.0007 world units thick. The drawing rotates prior offsets about virtual hinges half a ply above a single layer, 1.5 plies above the nose fold and four plies above the closing spine. Exact geometry remains zero-thickness. The renderer explicitly disposes its buffers and materials.
+
+## Three-lesson collection
+
+`app/lessons.ts` contains three playable entries and a separate list of studio resources. The catalog gives each lesson a title, actual paper format, difficulty, action count and literal English URL. A unit check compares those lightweight counts with the fold data. The homepage renders original SVG diagrams. Its module graph contains the catalog and UI without importing Three.js.
+
+All three route modules bind stable data to `app/components/lesson-page.tsx`. Each route pre-renders its transcript and loads the studio after hydration. Route exit disposes the old scene and input listeners. A fresh lesson starts at zero with its own motion state. Reduced motion and the text fallback use the same clock endpoints. The lab retains its own analytic hinge and player.
+
+### Authoring flat packets
+
+The heart and fox use a square of side √2 and diagonal 2 in world units. `flat-pattern.ts` interprets a directed line in the **current** flat pose. The material on its left moves. The fold sense specifies whether it travels in front of or behind the fixed sheet. A packet reference limits a cut to material moved in an earlier step. Opening a mark applies the opposite line direction to the previously folded packet.
+
+Each convex panel carries paired material and posed coordinates during subdivision. A cut splits every selected ply where it crosses the crease. Reflection locates the next flat endpoint and propagates the material identities. Intersections separated by numerical roundoff are welded on a 1e−10 material-coordinate grid. A later cut ending on a neighboring panel’s edge inserts the same boundary vertex on both sides. The result is a single fixed disk with registered material hinges and moving face IDs. The existing version 1 compiler and `poseAt` execute all 3D motion from those endpoints. The heart has 22 panels. The fox has 12.
+
+`flat-scene.client.ts` uses the production lesson drawing with an initial camera at (0, −0.75, 3.4) aimed at the origin, +Z up, vertical field of view 40°. Orbit can pass below these models to inspect the back folds. The shadow receiver sits at z = −0.4, clear of the rear packets. Per-step virtual hinge heights reverse the order of a stack as it turns. The surface depth bias is one buffer unit with zero slope factor to keep buried crease strokes behind the top ply. Drawing offsets are separate from the exact material coordinates. The plans prescribe layer order for these folds. Friction, elastic creasing and pocket-opening mechanics are outside this model. [Fold plans and landmarks](decisions/0004-flat-packet-lessons.md)
 
 ### Adding the next lesson
 
-1. Work out the physical sequence and paper proportions. Subdivide a single rest sheet wherever any future fold needs a material crease, including its preimages through earlier folds. Identify which packets move and a landmark for each finished action.
-2. Author a version 1 pattern and English copy keyed by its step IDs. Verify the boundary, canonical landmarks, all rigid distances, active seams and mid-turn reversal. The `1e-6` world-unit tolerance applies at the dart’s scale. Establish an appropriate tolerance if the scale changes.
-3. Reuse the lesson clock, DOM player, studio mount and camera controls. Supply the model’s mesh presentation, layer order and useful initial view. Add a direct English path to `app/routes.ts`, `app/navigation.ts` and `publishedPaths`. Publish its catalog entry after the finished shape passes geometry and production pixel checks.
-4. Exercise the new route through direct load, refresh, complete forward and reverse trips, replay, unavailable WebGL, context loss and remount. Retain the independent center-fold lab and its regression tests. Models involving pockets, curved creases or layer interlocking need their own feasibility and collision evidence.
+1. Choose paper proportions, an ordered sequence, the moving layers and finished landmarks. Work out where each crease lies after earlier actions.
+2. Supply a `FlatFold[]` and per-step English copy for an all-flat sequence, or supply an explicit `LessonPattern` for spatial endpoints. Use `flatPlayer` or the existing lesson clock, shared drawing and route template. Retain the step IDs when editing instructions.
+3. Register the literal route and pre-render path. Compare every canonical endpoint to an independent construction. Check rigid distances, seams, closure and reversal within 1e−6 world units at this scale.
+4. Compare production paper pixels to independently projected outlines. Inspect oblique and reverse views, interrupt motion, switch models, and exercise the text player. Then publish its catalog entry.
 
-The [local Phase 3 measurements](ai-development.md#phase-3-verification) cover the dart and the retained lab. Static hosting and the client-rendering boundary are recorded in [ADR 0001](decisions/0001-framework-and-deployment.md) and [ADR 0002](decisions/0002-client-fold-renderer.md).
+### Phase 5 handoff
+
+Release hardening can begin from the three-lesson branch. Keep the dart and the one-crease lab as separate regression fixtures. Try both square lessons with two-sided paper, test orbit and scroll on a physical phone, and listen to the spoken step announcements. Hosted route/cache checks and remote CI require a separately authorized release workflow. [Local measurements and production browser results](ai-development.md#phase-4-verification)

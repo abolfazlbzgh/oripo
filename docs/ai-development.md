@@ -136,3 +136,86 @@ The monitored journeys reported zero uncaught exceptions, hydration errors, fail
 Sizes use Node’s default `gzipSync` separately on each file, as in Phase 2. Each scene row counts the shared studio plus that model’s drawing module. The aggregate also counts route code, pure geometry, English copy and the route manifest. The live homepage requested 11 scripts and zero scene chunks. Entering the dart fetched the drawing module and shared WebGL studio on demand.
 
 The straight-crease authoring contract is ready for another individually validated model. Physical paper handling and flight, physical-phone input, spoken assistive technology, other GPU hardware, Vercel and remote CI remain unverified. [Authoring handoff](architecture.md#adding-the-next-lesson)
+
+## Phase 4 verification
+
+The clean `feat/complete-origami-lesson` tip was `4b2a04c600eba949a86146a0531d88119a98436e`. The collection branch started there. The baseline rebuild emitted five documents and all 49 baseline unit tests passed. The heart and fox use original coordinate constructions, English instructions and SVG catalog studies. All paper in the studio is a procedural mesh of the starting sheet. [Model plans and provenance](decisions/0004-flat-packet-lessons.md)
+
+### Commands and scope
+
+Windows used the pinned Node 22.23.2, npm 10.9.8, the existing lockfile and strict peer resolution. A native Lightning CSS binary prevented removal of the old dependency directory. The partially removed directory was preserved under ignored `.local/phase-4/previous-node-modules/`. A clean offline install then completed from the repository cache.
+
+| Command                                                                                    | Local result                                                                                          |
+| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| `npm.cmd ci --offline`                                                                     | Installed 230 packages. Dependency and lockfile diffs were empty.                                     |
+| `npm.cmd run typecheck`, `npm.cmd run lint`, `npm.cmd run format:check`                    | Route type generation, strict TypeScript, ESLint and Prettier passed.                                 |
+| `npm.cmd test -- --reporter=verbose --disableConsoleIntercept`                             | 61 tests passed across eight files.                                                                   |
+| `npm.cmd run build`                                                                        | Seven pre-rendered HTML documents in `build/client`, with the existing Vite lazy-chunk size advisory. |
+| `npm.cmd run test:smoke -- --workers=1`                                                    | 40 Chromium cases passed.                                                                             |
+| `npm.cmd run test:smoke -- --workers=1 --browser=firefox --grep-invert "one-finger orbit"` | 36 Firefox cases passed.                                                                              |
+| `npm.cmd run test:smoke -- --workers=1 --browser=webkit --grep-invert "one-finger orbit"`  | 36 WebKit cases passed.                                                                               |
+
+The browser runs used the repository’s production static server on disposable loopback ports, separate output directories and list/JSON reporters. The four Chromium-protocol touch journeys ran in Chromium. Firefox needed host process permissions to create a content page. An initial Firefox reflow sweep left a document during its studio download. The test now waits for enabled camera controls before resizing or leaving each studio and still checks every failed request. The final selected runs had 112 passes, zero failures, zero retries and zero skips.
+
+### Geometry
+
+Each action was sampled at 1,001 evenly spaced fractions, endpoints included. Rigid error covers all pairwise distances on each material panel, including diagonals. Seam error compares each incident face’s independently evaluated position with the shared vertex. The tolerance is 1e−6 world units. Every adjacent action shared the exact stored endpoint.
+
+| Model | Faces / vertices / edges | Sampled poses | Max rigid error | Max hinge error | Max seam error | Max canonical landmark error | Drift over 1,000 round trips |
+| ----- | ------------------------ | ------------: | --------------: | --------------: | -------------: | ---------------------------: | ---------------------------: |
+| Dart  | 16 / 20 / 35             |         9,009 |       1.055e−15 |               0 |      2.722e−15 |                    9.501e−16 |                            0 |
+| Heart | 22 / 29 / 50             |        12,012 |       3.331e−16 |               0 |      7.201e−16 |                    3.140e−16 |                            0 |
+| Fox   | 12 / 14 / 25             |         6,006 |       4.441e−16 |               0 |      1.061e−15 |                    5.551e−16 |                            0 |
+
+The square lessons each cover area 2 with one boundary of length 4√2. Independent planar constructions predict every material vertex after each action, including the separate upper muzzle and the final lobe or ear positions. Dropping a moving panel fails the seam check for both lessons. Playback tests also retraced every half-step and exercised interruption, replay turnaround and instant settling. The separate lab’s 1,001 samples gave a maximum rigid error of 2.220e−16, with zero hinge error, diagonal error and drift across 1,000 cycles.
+
+### Production rendering and interaction
+
+The screenshot oracle projects hand-constructed 3D outlines with the recorded camera and compares their union against paper-colored pixels. It also checks front/back colors at interior landmarks. The two heart samples are the center mark and lower flap at 90°. The two fox samples are the doubled triangle and left ear at 90°. The dart retains its independent wing-and-keel oracle. Values are silhouette intersection over union, in percent.
+
+| Engine   | Model |  Flat | First midpoint | Second midpoint | Finished |
+| -------- | ----- | ----: | -------------: | --------------: | -------: |
+| Chromium | Dart  | 99.00 |          95.83 |               — |    97.23 |
+| Chromium | Heart | 99.32 |          99.24 |           97.64 |    96.46 |
+| Chromium | Fox   | 99.32 |          98.83 |           97.83 |    97.22 |
+| Firefox  | Dart  | 99.16 |          94.86 |               — |    95.79 |
+| Firefox  | Heart | 98.74 |          98.19 |           97.81 |    95.47 |
+| Firefox  | Fox   | 98.71 |          98.34 |           97.30 |    96.69 |
+| WebKit   | Dart  | 98.89 |          95.25 |               — |    96.78 |
+| WebKit   | Heart | 98.68 |          99.34 |           97.45 |    95.43 |
+| WebKit   | Fox   | 98.65 |          97.86 |           97.62 |    96.96 |
+
+Direct loads and refreshes returned HTTP 200 for all seven published paths. Each lesson included its entire transcript before JavaScript. Seven unknown or unsupported paths returned HTTP 404 on both visits with working recovery. The catalog journeys exercised every action forward and backward. Switching Dart → Heart → Fox → Dart during motion left one fresh canvas on entry. Every retired GL context was lost, and the monitored wheel, document key and reduced-motion listeners returned to their baseline.
+
+Keyboard commands, retained focus, polite status updates, Light/Dark/System, reduced motion, camera orbit/zoom/reset, unavailable WebGL and mid-fold context loss passed. Layout was checked at 320, 390, 768 and 1440 CSS pixels at both 100% and 200% text, including the live studios. The two new lessons also passed phone-width painted-outline checks. Emulated touch could orbit and pinch on the canvas and scroll the page from the instructions. The monitored final journeys observed zero application exceptions, hydration errors, failed required assets or external requests.
+
+### Local captures
+
+Headed Chrome 157.0.8103.79 used WebGL 2 on an NVIDIA GeForce RTX 4050 Laptop GPU through ANGLE/D3D11. Chromium Headless Shell 159.0.8154.6 reported SwiftShader. Firefox 159.0 and Playwright WebKit 27.2 returned generic renderer identifiers. The headed browser emitted the upstream Three.Clock deprecation. Headless screenshot readback also produced a driver performance warning.
+
+| Folder inside `.local/phase-4/headed/` | Reviewed PNGs                                                                            | Visible landmarks                                                                                                                                                             |
+| -------------------------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `paper-heart/`                         | `flat`, `mid-6`, `mid-7`, `finished`, `angled`, `back`, `reversed`, `worktable`          | Bottom flap and left packet lift separately. Two clipped lobes flank the notch above one lower tip. The underside exposes the little back folds.                              |
+| `fox-face/`                            | `flat`, `mid-1`, `mid-4`, `mid-5`, `finished`, `angled`, `back`, `reversed`, `worktable` | One loose muzzle ply rises above the stationary chin. The ear packet swings behind. Both ears rise above a level crown and the green muzzle remains visible on the gold face. |
+
+The initial and reversed headed PNGs were byte-identical for each model, including all 356,655 pixels of each canvas capture. A separate Chromium run using the real animation clock observed 66–96 distinct intermediate readings per heart action and 78–96 per fox action. The local evidence directory also contains the catalog, 320px/light and 390px/dark viewport images for both lessons, numerical logs, GPU reports and final browser JSON.
+
+### Bundle and route measurements
+
+Sizes are bytes, shown as raw / gzip. Cold JavaScript counts the distinct successful scripts requested by a fresh browser context through scene readiness. The lazy row counts the studio and the lesson drawing/authoring chunks. Aggregate JavaScript includes every emitted client script and the appearance bootstrap. Gzip was measured separately on each file with Node’s default `gzipSync` on both builds.
+
+| JavaScript              |             Phase 3 |             Phase 4 |           Change |
+| ----------------------- | ------------------: | ------------------: | ---------------: |
+| All emitted scripts     | 1,123,055 / 318,903 | 1,136,519 / 324,350 | +13,464 / +5,447 |
+| Homepage cold           |   369,566 / 118,335 |   372,093 / 118,938 |    +2,527 / +603 |
+| Lab cold                | 1,098,711 / 308,619 | 1,100,056 / 308,775 |    +1,345 / +156 |
+| Dart cold               | 1,108,875 / 313,145 | 1,111,464 / 314,016 |    +2,589 / +871 |
+| Heart cold              |           New route | 1,113,796 / 314,806 |                — |
+| Fox cold                |           New route | 1,112,515 / 314,532 |                — |
+| Lab lazy scene          |   723,807 / 188,087 |   723,842 / 188,110 |        +35 / +23 |
+| Dart lazy scene         |   725,589 / 188,997 |   725,777 / 189,185 |      +188 / +188 |
+| Heart or fox lazy scene |          New routes |   728,137 / 190,304 |   Shared by both |
+
+The homepage requested 11 scripts and zero scene chunks on each build. Static homepage HTML grew by 1,690 / 404 bytes, the lab by 9 / 9 and the dart by 94 / 22. New static lesson HTML measured 9,145 / 3,143 for the heart and 8,776 / 3,081 for the fox. The numerical receipts are `.local/phase-4/baseline-sizes.json` and `final-sizes.json`.
+
+Physical folding and handling, actual phone input, spoken screen-reader output, Vercel routing/caching and remote GitHub CI remain open release checks. All Phase 4 Git operations were local.

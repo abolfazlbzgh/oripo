@@ -1,6 +1,12 @@
 # Oripo
 
-**Origami in Motion.** Fold a dart paper airplane from one rectangular sheet in nine reversible steps. Orbit the live paper to see the layers, the wings and the keel. The English worktable also includes a single-crease laboratory and a guide to valley and mountain folds.
+**Origami in Motion.** Choose one of three beginner lessons and fold a single sheet in 3D. Next folds the paper, Previous reverses it and Replay repeats the current action. Orbit and zoom to inspect the layers.
+
+| English lesson                                                         | Starting paper           | Actions |
+| ---------------------------------------------------------------------- | ------------------------ | ------: |
+| [Dart paper airplane](http://127.0.0.1:4173/en/lessons/paper-airplane) | 2 × 3 portrait rectangle |       9 |
+| [Paper heart](http://127.0.0.1:4173/en/lessons/paper-heart)            | Square, corner up        |      12 |
+| [Fox face](http://127.0.0.1:4173/en/lessons/fox-face)                  | Square, corner up        |       6 |
 
 ## Run locally
 
@@ -13,7 +19,7 @@ npm run dev
 
 Open the local address printed by Vite. Start at `/` to choose English, or open `/en` directly. The guide has a shareable address at `/en/guide/crease-notation`. The appearance control follows the system and remembers explicit Light or Dark choices across visits.
 
-To try the production build, run `npm run build` and `npm run preview`. Open the [dart paper airplane lesson](http://127.0.0.1:4173/en/lessons/paper-airplane). Next performs one action. Previous reverses from the current angle. Replay rewinds the current action and plays it again. Drag, pinch, scroll or use the camera buttons to inspect the paper. Reduced motion settles commands immediately. All nine instructions are also available in the static document. The [first-fold lab](http://127.0.0.1:4173/en/lab/first-fold) remains available as a one-hinge demonstration.
+Run `npm run build` and `npm run preview` to serve the production lessons at the links above. Each page includes the complete ordered instructions in its static HTML. Keyboard buttons operate both playback and camera. Reduced motion settles each command immediately. The worktable also includes the independent [first-fold laboratory](http://127.0.0.1:4173/en/lab/first-fold) and [crease guide](http://127.0.0.1:4173/en/guide/crease-notation).
 
 ## Verify changes
 
@@ -33,13 +39,14 @@ Install the Chromium test browser once per Playwright version with `npx playwrig
 
 React Router Framework Mode and Vite generate static pages with React and TypeScript. Tailwind CSS 4 and daisyUI 5 supply the theme system. The public route definitions, links and production smoke tests evolve together. The [architecture overview](docs/architecture.md) describes those boundaries. The [framework decision](docs/decisions/0001-framework-and-deployment.md) records exact versions, peer requirements and local verification.
 
-## Roadmap
+## Add a lesson
 
-1. Author the next model against the same topology, reversal and visual checks.
-2. Check the lessons with physical paper, physical touch devices and spoken screen readers.
-3. Expand the collection as individual models and translations are validated.
+1. Draw the finished outline and work backwards to a fold plan. Record the starting proportions, intended moving plies, crease directions and landmark coordinates.
+2. For straight folds that settle flat, define directed lines in the current folded plane as in `app/lesson/fox.ts`. An optional packet ID selects material moved by an earlier action. The authoring helper builds the shared version 1 pattern. Spatial finishes such as the dart can supply a pattern directly.
+3. Key the English instructions by the immutable step IDs. Bind the data to `LessonPage`, add a literal English route and list it for static pre-rendering.
+4. Check rigid distances, hinges, reversals, visible layer colors and an independently drawn silhouette. Add the verified model to the lightweight catalog and run the production journeys.
 
-See the [Phase 3 evidence](docs/ai-development.md#phase-3-verification) for local results and the [lesson handoff](docs/architecture.md#adding-the-next-lesson) for the authoring workflow.
+The next release checks cover physical paper, actual touch devices, spoken screen readers and authorized hosting. [Architecture and authoring](docs/architecture.md#adding-the-next-lesson) · [Fold plans](docs/decisions/0004-flat-packet-lessons.md) · [Phase 4 verification](docs/ai-development.md#phase-4-verification)
 
 ## Ownership and licensing
 

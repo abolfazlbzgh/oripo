@@ -1,0 +1,272 @@
+@import "tailwindcss" source(none);
+@source "./**/*.{ts,tsx}";
+
+@plugin "daisyui" {
+  themes: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "oripo-light";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: #faf8f1;
+  --color-base-200: #f2efe4;
+  --color-base-300: #d4d7c8;
+  --color-base-content: #1c332a;
+  --color-primary: #245641;
+  --color-primary-content: #ffffff;
+  --color-secondary: #655238;
+  --color-secondary-content: #ffffff;
+  --color-accent: #d5a862;
+  --color-accent-content: #241d0e;
+  --color-neutral: #263e35;
+  --color-neutral-content: #f7f6ee;
+  --color-info: #216386;
+  --color-info-content: #ffffff;
+  --color-success: #2c6849;
+  --color-success-content: #ffffff;
+  --color-warning: #f0c46b;
+  --color-warning-content: #33260b;
+  --color-error: #9b3d3e;
+  --color-error-content: #ffffff;
+  --radius-selector: 0.25rem;
+  --radius-field: 0.4rem;
+  --radius-box: 0.75rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "oripo-dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #15241e;
+  --color-base-200: #1c3028;
+  --color-base-300: #365045;
+  --color-base-content: #e7eee4;
+  --color-primary: #a4d6af;
+  --color-primary-content: #142e21;
+  --color-secondary: #d2bd9a;
+  --color-secondary-content: #2b241a;
+  --color-accent: #dbb683;
+  --color-accent-content: #282013;
+  --color-neutral: #344e43;
+  --color-neutral-content: #e7eee4;
+  --color-info: #97cce4;
+  --color-info-content: #102c36;
+  --color-success: #9ad5af;
+  --color-success-content: #153322;
+  --color-warning: #eeca83;
+  --color-warning-content: #30240d;
+  --color-error: #f6a9a5;
+  --color-error-content: #3c1618;
+  --radius-selector: 0.25rem;
+  --radius-field: 0.4rem;
+  --radius-box: 0.75rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--color-base-100);
+  color: var(--color-base-content);
+  font-family: "Inter", system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+.frame {
+  width: min(68rem, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.masthead {
+  border-bottom: 1px solid var(--color-base-300);
+}
+
+.masthead-inner,
+.wordmark,
+.theme-control {
+  display: flex;
+  align-items: center;
+}
+
+.masthead-inner {
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.15rem;
+}
+
+.wordmark {
+  gap: 0.6rem;
+  color: var(--color-primary);
+  font:
+    bold 1.8rem/1 Georgia,
+    serif;
+  letter-spacing: -0.06em;
+}
+
+.paper-mark {
+  width: 1.35rem;
+  height: 1.45rem;
+  background: linear-gradient(135deg, var(--color-primary) 55%, var(--color-accent) 55%);
+  clip-path: polygon(0 8%, 100% 0, 86% 86%, 50% 100%);
+}
+
+.theme-control {
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.theme-control select {
+  width: auto;
+}
+.skip-link {
+  position: absolute;
+  inset-inline-start: 0.75rem;
+  inset-block-start: 0.75rem;
+  z-index: 1;
+}
+.skip-link:not(:focus) {
+  clip-path: inset(50%);
+  pointer-events: none;
+}
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.content {
+  padding-block: clamp(2.75rem, 9vw, 7rem);
+}
+.opening {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 7vw, 6rem);
+}
+.eyebrow {
+  margin-block-end: 1.2rem;
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  font-weight: 650;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+h1 {
+  margin-block-end: 1.25rem;
+  font:
+    500 clamp(2.7rem, 6.5vw, 5.25rem)/1.03 "Georgia",
+    serif;
+  letter-spacing: -0.05em;
+}
+.intro {
+  max-width: 54ch;
+  margin-block-end: 1.8rem;
+  font-size: 1.125rem;
+}
+.btn {
+  height: auto;
+  min-height: 2.75rem;
+  padding: 0.55rem 1.15rem;
+}
+.swatch {
+  border: 1px solid var(--color-base-300);
+  background: var(--color-base-200);
+}
+.paper-field {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1.4;
+  background-image: radial-gradient(var(--color-base-300) 1px, transparent 1px);
+  background-size: 1rem 1rem;
+}
+.paper-square {
+  position: relative;
+  width: 44%;
+  aspect-ratio: 1;
+  transform: rotate(-9deg);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 50%,
+    color-mix(in srgb, var(--color-primary) 82%, var(--color-base-100)) 50%
+  );
+  box-shadow: 0.25rem 0.5rem 0.625rem color-mix(in srgb, var(--color-neutral) 17%, transparent);
+}
+.paper-square::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 141.4%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  border-top: 2px dashed var(--color-primary-content);
+}
+.swatch figcaption {
+  padding: 0.7rem 1rem;
+  border-block-start: 1px solid var(--color-base-300);
+  font-size: 0.875rem;
+}
+.guide {
+  max-width: 45rem;
+}
+.guide h1 {
+  margin-block-start: 1.25rem;
+}
+.guide .link {
+  color: var(--color-primary);
+}
+.notation > div {
+  padding-block: 1.1rem;
+  border-top: 1px solid var(--color-base-300);
+}
+.notation dt {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 700;
+}
+.notation dd {
+  margin-block-start: 0.5rem;
+  max-width: 60ch;
+}
+.sample {
+  width: 3.5rem;
+  height: 2px;
+  color: var(--color-primary);
+}
+.valley {
+  border-top: 2px dashed;
+}
+.mountain {
+  background: repeating-linear-gradient(
+    90deg,
+    currentColor 0 10px,
+    transparent 10px 13px,
+    currentColor 13px 15px,
+    transparent 15px 18px
+  );
+}
+@media (max-width: 44rem) {
+  .opening {
+    grid-template-columns: 1fr;
+  }
+  .swatch {
+    max-width: 28rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .select {
+    transition: none;
+    animation: none;
+  }
+}

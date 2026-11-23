@@ -61,7 +61,7 @@ it("publishes one versioned dart, with English instructions and an endpoint for 
 
 describe("pattern validation", () => {
   const invalid: [string, (p: LessonPattern) => void, RegExp][] = [
-    ["version", (p) => Object.assign(p, { version: 2 }), /version/],
+    ["version", (p) => Object.assign(p, { version: 3 }), /version/],
     [
       "reversed winding",
       (p) => {

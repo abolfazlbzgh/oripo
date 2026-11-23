@@ -1,10 +1,21 @@
 import { clampProgress, type Point } from "../fold/geometry";
 
 export type Face = { id: string; vertices: readonly string[] };
-export type Turn = { crease: string; faces: readonly string[]; degrees: number };
-export type FoldStep = { id: string; durationMs: number; turns: readonly Turn[] };
+type CornerFold = { motion: "right-gusset"; carriedBy?: string };
+export type Turn = {
+  crease: string;
+  faces: readonly string[];
+  degrees: number;
+  corner?: CornerFold;
+};
+export type FoldStep = {
+  id: string;
+  durationMs: number;
+  turns: readonly Turn[];
+  guides?: readonly string[];
+};
 export type LessonPattern = {
-  version: 1;
+  version: 1 | 2;
   lessonId: string;
   sheet: {
     vertices: Readonly<Record<string, Point>>;
@@ -15,7 +26,7 @@ export type LessonPattern = {
 };
 
 export const tolerance = 1e-6;
-export function atIndex<T>(items: readonly T[], index: number): T {
+export function atIndex<T>(items: ArrayLike<T>, index: number): T {
   const value = items[index];
   if (value === undefined)
     throw new RangeError(`Missing entry ${index} in a list of length ${items.length}`);
@@ -29,8 +40,14 @@ export type PreparedTurn = {
   degrees: number;
   vertices: number[];
   faces: number[];
+  corner?: { carrier?: PreparedTurn };
 };
-type PreparedStep = { id: string; durationMs: number; turns: PreparedTurn[] };
+type PreparedStep = {
+  id: string;
+  durationMs: number;
+  turns: PreparedTurn[];
+  guides: readonly string[];
+};
 type SheetEdge = { a: number; b: number; faces: number[] };
 export type CompiledLesson = {
   lessonId: string;
@@ -86,12 +103,30 @@ export function rotate(
   ];
 }
 
+// A bisected right corner bridges an upright side and a rising end wall.
+export function packetAngle(turn: PreparedTurn, progress: number) {
+  if (!turn.corner) return turnAngle(turn.degrees, progress);
+  const wall = turnAngle(90, progress);
+  // A shared unit diagonal must project to one on BOTH boundary rays.
+  const cosine = wall.cosine / (1 + wall.sine);
+  return { cosine, sine: Math.sign(turn.degrees) * Math.sqrt(Math.max(0, 1 - cosine * cosine)) };
+}
+
+function packetTransform(turn: PreparedTurn, progress: number) {
+  const angle = packetAngle(turn, progress);
+  const carrier = turn.corner?.carrier;
+  const carried = carrier && turnAngle(carrier.degrees, progress);
+  return (p: Point) => {
+    const local = rotate(p, turn.origin, turn.axis, angle);
+    return carrier && carried ? rotate(local, carrier.origin, carrier.axis, carried) : local;
+  };
+}
+
 function applyTurns(start: Pose, turns: readonly PreparedTurn[], progress: number): Pose {
   const result = [...start];
   for (const turn of turns) {
-    const angle = turnAngle(turn.degrees, progress);
-    for (const v of turn.vertices)
-      result[v] = rotate(atIndex(start, v), turn.origin, turn.axis, angle);
+    const apply = packetTransform(turn, progress);
+    for (const v of turn.vertices) result[v] = apply(atIndex(start, v));
   }
   return result;
 }
@@ -137,7 +172,7 @@ function linkEdges(rest: Pose, faces: CompiledLesson["faces"]) {
 }
 
 export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern): CompiledLesson {
-  requireValue(version === 1, "Unsupported lesson version");
+  requireValue(version === 1 || version === 2, "Unsupported lesson version");
   uniqueIds([lessonId], "lesson");
   uniqueIds(
     steps.map((s) => s.id),
@@ -177,7 +212,7 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
     Object.entries(sheet.creases).map(([id, [a, b]]) => [id, [vertex(a), vertex(b)] as const]),
   );
   const poses: Pose[] = [rest];
-  const prepared = steps.map(({ id, durationMs, turns }) => {
+  const prepared = steps.map(({ id, durationMs, turns, guides }) => {
     requireValue(
       Number.isFinite(durationMs) && durationMs > 0 && turns.length,
       `Invalid step ${id}`,
@@ -213,23 +248,68 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
         vertices: [],
       };
     });
-    // A material vertex shared by different packets must lie on every incident moving hinge.
+    const coupled = turns.some((t) => t.corner);
+    if (coupled) {
+      requireValue(version === 2, "Coupled corners require a version 2 pattern");
+      for (const [i, turn] of turns.entries()) {
+        if (!turn.corner) continue;
+        requireValue(
+          turn.corner.motion === "right-gusset" && Math.abs(turn.degrees) === 90,
+          "Invalid right gusset",
+        );
+        const carrier = rotations.find((t) => t.crease === turn.corner?.carriedBy);
+        if (turn.corner.carriedBy) {
+          requireValue(
+            carrier &&
+              Math.abs(carrier.degrees) === 90 &&
+              !turns.find((t) => t.crease === carrier.crease)?.corner,
+            "Invalid gusset carrier",
+          );
+        }
+        atIndex(rotations, i).corner = { carrier };
+      }
+    }
     for (const [v, neighbors] of incident.entries()) {
       const owners = new Set(neighbors.map((f) => owner.get(f)));
+      const point = atIndex(start, v);
+      if (coupled && owners.size > 1) {
+        // All incident transforms must trace the same material point. A stationary
+        // neighbor owns a fixed seam. Otherwise evaluate one copy at runtime.
+        const first = owners.has(undefined) ? undefined : owners.values().next().value;
+        const reference = first === undefined ? undefined : atIndex(rotations, first);
+        reference?.vertices.push(v);
+        for (const t of [0.125, 0.25, 0.5, 0.75, 0.875, 1]) {
+          const expected = reference ? packetTransform(reference, t)(point) : point;
+          for (const f of owners) {
+            if (f === undefined || f === first) continue;
+            const actual = packetTransform(atIndex(rotations, f), t)(point);
+            requireValue(
+              Math.hypot(...difference(actual, expected)) <= tolerance,
+              `Moving seam in ${id} at ${vertexIds[v]}`,
+            );
+          }
+        }
+        continue;
+      }
+      // With independent hinges a shared vertex must lie on each incident axis.
       for (const index of owners) {
         if (index === undefined) continue;
         const turn = atIndex(rotations, index);
         if (owners.size === 1) turn.vertices.push(v);
         else
           requireValue(
-            Math.hypot(...cross(turn.axis, difference(atIndex(start, v), turn.origin))) <=
-              tolerance,
+            Math.hypot(...cross(turn.axis, difference(point, turn.origin))) <= tolerance,
             `Off-axis seam in ${id} at ${vertexIds[v]}`,
           );
       }
     }
     poses.push(applyTurns(start, rotations, 1));
-    return { id, durationMs, turns: rotations };
+    const activeCreases = guides ?? [...new Set(turns.map((t) => t.crease))];
+    requireValue(
+      activeCreases.length && activeCreases.every((c) => creases.has(c)),
+      `Unknown guide in ${id}`,
+    );
+    return { id, durationMs, turns: rotations, guides: activeCreases };
   });
   return { lessonId, vertexIds, faces, edges, creases, poses, steps: prepared };
 }

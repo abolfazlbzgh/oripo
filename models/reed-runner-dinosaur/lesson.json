@@ -1010,6 +1010,18 @@
     ]
   },
   "presentation": {
+    "camera": {
+      "steps": [
+        { "step": "swing-leading-leg", "position": [3.12, 0, -1.8], "transitionMs": 650 },
+        { "step": "bend-leading-ankle", "position": [0, -0.7, 3.8], "transitionMs": 650 },
+        { "step": "bend-trailing-ankle", "position": [1.9, 1.45, -2.95], "transitionMs": 650 },
+        { "step": "lift-the-neck", "position": [0, -0.7, 3.8], "transitionMs": 650 },
+        { "step": "lower-the-back", "position": [1.1, 1.7, 3.25], "transitionMs": 650 },
+        { "step": "fold-the-forelimb", "position": [0, -0.7, 3.8], "transitionMs": 650 },
+        { "step": "curve-the-tail", "position": [1.1, 1.7, 3.25], "transitionMs": 650 }
+      ],
+      "finished": { "position": [0, -0.5, 2.75], "transitionMs": 600 }
+    },
     "hingePlies": {
       "swing-leading-leg": -1,
       "swing-trailing-leg": -1,

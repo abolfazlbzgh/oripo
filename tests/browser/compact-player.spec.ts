@@ -31,7 +31,11 @@ for (const [slug, first, second, total] of [
     await page.clock.fastForward(4000);
     await expect(range).toHaveValue("0.5");
     await play.press("Space");
-    await page.clock.fastForward((first + second) / 2);
+    if (slug === "reed-runner-dinosaur") {
+      await page.clock.fastForward(first / 2 + 500);
+      await expect(range).toHaveValue("1");
+      await page.clock.fastForward(250 + second / 2);
+    } else await page.clock.fastForward((first + second) / 2);
     await expect(range).toHaveJSProperty("valueAsNumber", 1.5);
     await page.getByRole("button", { name: "Pause playback" }).press("Enter");
     await page.clock.fastForward(50000);

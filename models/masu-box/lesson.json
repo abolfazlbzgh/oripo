@@ -27,6 +27,12 @@
     }
   },
   "presentation": {
+    "camera": {
+      "steps": [
+        { "step": "raise-far-end", "position": [2.3, 3.4, 4.8], "transitionMs": 650 },
+        { "step": "raise-near-end", "position": [2.3, -3.4, 4.8], "transitionMs": 650 }
+      ]
+    },
     "view": {
       "position": [2.3, -3.4, 4.8],
       "minDistance": 2.1,

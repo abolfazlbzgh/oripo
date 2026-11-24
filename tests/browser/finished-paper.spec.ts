@@ -5,10 +5,10 @@ import { lessons, type ModelId } from "../../app/lessons";
 import { paperPixels, type Point } from "./paper-pixels";
 import { finishedOutlines } from "./finished-outlines";
 const studioEyes: Record<ModelId, Point> = {
-  "twin-stern-junk": [2.5, -1.35, 2.1],
+  "twin-stern-junk": [1.65, -0.89, 1.39],
   "river-tern": [3.1, 0.7, 2.6],
-  "reed-runner-dinosaur": [0, -0.7, 3.8],
-  "jumping-frog": [0.55, -1.15, 2.75],
+  "reed-runner-dinosaur": [0, -0.5, 2.75],
+  "jumping-frog": [0.34, -0.72, 1.71],
   "monarch-butterfly": [0.06, 1.25, -3.6],
   "paper-airplane": [2.4, -3.35, 4],
   "paper-heart": [0, -0.75, 3.4],
@@ -17,6 +17,7 @@ const studioEyes: Record<ModelId, Point> = {
 };
 const previewEyes: Record<ModelId, Point> = {
   ...studioEyes,
+  "jumping-frog": [0.55, -1.15, 2.75],
   "twin-stern-junk": [1.6, -1, 4],
   "reed-runner-dinosaur": [0, -0.7, 3],
   "paper-heart": [0, -0.18, 1],
@@ -60,7 +61,8 @@ for (const { id, stepCount } of lessons)
       await proof("finished-angled");
       await page.getByRole("button", { name: "Reset view" }).click();
       await page.getByRole("button", { name: "Previous", exact: true }).click();
-      await page.clock.runFor(160);
+      // Reverse may first orient the completed stock toward the fold being undone.
+      await page.clock.runFor(920);
       expect((await paper()).colored).toBeLessThan(finished.colored * 0.08);
       await page.getByRole("button", { name: "Pause playback" }).click();
       await page.getByRole("button", { name: "Play all folds" }).click();

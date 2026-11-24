@@ -119,6 +119,8 @@ test("playable catalog to nine folds, in-flight reversal, final dart, replay and
     await expect(next).toBeDisabled();
     if (n === 8) {
       await page.clock.fastForward(750);
+      await expect(progress(page)).toHaveJSProperty("valueAsNumber", 7);
+      await page.clock.fastForward(750);
       await expect(progress(page)).toHaveJSProperty("valueAsNumber", 7.5);
       const mid = await dartPixels(page, { left: 42, right: 0 });
       expect(mid.iou).toBeGreaterThan(0.9);
@@ -131,7 +133,7 @@ test("playable catalog to nine folds, in-flight reversal, final dart, replay and
       await page.clock.fastForward(375);
       expect((await dartPixels(page, { left: 42, right: 0 })).hash).toBe(mid.hash);
       await page.clock.fastForward(750);
-    } else await page.clock.fastForward(atIndex(durations, n - 1));
+    } else await page.clock.fastForward(atIndex(durations, n - 1) + (n === 9 ? 750 : 0));
     await endpoint(page, n);
     await expect(page.getByRole("status")).toContainText(`Reached step ${n} of 9`);
   }
@@ -145,12 +147,12 @@ test("playable catalog to nine folds, in-flight reversal, final dart, replay and
   await button(page, "Replay all folds").click();
   await page.clock.fastForward(800);
   await expect(progress(page)).toHaveJSProperty("valueAsNumber", 0.5);
-  await page.clock.fastForward(durations.reduce((sum, d) => sum + d, 0) - 800);
+  await page.clock.fastForward(durations.reduce((sum, d) => sum + d, 0) - 800 + 1500);
   await endpoint(page, 9);
   expect((await dartPixels(page, { left: 84, right: 84 })).hash).toBe(dart.hash);
   for (let n = 9; n > 0; n--) {
     await button(page, "Previous").click();
-    await page.clock.fastForward(atIndex(durations, n - 1));
+    await page.clock.fastForward(atIndex(durations, n - 1) + ([8, 7].includes(n) ? 750 : 0));
     await endpoint(page, n - 1);
   }
   await expect(button(page, "Previous")).toBeDisabled();

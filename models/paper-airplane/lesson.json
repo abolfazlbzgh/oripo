@@ -27,6 +27,13 @@
     }
   },
   "presentation": {
+    "camera": {
+      "steps": [
+        { "step": "mark-spine", "position": [2.45, -3.42, 4.08], "transitionMs": 650 },
+        { "step": "left-wing", "position": [-2.4, -3.35, 4], "transitionMs": 650 },
+        { "step": "right-wing", "position": [2.4, -3.35, 4], "transitionMs": 650 }
+      ]
+    },
     "view": {
       "position": [2.4, -3.35, 4],
       "minDistance": 3.9,

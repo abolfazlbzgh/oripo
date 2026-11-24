@@ -27,6 +27,15 @@
     }
   },
   "presentation": {
+    "camera": {
+      "steps": [
+        { "step": "mark-first-diagonal", "position": [2.74, -1.48, 2.3], "transitionMs": 650 },
+        { "step": "mark-front-quarter", "position": [1.25, 2.35, 2.2], "transitionMs": 650 },
+        { "step": "open-the-rectangle", "position": [2.74, -1.48, 2.3], "transitionMs": 650 },
+        { "step": "bow-seat", "position": [0.18, -1.15, 3.4], "transitionMs": 650 }
+      ],
+      "finished": { "position": [1.65, -0.89, 1.39], "transitionMs": 600 }
+    },
     "hingePlies": {
       "mark-first-diagonal": 0.5,
       "reopen-first-diagonal": 0.5,

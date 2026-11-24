@@ -81,7 +81,12 @@ it.each(Object.entries(baseline.models))(
     if (!png) throw Error("Missing preview for " + slug);
     expect({
       pattern: sha(pattern),
-      presentation: sha(presentation),
+      presentation: sha({
+        view: presentation.view,
+        previewEye: presentation.previewEye,
+        hingePlies: presentation.hingePlies,
+        plyThickness: presentation.plyThickness,
+      }),
       catalog: sha(info),
       poses: digest(
         JSON.stringify(samples, (_, v) => (typeof v === "number" ? Math.round(v * 1e9) : v)),

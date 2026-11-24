@@ -27,6 +27,18 @@
     }
   },
   "presentation": {
+    "camera": {
+      "steps": [
+        { "step": "mark-rising-diagonal", "position": [0.06, -1.25, 3.6], "transitionMs": 650 },
+        { "step": "mark-the-back", "position": [0.06, 1.25, -3.6], "transitionMs": 650 },
+        { "step": "open-the-blintz", "position": [0.06, -1.25, 3.6], "transitionMs": 650 },
+        { "step": "pull-north-pockets", "position": [0.06, 1.25, -3.6], "transitionMs": 650 },
+        { "step": "pull-south-pockets", "position": [1.15, 2.1, 2.95], "transitionMs": 650 },
+        { "step": "drop-east-hindwing", "position": [0.12, -1.5, 3.45], "transitionMs": 650 },
+        { "step": "pinch-the-body", "position": [0, 1.6, -3.4], "transitionMs": 650 }
+      ],
+      "finished": { "position": [0.06, 1.25, -3.6], "transitionMs": 600 }
+    },
     "plyThickness": 0.00028,
     "view": {
       "position": [0.06, 1.25, -3.6],

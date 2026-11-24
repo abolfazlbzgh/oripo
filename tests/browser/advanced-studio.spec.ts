@@ -10,13 +10,13 @@ const cases = [
   {
     id: "twin-stern-junk",
     action: 24,
-    eye: [2.5, -1.35, 2.1],
+    eye: [2.74, -1.48, 2.3],
     project: (t: number) => batchOutline("twin-stern-junk", 24 + t),
   },
   {
     id: "river-tern",
     action: 11,
-    eye: [3.1, 0.7, 2.6],
+    eye: [0.15, 1.55, -3.75],
     project: (t: number) => ternOutline(63 * t, 0, 0),
   },
   {

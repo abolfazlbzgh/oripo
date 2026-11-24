@@ -146,7 +146,9 @@ export function flatJourney(f: Fixture) {
           expect((await paperPixels(page, middle, eye)).hash).toBe(mid.hash);
           await button(page, "Next fold").click();
         }
-        await page.clock.fastForward(duration);
+        await page.clock.fastForward(
+          duration + (f.slug === "paper-heart" ? (n === 9 ? 750 : n === 12 ? 600 : 0) : 0),
+        );
         await endpoint(n);
       }
       const final = await paperPixels(page, [f.outline], eye, f.probes, f.slug);
@@ -169,7 +171,9 @@ export function flatJourney(f: Fixture) {
       expect((await paperPixels(page, [f.outline], eye, [], f.slug)).hash).toBe(final.hash);
       for (let n = total; n > 0; n--) {
         await button(page, "Previous").click();
-        await page.clock.fastForward(action(n).durationMs);
+        await page.clock.fastForward(
+          action(n).durationMs + (f.slug === "paper-heart" && [12, 8].includes(n) ? 750 : 0),
+        );
         await endpoint(n - 1);
       }
       await capture("reversed");

@@ -6,10 +6,10 @@ import { localeCodes, locales } from "../../app/i18n/locales";
 import { readCopy } from "./locale-copy";
 
 for (const { id, end, mid, eye } of [
-  { id: "twin-stern-junk", end: 27, mid: 24.5, eye: [2.5, -1.35, 2.1] },
+  { id: "twin-stern-junk", end: 27, mid: 24.5, eye: [1.65, -0.89, 1.39] },
   { id: "river-tern", end: 15, mid: 11.5, eye: [3.1, 0.7, 2.6] },
-  { id: "reed-runner-dinosaur", end: 13, mid: 11.5, eye: [0, -0.7, 3.8] },
-  { id: "jumping-frog", end: 20, mid: 15.5, eye: [0.55, -1.15, 2.75] },
+  { id: "reed-runner-dinosaur", end: 13, mid: 11.5, eye: [0, -0.5, 2.75] },
+  { id: "jumping-frog", end: 20, mid: 15.5, eye: [0.34, -0.72, 1.71] },
   { id: "monarch-butterfly", end: 18, mid: 9.5, eye: [0.06, 1.25, -3.6] },
 ] as const) {
   test(id + " serves every folding result when WebGL is unavailable", async ({ page, baseURL }) => {

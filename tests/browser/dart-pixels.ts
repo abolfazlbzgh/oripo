@@ -42,7 +42,11 @@ export function dartPixels(page: Page, shape: Silhouette) {
   return paperPixels(
     page,
     dartOutline(shape),
-    [2.4, -3.35, 4],
+    shape === "sheet"
+      ? [2.45, -3.42, 4.08]
+      : shape.left === 42
+        ? [-2.4, -3.35, 4]
+        : [2.4, -3.35, 4],
     [],
     typeof shape === "object" && shape.left === 84 && shape.right === 84
       ? "paper-airplane"

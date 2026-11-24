@@ -8,11 +8,8 @@ FOLD interchange covers a planar material graph. Sequential changes of hinge sen
 
 The CLI, studio and preview resolve optional presentation settings through the same pure function. Stock-sized camera defaults and material-plane pivots handle simple open folds. Closing packets and coupled gussets require an authored contact order.
 
-## Working checklist
+## Composition and compatibility
 
-- Freeze the Phase 8C inputs, drawing settings, translations, route enumeration, endpoint images and intermediate material/drawing poses before conversion.
-- Verify all 123 actions against that capture, retain the independent model-specific tests and commit the migration before replacing a model.
-- Exercise strict validation, material interchange, draft exclusion and addition of a supported construction using data alone.
-- Assess the three exact visual references and record each publication decision. Run the local release gates on the resulting catalog.
+A prepared turn resolves its signed axis from the previous material endpoint. The packet transform samples the local rotation and then its optional wall carrier at the same absolute progress. Material vertices and seam checks use the physical hinge origins. Layer offsets supply a virtual pivot for each participating hinge. This keeps the signed angle, nonlinear right-gusset law and order of rotations identical in both spaces. A named carrier must resolve to one plain quarter turn in the same action. The change introduces no new serialized operation or version. [Composition fixtures](../../tests/unit/packet-composition.test.ts)
 
 The normalized step selects one typed preparation path for turns, whole-sheet fields, regional fields, current-pose crimps or retraces. Version 5 adds a regional double-boat pocket. Archives and test-only model packages live outside the runtime discovery root. [Supported domains and extension procedure](../authoring.md) · [Candidate decisions](../phase-9-candidates.md)

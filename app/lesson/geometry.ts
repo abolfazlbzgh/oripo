@@ -132,7 +132,7 @@ export function rotate(
 }
 
 // A bisected right corner bridges an upright side and a rising end wall.
-export function packetAngle(turn: PreparedTurn, progress: number) {
+function packetAngle(turn: PreparedTurn, progress: number) {
   if (!turn.corner) return turnAngle(turn.degrees, progress);
   const wall = turnAngle(90, progress);
   // A shared unit diagonal must project to one on BOTH boundary rays.
@@ -140,13 +140,23 @@ export function packetAngle(turn: PreparedTurn, progress: number) {
   return { cosine, sine: Math.sign(turn.degrees) * Math.sqrt(Math.max(0, 1 - cosine * cosine)) };
 }
 
-function packetTransform(turn: PreparedTurn, progress: number) {
+// Material uses current-pose hinge origins. Drawing offsets use virtual ply pivots
+// on the same axes. Both apply the local turn before the carrier at absolute progress.
+export function packetTransform(
+  turn: PreparedTurn,
+  progress: number,
+  pivot: (hinge: PreparedTurn) => Point = (hinge) => hinge.origin,
+) {
+  const origin = pivot(turn);
   const angle = packetAngle(turn, progress);
   const carrier = turn.corner?.carrier;
-  const carried = carrier && turnAngle(carrier.degrees, progress);
+  const carried = carrier && {
+    origin: pivot(carrier),
+    angle: turnAngle(carrier.degrees, progress),
+  };
   return (p: Point) => {
-    const local = rotate(p, turn.origin, turn.axis, angle);
-    return carrier && carried ? rotate(local, carrier.origin, carrier.axis, carried) : local;
+    const local = rotate(p, origin, turn.axis, angle);
+    return carrier && carried ? rotate(local, carried.origin, carrier.axis, carried.angle) : local;
   };
 }
 
@@ -318,7 +328,10 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
         requireValue(crimp.faces.length, "Empty crimp packet");
         for (const name of crimp.faces) {
           const face = faces[faceIds.indexOf(name)];
-          requireValue(face && !spatial.has(name), "Invalid crimp packet");
+          requireValue(
+            face && !spatial.has(name),
+            `Invalid crimp packet: unknown or repeated face ${name}`,
+          );
           spatial.set(name, prepare(face.vertices.map((v) => atIndex(start, v))));
         }
       }
@@ -332,7 +345,10 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
     for (const region of regions ?? []) {
       requireValue(region.faces.length, "Empty field region");
       for (const face of region.faces) {
-        requireValue(faceIds.includes(face) && !assigned.has(face), "Invalid field packet");
+        requireValue(
+          faceIds.includes(face) && !assigned.has(face),
+          `Invalid field packet: unknown or repeated face ${face}`,
+        );
         assigned.set(face, region.field);
       }
     }
@@ -398,7 +414,10 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
       const moving = turn.faces.map((name) => {
         const f = faceIds.indexOf(name);
         requireValue(f >= 0, `Unknown face ${name}`);
-        requireValue(!owner.has(f), `Face assigned twice in ${id}`);
+        requireValue(
+          !owner.has(f),
+          `Face assigned twice in ${id}: ${name} at crease ${turn.crease}`,
+        );
         owner.set(f, index);
         return f;
       });
@@ -420,13 +439,15 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
           turn.corner.motion === "right-gusset" && Math.abs(turn.degrees) === 90,
           "Invalid right gusset",
         );
-        const carrier = rotations.find((t) => t.crease === turn.corner?.carriedBy);
+        const carriers = rotations.filter((t) => t.crease === turn.corner?.carriedBy);
+        const carrier = carriers[0];
         if (turn.corner.carriedBy) {
           requireValue(
-            carrier &&
+            carriers.length === 1 &&
+              carrier &&
               Math.abs(carrier.degrees) === 90 &&
               !turns.find((t) => t.crease === carrier.crease)?.corner,
-            "Invalid gusset carrier",
+            `Invalid gusset carrier ${turn.corner.carriedBy} for ${turn.crease}: expected one plain 90-degree turn`,
           );
         }
         atIndex(rotations, i).corner = { carrier };

@@ -46,13 +46,13 @@ export const lessons = [
     finishedAppearance: { front: "#528236", reverse: "#82a74e", edge: "#314c28" },
   },
   {
-    id: "herringbone-map",
+    id: "monarch-butterfly",
     availability: "playable",
-    stepCount: 15,
-    paper: "rectangle",
-    category: "corrugation",
+    stepCount: 18,
+    paper: "square",
+    category: "insect",
     difficulty: "intermediate",
-    finishedAppearance: { front: "#7051a5", reverse: "#ad88cb", edge: "#453661" },
+    finishedAppearance: { front: "#8772c1", reverse: "#a38ed1", edge: "#453463" },
   },
   {
     id: "pinwheel-calyx",

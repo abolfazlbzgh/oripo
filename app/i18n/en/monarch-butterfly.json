@@ -1,0 +1,99 @@
+{
+  "sheet": {
+    "title": "Begin with a square",
+    "instruction": "Lay the sheet flat with an edge toward you. The four original corners will become the wing tips.",
+    "result": "One square supplies both wing pairs and the body."
+  },
+  "steps": {
+    "mark-rising-diagonal": {
+      "title": "Mark the rising diagonal",
+      "instruction": "Bring opposite corners together along the first diagonal and press the crease.",
+      "result": "The two halves meet in a triangle."
+    },
+    "open-rising-diagonal": {
+      "title": "Open the first mark",
+      "instruction": "Unfold the triangle along the same diagonal.",
+      "result": "One diagonal crosses the square."
+    },
+    "mark-falling-diagonal": {
+      "title": "Mark the other diagonal",
+      "instruction": "Bring the other pair of opposite corners together and press.",
+      "result": "The second triangle locates the crossing at the center."
+    },
+    "open-falling-diagonal": {
+      "title": "Open the square",
+      "instruction": "Release this fold and lay the sheet flat.",
+      "result": "The two diagonal marks meet at the center."
+    },
+    "blintz-the-square": {
+      "title": "Bring four tips to the center",
+      "instruction": "Fold each corner inward until its point touches the crossing.",
+      "result": "Four triangular flaps meet inside a diamond."
+    },
+    "mark-the-back": {
+      "title": "Mark on the reverse",
+      "instruction": "Fold the four corners of the diamond behind to meet at its center.",
+      "result": "The smaller square has marks through both layers."
+    },
+    "release-the-marks": {
+      "title": "Release the four marks",
+      "instruction": "Open just the four folds you made on the reverse.",
+      "result": "The diamond returns with four new crease lines."
+    },
+    "open-the-blintz": {
+      "title": "Open the corner flaps",
+      "instruction": "Unfold the original four triangles and smooth the square.",
+      "result": "The marks locate the quarter lines and the pocket diagonals."
+    },
+    "fold-the-gates": {
+      "title": "Fold the side gates",
+      "instruction": "Bring the left and right edges inward until they meet along the middle.",
+      "result": "Two loose flaps cover a tall rectangle."
+    },
+    "pull-north-pockets": {
+      "title": "Pull out the far corners",
+      "instruction": "Lift the far ends of the two flaps. Spread their loose corners sideways as the far back wall folds toward the middle.",
+      "result": "A trapezoid with two free tips covers the far end."
+    },
+    "pull-south-pockets": {
+      "title": "Pull out the near corners",
+      "instruction": "Open the near flaps the same way. Lower their back wall as the corners swing apart.",
+      "result": "Two boats meet at the center with four outward points."
+    },
+    "book-the-boats": {
+      "title": "Close the two boats",
+      "instruction": "Fold the far boat behind the near one on their shared crosswise crease.",
+      "result": "The two trapezoids stack with the long edges together."
+    },
+    "drop-east-hindwing": {
+      "title": "Lower the right hindwing",
+      "instruction": "Swing only the near boat’s right tip down on the diagonal from the center. Leave the matching tip behind it in place.",
+      "result": "The lower tip reaches the middle below the boat, and the right forewing stays wide."
+    },
+    "drop-west-hindwing": {
+      "title": "Lower the left hindwing",
+      "instruction": "Fold the other loose boat tip down to meet the first at the bottom.",
+      "result": "Two broad forewings sit behind two pointed hindwings."
+    },
+    "taper-east": {
+      "title": "Taper the right corner",
+      "instruction": "Turn the small outer shoulder of the right hindwing inward along its short slanting mark.",
+      "result": "The right hindwing has a narrower outside edge."
+    },
+    "taper-west": {
+      "title": "Taper the left corner",
+      "instruction": "Fold the matching shoulder of the left hindwing inward.",
+      "result": "The two lower wings now have matching tapered edges."
+    },
+    "pinch-the-body": {
+      "title": "Pinch the body",
+      "instruction": "Bring the left and right halves together along the center. Keep the two wing pairs aligned.",
+      "result": "The central book holds the two wing roots together."
+    },
+    "spread-the-wings": {
+      "title": "Spread the wing pairs",
+      "instruction": "Hold the narrow central pleat. Open each wing pair on its sloping root and leave a little lift.",
+      "result": "Four violet wings spread around a narrow raised body."
+    }
+  }
+}

@@ -1,7 +1,9 @@
 import type { Point } from "../fold/geometry";
 import { hexChart } from "./hex-twist";
+import { prepareBoat, type BoatPocket } from "./boat-pocket";
 
 export type RigidField =
+  | BoatPocket
   | { kind: "hex-twist"; radius: number }
   | {
       kind: "herringbone";
@@ -60,7 +62,13 @@ function anchored(
   };
 }
 
-export function prepareChart(field: RigidField, cx: number, cy: number): (t: number) => Chart {
+export function prepareChart(
+  field: RigidField,
+  cx: number,
+  cy: number,
+  corners: readonly Point[] = [[cx, cy, 0]],
+): (t: number) => Chart {
+  if (field.kind === "boat-pocket") return prepareBoat(field, corners);
   if (field.kind === "hex-twist") return hexChart(field.radius, cx, cy);
   if (field.kind === "pocket-squash") {
     const {

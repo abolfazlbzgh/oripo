@@ -10,7 +10,7 @@ for (const { id, end, mid, eye } of [
   { id: "river-tern", end: 15, mid: 11.5, eye: [3.1, 0.7, 2.6] },
   { id: "hex-iris", end: 20, mid: 18.5, eye: [1.45, -2.4, 2.55] },
   { id: "jumping-frog", end: 20, mid: 15.5, eye: [0.55, -1.15, 2.75] },
-  { id: "herringbone-map", end: 15, mid: 14.5, eye: [1.6, -3.5, 3.9] },
+  { id: "monarch-butterfly", end: 18, mid: 9.5, eye: [0.06, 1.25, -3.6] },
 ] as const) {
   test(id + " serves every folding result when WebGL is unavailable", async ({ page, baseURL }) => {
     const errors = watchBrowser(page, baseURL);

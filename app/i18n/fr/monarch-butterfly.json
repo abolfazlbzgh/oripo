@@ -1,0 +1,99 @@
+{
+  "sheet": {
+    "title": "Partir d’un carré",
+    "instruction": "Posez la feuille à plat, un bord vers vous. Les quatre coins deviendront les pointes des ailes.",
+    "result": "Un seul carré formera les ailes et le corps."
+  },
+  "steps": {
+    "mark-rising-diagonal": {
+      "title": "Marquer la première diagonale",
+      "instruction": "Superposez deux coins opposés en pliant suivant la première diagonale. Marquez le pli.",
+      "result": "Les deux moitiés forment un triangle."
+    },
+    "open-rising-diagonal": {
+      "title": "Ouvrir le premier pli",
+      "instruction": "Dépliez le triangle sur cette même diagonale.",
+      "result": "Une diagonale traverse le carré."
+    },
+    "mark-falling-diagonal": {
+      "title": "Marquer l’autre diagonale",
+      "instruction": "Superposez les deux autres coins opposés et marquez le pli.",
+      "result": "Le second triangle permet de repérer le centre."
+    },
+    "open-falling-diagonal": {
+      "title": "Rouvrir le carré",
+      "instruction": "Défaites ce pli et remettez la feuille à plat.",
+      "result": "Les deux diagonales se croisent au centre."
+    },
+    "blintz-the-square": {
+      "title": "Rabattre les quatre pointes",
+      "instruction": "Ramenez chaque coin à l’intersection des diagonales.",
+      "result": "Quatre volets triangulaires se rejoignent dans un losange."
+    },
+    "mark-the-back": {
+      "title": "Marquer au dos",
+      "instruction": "Repliez les quatre coins du losange vers l’arrière jusqu’au centre.",
+      "result": "Un petit carré porte des plis à travers les deux épaisseurs."
+    },
+    "release-the-marks": {
+      "title": "Rouvrir les quatre plis",
+      "instruction": "Défaites seulement les quatre plis marqués au dos.",
+      "result": "Le losange réapparaît avec quatre nouveaux repères."
+    },
+    "open-the-blintz": {
+      "title": "Déployer les volets",
+      "instruction": "Dépliez les quatre triangles du premier rabattement. Posez le carré à plat.",
+      "result": "Les quarts de la feuille et les diagonales des poches sont marqués."
+    },
+    "fold-the-gates": {
+      "title": "Rabattre les côtés",
+      "instruction": "Amenez les bords gauche et droit sur la ligne médiane.",
+      "result": "Deux volets libres couvrent un rectangle vertical."
+    },
+    "pull-north-pockets": {
+      "title": "Ouvrir les coins éloignés",
+      "instruction": "Soulevez les extrémités éloignées des volets. Écartez les coins pendant que la paroi arrière se rabat vers le milieu.",
+      "result": "Un trapèze à deux pointes libres couvre le haut."
+    },
+    "pull-south-pockets": {
+      "title": "Ouvrir les coins proches",
+      "instruction": "Déployez de même les volets près de vous. Abaissez la paroi en écartant les coins.",
+      "result": "Deux bateaux se rejoignent avec quatre pointes vers les côtés."
+    },
+    "book-the-boats": {
+      "title": "Superposer les bateaux",
+      "instruction": "Rabattez le bateau éloigné derrière l’autre sur leur pli transversal commun.",
+      "result": "Les deux trapèzes se superposent par leur grand côté."
+    },
+    "drop-east-hindwing": {
+      "title": "Abaisser l’aile droite",
+      "instruction": "Rabattez la pointe droite du bateau avant sur la diagonale issue du centre. Laissez la pointe arrière en place.",
+      "result": "La pointe descend au milieu. L’aile antérieure droite reste déployée."
+    },
+    "drop-west-hindwing": {
+      "title": "Abaisser l’aile gauche",
+      "instruction": "Descendez l’autre pointe libre jusqu’à la première.",
+      "result": "Deux larges ailes antérieures dépassent derrière les deux ailes postérieures."
+    },
+    "taper-east": {
+      "title": "Effiler le côté droit",
+      "instruction": "Rabattez le petit angle extérieur de l’aile postérieure droite vers l’intérieur sur le pli oblique.",
+      "result": "Le bord extérieur droit se rétrécit."
+    },
+    "taper-west": {
+      "title": "Effiler le côté gauche",
+      "instruction": "Rabattez de même le petit angle de l’aile postérieure gauche.",
+      "result": "Les deux ailes postérieures ont des bords effilés symétriques."
+    },
+    "pinch-the-body": {
+      "title": "Pincer le corps",
+      "instruction": "Rapprochez les moitiés sur le pli central en alignant les deux paires d’ailes.",
+      "result": "Le pli central maintient les racines des ailes ensemble."
+    },
+    "spread-the-wings": {
+      "title": "Écarter les ailes",
+      "instruction": "Tenez le pli étroit du corps. Écartez chaque paire sur sa racine oblique en gardant un léger relief.",
+      "result": "Quatre ailes violettes entourent un corps fin en relief."
+    }
+  }
+}

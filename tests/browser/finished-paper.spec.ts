@@ -9,7 +9,7 @@ const studioEyes: Record<ModelId, Point> = {
   "river-tern": [3.1, 0.7, 2.6],
   "hex-iris": [1.45, -2.4, 2.55],
   "jumping-frog": [0.55, -1.15, 2.75],
-  "herringbone-map": [1.6, -3.5, 3.9],
+  "monarch-butterfly": [0.06, 1.25, -3.6],
   "paper-airplane": [2.4, -3.35, 4],
   "paper-heart": [0, -0.75, 3.4],
   "fox-face": [0, -0.75, 3.4],

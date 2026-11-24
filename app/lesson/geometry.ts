@@ -40,7 +40,7 @@ function operationKind(step: FoldStep): OperationKind {
   return active[0] ?? "turns";
 }
 export type LessonPattern = {
-  version: 1 | 2 | 3 | 4;
+  version: 1 | 2 | 3 | 4 | 5;
   lessonId: string;
   sheet: {
     vertices: Readonly<Record<string, Point>>;
@@ -240,7 +240,7 @@ export function compileSheet(sheet: LessonPattern["sheet"]) {
 }
 
 export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern): CompiledLesson {
-  requireValue([1, 2, 3, 4].includes(version), "Unsupported lesson version");
+  requireValue([1, 2, 3, 4, 5].includes(version), "Unsupported lesson version");
   uniqueIds([lessonId], "lesson");
   uniqueIds(
     steps.map((s) => s.id),
@@ -253,7 +253,7 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
     const { id, durationMs, turns, field, regions, crimps, guides, reopenTo } = step;
     requireValue(reopenTo !== undefined, "Missing retrace fraction");
     requireValue(
-      version === 4 &&
+      version >= 4 &&
         !turns.length &&
         !field &&
         !regions &&
@@ -308,7 +308,7 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
     const spatial = new Map<string, (t: number) => Chart>();
     if (crimps) {
       requireValue(
-        version === 4 && crimps.length && !field && !regions,
+        version >= 4 && crimps.length && !field && !regions,
         "Invalid spatial packet assignment",
       );
       for (const crimp of crimps) {
@@ -325,7 +325,7 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
     }
     requireValue(!(field && regions), "Ambiguous field assignment");
     requireValue(
-      version === 4 ||
+      version >= 4 ||
         (field?.kind !== "hex-twist" && !regions?.some((r) => r.field.kind === "hex-twist")),
       "Hexagonal twist requires schema version 4",
     );
@@ -346,6 +346,18 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
       for (const v of face.vertices) {
         x += atIndex(start, v)[0];
         y += atIndex(start, v)[1];
+      }
+      if (local.kind === "boat-pocket") {
+        requireValue(
+          version >= 5 && !field,
+          "Double-boat pockets require version 5 regional packets",
+        );
+        return prepareChart(
+          local,
+          x / face.vertices.length,
+          y / face.vertices.length,
+          face.vertices.map((v) => atIndex(start, v)),
+        );
       }
       return prepareChart(local, x / face.vertices.length, y / face.vertices.length);
     });

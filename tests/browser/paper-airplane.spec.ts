@@ -87,7 +87,7 @@ test("playable catalog to nine folds, in-flight reversal, final dart, replay and
 }, testInfo) => {
   const sceneRequests: string[] = [];
   page.on("request", (r) => {
-    if (/\/(?:studio\.client|(?:airplane-)?scene\.client)-/.test(r.url()))
+    if (/\/(?:studio|(?:package-)?scene)\.client-/.test(r.url()))
       sceneRequests.push(new URL(r.url()).pathname);
   });
   await page.setViewportSize({ width: 1280, height: 920 });

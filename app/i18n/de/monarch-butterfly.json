@@ -1,0 +1,99 @@
+{
+  "sheet": {
+    "title": "Mit einem Quadrat beginnen",
+    "instruction": "Lege das Blatt mit einer Kante zu dir. Seine vier Ecken werden zu Flügelspitzen.",
+    "result": "Ein Quadrat bildet Körper und Flügel."
+  },
+  "steps": {
+    "mark-rising-diagonal": {
+      "title": "Die erste Diagonale markieren",
+      "instruction": "Lege zwei gegenüberliegende Ecken aufeinander und streiche den diagonalen Falz fest.",
+      "result": "Die beiden Hälften bilden ein Dreieck."
+    },
+    "open-rising-diagonal": {
+      "title": "Den ersten Falz öffnen",
+      "instruction": "Öffne das Dreieck entlang derselben Diagonale.",
+      "result": "Ein diagonaler Falz durchzieht das Quadrat."
+    },
+    "mark-falling-diagonal": {
+      "title": "Die zweite Diagonale markieren",
+      "instruction": "Lege die anderen beiden Ecken aufeinander und falze die Kante.",
+      "result": "Das zweite Dreieck bestimmt den Mittelpunkt."
+    },
+    "open-falling-diagonal": {
+      "title": "Das Quadrat öffnen",
+      "instruction": "Öffne den Falz und lege das Blatt flach hin.",
+      "result": "Die beiden Diagonalen schneiden sich in der Mitte."
+    },
+    "blintz-the-square": {
+      "title": "Vier Spitzen zur Mitte falten",
+      "instruction": "Falte jede Ecke zum Schnittpunkt der Diagonalen.",
+      "result": "Vier dreieckige Laschen treffen sich in einer Raute."
+    },
+    "mark-the-back": {
+      "title": "Auf der Rückseite markieren",
+      "instruction": "Falte die vier Ecken der Raute nach hinten zur Mitte.",
+      "result": "Im kleineren Quadrat verlaufen die Falze durch beide Lagen."
+    },
+    "release-the-marks": {
+      "title": "Die vier Falze öffnen",
+      "instruction": "Öffne nur die vier eben auf der Rückseite gefalteten Ecken.",
+      "result": "Die Raute trägt vier neue Markierungen."
+    },
+    "open-the-blintz": {
+      "title": "Die Laschen ausklappen",
+      "instruction": "Öffne die vier ursprünglichen Dreiecke und streiche das Quadrat glatt.",
+      "result": "Die Viertellinien und die Diagonalen der Taschen sind markiert."
+    },
+    "fold-the-gates": {
+      "title": "Die Seiten einschlagen",
+      "instruction": "Führe die linke und rechte Kante zur Mittellinie.",
+      "result": "Zwei lose Laschen bedecken ein hohes Rechteck."
+    },
+    "pull-north-pockets": {
+      "title": "Die fernen Ecken herausziehen",
+      "instruction": "Hebe die fernen Laschenenden an. Spreize die losen Ecken seitlich und senke die hintere Wand zur Mitte.",
+      "result": "Am fernen Ende liegt ein Trapez mit zwei freien Spitzen."
+    },
+    "pull-south-pockets": {
+      "title": "Die nahen Ecken herausziehen",
+      "instruction": "Öffne die Laschen vor dir ebenso. Senke die Rückwand, während die Ecken nach außen schwenken.",
+      "result": "Zwei Boote treffen sich mit vier seitlichen Spitzen."
+    },
+    "book-the-boats": {
+      "title": "Die Boote zusammenlegen",
+      "instruction": "Falte das ferne Boot an der gemeinsamen Querlinie hinter das nahe.",
+      "result": "Die Trapeze liegen mit den langen Kanten aufeinander."
+    },
+    "drop-east-hindwing": {
+      "title": "Den rechten Hinterflügel senken",
+      "instruction": "Schwenke nur die rechte Spitze des vorderen Bootes an der Diagonale von der Mitte nach unten. Halte die hintere Spitze fest.",
+      "result": "Die Spitze liegt unten an der Mitte. Der rechte Vorderflügel bleibt breit."
+    },
+    "drop-west-hindwing": {
+      "title": "Den linken Hinterflügel senken",
+      "instruction": "Falte die andere freie Spitze nach unten zur ersten.",
+      "result": "Zwei breite Vorderflügel liegen hinter den spitzen Hinterflügeln."
+    },
+    "taper-east": {
+      "title": "Die rechte Ecke verschmälern",
+      "instruction": "Falte die kleine Außenecke des rechten Hinterflügels am schrägen Falz nach innen.",
+      "result": "Der äußere Flügelrand verjüngt sich."
+    },
+    "taper-west": {
+      "title": "Die linke Ecke verschmälern",
+      "instruction": "Falte die entsprechende Ecke am linken Hinterflügel ein.",
+      "result": "Beide Hinterflügel haben gleichmäßig schmale Außenkanten."
+    },
+    "pinch-the-body": {
+      "title": "Den Körper zusammendrücken",
+      "instruction": "Führe die beiden Hälften am Mittelfalz zusammen und richte die Flügelpaare aneinander aus.",
+      "result": "Der Mittelfalz hält die beiden Flügelansätze zusammen."
+    },
+    "spread-the-wings": {
+      "title": "Die Flügel spreizen",
+      "instruction": "Halte die schmale Körperfalte fest. Öffne jedes Flügelpaar am schrägen Ansatz und lass es etwas angehoben.",
+      "result": "Vier violette Flügel umgeben einen schmalen erhabenen Körper."
+    }
+  }
+}

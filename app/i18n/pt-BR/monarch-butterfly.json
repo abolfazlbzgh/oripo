@@ -1,0 +1,99 @@
+{
+  "sheet": {
+    "title": "Comece com um quadrado",
+    "instruction": "Apoie a folha com uma borda voltada para você. Os quatro cantos serão as pontas das asas.",
+    "result": "Um único quadrado forma as asas e o corpo."
+  },
+  "steps": {
+    "mark-rising-diagonal": {
+      "title": "Marque a primeira diagonal",
+      "instruction": "Junte dois cantos opostos e vinque a dobra diagonal.",
+      "result": "As duas metades formam um triângulo."
+    },
+    "open-rising-diagonal": {
+      "title": "Abra a primeira dobra",
+      "instruction": "Desfaça o triângulo pela mesma diagonal.",
+      "result": "Um vinco atravessa o quadrado."
+    },
+    "mark-falling-diagonal": {
+      "title": "Marque a outra diagonal",
+      "instruction": "Junte os outros dois cantos opostos e pressione a dobra.",
+      "result": "O segundo triângulo permite localizar o centro."
+    },
+    "open-falling-diagonal": {
+      "title": "Abra o quadrado",
+      "instruction": "Desfaça a dobra e deixe a folha plana.",
+      "result": "As duas diagonais se cruzam no centro."
+    },
+    "blintz-the-square": {
+      "title": "Leve as pontas ao centro",
+      "instruction": "Dobre cada canto até o cruzamento das diagonais.",
+      "result": "Quatro abas triangulares se encontram dentro de um losango."
+    },
+    "mark-the-back": {
+      "title": "Marque pelo avesso",
+      "instruction": "Dobre os quatro cantos do losango para trás, até o centro.",
+      "result": "Os vincos atravessam as duas camadas do quadrado menor."
+    },
+    "release-the-marks": {
+      "title": "Solte as quatro dobras",
+      "instruction": "Abra apenas as quatro dobras que acabou de fazer no avesso.",
+      "result": "O losango reaparece com quatro marcas novas."
+    },
+    "open-the-blintz": {
+      "title": "Abra as abas dos cantos",
+      "instruction": "Desfaça os quatro triângulos iniciais e alise o quadrado.",
+      "result": "Os vincos indicam os quartos da folha e as diagonais dos bolsos."
+    },
+    "fold-the-gates": {
+      "title": "Feche as laterais",
+      "instruction": "Leve as bordas esquerda e direita até a linha central.",
+      "result": "Duas abas soltas cobrem um retângulo comprido."
+    },
+    "pull-north-pockets": {
+      "title": "Puxe os cantos distantes",
+      "instruction": "Levante as pontas mais distantes das abas. Afaste os cantos enquanto abaixa a parede de trás em direção ao meio.",
+      "result": "Um trapézio com duas pontas livres cobre a extremidade distante."
+    },
+    "pull-south-pockets": {
+      "title": "Puxe os cantos próximos",
+      "instruction": "Abra do mesmo jeito as abas perto de você. Abaixe a parede de trás enquanto separa os cantos.",
+      "result": "Dois barcos se encontram no centro com quatro pontas para fora."
+    },
+    "book-the-boats": {
+      "title": "Sobreponha os barcos",
+      "instruction": "Dobre o barco mais distante por trás do outro, no vinco transversal que compartilham.",
+      "result": "Os trapézios se sobrepõem pelas bordas longas."
+    },
+    "drop-east-hindwing": {
+      "title": "Abaixe a asa direita",
+      "instruction": "Dobre para baixo só a ponta direita do barco da frente, na diagonal que parte do centro. Mantenha a ponta de trás no lugar.",
+      "result": "A ponta chega ao meio, abaixo do barco. A asa dianteira direita continua aberta."
+    },
+    "drop-west-hindwing": {
+      "title": "Abaixe a asa esquerda",
+      "instruction": "Leve a outra ponta livre para baixo até encontrar a primeira.",
+      "result": "Duas asas dianteiras largas ficam atrás das asas traseiras pontudas."
+    },
+    "taper-east": {
+      "title": "Afine o canto direito",
+      "instruction": "Dobre para dentro o pequeno canto externo da asa traseira direita seguindo o vinco inclinado.",
+      "result": "A borda externa direita fica mais estreita."
+    },
+    "taper-west": {
+      "title": "Afine o canto esquerdo",
+      "instruction": "Dobre para dentro o canto correspondente da asa traseira esquerda.",
+      "result": "As asas de baixo têm bordas afiladas e simétricas."
+    },
+    "pinch-the-body": {
+      "title": "Pince o corpo",
+      "instruction": "Aproxime as duas metades pelo centro mantendo os pares de asas alinhados.",
+      "result": "A dobra central reúne as bases das asas."
+    },
+    "spread-the-wings": {
+      "title": "Abra os pares de asas",
+      "instruction": "Segure a prega estreita do centro. Abra cada par pela base inclinada, deixando as asas um pouco levantadas.",
+      "result": "Quatro asas violetas se abrem ao redor do corpo fino e elevado."
+    }
+  }
+}

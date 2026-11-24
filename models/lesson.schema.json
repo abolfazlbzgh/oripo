@@ -111,7 +111,7 @@
       "type": "object",
       "properties": {
         "version": {
-          "enum": [1, 2, 3, 4]
+          "enum": [1, 2, 3, 4, 5]
         },
         "lessonId": {
           "$ref": "#/definitions/id"
@@ -298,6 +298,31 @@
             }
           },
           "required": ["kind", "center", "inward", "sector", "landingPly"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "boat-pocket"
+            },
+            "center": {
+              "$ref": "#/definitions/xy"
+            },
+            "inward": {
+              "enum": [-1, 1]
+            },
+            "sector": {
+              "enum": ["wall", "wing", "bridge"]
+            },
+            "landingPly": {
+              "type": "number"
+            },
+            "outward": {
+              "enum": [-1, 1]
+            }
+          },
+          "required": ["kind", "center", "inward", "sector", "landingPly", "outward"],
           "additionalProperties": false
         }
       ]

@@ -100,7 +100,7 @@ it.each(models)(
   "resolves arbitrary seeks against independent first-crease coordinates in $lessonId",
   (model) => {
     const rest = atIndex(model.poses, 0);
-    const fox = model.lessonId === "fox";
+    const fox = model.lessonId === "fox-face";
     for (const fraction of [0.5, 0.1973, 0.941, 0.1973]) {
       const s = sampleLesson(model.steps, seekLesson(model.steps, fraction), 95000);
       const actual = poseAt(model, s.step, s.progress);

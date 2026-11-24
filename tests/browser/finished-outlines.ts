@@ -3,7 +3,7 @@ import { ternOutline } from "../tern-projection";
 import { irisPolygons } from "../iris-projection";
 import { atIndex } from "../../app/lesson/geometry";
 import { dartOutline } from "./dart-pixels";
-import { mapOutline } from "./herringbone-outline";
+import { butterflyOutline } from "../butterfly-outline";
 import { frogOutline } from "./frog-outline";
 import type { Point } from "./paper-pixels";
 
@@ -43,7 +43,7 @@ export const finishedOutlines = {
   "river-tern": ternOutline(),
   "hex-iris": irisPolygons(0.26).map((p) => p.posed),
   "jumping-frog": frogOutline(),
-  "herringbone-map": mapOutline(),
+  "monarch-butterfly": butterflyOutline(),
   "masu-box": [floor, ...walls],
   "paper-heart": [heartOutline],
   "fox-face": [foxOutline],

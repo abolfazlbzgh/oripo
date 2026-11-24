@@ -7,8 +7,9 @@ import type { Point } from "../../app/fold/geometry";
 import { materialChecks, distance } from "./material-checks";
 import { mapOutline } from "../browser/herringbone-outline";
 
-const map = fixture("herringbone-map").model;
-const mapHingePlies = fixture("herringbone-map").presentation.hingePlies;
+const map = fixture("herringbone-map", "tests/fixtures/legacy-map").model;
+const mapHingePlies = fixture("herringbone-map", "tests/fixtures/legacy-map").presentation
+  .hingePlies;
 materialChecks(map);
 it("starts as one rectangle and matches the accordion, each oblique mark and the relief", () => {
   const rest = atIndex(map.poses, 0),

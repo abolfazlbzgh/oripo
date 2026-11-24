@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "order": 1,
+  "difficulty": "intermediate",
+  "category": "test",
+  "paper": {
+    "shape": "square",
+    "span": [3, 3]
+  },
+  "finishedAppearance": {
+    "front": "#557799",
+    "reverse": "#aaccee",
+    "edge": "#334455"
+  },
+  "manuscript": "offset-waterbomb",
+  "provenance": {
+    "variant": "Translated three-ply analytic fixture",
+    "reference": "tests/unit/rigid-field.test.ts",
+    "rights": "Original synthetic test fixture.",
+    "rightsStatus": "project-authored",
+    "review": {
+      "maker": "provisional",
+      "physical": "pending",
+      "language": "pending",
+      "visual": "pending"
+    }
+  },
+  "presentation": {
+    "view": {
+      "position": [2, -3, 4],
+      "minDistance": 1,
+      "maxDistance": 8
+    },
+    "previewEye": [1, -2, 3],
+    "hingePlies": {}
+  },
+  "pattern": {
+    "version": 3,
+    "lessonId": "offset-waterbomb",
+    "sheet": {
+      "vertices": {
+        "o": [0.25, -0.125, 0],
+        "sw": [-1.25, -1.625, 0],
+        "se": [1.75, -1.625, 0],
+        "e": [1.75, -0.125, 0],
+        "ne": [1.75, 1.375, 0],
+        "nw": [-1.25, 1.375, 0],
+        "w": [-1.25, -0.125, 0]
+      },
+      "faces": [
+        {
+          "id": "panel-sw",
+          "vertices": ["o", "sw", "se"]
+        },
+        {
+          "id": "panel-se",
+          "vertices": ["o", "se", "e"]
+        },
+        {
+          "id": "panel-e",
+          "vertices": ["o", "e", "ne"]
+        },
+        {
+          "id": "panel-ne",
+          "vertices": ["o", "ne", "nw"]
+        },
+        {
+          "id": "panel-nw",
+          "vertices": ["o", "nw", "w"]
+        },
+        {
+          "id": "panel-w",
+          "vertices": ["o", "w", "sw"]
+        }
+      ],
+      "creases": {
+        "rim": ["w", "e"],
+        "slash": ["sw", "ne"],
+        "backslash": ["nw", "se"]
+      }
+    },
+    "steps": [
+      {
+        "id": "collapse",
+        "durationMs": 1250,
+        "turns": [],
+        "guides": ["rim", "slash", "backslash"],
+        "field": {
+          "kind": "waterbomb",
+          "center": [0.25, -0.125],
+          "radius": 1.5,
+          "plies": 3
+        }
+      }
+    ]
+  }
+}

@@ -1,11 +1,15 @@
+import { fixture } from "../model-fixture";
 import { checkPenetrations } from "./material-collisions";
 import { it, expect } from "vitest";
-import { herringbone as map, mapHingePlies } from "../../app/lesson/herringbone";
 import { atIndex, poseAt, type Pose } from "../../app/lesson/geometry";
 import { paperLayers } from "../../app/lesson/drawing";
 import type { Point } from "../../app/fold/geometry";
 import { materialChecks, distance } from "./material-checks";
 import { mapOutline } from "../browser/herringbone-outline";
+
+const map = fixture("herringbone-map", "tests/fixtures/legacy-map").model;
+const mapHingePlies = fixture("herringbone-map", "tests/fixtures/legacy-map").presentation
+  .hingePlies;
 materialChecks(map);
 it("starts as one rectangle and matches the accordion, each oblique mark and the relief", () => {
   const rest = atIndex(map.poses, 0),

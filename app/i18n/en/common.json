@@ -41,30 +41,30 @@
     "back": "Back to Explore"
   },
   "models": {
-    "hex-iris": {
-      "title": "Amber hex iris",
-      "short": "Hex iris",
-      "summary": "Close six linked pleats around a hexagon, then open them into a gold and violet relief."
+    "reed-runner-dinosaur": {
+      "title": "Reed Runner dinosaur",
+      "short": "Reed Runner",
+      "summary": "Give four corners separate jobs as a blunt head, a long tail and two stepping legs."
     },
     "river-tern": {
       "title": "River tern",
       "short": "River tern",
       "summary": "Shape a forked tail and a raised neck in a layered kite, then spread the two swept wings and bend their tips."
     },
-    "pinwheel-calyx": {
-      "title": "Pinwheel calyx",
-      "short": "Pinwheel calyx",
-      "summary": "Crimp four doubled rims on a blintz base, then lift four pointed petals from the center."
+    "twin-stern-junk": {
+      "title": "Twin-stern junk",
+      "short": "Paper junk",
+      "summary": "Open a blue hull from a double-ended packet and fold a seat against each raised back."
     },
     "jumping-frog": {
       "title": "Four-foot jumping frog",
       "short": "Jumping frog",
       "summary": "Open two hidden leg pockets and fold a return pleat under a four-foot frog. The lesson shows the spring at rest."
     },
-    "herringbone-map": {
-      "title": "Herringbone map",
-      "short": "Miura map",
-      "summary": "Gather a four-ply map into zigzag ridges that shorten the sheet in both directions."
+    "monarch-butterfly": {
+      "title": "Monarch butterfly",
+      "short": "Butterfly",
+      "summary": "Pull four corners from a folded square, shape two pairs of wings and pinch a slender body."
     },
     "paper-airplane": {
       "title": "Dart paper airplane",

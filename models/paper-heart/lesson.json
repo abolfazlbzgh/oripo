@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "order": 20,
+  "difficulty": "beginner",
+  "category": "symbol",
+  "paper": {
+    "shape": "square",
+    "span": [2, 2]
+  },
+  "finishedAppearance": {
+    "front": "#b82d50",
+    "reverse": "#d63f60",
+    "edge": "#771d3a"
+  },
+  "manuscript": "paper-heart",
+  "provenance": {
+    "variant": "Oripo folded heart",
+    "reference": "docs/decisions/0004-flat-packet-lessons.md",
+    "rightsStatus": "project-authored",
+    "rights": "Oripo-authored geometry and manuscript. See the construction record for attribution.",
+    "review": {
+      "maker": "provisional",
+      "physical": "pending",
+      "language": "pending",
+      "visual": "pending"
+    }
+  },
+  "presentation": {
+    "view": {
+      "position": [0, -0.75, 3.4],
+      "minDistance": 2.3,
+      "maxDistance": 6,
+      "inspectBack": true,
+      "shadowZ": -0.4
+    },
+    "previewEye": [0, -0.18, 1],
+    "hingePlies": {
+      "mark-center": 0.5,
+      "open-center": 0.5,
+      "mark-across": 0.5,
+      "open-across": 0.5,
+      "top-to-center": 0.5,
+      "bottom-to-top": 1,
+      "lift-left": 2.5,
+      "lift-right": 2.5,
+      "soften-left": -0.5,
+      "soften-right": -0.5,
+      "left-lobe": -0.5,
+      "right-lobe": -0.5
+    }
+  },
+  "pattern": {
+    "version": 1,
+    "lessonId": "paper-heart",
+    "sheet": {
+      "vertices": {
+        "v-0": [0, -0.25, 0],
+        "v-1": [0, 0, 0],
+        "v-2": [-0.25, 0, 0],
+        "v-3": [-0.9000000000000001, -0.09999999999999987, 0],
+        "v-4": [-0.75, -0.25, 0],
+        "v-5": [-0.9000000000000001, 0, 0],
+        "v-6": [-1, 0, 0],
+        "v-7": [-0.375, -0.625, 0],
+        "v-8": [0, -1, 0],
+        "v-9": [-0.5, 0.5, 0],
+        "v-10": [-0.55, 0.44999999999999996, 0],
+        "v-11": [-0.55, 0.30000000000000004, 0],
+        "v-12": [0, 0.5, 0],
+        "v-13": [-0.625, 0.375, 0],
+        "v-14": [-0.7, 0.30000000000000004, 0],
+        "v-15": [-0.9000000000000001, 0.0999999999999999, 0],
+        "v-16": [0, 1, 0],
+        "v-17": [0.25, 0, 0],
+        "v-18": [0.75, -0.25, 0],
+        "v-19": [0.9000000000000001, -0.09999999999999987, 0],
+        "v-20": [0.9000000000000001, 0, 0],
+        "v-21": [1, 0, 0],
+        "v-22": [0.375, -0.625, 0],
+        "v-23": [0.55, 0.30000000000000004, 0],
+        "v-24": [0.55, 0.44999999999999996, 0],
+        "v-25": [0.5, 0.5, 0],
+        "v-26": [0.625, 0.375, 0],
+        "v-27": [0.9000000000000001, 0.09999999999999991, 0],
+        "v-28": [0.7, 0.30000000000000004, 0]
+      },
+      "faces": [
+        {
+          "id": "panel-0",
+          "vertices": ["v-0", "v-1", "v-2"]
+        },
+        {
+          "id": "panel-1",
+          "vertices": ["v-3", "v-4", "v-0", "v-2", "v-5"]
+        },
+        {
+          "id": "panel-2",
+          "vertices": ["v-6", "v-3", "v-5"]
+        },
+        {
+          "id": "panel-3",
+          "vertices": ["v-7", "v-8", "v-0"]
+        },
+        {
+          "id": "panel-4",
+          "vertices": ["v-4", "v-7", "v-0"]
+        },
+        {
+          "id": "panel-5",
+          "vertices": ["v-9", "v-10", "v-11", "v-2", "v-1", "v-12"]
+        },
+        {
+          "id": "panel-6",
+          "vertices": ["v-10", "v-13", "v-11"]
+        },
+        {
+          "id": "panel-7",
+          "vertices": ["v-14", "v-15", "v-5", "v-2", "v-11"]
+        },
+        {
+          "id": "panel-8",
+          "vertices": ["v-15", "v-6", "v-5"]
+        },
+        {
+          "id": "panel-9",
+          "vertices": ["v-13", "v-14", "v-11"]
+        },
+        {
+          "id": "panel-10",
+          "vertices": ["v-16", "v-9", "v-12"]
+        },
+        {
+          "id": "panel-11",
+          "vertices": ["v-1", "v-0", "v-17"]
+        },
+        {
+          "id": "panel-12",
+          "vertices": ["v-0", "v-18", "v-19", "v-20", "v-17"]
+        },
+        {
+          "id": "panel-13",
+          "vertices": ["v-19", "v-21", "v-20"]
+        },
+        {
+          "id": "panel-14",
+          "vertices": ["v-0", "v-8", "v-22"]
+        },
+        {
+          "id": "panel-15",
+          "vertices": ["v-0", "v-22", "v-18"]
+        },
+        {
+          "id": "panel-16",
+          "vertices": ["v-12", "v-1", "v-17", "v-23", "v-24", "v-25"]
+        },
+        {
+          "id": "panel-17",
+          "vertices": ["v-23", "v-26", "v-24"]
+        },
+        {
+          "id": "panel-18",
+          "vertices": ["v-17", "v-20", "v-27", "v-28", "v-23"]
+        },
+        {
+          "id": "panel-19",
+          "vertices": ["v-20", "v-21", "v-27"]
+        },
+        {
+          "id": "panel-20",
+          "vertices": ["v-28", "v-26", "v-23"]
+        },
+        {
+          "id": "panel-21",
+          "vertices": ["v-16", "v-12", "v-25"]
+        }
+      ],
+      "creases": {
+        "mark-center": ["v-16", "v-8"],
+        "open-center": ["v-8", "v-16"],
+        "mark-across": ["v-6", "v-21"],
+        "open-across": ["v-21", "v-6"],
+        "top-to-center": ["v-9", "v-25"],
+        "bottom-to-top": ["v-18", "v-4"],
+        "lift-left": ["v-0", "v-13"],
+        "lift-right": ["v-26", "v-0"],
+        "soften-left": ["v-11", "v-14"],
+        "soften-right": ["v-24", "v-23"],
+        "left-lobe": ["v-15", "v-3"],
+        "right-lobe": ["v-19", "v-27"]
+      }
+    },
+    "steps": [
+      {
+        "id": "mark-center",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "mark-center",
+            "degrees": 180,
+            "faces": [
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-15",
+              "panel-16",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-21"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "open-center",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "open-center",
+            "degrees": 180,
+            "faces": [
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-15",
+              "panel-16",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-21"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mark-across",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "mark-across",
+            "degrees": 180,
+            "faces": [
+              "panel-5",
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-9",
+              "panel-10",
+              "panel-16",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-21"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "open-across",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "open-across",
+            "degrees": 180,
+            "faces": [
+              "panel-5",
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-9",
+              "panel-10",
+              "panel-16",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-21"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "top-to-center",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "top-to-center",
+            "degrees": 180,
+            "faces": ["panel-10", "panel-21"]
+          }
+        ]
+      },
+      {
+        "id": "bottom-to-top",
+        "durationMs": 1600,
+        "turns": [
+          {
+            "crease": "bottom-to-top",
+            "degrees": 180,
+            "faces": ["panel-3", "panel-4", "panel-14", "panel-15"]
+          }
+        ]
+      },
+      {
+        "id": "lift-left",
+        "durationMs": 1600,
+        "turns": [
+          {
+            "crease": "lift-left",
+            "degrees": 180,
+            "faces": ["panel-1", "panel-2", "panel-4", "panel-7", "panel-8", "panel-9"]
+          }
+        ]
+      },
+      {
+        "id": "lift-right",
+        "durationMs": 1600,
+        "turns": [
+          {
+            "crease": "lift-right",
+            "degrees": 180,
+            "faces": ["panel-12", "panel-13", "panel-15", "panel-18", "panel-19", "panel-20"]
+          }
+        ]
+      },
+      {
+        "id": "soften-left",
+        "durationMs": 1100,
+        "turns": [
+          {
+            "crease": "soften-left",
+            "degrees": -180,
+            "faces": ["panel-6", "panel-9"]
+          }
+        ]
+      },
+      {
+        "id": "soften-right",
+        "durationMs": 1100,
+        "turns": [
+          {
+            "crease": "soften-right",
+            "degrees": -180,
+            "faces": ["panel-17", "panel-20"]
+          }
+        ]
+      },
+      {
+        "id": "left-lobe",
+        "durationMs": 1100,
+        "turns": [
+          {
+            "crease": "left-lobe",
+            "degrees": -180,
+            "faces": ["panel-2", "panel-8"]
+          }
+        ]
+      },
+      {
+        "id": "right-lobe",
+        "durationMs": 1100,
+        "turns": [
+          {
+            "crease": "right-lobe",
+            "degrees": -180,
+            "faces": ["panel-13", "panel-19"]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,58 +1,25 @@
-import { calyx, calyxEye, calyxHinges } from "../app/lesson/calyx";
-import { tern, ternEye, ternHinges } from "../app/lesson/tern";
-import { iris, irisEye, irisHinges } from "../app/lesson/iris";
-import { masu, masuHingePlies } from "../app/lesson/masu";
-import { herringbone, mapHingePlies, mapEye } from "../app/lesson/herringbone";
-import { frog, frogHingePlies, frogEye, frogPlyThickness } from "../app/lesson/frog";
-import type { CompiledLesson } from "../app/lesson/geometry";
-import type { HingePlies } from "../app/lesson/drawing";
-import type { Point } from "../app/fold/geometry";
-import { airplane, airplaneHingePlies } from "../app/lesson/airplane";
+import { readFileSync } from "node:fs";
+import { lessons } from "../app/lessons";
+import { resolvePresentation, type AuthoredLessonPackage } from "../app/lesson/package";
 import { compileLesson } from "../app/lesson/geometry";
-import { diamond, flatPattern, type FlatFold } from "../app/lesson/flat-pattern";
-import { heartFolds } from "../app/lesson/heart";
-import { foxFolds } from "../app/lesson/fox";
-import { type ModelId, lessons } from "../app/lessons";
 import { projectPaper } from "./paper-preview";
-
-function flat(id: ModelId, folds: readonly FlatFold[]) {
-  return {
-    model: compileLesson(flatPattern(id, diamond, folds)),
-    heights: Object.fromEntries(folds.map((f) => [f.id, f.hingePly])),
-    eye: [0, -0.18, 1] as Point,
-  };
-}
-const previews: Record<
-  ModelId,
-  () => { model: CompiledLesson; heights: HingePlies; eye: Point; plyThickness?: number }
-> = {
-  "pinwheel-calyx": () => ({ model: calyx, eye: calyxEye, heights: calyxHinges }),
-  "river-tern": () => ({ model: tern, eye: ternEye, heights: ternHinges }),
-  "hex-iris": () => ({ model: iris, eye: irisEye, heights: irisHinges }),
-  "jumping-frog": () => ({
-    model: frog,
-    heights: frogHingePlies,
-    eye: frogEye,
-    plyThickness: frogPlyThickness,
-  }),
-  "herringbone-map": () => ({ model: herringbone, heights: mapHingePlies, eye: mapEye }),
-  "masu-box": () => ({ model: masu, heights: masuHingePlies, eye: [2, -3, 3] as Point }),
-  "paper-airplane": () => ({
-    model: airplane,
-    heights: airplaneHingePlies,
-    eye: [2.4, -3.35, 4] as Point,
-  }),
-  "paper-heart": () => flat("paper-heart", heartFolds),
-  "fox-face": () => flat("fox-face", foxFolds),
-};
 
 export function lessonPreviews() {
   return new Map(
-    lessons.map((lesson) => {
-      const { model, heights, eye, plyThickness } = previews[lesson.id]();
+    lessons.map(({ id }) => {
+      const data = resolvePresentation(
+        JSON.parse(readFileSync(`models/${id}/lesson.json`, "utf8")) as AuthoredLessonPackage,
+      );
+      const { previewEye, hingePlies, plyThickness } = data.presentation;
       return [
-        "/previews/" + lesson.id + ".png",
-        projectPaper(model, heights, lesson.finishedAppearance, eye, plyThickness),
+        "/previews/" + id + ".png",
+        projectPaper(
+          compileLesson(data.pattern),
+          hingePlies,
+          data.finishedAppearance,
+          previewEye,
+          plyThickness,
+        ),
       ];
     }),
   );

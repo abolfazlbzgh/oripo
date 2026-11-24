@@ -1,0 +1,1985 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "order": 70,
+  "difficulty": "advanced",
+  "category": "vehicle",
+  "paper": {
+    "shape": "square",
+    "span": [2, 2]
+  },
+  "finishedAppearance": {
+    "front": "#2076a1",
+    "reverse": "#7cb8d4",
+    "edge": "#143e58"
+  },
+  "manuscript": "twin-stern-junk",
+  "provenance": {
+    "variant": "Twin-stern junk, an original hull on the historical double-ended packet",
+    "reference": "Cassell's Book of In-door Amusements, Card Games, and Fireside Fun, third edition, Paper Chinese Junk, figures 1–5. Original Oripo hull and seats. See docs/decisions/0011-framed-pockets-and-tray-corners.md.",
+    "rights": "Public-domain historical preparation; original Oripo hull geometry and manuscript.",
+    "rightsStatus": "project-authored",
+    "review": {
+      "maker": "provisional",
+      "physical": "pending",
+      "language": "pending",
+      "visual": "pending"
+    }
+  },
+  "presentation": {
+    "hingePlies": {
+      "mark-first-diagonal": 0.5,
+      "reopen-first-diagonal": 0.5,
+      "mark-second-diagonal": 0.5,
+      "reopen-second-diagonal": 0.5,
+      "blintz-north": 0.5,
+      "blintz-south": 0.5,
+      "blintz-west": 0.5,
+      "blintz-east": 0.5,
+      "close-left-gate": 1.5,
+      "close-right-gate": 1.5,
+      "double-the-rectangle": -0.5,
+      "mark-front-quarter": 3.5,
+      "mark-back-quarter": -4.5,
+      "release-back-quarter": -4.5,
+      "release-front-quarter": 3.5,
+      "open-the-rectangle": -0.5,
+      "open-right-gate": 1.5,
+      "open-left-gate": 1.5,
+      "draw-out-north-point": 0.5,
+      "draw-out-south-point": 0.5,
+      "wrap-left-rail": 1.5,
+      "wrap-right-rail": 1.5,
+      "face-the-bow": 4.5,
+      "face-the-stern": 4.5,
+      "bow-seat": 0,
+      "stern-seat": 0
+    },
+    "previewEye": [1.6, -1, 4],
+    "view": {
+      "position": [2.5, -1.35, 2.1],
+      "minDistance": 1,
+      "maxDistance": 8,
+      "inspectBack": true,
+      "materialFrame": {
+        "center": [0, 0, 0.06],
+        "scale": 1.22
+      }
+    }
+  },
+  "pattern": {
+    "lessonId": "twin-stern-junk",
+    "version": 6,
+    "sheet": {
+      "vertices": {
+        "v-0": [-0.25, 0.75, 0],
+        "v-1": [-0.33999999999999997, 0.66, 0],
+        "v-2": [-0.25, 0.66, 0],
+        "v-3": [-0.385, 0.615, 0],
+        "v-4": [-0.385, 0.5, 0],
+        "v-5": [-0.25, 0.5, 0],
+        "v-6": [-0.5, 0.5, 0],
+        "v-7": [-0.115, 0.66, 0],
+        "v-8": [-0.11499999999999999, 0.75, 0],
+        "v-9": [0, 0.66, 0],
+        "v-10": [0, 0.75, 0],
+        "v-11": [-0.115, 0.5, 0],
+        "v-12": [0, 0.5, 0],
+        "v-13": [-0.115, 0.885, 0],
+        "v-14": [-0.10499999999999998, 0.895, 0],
+        "v-15": [0, 0.895, 0],
+        "v-16": [0, 1, 0],
+        "v-17": [-0.6825, 0.3175, 0],
+        "v-18": [-0.75, 0.25, 0],
+        "v-19": [-0.615, 0.25, 0],
+        "v-20": [-0.615, 0.385, 0],
+        "v-21": [-0.5, 0.25, 0],
+        "v-22": [-0.75, 0, 0],
+        "v-23": [-0.615, 0, 0],
+        "v-24": [-0.5, 0, 0],
+        "v-25": [-0.885, 0.11499999999999999, 0],
+        "v-26": [-0.885, 0, 0],
+        "v-27": [-1, 0, 0],
+        "v-28": [-0.385, 0.25, 0],
+        "v-29": [-0.25, 0.25, 0],
+        "v-30": [-0.25, 0.385, 0],
+        "v-31": [-0.385, 0, 0],
+        "v-32": [-0.25, 0, 0],
+        "v-33": [-0.115, 0.25, 0],
+        "v-34": [0, 0.25, 0],
+        "v-35": [-0.115, 0, 0],
+        "v-36": [0, 0, 0],
+        "v-37": [0.33999999999999997, 0.66, 0],
+        "v-38": [0.25, 0.75, 0],
+        "v-39": [0.25, 0.66, 0],
+        "v-40": [0.5, 0.5, 0],
+        "v-41": [0.385, 0.615, 0],
+        "v-42": [0.385, 0.5, 0],
+        "v-43": [0.25, 0.5, 0],
+        "v-44": [0.115, 0.75, 0],
+        "v-45": [0.11499999999999999, 0.66, 0],
+        "v-46": [0.11499999999999999, 0.5, 0],
+        "v-47": [0.11499999999999999, 0.885, 0],
+        "v-48": [0.10499999999999998, 0.895, 0],
+        "v-49": [0.615, 0.385, 0],
+        "v-50": [0.5, 0.25, 0],
+        "v-51": [0.615, 0.25, 0],
+        "v-52": [0.6825, 0.3175, 0],
+        "v-53": [0.75, 0.25, 0],
+        "v-54": [0.5, 0, 0],
+        "v-55": [0.615, 0, 0],
+        "v-56": [0.75, 0, 0],
+        "v-57": [1, 0, 0],
+        "v-58": [0.885, 0.115, 0],
+        "v-59": [0.885, 0, 0],
+        "v-60": [0.385, 0.25, 0],
+        "v-61": [0.25, 0.385, 0],
+        "v-62": [0.25, 0.25, 0],
+        "v-63": [0.385, 0, 0],
+        "v-64": [0.25, 0, 0],
+        "v-65": [0.11499999999999999, 0.25, 0],
+        "v-66": [0.11499999999999999, 0, 0],
+        "v-67": [-0.33999999999999997, -0.66, 0],
+        "v-68": [-0.25, -0.75, 0],
+        "v-69": [-0.25, -0.66, 0],
+        "v-70": [-0.25, -0.5, 0],
+        "v-71": [-0.385, -0.5, 0],
+        "v-72": [-0.385, -0.615, 0],
+        "v-73": [-0.5, -0.5, 0],
+        "v-74": [-0.11499999999999999, -0.66, 0],
+        "v-75": [-0.115, -0.75, 0],
+        "v-76": [0, -0.75, 0],
+        "v-77": [0, -0.66, 0],
+        "v-78": [-0.11499999999999999, -0.5, 0],
+        "v-79": [0, -0.5, 0],
+        "v-80": [0, -1, 0],
+        "v-81": [0, -0.895, 0],
+        "v-82": [-0.10499999999999998, -0.895, 0],
+        "v-83": [-0.11499999999999999, -0.885, 0],
+        "v-84": [-0.6825, -0.3175, 0],
+        "v-85": [-0.615, -0.385, 0],
+        "v-86": [-0.615, -0.25, 0],
+        "v-87": [-0.75, -0.25, 0],
+        "v-88": [-0.5, -0.25, 0],
+        "v-89": [-0.885, -0.115, 0],
+        "v-90": [-0.25, -0.385, 0],
+        "v-91": [-0.385, -0.25, 0],
+        "v-92": [-0.25, -0.25, 0],
+        "v-93": [-0.11499999999999999, -0.25, 0],
+        "v-94": [0, -0.25, 0],
+        "v-95": [0.25, -0.75, 0],
+        "v-96": [0.33999999999999997, -0.66, 0],
+        "v-97": [0.25, -0.66, 0],
+        "v-98": [0.385, -0.615, 0],
+        "v-99": [0.5, -0.5, 0],
+        "v-100": [0.385, -0.5, 0],
+        "v-101": [0.25, -0.5, 0],
+        "v-102": [0.115, -0.66, 0],
+        "v-103": [0.11499999999999999, -0.75, 0],
+        "v-104": [0.115, -0.5, 0],
+        "v-105": [0.10499999999999998, -0.895, 0],
+        "v-106": [0.115, -0.885, 0],
+        "v-107": [0.615, -0.385, 0],
+        "v-108": [0.615, -0.25, 0],
+        "v-109": [0.5, -0.25, 0],
+        "v-110": [0.6825, -0.3175, 0],
+        "v-111": [0.75, -0.25, 0],
+        "v-112": [0.885, -0.11499999999999999, 0],
+        "v-113": [0.385, -0.25, 0],
+        "v-114": [0.25, -0.25, 0],
+        "v-115": [0.25, -0.385, 0],
+        "v-116": [0.115, -0.25, 0]
+      },
+      "faces": [
+        {
+          "id": "panel-0",
+          "vertices": ["v-0", "v-1", "v-2"]
+        },
+        {
+          "id": "panel-1",
+          "vertices": ["v-1", "v-3", "v-4", "v-5", "v-2"]
+        },
+        {
+          "id": "panel-2",
+          "vertices": ["v-3", "v-6", "v-4"]
+        },
+        {
+          "id": "panel-3",
+          "vertices": ["v-0", "v-2", "v-7", "v-8"]
+        },
+        {
+          "id": "panel-4",
+          "vertices": ["v-7", "v-9", "v-10", "v-8"]
+        },
+        {
+          "id": "panel-5",
+          "vertices": ["v-2", "v-5", "v-11", "v-7"]
+        },
+        {
+          "id": "panel-6",
+          "vertices": ["v-11", "v-12", "v-9", "v-7"]
+        },
+        {
+          "id": "panel-7",
+          "vertices": ["v-13", "v-0", "v-8"]
+        },
+        {
+          "id": "panel-8",
+          "vertices": ["v-14", "v-13", "v-8", "v-10", "v-15"]
+        },
+        {
+          "id": "panel-9",
+          "vertices": ["v-16", "v-14", "v-15"]
+        },
+        {
+          "id": "panel-10",
+          "vertices": ["v-17", "v-18", "v-19"]
+        },
+        {
+          "id": "panel-11",
+          "vertices": ["v-20", "v-17", "v-19"]
+        },
+        {
+          "id": "panel-12",
+          "vertices": ["v-6", "v-20", "v-19", "v-21"]
+        },
+        {
+          "id": "panel-13",
+          "vertices": ["v-18", "v-22", "v-23", "v-19"]
+        },
+        {
+          "id": "panel-14",
+          "vertices": ["v-23", "v-24", "v-21", "v-19"]
+        },
+        {
+          "id": "panel-15",
+          "vertices": ["v-18", "v-25", "v-26", "v-22"]
+        },
+        {
+          "id": "panel-16",
+          "vertices": ["v-25", "v-27", "v-26"]
+        },
+        {
+          "id": "panel-17",
+          "vertices": ["v-28", "v-29", "v-30"]
+        },
+        {
+          "id": "panel-18",
+          "vertices": ["v-28", "v-30", "v-5", "v-4"]
+        },
+        {
+          "id": "panel-19",
+          "vertices": ["v-6", "v-21", "v-28", "v-4"]
+        },
+        {
+          "id": "panel-20",
+          "vertices": ["v-31", "v-32", "v-29", "v-28"]
+        },
+        {
+          "id": "panel-21",
+          "vertices": ["v-21", "v-24", "v-31", "v-28"]
+        },
+        {
+          "id": "panel-22",
+          "vertices": ["v-30", "v-29", "v-33"]
+        },
+        {
+          "id": "panel-23",
+          "vertices": ["v-11", "v-5", "v-30", "v-33"]
+        },
+        {
+          "id": "panel-24",
+          "vertices": ["v-34", "v-12", "v-11", "v-33"]
+        },
+        {
+          "id": "panel-25",
+          "vertices": ["v-32", "v-35", "v-33", "v-29"]
+        },
+        {
+          "id": "panel-26",
+          "vertices": ["v-35", "v-36", "v-34", "v-33"]
+        },
+        {
+          "id": "panel-27",
+          "vertices": ["v-37", "v-38", "v-39"]
+        },
+        {
+          "id": "panel-28",
+          "vertices": ["v-40", "v-41", "v-42"]
+        },
+        {
+          "id": "panel-29",
+          "vertices": ["v-41", "v-37", "v-39", "v-43", "v-42"]
+        },
+        {
+          "id": "panel-30",
+          "vertices": ["v-44", "v-10", "v-9", "v-45"]
+        },
+        {
+          "id": "panel-31",
+          "vertices": ["v-38", "v-44", "v-45", "v-39"]
+        },
+        {
+          "id": "panel-32",
+          "vertices": ["v-9", "v-12", "v-46", "v-45"]
+        },
+        {
+          "id": "panel-33",
+          "vertices": ["v-46", "v-43", "v-39", "v-45"]
+        },
+        {
+          "id": "panel-34",
+          "vertices": ["v-47", "v-48", "v-15", "v-10", "v-44"]
+        },
+        {
+          "id": "panel-35",
+          "vertices": ["v-38", "v-47", "v-44"]
+        },
+        {
+          "id": "panel-36",
+          "vertices": ["v-48", "v-16", "v-15"]
+        },
+        {
+          "id": "panel-37",
+          "vertices": ["v-49", "v-40", "v-50", "v-51"]
+        },
+        {
+          "id": "panel-38",
+          "vertices": ["v-52", "v-49", "v-51"]
+        },
+        {
+          "id": "panel-39",
+          "vertices": ["v-53", "v-52", "v-51"]
+        },
+        {
+          "id": "panel-40",
+          "vertices": ["v-51", "v-50", "v-54", "v-55"]
+        },
+        {
+          "id": "panel-41",
+          "vertices": ["v-53", "v-51", "v-55", "v-56"]
+        },
+        {
+          "id": "panel-42",
+          "vertices": ["v-57", "v-58", "v-59"]
+        },
+        {
+          "id": "panel-43",
+          "vertices": ["v-58", "v-53", "v-56", "v-59"]
+        },
+        {
+          "id": "panel-44",
+          "vertices": ["v-40", "v-42", "v-60", "v-50"]
+        },
+        {
+          "id": "panel-45",
+          "vertices": ["v-42", "v-43", "v-61", "v-60"]
+        },
+        {
+          "id": "panel-46",
+          "vertices": ["v-61", "v-62", "v-60"]
+        },
+        {
+          "id": "panel-47",
+          "vertices": ["v-63", "v-54", "v-50", "v-60"]
+        },
+        {
+          "id": "panel-48",
+          "vertices": ["v-62", "v-64", "v-63", "v-60"]
+        },
+        {
+          "id": "panel-49",
+          "vertices": ["v-46", "v-12", "v-34", "v-65"]
+        },
+        {
+          "id": "panel-50",
+          "vertices": ["v-43", "v-46", "v-65", "v-61"]
+        },
+        {
+          "id": "panel-51",
+          "vertices": ["v-65", "v-62", "v-61"]
+        },
+        {
+          "id": "panel-52",
+          "vertices": ["v-34", "v-36", "v-66", "v-65"]
+        },
+        {
+          "id": "panel-53",
+          "vertices": ["v-66", "v-64", "v-62", "v-65"]
+        },
+        {
+          "id": "panel-54",
+          "vertices": ["v-67", "v-68", "v-69"]
+        },
+        {
+          "id": "panel-55",
+          "vertices": ["v-70", "v-71", "v-72", "v-67", "v-69"]
+        },
+        {
+          "id": "panel-56",
+          "vertices": ["v-71", "v-73", "v-72"]
+        },
+        {
+          "id": "panel-57",
+          "vertices": ["v-74", "v-69", "v-68", "v-75"]
+        },
+        {
+          "id": "panel-58",
+          "vertices": ["v-76", "v-77", "v-74", "v-75"]
+        },
+        {
+          "id": "panel-59",
+          "vertices": ["v-78", "v-70", "v-69", "v-74"]
+        },
+        {
+          "id": "panel-60",
+          "vertices": ["v-77", "v-79", "v-78", "v-74"]
+        },
+        {
+          "id": "panel-61",
+          "vertices": ["v-80", "v-81", "v-82"]
+        },
+        {
+          "id": "panel-62",
+          "vertices": ["v-75", "v-68", "v-83"]
+        },
+        {
+          "id": "panel-63",
+          "vertices": ["v-81", "v-76", "v-75", "v-83", "v-82"]
+        },
+        {
+          "id": "panel-64",
+          "vertices": ["v-84", "v-85", "v-86"]
+        },
+        {
+          "id": "panel-65",
+          "vertices": ["v-87", "v-84", "v-86"]
+        },
+        {
+          "id": "panel-66",
+          "vertices": ["v-85", "v-73", "v-88", "v-86"]
+        },
+        {
+          "id": "panel-67",
+          "vertices": ["v-23", "v-22", "v-87", "v-86"]
+        },
+        {
+          "id": "panel-68",
+          "vertices": ["v-24", "v-23", "v-86", "v-88"]
+        },
+        {
+          "id": "panel-69",
+          "vertices": ["v-22", "v-26", "v-89", "v-87"]
+        },
+        {
+          "id": "panel-70",
+          "vertices": ["v-26", "v-27", "v-89"]
+        },
+        {
+          "id": "panel-71",
+          "vertices": ["v-71", "v-70", "v-90", "v-91"]
+        },
+        {
+          "id": "panel-72",
+          "vertices": ["v-90", "v-92", "v-91"]
+        },
+        {
+          "id": "panel-73",
+          "vertices": ["v-88", "v-73", "v-71", "v-91"]
+        },
+        {
+          "id": "panel-74",
+          "vertices": ["v-32", "v-31", "v-91", "v-92"]
+        },
+        {
+          "id": "panel-75",
+          "vertices": ["v-31", "v-24", "v-88", "v-91"]
+        },
+        {
+          "id": "panel-76",
+          "vertices": ["v-93", "v-90", "v-70", "v-78"]
+        },
+        {
+          "id": "panel-77",
+          "vertices": ["v-93", "v-92", "v-90"]
+        },
+        {
+          "id": "panel-78",
+          "vertices": ["v-79", "v-94", "v-93", "v-78"]
+        },
+        {
+          "id": "panel-79",
+          "vertices": ["v-35", "v-32", "v-92", "v-93"]
+        },
+        {
+          "id": "panel-80",
+          "vertices": ["v-94", "v-36", "v-35", "v-93"]
+        },
+        {
+          "id": "panel-81",
+          "vertices": ["v-95", "v-96", "v-97"]
+        },
+        {
+          "id": "panel-82",
+          "vertices": ["v-98", "v-99", "v-100"]
+        },
+        {
+          "id": "panel-83",
+          "vertices": ["v-96", "v-98", "v-100", "v-101", "v-97"]
+        },
+        {
+          "id": "panel-84",
+          "vertices": ["v-102", "v-77", "v-76", "v-103"]
+        },
+        {
+          "id": "panel-85",
+          "vertices": ["v-95", "v-97", "v-102", "v-103"]
+        },
+        {
+          "id": "panel-86",
+          "vertices": ["v-104", "v-79", "v-77", "v-102"]
+        },
+        {
+          "id": "panel-87",
+          "vertices": ["v-97", "v-101", "v-104", "v-102"]
+        },
+        {
+          "id": "panel-88",
+          "vertices": ["v-80", "v-105", "v-81"]
+        },
+        {
+          "id": "panel-89",
+          "vertices": ["v-105", "v-106", "v-103", "v-76", "v-81"]
+        },
+        {
+          "id": "panel-90",
+          "vertices": ["v-106", "v-95", "v-103"]
+        },
+        {
+          "id": "panel-91",
+          "vertices": ["v-99", "v-107", "v-108", "v-109"]
+        },
+        {
+          "id": "panel-92",
+          "vertices": ["v-110", "v-111", "v-108"]
+        },
+        {
+          "id": "panel-93",
+          "vertices": ["v-107", "v-110", "v-108"]
+        },
+        {
+          "id": "panel-94",
+          "vertices": ["v-55", "v-54", "v-109", "v-108"]
+        },
+        {
+          "id": "panel-95",
+          "vertices": ["v-111", "v-56", "v-55", "v-108"]
+        },
+        {
+          "id": "panel-96",
+          "vertices": ["v-112", "v-57", "v-59"]
+        },
+        {
+          "id": "panel-97",
+          "vertices": ["v-111", "v-112", "v-59", "v-56"]
+        },
+        {
+          "id": "panel-98",
+          "vertices": ["v-99", "v-109", "v-113", "v-100"]
+        },
+        {
+          "id": "panel-99",
+          "vertices": ["v-113", "v-114", "v-115"]
+        },
+        {
+          "id": "panel-100",
+          "vertices": ["v-113", "v-115", "v-101", "v-100"]
+        },
+        {
+          "id": "panel-101",
+          "vertices": ["v-109", "v-54", "v-63", "v-113"]
+        },
+        {
+          "id": "panel-102",
+          "vertices": ["v-63", "v-64", "v-114", "v-113"]
+        },
+        {
+          "id": "panel-103",
+          "vertices": ["v-94", "v-79", "v-104", "v-116"]
+        },
+        {
+          "id": "panel-104",
+          "vertices": ["v-115", "v-114", "v-116"]
+        },
+        {
+          "id": "panel-105",
+          "vertices": ["v-104", "v-101", "v-115", "v-116"]
+        },
+        {
+          "id": "panel-106",
+          "vertices": ["v-66", "v-36", "v-94", "v-116"]
+        },
+        {
+          "id": "panel-107",
+          "vertices": ["v-64", "v-66", "v-116", "v-114"]
+        }
+      ],
+      "creases": {
+        "mark-first-diagonal": ["v-27", "v-57"],
+        "reopen-first-diagonal": ["v-57", "v-27"],
+        "mark-second-diagonal": ["v-80", "v-16"],
+        "reopen-second-diagonal": ["v-16", "v-80"],
+        "blintz-north": ["v-6", "v-40"],
+        "blintz-south": ["v-99", "v-73"],
+        "blintz-west": ["v-73", "v-6"],
+        "blintz-east": ["v-40", "v-99"],
+        "close-left-gate": ["v-70", "v-5"],
+        "close-right-gate": ["v-43", "v-101"],
+        "double-the-rectangle": ["v-56", "v-32"],
+        "mark-front-quarter": ["v-0", "v-62"],
+        "mark-back-quarter": ["v-68", "v-114"],
+        "release-back-quarter": ["v-95", "v-92"],
+        "release-front-quarter": ["v-38", "v-29"],
+        "open-the-rectangle": ["v-22", "v-64"],
+        "open-right-gate": ["v-101", "v-43"],
+        "open-left-gate": ["v-5", "v-70"],
+        "draw-out-north-point": ["v-40", "v-6"],
+        "draw-out-south-point": ["v-73", "v-99"],
+        "wrap-left-rail": ["v-68", "v-0"],
+        "wrap-right-rail": ["v-38", "v-95"],
+        "face-the-bow": ["v-2", "v-39"],
+        "face-the-stern": ["v-97", "v-69"],
+        "bow-seat": ["v-14", "v-48"],
+        "stern-seat": ["v-82", "v-105"],
+        "port-keel": ["v-74", "v-7"],
+        "starboard-keel": ["v-102", "v-45"],
+        "bow-keel": ["v-18", "v-62"],
+        "stern-keel": ["v-87", "v-114"]
+      }
+    },
+    "steps": [
+      {
+        "id": "mark-first-diagonal",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "mark-first-diagonal",
+            "degrees": 180,
+            "faces": [
+              "panel-0",
+              "panel-1",
+              "panel-2",
+              "panel-3",
+              "panel-4",
+              "panel-5",
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-9",
+              "panel-10",
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-15",
+              "panel-16",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-21",
+              "panel-22",
+              "panel-23",
+              "panel-24",
+              "panel-25",
+              "panel-26",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31",
+              "panel-32",
+              "panel-33",
+              "panel-34",
+              "panel-35",
+              "panel-36",
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-41",
+              "panel-42",
+              "panel-43",
+              "panel-44",
+              "panel-45",
+              "panel-46",
+              "panel-47",
+              "panel-48",
+              "panel-49",
+              "panel-50",
+              "panel-51",
+              "panel-52",
+              "panel-53"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reopen-first-diagonal",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "reopen-first-diagonal",
+            "degrees": 180,
+            "faces": [
+              "panel-0",
+              "panel-1",
+              "panel-2",
+              "panel-3",
+              "panel-4",
+              "panel-5",
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-9",
+              "panel-10",
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-15",
+              "panel-16",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-21",
+              "panel-22",
+              "panel-23",
+              "panel-24",
+              "panel-25",
+              "panel-26",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31",
+              "panel-32",
+              "panel-33",
+              "panel-34",
+              "panel-35",
+              "panel-36",
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-41",
+              "panel-42",
+              "panel-43",
+              "panel-44",
+              "panel-45",
+              "panel-46",
+              "panel-47",
+              "panel-48",
+              "panel-49",
+              "panel-50",
+              "panel-51",
+              "panel-52",
+              "panel-53"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mark-second-diagonal",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "mark-second-diagonal",
+            "degrees": 180,
+            "faces": [
+              "panel-0",
+              "panel-1",
+              "panel-2",
+              "panel-3",
+              "panel-4",
+              "panel-5",
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-9",
+              "panel-10",
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-15",
+              "panel-16",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-21",
+              "panel-22",
+              "panel-23",
+              "panel-24",
+              "panel-25",
+              "panel-26",
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-57",
+              "panel-58",
+              "panel-59",
+              "panel-60",
+              "panel-61",
+              "panel-62",
+              "panel-63",
+              "panel-64",
+              "panel-65",
+              "panel-66",
+              "panel-67",
+              "panel-68",
+              "panel-69",
+              "panel-70",
+              "panel-71",
+              "panel-72",
+              "panel-73",
+              "panel-74",
+              "panel-75",
+              "panel-76",
+              "panel-77",
+              "panel-78",
+              "panel-79",
+              "panel-80"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reopen-second-diagonal",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "reopen-second-diagonal",
+            "degrees": 180,
+            "faces": [
+              "panel-0",
+              "panel-1",
+              "panel-2",
+              "panel-3",
+              "panel-4",
+              "panel-5",
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-9",
+              "panel-10",
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-15",
+              "panel-16",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-21",
+              "panel-22",
+              "panel-23",
+              "panel-24",
+              "panel-25",
+              "panel-26",
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-57",
+              "panel-58",
+              "panel-59",
+              "panel-60",
+              "panel-61",
+              "panel-62",
+              "panel-63",
+              "panel-64",
+              "panel-65",
+              "panel-66",
+              "panel-67",
+              "panel-68",
+              "panel-69",
+              "panel-70",
+              "panel-71",
+              "panel-72",
+              "panel-73",
+              "panel-74",
+              "panel-75",
+              "panel-76",
+              "panel-77",
+              "panel-78",
+              "panel-79",
+              "panel-80"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blintz-north",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "blintz-north",
+            "degrees": 180,
+            "faces": [
+              "panel-0",
+              "panel-1",
+              "panel-2",
+              "panel-3",
+              "panel-4",
+              "panel-5",
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-9",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31",
+              "panel-32",
+              "panel-33",
+              "panel-34",
+              "panel-35",
+              "panel-36"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blintz-south",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "blintz-south",
+            "degrees": 180,
+            "faces": [
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-57",
+              "panel-58",
+              "panel-59",
+              "panel-60",
+              "panel-61",
+              "panel-62",
+              "panel-63",
+              "panel-81",
+              "panel-82",
+              "panel-83",
+              "panel-84",
+              "panel-85",
+              "panel-86",
+              "panel-87",
+              "panel-88",
+              "panel-89",
+              "panel-90"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blintz-west",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "blintz-west",
+            "degrees": 180,
+            "faces": [
+              "panel-10",
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-15",
+              "panel-16",
+              "panel-64",
+              "panel-65",
+              "panel-66",
+              "panel-67",
+              "panel-68",
+              "panel-69",
+              "panel-70"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "blintz-east",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "blintz-east",
+            "degrees": 180,
+            "faces": [
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-41",
+              "panel-42",
+              "panel-43",
+              "panel-91",
+              "panel-92",
+              "panel-93",
+              "panel-94",
+              "panel-95",
+              "panel-96",
+              "panel-97"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "close-left-gate",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "close-left-gate",
+            "degrees": 180,
+            "faces": [
+              "panel-0",
+              "panel-1",
+              "panel-2",
+              "panel-10",
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-21",
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-64",
+              "panel-65",
+              "panel-66",
+              "panel-67",
+              "panel-68",
+              "panel-71",
+              "panel-72",
+              "panel-73",
+              "panel-74",
+              "panel-75"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "close-right-gate",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "close-right-gate",
+            "degrees": 180,
+            "faces": [
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-41",
+              "panel-44",
+              "panel-45",
+              "panel-46",
+              "panel-47",
+              "panel-48",
+              "panel-81",
+              "panel-82",
+              "panel-83",
+              "panel-91",
+              "panel-92",
+              "panel-93",
+              "panel-94",
+              "panel-95",
+              "panel-98",
+              "panel-99",
+              "panel-100",
+              "panel-101",
+              "panel-102"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "double-the-rectangle",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "double-the-rectangle",
+            "degrees": -180,
+            "faces": [
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-57",
+              "panel-58",
+              "panel-59",
+              "panel-60",
+              "panel-61",
+              "panel-62",
+              "panel-63",
+              "panel-64",
+              "panel-65",
+              "panel-66",
+              "panel-67",
+              "panel-68",
+              "panel-69",
+              "panel-70",
+              "panel-71",
+              "panel-72",
+              "panel-73",
+              "panel-74",
+              "panel-75",
+              "panel-76",
+              "panel-77",
+              "panel-78",
+              "panel-79",
+              "panel-80",
+              "panel-81",
+              "panel-82",
+              "panel-83",
+              "panel-84",
+              "panel-85",
+              "panel-86",
+              "panel-87",
+              "panel-88",
+              "panel-89",
+              "panel-90",
+              "panel-91",
+              "panel-92",
+              "panel-93",
+              "panel-94",
+              "panel-95",
+              "panel-96",
+              "panel-97",
+              "panel-98",
+              "panel-99",
+              "panel-100",
+              "panel-101",
+              "panel-102",
+              "panel-103",
+              "panel-104",
+              "panel-105",
+              "panel-106",
+              "panel-107"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mark-front-quarter",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "mark-front-quarter",
+            "degrees": 180,
+            "faces": [
+              "panel-0",
+              "panel-1",
+              "panel-2",
+              "panel-3",
+              "panel-4",
+              "panel-5",
+              "panel-6",
+              "panel-10",
+              "panel-11",
+              "panel-12",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-22",
+              "panel-23",
+              "panel-24",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31",
+              "panel-32",
+              "panel-33",
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-44",
+              "panel-45",
+              "panel-46",
+              "panel-49",
+              "panel-50",
+              "panel-51"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mark-back-quarter",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "mark-back-quarter",
+            "degrees": -180,
+            "faces": [
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-57",
+              "panel-58",
+              "panel-59",
+              "panel-60",
+              "panel-64",
+              "panel-65",
+              "panel-66",
+              "panel-71",
+              "panel-72",
+              "panel-73",
+              "panel-76",
+              "panel-77",
+              "panel-78",
+              "panel-81",
+              "panel-82",
+              "panel-83",
+              "panel-84",
+              "panel-85",
+              "panel-86",
+              "panel-87",
+              "panel-91",
+              "panel-92",
+              "panel-93",
+              "panel-98",
+              "panel-99",
+              "panel-100",
+              "panel-103",
+              "panel-104",
+              "panel-105"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "release-back-quarter",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "release-back-quarter",
+            "degrees": -180,
+            "faces": [
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-57",
+              "panel-58",
+              "panel-59",
+              "panel-60",
+              "panel-64",
+              "panel-65",
+              "panel-66",
+              "panel-71",
+              "panel-72",
+              "panel-73",
+              "panel-76",
+              "panel-77",
+              "panel-78",
+              "panel-81",
+              "panel-82",
+              "panel-83",
+              "panel-84",
+              "panel-85",
+              "panel-86",
+              "panel-87",
+              "panel-91",
+              "panel-92",
+              "panel-93",
+              "panel-98",
+              "panel-99",
+              "panel-100",
+              "panel-103",
+              "panel-104",
+              "panel-105"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "release-front-quarter",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "release-front-quarter",
+            "degrees": 180,
+            "faces": [
+              "panel-0",
+              "panel-1",
+              "panel-2",
+              "panel-3",
+              "panel-4",
+              "panel-5",
+              "panel-6",
+              "panel-10",
+              "panel-11",
+              "panel-12",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-22",
+              "panel-23",
+              "panel-24",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31",
+              "panel-32",
+              "panel-33",
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-44",
+              "panel-45",
+              "panel-46",
+              "panel-49",
+              "panel-50",
+              "panel-51"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "open-the-rectangle",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "open-the-rectangle",
+            "degrees": -180,
+            "faces": [
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-57",
+              "panel-58",
+              "panel-59",
+              "panel-60",
+              "panel-61",
+              "panel-62",
+              "panel-63",
+              "panel-64",
+              "panel-65",
+              "panel-66",
+              "panel-67",
+              "panel-68",
+              "panel-69",
+              "panel-70",
+              "panel-71",
+              "panel-72",
+              "panel-73",
+              "panel-74",
+              "panel-75",
+              "panel-76",
+              "panel-77",
+              "panel-78",
+              "panel-79",
+              "panel-80",
+              "panel-81",
+              "panel-82",
+              "panel-83",
+              "panel-84",
+              "panel-85",
+              "panel-86",
+              "panel-87",
+              "panel-88",
+              "panel-89",
+              "panel-90",
+              "panel-91",
+              "panel-92",
+              "panel-93",
+              "panel-94",
+              "panel-95",
+              "panel-96",
+              "panel-97",
+              "panel-98",
+              "panel-99",
+              "panel-100",
+              "panel-101",
+              "panel-102",
+              "panel-103",
+              "panel-104",
+              "panel-105",
+              "panel-106",
+              "panel-107"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "open-right-gate",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "open-right-gate",
+            "degrees": 180,
+            "faces": [
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-41",
+              "panel-44",
+              "panel-45",
+              "panel-46",
+              "panel-47",
+              "panel-48",
+              "panel-81",
+              "panel-82",
+              "panel-83",
+              "panel-91",
+              "panel-92",
+              "panel-93",
+              "panel-94",
+              "panel-95",
+              "panel-98",
+              "panel-99",
+              "panel-100",
+              "panel-101",
+              "panel-102"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "open-left-gate",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "open-left-gate",
+            "degrees": 180,
+            "faces": [
+              "panel-0",
+              "panel-1",
+              "panel-2",
+              "panel-10",
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-21",
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-64",
+              "panel-65",
+              "panel-66",
+              "panel-67",
+              "panel-68",
+              "panel-71",
+              "panel-72",
+              "panel-73",
+              "panel-74",
+              "panel-75"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "draw-out-north-point",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "draw-out-north-point",
+            "degrees": 180,
+            "faces": [
+              "panel-0",
+              "panel-1",
+              "panel-2",
+              "panel-3",
+              "panel-4",
+              "panel-5",
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-9",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31",
+              "panel-32",
+              "panel-33",
+              "panel-34",
+              "panel-35",
+              "panel-36"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "draw-out-south-point",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "draw-out-south-point",
+            "degrees": 180,
+            "faces": [
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-57",
+              "panel-58",
+              "panel-59",
+              "panel-60",
+              "panel-61",
+              "panel-62",
+              "panel-63",
+              "panel-81",
+              "panel-82",
+              "panel-83",
+              "panel-84",
+              "panel-85",
+              "panel-86",
+              "panel-87",
+              "panel-88",
+              "panel-89",
+              "panel-90"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wrap-left-rail",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "wrap-left-rail",
+            "degrees": 180,
+            "faces": [
+              "panel-0",
+              "panel-1",
+              "panel-2",
+              "panel-10",
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-21",
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-64",
+              "panel-65",
+              "panel-66",
+              "panel-67",
+              "panel-68",
+              "panel-71",
+              "panel-72",
+              "panel-73",
+              "panel-74",
+              "panel-75"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wrap-right-rail",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "wrap-right-rail",
+            "degrees": 180,
+            "faces": [
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-41",
+              "panel-44",
+              "panel-45",
+              "panel-46",
+              "panel-47",
+              "panel-48",
+              "panel-81",
+              "panel-82",
+              "panel-83",
+              "panel-91",
+              "panel-92",
+              "panel-93",
+              "panel-94",
+              "panel-95",
+              "panel-98",
+              "panel-99",
+              "panel-100",
+              "panel-101",
+              "panel-102"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "face-the-bow",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "face-the-bow",
+            "degrees": 180,
+            "faces": [
+              "panel-0",
+              "panel-3",
+              "panel-4",
+              "panel-7",
+              "panel-8",
+              "panel-9",
+              "panel-27",
+              "panel-30",
+              "panel-31",
+              "panel-34",
+              "panel-35",
+              "panel-36"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "face-the-stern",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "face-the-stern",
+            "degrees": 180,
+            "faces": [
+              "panel-54",
+              "panel-57",
+              "panel-58",
+              "panel-61",
+              "panel-62",
+              "panel-63",
+              "panel-81",
+              "panel-84",
+              "panel-85",
+              "panel-88",
+              "panel-89",
+              "panel-90"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "open-the-hull",
+        "durationMs": 2600,
+        "turns": [],
+        "guides": ["port-keel", "starboard-keel", "bow-keel", "stern-keel"],
+        "regions": [
+          {
+            "faces": ["panel-67", "panel-69", "panel-74", "panel-79"],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [-1, -1],
+              "center": [-0.115, -0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "side"
+            }
+          },
+          {
+            "faces": [
+              "panel-56",
+              "panel-58",
+              "panel-60",
+              "panel-61",
+              "panel-63",
+              "panel-66",
+              "panel-73",
+              "panel-78"
+            ],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [-1, -1],
+              "center": [-0.115, -0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "end"
+            }
+          },
+          {
+            "faces": ["panel-65", "panel-72", "panel-77"],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [-1, -1],
+              "center": [-0.115, -0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "side-gusset"
+            }
+          },
+          {
+            "faces": [
+              "panel-54",
+              "panel-55",
+              "panel-57",
+              "panel-59",
+              "panel-62",
+              "panel-64",
+              "panel-71",
+              "panel-76"
+            ],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [-1, -1],
+              "center": [-0.115, -0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "end-gusset"
+            }
+          },
+          {
+            "faces": ["panel-13", "panel-15", "panel-20", "panel-25"],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [-1, 1],
+              "center": [-0.115, 0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "side"
+            }
+          },
+          {
+            "faces": [
+              "panel-2",
+              "panel-4",
+              "panel-6",
+              "panel-8",
+              "panel-9",
+              "panel-12",
+              "panel-19",
+              "panel-24"
+            ],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [-1, 1],
+              "center": [-0.115, 0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "end"
+            }
+          },
+          {
+            "faces": ["panel-10", "panel-17", "panel-22"],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [-1, 1],
+              "center": [-0.115, 0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "side-gusset"
+            }
+          },
+          {
+            "faces": [
+              "panel-0",
+              "panel-1",
+              "panel-3",
+              "panel-5",
+              "panel-7",
+              "panel-11",
+              "panel-18",
+              "panel-23"
+            ],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [-1, 1],
+              "center": [-0.115, 0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "end-gusset"
+            }
+          },
+          {
+            "faces": ["panel-95", "panel-97", "panel-102", "panel-107"],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [1, -1],
+              "center": [0.115, -0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "side"
+            }
+          },
+          {
+            "faces": [
+              "panel-82",
+              "panel-84",
+              "panel-86",
+              "panel-88",
+              "panel-89",
+              "panel-91",
+              "panel-98",
+              "panel-103"
+            ],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [1, -1],
+              "center": [0.115, -0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "end"
+            }
+          },
+          {
+            "faces": ["panel-92", "panel-99", "panel-104"],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [1, -1],
+              "center": [0.115, -0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "side-gusset"
+            }
+          },
+          {
+            "faces": [
+              "panel-81",
+              "panel-83",
+              "panel-85",
+              "panel-87",
+              "panel-90",
+              "panel-93",
+              "panel-100",
+              "panel-105"
+            ],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [1, -1],
+              "center": [0.115, -0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "end-gusset"
+            }
+          },
+          {
+            "faces": ["panel-41", "panel-43", "panel-48", "panel-53"],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [1, 1],
+              "center": [0.115, 0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "side"
+            }
+          },
+          {
+            "faces": [
+              "panel-28",
+              "panel-30",
+              "panel-32",
+              "panel-34",
+              "panel-36",
+              "panel-37",
+              "panel-44",
+              "panel-49"
+            ],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [1, 1],
+              "center": [0.115, 0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "end"
+            }
+          },
+          {
+            "faces": ["panel-39", "panel-46", "panel-51"],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [1, 1],
+              "center": [0.115, 0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "side-gusset"
+            }
+          },
+          {
+            "faces": [
+              "panel-27",
+              "panel-29",
+              "panel-31",
+              "panel-33",
+              "panel-35",
+              "panel-38",
+              "panel-45",
+              "panel-50"
+            ],
+            "field": {
+              "kind": "tray-corner",
+              "outward": [1, 1],
+              "center": [0.115, 0.25],
+              "sideAngle": 68,
+              "endAngle": 60,
+              "branch": 1,
+              "sector": "end-gusset"
+            }
+          }
+        ]
+      },
+      {
+        "id": "bow-seat",
+        "durationMs": 1250,
+        "turns": [
+          {
+            "crease": "bow-seat",
+            "faces": ["panel-9", "panel-36"],
+            "degrees": -60
+          }
+        ]
+      },
+      {
+        "id": "stern-seat",
+        "durationMs": 1250,
+        "turns": [
+          {
+            "crease": "stern-seat",
+            "faces": ["panel-61", "panel-88"],
+            "degrees": 60
+          }
+        ]
+      }
+    ]
+  }
+}

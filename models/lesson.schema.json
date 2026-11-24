@@ -1,0 +1,699 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Oripo lesson package v1",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "status": {
+      "enum": ["draft", "published"]
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "difficulty": {
+      "enum": ["beginner", "intermediate", "advanced", null]
+    },
+    "category": {
+      "$ref": "#/definitions/id"
+    },
+    "paper": {
+      "type": "object",
+      "properties": {
+        "shape": {
+          "enum": ["square", "rectangle", "hexagon"]
+        },
+        "span": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "required": ["shape", "span"],
+      "additionalProperties": false
+    },
+    "finishedAppearance": {
+      "type": "object",
+      "properties": {
+        "front": {
+          "type": "string",
+          "pattern": "^#[a-fA-F0-9]{6}$"
+        },
+        "reverse": {
+          "type": "string",
+          "pattern": "^#[a-fA-F0-9]{6}$"
+        },
+        "edge": {
+          "type": "string",
+          "pattern": "^#[a-fA-F0-9]{6}$"
+        }
+      },
+      "required": ["front", "reverse", "edge"],
+      "additionalProperties": false
+    },
+    "manuscript": {
+      "$ref": "#/definitions/id"
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "variant": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "rights": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "rightsStatus": {
+          "enum": ["project-authored", "traditional", "permission-recorded", "unverified"]
+        },
+        "review": {
+          "type": "object",
+          "properties": {
+            "maker": {
+              "enum": ["provisional", "independent"]
+            },
+            "physical": {
+              "enum": ["pending", "verified"]
+            },
+            "language": {
+              "enum": ["pending", "verified"]
+            },
+            "visual": {
+              "enum": ["pending", "verified"]
+            }
+          },
+          "required": ["maker", "physical", "language", "visual"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["variant", "reference", "rights", "rightsStatus", "review"],
+      "additionalProperties": false
+    },
+    "presentation": {
+      "$ref": "#/definitions/presentation"
+    },
+    "pattern": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "enum": [1, 2, 3, 4, 5, 6]
+        },
+        "lessonId": {
+          "$ref": "#/definitions/id"
+        },
+        "sheet": {
+          "$ref": "#/definitions/sheet"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/step"
+          },
+          "minItems": 0,
+          "maxItems": 512
+        }
+      },
+      "required": ["version", "lessonId", "sheet", "steps"],
+      "additionalProperties": false
+    },
+    "fold": {
+      "$ref": "#/definitions/fold"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "status",
+    "order",
+    "difficulty",
+    "category",
+    "paper",
+    "finishedAppearance",
+    "manuscript",
+    "provenance",
+    "pattern"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "maxLength": 96
+    },
+    "xy": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "point": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "turn": {
+      "type": "object",
+      "properties": {
+        "crease": {
+          "$ref": "#/definitions/id"
+        },
+        "faces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/id"
+          },
+          "minItems": 1,
+          "maxItems": 4096,
+          "uniqueItems": true
+        },
+        "degrees": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "not": {
+            "const": 0
+          }
+        },
+        "corner": {
+          "type": "object",
+          "properties": {
+            "motion": {
+              "const": "right-gusset"
+            },
+            "carriedBy": {
+              "$ref": "#/definitions/id"
+            }
+          },
+          "required": ["motion"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["crease", "faces", "degrees"],
+      "additionalProperties": false
+    },
+    "field": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "hex-twist"
+            },
+            "radius": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          },
+          "required": ["kind", "radius"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "herringbone"
+            },
+            "origin": {
+              "$ref": "#/definitions/xy"
+            },
+            "pitch": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "band": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "stagger": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "degrees": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "exclusiveMaximum": 90
+            }
+          },
+          "required": ["kind", "origin", "pitch", "band", "stagger", "degrees"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "waterbomb"
+            },
+            "center": {
+              "$ref": "#/definitions/xy"
+            },
+            "radius": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "plies": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": ["kind", "center", "radius"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "pocket-squash"
+            },
+            "center": {
+              "$ref": "#/definitions/xy"
+            },
+            "inward": {
+              "enum": [-1, 1]
+            },
+            "sector": {
+              "enum": ["lip", "gusset", "cover"]
+            },
+            "landingPly": {
+              "type": "number"
+            }
+          },
+          "required": ["kind", "center", "inward", "sector", "landingPly"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": { "const": "tray-corner" },
+            "center": { "$ref": "#/definitions/xy" },
+            "outward": {
+              "type": "array",
+              "items": { "enum": [-1, 1] },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "sector": { "enum": ["side", "end", "side-gusset", "end-gusset"] },
+            "sideAngle": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 90 },
+            "endAngle": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 90 },
+            "branch": { "enum": [-1, 1] }
+          },
+          "required": ["kind", "center", "outward", "sector", "sideAngle", "endAngle", "branch"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "boat-pocket"
+            },
+            "frame": { "$ref": "#/definitions/framePins" },
+            "center": {
+              "$ref": "#/definitions/xy"
+            },
+            "inward": {
+              "enum": [-1, 1]
+            },
+            "sector": {
+              "enum": ["wall", "wing", "bridge"]
+            },
+            "landingPly": {
+              "type": "number"
+            },
+            "outward": {
+              "enum": [-1, 1]
+            }
+          },
+          "required": ["kind", "center", "inward", "sector", "landingPly", "outward"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "framePins": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/id"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true
+    },
+    "crimp": {
+      "type": "object",
+      "properties": {
+        "frame": { "$ref": "#/definitions/framePins" },
+        "side": {
+          "enum": [-1, 1]
+        },
+        "stations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/xy"
+          },
+          "minItems": 1,
+          "maxItems": 128
+        },
+        "halfAngle": {
+          "type": "number",
+          "exclusiveMinimum": -90,
+          "exclusiveMaximum": 90,
+          "not": {
+            "const": 0
+          }
+        },
+        "hold": {
+          "enum": ["left", "spine"]
+        },
+        "faces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/id"
+          },
+          "minItems": 1,
+          "maxItems": 4096,
+          "uniqueItems": true
+        }
+      },
+      "required": ["frame", "side", "stations", "halfAngle", "hold", "faces"],
+      "additionalProperties": false
+    },
+    "step": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/id"
+        },
+        "durationMs": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "turns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/turn"
+          },
+          "minItems": 0,
+          "maxItems": 4096
+        },
+        "field": {
+          "$ref": "#/definitions/field"
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "field": {
+                "$ref": "#/definitions/field"
+              },
+              "faces": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/id"
+                },
+                "minItems": 1,
+                "maxItems": 4096,
+                "uniqueItems": true
+              }
+            },
+            "required": ["field", "faces"],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 4096
+        },
+        "crimps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/crimp"
+          },
+          "minItems": 1,
+          "maxItems": 4096
+        },
+        "reopenTo": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 1
+        },
+        "guides": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/id"
+          },
+          "minItems": 1,
+          "maxItems": 4096,
+          "uniqueItems": true
+        }
+      },
+      "required": ["id", "durationMs", "turns"],
+      "additionalProperties": false
+    },
+    "sheet": {
+      "type": "object",
+      "properties": {
+        "vertices": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "#/definitions/id"
+          },
+          "additionalProperties": {
+            "$ref": "#/definitions/point"
+          },
+          "minProperties": 3,
+          "maxProperties": 4096
+        },
+        "faces": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/id"
+              },
+              "vertices": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/id"
+                },
+                "minItems": 3,
+                "maxItems": 4096,
+                "uniqueItems": true
+              }
+            },
+            "required": ["id", "vertices"],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 4096
+        },
+        "creases": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "#/definitions/id"
+          },
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/id"
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "uniqueItems": true
+          },
+          "minProperties": 0,
+          "maxProperties": 4096
+        }
+      },
+      "required": ["vertices", "faces", "creases"],
+      "additionalProperties": false
+    },
+    "presentation": {
+      "type": "object",
+      "properties": {
+        "view": {
+          "type": "object",
+          "properties": {
+            "position": {
+              "$ref": "#/definitions/point"
+            },
+            "minDistance": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "maxDistance": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "inspectBack": {
+              "type": "boolean"
+            },
+            "shadowZ": {
+              "type": "number"
+            },
+            "materialFrame": {
+              "type": "object",
+              "properties": {
+                "center": { "$ref": "#/definitions/point" },
+                "scale": { "type": "number", "exclusiveMinimum": 0 }
+              },
+              "required": ["center", "scale"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["position", "minDistance", "maxDistance"],
+          "additionalProperties": false
+        },
+        "previewEye": {
+          "$ref": "#/definitions/point"
+        },
+        "hingePlies": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "#/definitions/id"
+          },
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "$ref": "#/definitions/point"
+              },
+              {
+                "type": "object",
+                "propertyNames": {
+                  "$ref": "#/definitions/id"
+                },
+                "additionalProperties": {
+                  "oneOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "$ref": "#/definitions/point"
+                    }
+                  ]
+                },
+                "minProperties": 1,
+                "maxProperties": 4096
+              }
+            ]
+          },
+          "minProperties": 0,
+          "maxProperties": 4096
+        },
+        "plyThickness": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "fold": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "file_creator": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "file_author": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "file_title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "file_description": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "frame_author": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "frame_title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "frame_description": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2048
+            },
+            "file_classes": {
+              "type": "array",
+              "items": {
+                "const": "singleModel"
+              },
+              "minItems": 1,
+              "maxItems": 1
+            },
+            "frame_classes": {
+              "type": "array",
+              "items": {
+                "const": "creasePattern"
+              },
+              "minItems": 1,
+              "maxItems": 1
+            },
+            "frame_unit": {
+              "enum": ["unit", "in", "pt", "m", "cm", "mm", "um", "nm"]
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/id"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "minItems": 1,
+          "maxItems": 12288
+        },
+        "assignments": {
+          "type": "array",
+          "items": {
+            "enum": ["B", "M", "V", "U", "F"]
+          },
+          "minItems": 1,
+          "maxItems": 12288
+        }
+      },
+      "required": ["metadata", "edges"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,17 +1,21 @@
 import { deflateSync, crc32 } from "node:zlib";
-import { atIndex, type CompiledLesson } from "../app/lesson/geometry";
+import { atIndex, poseAt, type CompiledLesson } from "../app/lesson/geometry";
 import { paperLayers, type HingePlies } from "../app/lesson/drawing";
 import type { Point } from "../app/fold/geometry";
-import type { PaperPalette } from "../app/lesson/paper-palette";
+import { instructionalPaper, type PaperPalette } from "../app/lesson/paper-palette";
 
 // Orthographic, depth-tested projection of the production endpoint, sampled twice per axis.
 export function projectPaper(
   model: CompiledLesson,
   heights: HingePlies,
-  palette: PaperPalette,
+  finished: PaperPalette,
   eye: Point,
   plyThickness?: number,
+  position = model.steps.length,
 ) {
+  if (!Number.isFinite(position) || position < 0 || position > model.steps.length)
+    throw Error("Preview position outside the timeline");
+  const palette = position === model.steps.length ? finished : instructionalPaper;
   const width = 440,
     height = 312,
     scale = 2,
@@ -28,11 +32,18 @@ export function projectPaper(
     return [a[0] / length, a[1] / length, a[2] / length];
   };
   const toward = unit(eye),
-    right = unit(cross([0, 0, 1], toward)),
+    right =
+      Math.hypot(toward[0], toward[1]) < 1e-12
+        ? ([1, 0, 0] as Point)
+        : unit(cross([0, 0, 1], toward)),
     up = cross(toward, right);
-  const pose = atIndex(model.poses, model.steps.length);
-  const { offsets, outlines } = paperLayers(model, heights, plyThickness);
-  const separation = atIndex(offsets, model.steps.length);
+  const step = Math.min(Math.floor(position), model.steps.length - 1),
+    progress = position - step;
+  const pose = poseAt(model, step, progress);
+  const { offsets, foldOffsets, outlines } = paperLayers(model, heights, plyThickness);
+  const separation = Number.isInteger(position)
+    ? atIndex(offsets, position)
+    : foldOffsets(atIndex(offsets, step), step, progress);
   const projected = model.faces.map(({ vertices }, f) =>
     vertices.map((v): Point => {
       const p = atIndex(pose, v),
@@ -102,7 +113,7 @@ export function projectPaper(
   for (const [f, face] of model.faces.entries()) {
     const polygon = atIndex(polygons, f);
     for (const line of atIndex(outlines, f)) {
-      if (line.appearsAfter >= model.steps.length) continue;
+      if (line.appearsAfter >= position) continue;
       const a = atIndex(polygon, face.vertices.indexOf(line.a)),
         b = atIndex(polygon, face.vertices.indexOf(line.b));
       const dx = b[0] - a[0],

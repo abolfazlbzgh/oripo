@@ -11,6 +11,9 @@ export default defineConfig({
       configureServer(server) {
         let previousProjector: unknown;
         let previews = new Map<string, Buffer>();
+        server.watcher.on("change", (file) => {
+          if (file.replaceAll("\\", "/").endsWith("/lesson.json")) previousProjector = undefined;
+        });
         server.middlewares.use("/previews", async (request, response, next) => {
           try {
             const source = await server.ssrLoadModule("/scripts/lesson-previews.ts");

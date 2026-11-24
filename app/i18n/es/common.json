@@ -41,30 +41,30 @@
     "back": "Volver a explorar"
   },
   "models": {
-    "hex-iris": {
-      "title": "Iris hexagonal de ámbar",
-      "short": "Iris hexagonal",
-      "summary": "Cierra seis pliegues enlazados alrededor de un hexágono y ábrelos para revelar un relieve dorado y violeta."
+    "reed-runner-dinosaur": {
+      "title": "Dinosaurio de los juncos",
+      "short": "Corredor de los juncos",
+      "summary": "Convierte las cuatro esquinas en una cabeza de hocico chato, una cola larga y dos patas que dan un paso."
     },
     "river-tern": {
       "title": "Charrán de río",
       "short": "Charrán",
       "summary": "Forma una cola ahorquillada y un cuello elevado en una base cometa y despliega las alas."
     },
-    "pinwheel-calyx": {
-      "title": "Cáliz de molinete",
-      "short": "Cáliz",
-      "summary": "Pliega cuatro bordes dobles en una base de esquinas al centro y levanta cuatro pétalos interiores puntiagudos."
+    "twin-stern-junk": {
+      "title": "Junco de dos respaldos",
+      "short": "Junco de papel",
+      "summary": "Abre un casco azul y pliega un pequeño asiento delante de cada respaldo."
     },
     "jumping-frog": {
       "title": "Rana saltarina de cuatro patas",
       "short": "Rana saltarina",
       "summary": "Abre los bolsillos de las patas traseras y forma bajo la rana un resorte de papel en reposo."
     },
-    "herringbone-map": {
-      "title": "Mapa en espiga",
-      "short": "Mapa Miura",
-      "summary": "Pliega cuatro capas en crestas de zigzag que acortan el mapa en ambas direcciones."
+    "monarch-butterfly": {
+      "title": "Mariposa monarca",
+      "short": "Mariposa",
+      "summary": "Extrae las cuatro puntas de un cuadrado plegado, forma dos pares de alas y pellizca el cuerpo."
     },
     "paper-airplane": {
       "title": "Avión de papel tipo dardo",

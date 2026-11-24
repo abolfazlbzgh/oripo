@@ -1,0 +1,74 @@
+{
+  "sheet": {
+    "title": "折出基础折痕",
+    "instruction": "让正方形的一条边朝向自己。分别折出两条对角线和横、竖中线，再展开。",
+    "result": "八个三角形区域在中心相交。"
+  },
+  "steps": {
+    "collapse-the-base": {
+      "title": "收成水雷基础形",
+      "instruction": "把左右两边的中点向内推。让对角折痕合拢，上边随之落到下边。",
+      "result": "四个独立角瓣叠成三角形，长边朝向自己。"
+    },
+    "swing-leading-leg": {
+      "title": "翻出后腿 · 迈出的腿",
+      "instruction": "从下层把标出的角瓣沿斜线向下折，让尖端越过长边，上层纸瓣保持不动。",
+      "result": "一个下层尖角伸到腹部下方。"
+    },
+    "swing-trailing-leg": {
+      "title": "翻出后腿 · 靠后的腿",
+      "instruction": "从下层把标出的角瓣沿斜线向下折，让尖端越过长边，上层纸瓣保持不动。",
+      "result": "一个下层尖角伸到腹部下方。"
+    },
+    "bend-leading-ankle": {
+      "title": "折出脚踝 · 迈出的腿",
+      "instruction": "沿短斜线回折这条腿的末端，使尖端朝左，指向头部。",
+      "result": "短小的脚掌与腿部形成夹角。"
+    },
+    "bend-trailing-ankle": {
+      "title": "折出脚踝 · 靠后的腿",
+      "instruction": "沿短斜线回折这条腿的末端，使尖端朝左，指向头部。",
+      "result": "短小的脚掌与腿部形成夹角。"
+    },
+    "lift-the-neck": {
+      "title": "抬起颈部",
+      "instruction": "沿斜折痕抬起左上方的长角，把尖端举到左肩上方。",
+      "result": "长颈从身体上方伸出。"
+    },
+    "turn-the-head": {
+      "title": "折出头部",
+      "instruction": "只将颈部末端沿指示的斜线向左下方折。",
+      "result": "楔形头部朝前伸出，与颈部轮廓分明。"
+    },
+    "square-the-muzzle": {
+      "title": "折平吻端",
+      "instruction": "沿短竖线将细小的嘴尖向回折。",
+      "result": "吻端呈短而平的直边。"
+    },
+    "lower-the-back": {
+      "title": "压低背部",
+      "instruction": "沿横线把中央的顶角折到身体后面，让头和尾保持自由。",
+      "result": "背线降低，折下的尖端出现在腹部下面。"
+    },
+    "shape-the-tail": {
+      "title": "收细尾部",
+      "instruction": "把右侧纸包的上缘沿通向尾尖的斜线向后折。",
+      "result": "尾巴从宽大的根部逐渐收细到尾尖。"
+    },
+    "fold-the-forelimb": {
+      "title": "折出前肢",
+      "instruction": "沿胸部下方的短斜线把中央自由角回折。",
+      "result": "颈部和后腿之间出现短小弯折的前肢。"
+    },
+    "open-the-stance": {
+      "title": "分开双腿",
+      "instruction": "沿标出的折痕将两条小腿轻轻朝相反方向打开，保持腹部不动。",
+      "result": "两只脚分处不同平面，呈迈步姿势。"
+    },
+    "curve-the-tail": {
+      "title": "转出尾尖",
+      "instruction": "沿最后一道折痕轻轻转动尾巴外段，让它偏离身体平面。",
+      "result": "侧看长尾与头部相呼应，斜看可见偏转的尾尖。"
+    }
+  }
+}

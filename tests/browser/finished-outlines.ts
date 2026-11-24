@@ -1,9 +1,8 @@
-import { calyxOutline } from "../advanced-projections";
+import { batchOutline } from "../batch-projections";
 import { ternOutline } from "../tern-projection";
-import { irisPolygons } from "../iris-projection";
 import { atIndex } from "../../app/lesson/geometry";
 import { dartOutline } from "./dart-pixels";
-import { mapOutline } from "./herringbone-outline";
+import { butterflyOutline } from "../butterfly-outline";
 import { frogOutline } from "./frog-outline";
 import type { Point } from "./paper-pixels";
 
@@ -39,11 +38,11 @@ const walls = floor.map((p, i) => {
   return [p, q, [q[0], q[1], 0.5], [p[0], p[1], 0.5]] as Point[];
 });
 export const finishedOutlines = {
-  "pinwheel-calyx": calyxOutline(),
+  "twin-stern-junk": batchOutline("twin-stern-junk", 27),
   "river-tern": ternOutline(),
-  "hex-iris": irisPolygons(0.26).map((p) => p.posed),
+  "reed-runner-dinosaur": batchOutline("reed-runner-dinosaur", 13),
   "jumping-frog": frogOutline(),
-  "herringbone-map": mapOutline(),
+  "monarch-butterfly": butterflyOutline(),
   "masu-box": [floor, ...walls],
   "paper-heart": [heartOutline],
   "fox-face": [foxOutline],

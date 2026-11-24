@@ -41,30 +41,30 @@
     "back": "返回探索"
   },
   "models": {
-    "hex-iris": {
-      "title": "琥珀六角光圈",
-      "short": "六角光圈",
-      "summary": "把六道相连的褶绕六角中心闭合，再略微展开，露出金紫相间的浮雕。"
+    "reed-runner-dinosaur": {
+      "title": "芦苇荡里的奔龙",
+      "short": "芦苇奔龙",
+      "summary": "用四个角分别折出短吻的头、长尾和一前一后迈开的双腿。"
     },
     "river-tern": {
       "title": "河燕鸥",
       "short": "燕鸥",
       "summary": "在多层风筝形底上折出叉尾和翘起的颈，再展开两翼。"
     },
-    "pinwheel-calyx": {
-      "title": "风车花萼",
-      "short": "风车花萼",
-      "summary": "在四角向中心折成的底座上折出四片卷边外瓣，再从中心立起四片尖内瓣。"
+    "twin-stern-junk": {
+      "title": "双靠背中式纸船",
+      "short": "双靠背纸船",
+      "summary": "把两头尖的纸包撑成蓝色船身，在两个翘起的靠背前各折出一个座位。"
     },
     "jumping-frog": {
       "title": "四足跳蛙",
       "short": "跳蛙",
       "summary": "翻开后腿的两个纸袋，再在腹部折出回折弹簧，观察它静止时的形状。"
     },
-    "herringbone-map": {
-      "title": "人字折叠地图",
-      "short": "三浦地图",
-      "summary": "把四层纸收成起伏的锯齿，让地图沿两个方向缩短。"
+    "monarch-butterfly": {
+      "title": "帝王蝶",
+      "short": "蝴蝶",
+      "summary": "从折好的正方形中拉出四个角，折出两对翅膀，再捏起细长的蝶身。"
     },
     "paper-airplane": {
       "title": "飞镖式纸飞机",

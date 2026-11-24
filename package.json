@@ -8,6 +8,9 @@
   },
   "packageManager": "npm@10.9.8",
   "scripts": {
+    "models": "node scripts/models.mjs",
+    "predev": "npm run models -- check",
+    "prebuild": "npm run models -- check",
     "dev": "react-router dev",
     "build": "react-router build",
     "preview": "node scripts/preview.mjs",
@@ -33,6 +36,7 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@types/three": "0.187.0",
+    "ajv": "6.15.0",
     "daisyui": "5.8.2",
     "eslint": "10.15.0",
     "globals": "17.14.0",

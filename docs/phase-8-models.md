@@ -1,5 +1,7 @@
 # Phase 8 model selection
 
+This historical selection record describes the collection before the Monarch replaced the map. [Current catalog](../README.md) · [Monarch decision](phase-9-candidates.md)
+
 ## Phase 8C public catalog
 
 | Maker tier   | Stable ID         | Category      | Actions | Finished paper           |

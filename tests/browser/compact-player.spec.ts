@@ -3,14 +3,14 @@ import { expect } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
 
 for (const [slug, first, second, total] of [
-  ["pinwheel-calyx", 2100, 1700, 8],
+  ["twin-stern-junk", 1400, 1400, 27],
   ["river-tern", 1850, 1450, 15],
-  ["hex-iris", 1350, 1350, 20],
+  ["reed-runner-dinosaur", 2100, 1400, 13],
   ["paper-airplane", 1600, 1600, 9],
   ["paper-heart", 1400, 1400, 12],
   ["fox-face", 1500, 1400, 6],
   ["masu-box", 1800, 1800, 18],
-  ["herringbone-map", 1400, 1400, 15],
+  ["monarch-butterfly", 1500, 1500, 18],
   ["jumping-frog", 1600, 1600, 20],
 ] as const) {
   test(`${slug} plays through a boundary, pauses mid-fold and cancels the clock on seek`, async ({

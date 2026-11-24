@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "order": 10,
+  "difficulty": "beginner",
+  "category": "vehicle",
+  "paper": {
+    "shape": "rectangle",
+    "span": [2, 3]
+  },
+  "finishedAppearance": {
+    "front": "#bdcfdf",
+    "reverse": "#90abc6",
+    "edge": "#49647e"
+  },
+  "manuscript": "paper-airplane",
+  "provenance": {
+    "variant": "Oripo radial dart",
+    "reference": "docs/decisions/0003-authored-dart.md",
+    "rightsStatus": "project-authored",
+    "rights": "Oripo-authored geometry and manuscript. See the construction record for attribution.",
+    "review": {
+      "maker": "provisional",
+      "physical": "pending",
+      "language": "pending",
+      "visual": "pending"
+    }
+  },
+  "presentation": {
+    "view": {
+      "position": [2.4, -3.35, 4],
+      "minDistance": 3.9,
+      "maxDistance": 8
+    },
+    "previewEye": [2.4, -3.35, 4],
+    "hingePlies": {
+      "mark-spine": 0.5,
+      "open-sheet": 0.5,
+      "left-corner": 0.5,
+      "right-corner": 0.5,
+      "left-taper": 1.5,
+      "right-taper": 1.5,
+      "close-body": 4,
+      "left-wing": 0,
+      "right-wing": 0
+    }
+  },
+  "pattern": {
+    "version": 1,
+    "lessonId": "paper-airplane",
+    "sheet": {
+      "vertices": {
+        "nose": [0, 1.5, 0],
+        "tail": [0, -1.5, 0],
+        "left-ray-1": [-0.30000000000000004, -1.5, 0],
+        "left-ray-2": [-1, -0.9142135623730949, 0],
+        "left-rear": [-1, -1.5, 0],
+        "left-ray-3": [-1, 0.27777777777777746, 0],
+        "left-ray-4": [-1, 0.4999999999999998, 0],
+        "left-ray-5": [-1, 0.6818181818181819, 0],
+        "left-ray-6": [-1, 1.0857864376269049, 0],
+        "left-ray-7": [-1, 1.4, 0],
+        "left-ray-8": [-1, 1.5, 0],
+        "right-ray-1": [0.30000000000000004, -1.5, 0],
+        "right-ray-2": [1, -0.9142135623730949, 0],
+        "right-rear": [1, -1.5, 0],
+        "right-ray-3": [1, 0.27777777777777746, 0],
+        "right-ray-4": [1, 0.4999999999999998, 0],
+        "right-ray-5": [1, 0.6818181818181819, 0],
+        "right-ray-6": [1, 1.0857864376269049, 0],
+        "right-ray-7": [1, 1.4, 0],
+        "right-ray-8": [1, 1.5, 0]
+      },
+      "faces": [
+        {
+          "id": "left-0",
+          "vertices": ["nose", "left-ray-1", "tail"]
+        },
+        {
+          "id": "left-1",
+          "vertices": ["nose", "left-ray-2", "left-rear", "left-ray-1"]
+        },
+        {
+          "id": "left-2",
+          "vertices": ["nose", "left-ray-3", "left-ray-2"]
+        },
+        {
+          "id": "left-3",
+          "vertices": ["nose", "left-ray-4", "left-ray-3"]
+        },
+        {
+          "id": "left-4",
+          "vertices": ["nose", "left-ray-5", "left-ray-4"]
+        },
+        {
+          "id": "left-5",
+          "vertices": ["nose", "left-ray-6", "left-ray-5"]
+        },
+        {
+          "id": "left-6",
+          "vertices": ["nose", "left-ray-7", "left-ray-6"]
+        },
+        {
+          "id": "left-7",
+          "vertices": ["nose", "left-ray-8", "left-ray-7"]
+        },
+        {
+          "id": "right-0",
+          "vertices": ["nose", "tail", "right-ray-1"]
+        },
+        {
+          "id": "right-1",
+          "vertices": ["nose", "right-ray-1", "right-rear", "right-ray-2"]
+        },
+        {
+          "id": "right-2",
+          "vertices": ["nose", "right-ray-2", "right-ray-3"]
+        },
+        {
+          "id": "right-3",
+          "vertices": ["nose", "right-ray-3", "right-ray-4"]
+        },
+        {
+          "id": "right-4",
+          "vertices": ["nose", "right-ray-4", "right-ray-5"]
+        },
+        {
+          "id": "right-5",
+          "vertices": ["nose", "right-ray-5", "right-ray-6"]
+        },
+        {
+          "id": "right-6",
+          "vertices": ["nose", "right-ray-6", "right-ray-7"]
+        },
+        {
+          "id": "right-7",
+          "vertices": ["nose", "right-ray-7", "right-ray-8"]
+        }
+      ],
+      "creases": {
+        "spine": ["nose", "tail"],
+        "left-corner": ["nose", "left-ray-4"],
+        "left-taper": ["nose", "left-ray-2"],
+        "left-wing": ["nose", "left-ray-1"],
+        "right-corner": ["nose", "right-ray-4"],
+        "right-taper": ["nose", "right-ray-2"],
+        "right-wing": ["nose", "right-ray-1"]
+      }
+    },
+    "steps": [
+      {
+        "id": "mark-spine",
+        "durationMs": 1600,
+        "turns": [
+          {
+            "crease": "spine",
+            "degrees": 180,
+            "faces": [
+              "right-0",
+              "right-1",
+              "right-2",
+              "right-3",
+              "right-4",
+              "right-5",
+              "right-6",
+              "right-7"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "open-sheet",
+        "durationMs": 1600,
+        "turns": [
+          {
+            "crease": "spine",
+            "degrees": -180,
+            "faces": [
+              "right-0",
+              "right-1",
+              "right-2",
+              "right-3",
+              "right-4",
+              "right-5",
+              "right-6",
+              "right-7"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "left-corner",
+        "durationMs": 1500,
+        "turns": [
+          {
+            "crease": "left-corner",
+            "degrees": -180,
+            "faces": ["left-4", "left-5", "left-6", "left-7"]
+          }
+        ]
+      },
+      {
+        "id": "right-corner",
+        "durationMs": 1500,
+        "turns": [
+          {
+            "crease": "right-corner",
+            "degrees": 180,
+            "faces": ["right-4", "right-5", "right-6", "right-7"]
+          }
+        ]
+      },
+      {
+        "id": "left-taper",
+        "durationMs": 1800,
+        "turns": [
+          {
+            "crease": "left-taper",
+            "degrees": -180,
+            "faces": ["left-2", "left-3", "left-4", "left-5"]
+          }
+        ]
+      },
+      {
+        "id": "right-taper",
+        "durationMs": 1800,
+        "turns": [
+          {
+            "crease": "right-taper",
+            "degrees": 180,
+            "faces": ["right-2", "right-3", "right-4", "right-5"]
+          }
+        ]
+      },
+      {
+        "id": "close-body",
+        "durationMs": 1800,
+        "turns": [
+          {
+            "crease": "spine",
+            "degrees": -90,
+            "faces": [
+              "left-0",
+              "left-1",
+              "left-2",
+              "left-3",
+              "left-4",
+              "left-5",
+              "left-6",
+              "left-7"
+            ]
+          },
+          {
+            "crease": "spine",
+            "degrees": 90,
+            "faces": [
+              "right-0",
+              "right-1",
+              "right-2",
+              "right-3",
+              "right-4",
+              "right-5",
+              "right-6",
+              "right-7"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "left-wing",
+        "durationMs": 1500,
+        "turns": [
+          {
+            "crease": "left-wing",
+            "degrees": 84,
+            "faces": ["left-1", "left-2", "left-5", "left-6"]
+          }
+        ]
+      },
+      {
+        "id": "right-wing",
+        "durationMs": 1500,
+        "turns": [
+          {
+            "crease": "right-wing",
+            "degrees": -84,
+            "faces": ["right-1", "right-2", "right-5", "right-6"]
+          }
+        ]
+      }
+    ]
+  }
+}

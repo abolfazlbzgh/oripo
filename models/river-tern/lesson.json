@@ -1,0 +1,709 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "order": 80,
+  "difficulty": "advanced",
+  "category": "bird",
+  "paper": {
+    "shape": "square",
+    "span": [3, 3]
+  },
+  "finishedAppearance": {
+    "front": "#4278ae",
+    "reverse": "#89b6d0",
+    "edge": "#294966"
+  },
+  "manuscript": "river-tern",
+  "provenance": {
+    "variant": "Oripo River tern",
+    "reference": "docs/decisions/0009-advanced-model-selection.md",
+    "rightsStatus": "project-authored",
+    "rights": "Oripo-authored geometry and manuscript. See the construction record for attribution.",
+    "review": {
+      "maker": "provisional",
+      "physical": "pending",
+      "language": "pending",
+      "visual": "pending"
+    }
+  },
+  "presentation": {
+    "view": {
+      "position": [3.1, 0.7, 2.6],
+      "minDistance": 2,
+      "maxDistance": 8,
+      "inspectBack": true,
+      "shadowZ": -1.65
+    },
+    "previewEye": [3.1, 0.7, 2.6],
+    "hingePlies": {
+      "kite-base": 0.5,
+      "double-bill": 1.5,
+      "narrow-cheeks": -0.5,
+      "close-book": 3.5,
+      "open-book": 3.5,
+      "spread-left": 0,
+      "spread-right": 0,
+      "bend-wrists": 0,
+      "mark-throat": 11.5,
+      "release-throat": 11.5,
+      "mark-crown": -4.5,
+      "release-crown": -4.5,
+      "mark-tail": 11.5,
+      "release-tail": 11.5
+    }
+  },
+  "pattern": {
+    "version": 4,
+    "lessonId": "river-tern",
+    "sheet": {
+      "vertices": {
+        "v-0": [-0.252808988764045, -1.2471910112359548, 0],
+        "v-1": [-0.22058823529411764, -1.2794117647058822, 0],
+        "v-2": [0, -1.2, 0],
+        "v-3": [0, 0, 0],
+        "v-4": [-0.39, 0, 0],
+        "v-5": [-0.6213203435596427, 1.1102230246251565e-16, 0],
+        "v-6": [-0.7734590803390138, -0.3672954016950679, 0],
+        "v-7": [-0.8333333333333334, -0.6666666666666666, 0],
+        "v-8": [-0.8786796564403576, -0.6213203435596424, 0],
+        "v-9": [0, -1.5, 0],
+        "v-10": [-0.29615959920656404, 0.7850074789685333, 0],
+        "v-11": [-0.4385398311260226, 0.44127119205474996, 0],
+        "v-12": [0, 0.4, 0],
+        "v-13": [-0.199234639466234, 1.0190050313061043, 0],
+        "v-14": [0, 0.7600000000000001, 0],
+        "v-15": [-0.09292450732447155, 1.2756603941404228, 0],
+        "v-16": [0, 1.35, 0],
+        "v-17": [-0.06213203435596426, 1.35, 0],
+        "v-18": [0.22058823529411767, -1.2794117647058822, 0],
+        "v-19": [0.25280898876404506, -1.2471910112359548, 0],
+        "v-20": [0.39000000000000007, 0, 0],
+        "v-21": [0.8333333333333335, -0.6666666666666666, 0],
+        "v-22": [0.7734590803390138, -0.3672954016950677, 0],
+        "v-23": [0.6213203435596428, 0, 0],
+        "v-24": [0.8786796564403576, -0.6213203435596424, 0],
+        "v-25": [0.4385398311260227, 0.4412711920547497, 0],
+        "v-26": [0.296159599206564, 0.7850074789685333, 0],
+        "v-27": [0.199234639466234, 1.019005031306104, 0],
+        "v-28": [0.09292450732447154, 1.2756603941404228, 0],
+        "v-29": [0.06213203435596423, 1.35, 0],
+        "v-30": [0, 1.5, 0],
+        "v-31": [-0.04666771422906108, 1.387334171383249, 0],
+        "v-32": [0.04666771422906106, 1.387334171383249, 0],
+        "v-33": [1.2725557364414664, -0.2274442635585337, 0],
+        "v-34": [1.5, 0, 0],
+        "v-35": [1.0606601717798214, 0.43933982822017864, 0],
+        "v-36": [0.784888527117068, 0.16356818355742522, 0],
+        "v-37": [0.9171572875253812, -0.5828427124746188, 0],
+        "v-38": [0.7778174593052022, 0.7221825406947979, 0],
+        "v-39": [0.5232590180780452, 0.9767409819219549, 0],
+        "v-40": [0.10606601717798214, 1.3939339828220179, 0],
+        "v-41": [-1.0606601717798214, 0.4393398282201786, 0],
+        "v-42": [-1.5, 0, 0],
+        "v-43": [-1.2725557364414664, -0.22744426355853364, 0],
+        "v-44": [-0.784888527117068, 0.1635681835574253, 0],
+        "v-45": [-0.9171572875253812, -0.5828427124746188, 0],
+        "v-46": [-0.7778174593052022, 0.7221825406947978, 0],
+        "v-47": [-0.5232590180780451, 0.9767409819219549, 0],
+        "v-48": [-0.10606601717798206, 1.3939339828220179, 0]
+      },
+      "faces": [
+        {
+          "id": "panel-0",
+          "vertices": ["v-0", "v-1", "v-2", "v-3", "v-4"]
+        },
+        {
+          "id": "panel-1",
+          "vertices": ["v-5", "v-6", "v-7", "v-0", "v-4"]
+        },
+        {
+          "id": "panel-2",
+          "vertices": ["v-6", "v-8", "v-7"]
+        },
+        {
+          "id": "panel-3",
+          "vertices": ["v-1", "v-9", "v-2"]
+        },
+        {
+          "id": "panel-4",
+          "vertices": ["v-10", "v-11", "v-4", "v-3", "v-12"]
+        },
+        {
+          "id": "panel-5",
+          "vertices": ["v-11", "v-5", "v-4"]
+        },
+        {
+          "id": "panel-6",
+          "vertices": ["v-13", "v-10", "v-12", "v-14"]
+        },
+        {
+          "id": "panel-7",
+          "vertices": ["v-15", "v-13", "v-14", "v-16"]
+        },
+        {
+          "id": "panel-8",
+          "vertices": ["v-17", "v-15", "v-16"]
+        },
+        {
+          "id": "panel-9",
+          "vertices": ["v-18", "v-19", "v-20", "v-3", "v-2"]
+        },
+        {
+          "id": "panel-10",
+          "vertices": ["v-19", "v-21", "v-22", "v-23", "v-20"]
+        },
+        {
+          "id": "panel-11",
+          "vertices": ["v-21", "v-24", "v-22"]
+        },
+        {
+          "id": "panel-12",
+          "vertices": ["v-9", "v-18", "v-2"]
+        },
+        {
+          "id": "panel-13",
+          "vertices": ["v-25", "v-26", "v-12", "v-3", "v-20"]
+        },
+        {
+          "id": "panel-14",
+          "vertices": ["v-23", "v-25", "v-20"]
+        },
+        {
+          "id": "panel-15",
+          "vertices": ["v-26", "v-27", "v-14", "v-12"]
+        },
+        {
+          "id": "panel-16",
+          "vertices": ["v-27", "v-28", "v-16", "v-14"]
+        },
+        {
+          "id": "panel-17",
+          "vertices": ["v-28", "v-29", "v-16"]
+        },
+        {
+          "id": "panel-18",
+          "vertices": ["v-30", "v-31", "v-16"]
+        },
+        {
+          "id": "panel-19",
+          "vertices": ["v-31", "v-17", "v-16"]
+        },
+        {
+          "id": "panel-20",
+          "vertices": ["v-30", "v-16", "v-32"]
+        },
+        {
+          "id": "panel-21",
+          "vertices": ["v-16", "v-29", "v-32"]
+        },
+        {
+          "id": "panel-22",
+          "vertices": ["v-33", "v-34", "v-35", "v-36"]
+        },
+        {
+          "id": "panel-23",
+          "vertices": ["v-23", "v-22", "v-37", "v-33", "v-36"]
+        },
+        {
+          "id": "panel-24",
+          "vertices": ["v-22", "v-24", "v-37"]
+        },
+        {
+          "id": "panel-25",
+          "vertices": ["v-26", "v-25", "v-36", "v-35", "v-38"]
+        },
+        {
+          "id": "panel-26",
+          "vertices": ["v-25", "v-23", "v-36"]
+        },
+        {
+          "id": "panel-27",
+          "vertices": ["v-27", "v-26", "v-38", "v-39"]
+        },
+        {
+          "id": "panel-28",
+          "vertices": ["v-28", "v-27", "v-39", "v-40"]
+        },
+        {
+          "id": "panel-29",
+          "vertices": ["v-29", "v-28", "v-40"]
+        },
+        {
+          "id": "panel-30",
+          "vertices": ["v-30", "v-32", "v-40"]
+        },
+        {
+          "id": "panel-31",
+          "vertices": ["v-32", "v-29", "v-40"]
+        },
+        {
+          "id": "panel-32",
+          "vertices": ["v-41", "v-42", "v-43", "v-44"]
+        },
+        {
+          "id": "panel-33",
+          "vertices": ["v-43", "v-45", "v-6", "v-5", "v-44"]
+        },
+        {
+          "id": "panel-34",
+          "vertices": ["v-45", "v-8", "v-6"]
+        },
+        {
+          "id": "panel-35",
+          "vertices": ["v-46", "v-41", "v-44", "v-11", "v-10"]
+        },
+        {
+          "id": "panel-36",
+          "vertices": ["v-44", "v-5", "v-11"]
+        },
+        {
+          "id": "panel-37",
+          "vertices": ["v-47", "v-46", "v-10", "v-13"]
+        },
+        {
+          "id": "panel-38",
+          "vertices": ["v-48", "v-47", "v-13", "v-15"]
+        },
+        {
+          "id": "panel-39",
+          "vertices": ["v-48", "v-15", "v-17"]
+        },
+        {
+          "id": "panel-40",
+          "vertices": ["v-30", "v-48", "v-31"]
+        },
+        {
+          "id": "panel-41",
+          "vertices": ["v-48", "v-17", "v-31"]
+        }
+      ],
+      "creases": {
+        "left-gate": ["v-8", "v-30"],
+        "right-gate": ["v-30", "v-24"],
+        "bill-hem": ["v-17", "v-29"],
+        "spine": ["v-16", "v-9"],
+        "front-half": ["v-5", "v-23"],
+        "left-cheek": ["v-15", "v-16"],
+        "right-cheek": ["v-16", "v-28"],
+        "throat-left": ["v-10", "v-12"],
+        "throat-right": ["v-12", "v-26"],
+        "crown-left": ["v-13", "v-14"],
+        "crown-right": ["v-14", "v-27"],
+        "tail-left": ["v-2", "v-1"],
+        "tail-right": ["v-18", "v-2"],
+        "left-wing": ["v-0", "v-11"],
+        "right-wing": ["v-25", "v-19"],
+        "left-wrist": ["v-7", "v-6"],
+        "right-wrist": ["v-22", "v-21"],
+        "keel-0": ["v-9", "v-2"],
+        "keel-1": ["v-2", "v-12"],
+        "keel-2": ["v-12", "v-14"],
+        "keel-3": ["v-14", "v-16"]
+      }
+    },
+    "steps": [
+      {
+        "id": "kite-base",
+        "durationMs": 1850,
+        "turns": [
+          {
+            "crease": "left-gate",
+            "degrees": 180,
+            "faces": [
+              "panel-32",
+              "panel-33",
+              "panel-34",
+              "panel-35",
+              "panel-36",
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-41"
+            ]
+          },
+          {
+            "crease": "right-gate",
+            "degrees": 180,
+            "faces": [
+              "panel-22",
+              "panel-23",
+              "panel-24",
+              "panel-25",
+              "panel-26",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "double-bill",
+        "durationMs": 1450,
+        "turns": [
+          {
+            "crease": "bill-hem",
+            "degrees": 180,
+            "faces": [
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-21",
+              "panel-30",
+              "panel-31",
+              "panel-40",
+              "panel-41"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "narrow-cheeks",
+        "durationMs": 1600,
+        "turns": [
+          {
+            "crease": "left-cheek",
+            "degrees": -180,
+            "faces": ["panel-8", "panel-19", "panel-39", "panel-41"]
+          },
+          {
+            "crease": "right-cheek",
+            "degrees": -180,
+            "faces": ["panel-17", "panel-21", "panel-29", "panel-31"]
+          }
+        ]
+      },
+      {
+        "id": "close-book",
+        "durationMs": 1450,
+        "turns": [
+          {
+            "crease": "spine",
+            "degrees": 180,
+            "faces": [
+              "panel-9",
+              "panel-10",
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-15",
+              "panel-16",
+              "panel-17",
+              "panel-20",
+              "panel-21",
+              "panel-22",
+              "panel-23",
+              "panel-24",
+              "panel-25",
+              "panel-26",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mark-throat",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "throat-left",
+            "degrees": 180,
+            "faces": [
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-18",
+              "panel-19",
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-41",
+              "panel-15",
+              "panel-16",
+              "panel-17",
+              "panel-20",
+              "panel-21",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "release-throat",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "throat-left",
+            "degrees": -180,
+            "faces": [
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-18",
+              "panel-19",
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-41",
+              "panel-15",
+              "panel-16",
+              "panel-17",
+              "panel-20",
+              "panel-21",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mark-crown",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "crown-left",
+            "degrees": -180,
+            "faces": [
+              "panel-7",
+              "panel-8",
+              "panel-18",
+              "panel-19",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-41",
+              "panel-16",
+              "panel-17",
+              "panel-20",
+              "panel-21",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "release-crown",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "crown-left",
+            "degrees": 180,
+            "faces": [
+              "panel-7",
+              "panel-8",
+              "panel-18",
+              "panel-19",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-41",
+              "panel-16",
+              "panel-17",
+              "panel-20",
+              "panel-21",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mark-tail",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "tail-left",
+            "degrees": 180,
+            "faces": ["panel-3", "panel-12"]
+          }
+        ]
+      },
+      {
+        "id": "release-tail",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "tail-left",
+            "degrees": -180,
+            "faces": ["panel-3", "panel-12"]
+          }
+        ]
+      },
+      {
+        "id": "open-book",
+        "durationMs": 1450,
+        "turns": [
+          {
+            "crease": "spine",
+            "degrees": -180,
+            "faces": [
+              "panel-9",
+              "panel-10",
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-15",
+              "panel-16",
+              "panel-17",
+              "panel-20",
+              "panel-21",
+              "panel-22",
+              "panel-23",
+              "panel-24",
+              "panel-25",
+              "panel-26",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "crimp-neck",
+        "durationMs": 3000,
+        "turns": [],
+        "guides": [
+          "throat-left",
+          "throat-right",
+          "crown-left",
+          "crown-right",
+          "keel-0",
+          "keel-1",
+          "keel-2",
+          "keel-3",
+          "tail-left",
+          "tail-right"
+        ],
+        "crimps": [
+          {
+            "frame": ["v-3", "v-12", "v-4"],
+            "side": -1,
+            "stations": [
+              [0.4, 1.3],
+              [0.76, 1.3]
+            ],
+            "halfAngle": 63,
+            "hold": "spine",
+            "faces": [
+              "panel-4",
+              "panel-5",
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-13",
+              "panel-14",
+              "panel-15",
+              "panel-16",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-21",
+              "panel-25",
+              "panel-26",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-31",
+              "panel-35",
+              "panel-36",
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-41"
+            ]
+          },
+          {
+            "frame": ["v-3", "v-2", "v-20"],
+            "side": -1,
+            "stations": [[1.2, 0.36]],
+            "halfAngle": 63,
+            "hold": "spine",
+            "faces": [
+              "panel-0",
+              "panel-1",
+              "panel-2",
+              "panel-3",
+              "panel-9",
+              "panel-10",
+              "panel-11",
+              "panel-12",
+              "panel-22",
+              "panel-23",
+              "panel-24",
+              "panel-32",
+              "panel-33",
+              "panel-34"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "spread-left",
+        "durationMs": 1450,
+        "turns": [
+          {
+            "crease": "left-wing",
+            "degrees": -70,
+            "faces": ["panel-1", "panel-2", "panel-5", "panel-33", "panel-34", "panel-36"]
+          }
+        ]
+      },
+      {
+        "id": "spread-right",
+        "durationMs": 1450,
+        "turns": [
+          {
+            "crease": "right-wing",
+            "degrees": -70,
+            "faces": ["panel-10", "panel-11", "panel-14", "panel-23", "panel-24", "panel-26"]
+          }
+        ]
+      },
+      {
+        "id": "bend-wrists",
+        "durationMs": 1700,
+        "turns": [
+          {
+            "crease": "left-wrist",
+            "degrees": 48,
+            "faces": ["panel-2", "panel-34"]
+          },
+          {
+            "crease": "right-wrist",
+            "degrees": 48,
+            "faces": ["panel-11", "panel-24"]
+          }
+        ]
+      }
+    ]
+  }
+}

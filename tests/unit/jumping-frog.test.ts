@@ -1,10 +1,15 @@
+import { fixture } from "../model-fixture";
 import { expect, it } from "vitest";
-import { frog as m, frogPattern, frogHingePlies, frogPlyThickness } from "../../app/lesson/frog";
 import { atIndex, compileLesson, poseAt } from "../../app/lesson/geometry";
 import { paperLayers } from "../../app/lesson/drawing";
 import type { Point } from "../../app/fold/geometry";
 import { materialChecks, distance } from "./material-checks";
 import { checkPenetrations } from "./material-collisions";
+
+const m = fixture("jumping-frog").model;
+const frogPattern = fixture("jumping-frog").pattern;
+const frogHingePlies = fixture("jumping-frog").presentation.hingePlies;
+const frogPlyThickness = fixture("jumping-frog").presentation.plyThickness ?? 0.0007;
 materialChecks(m);
 it("checks the square, every crease endpoint, four feet, two open pockets and the return pleat", () => {
   const rest = atIndex(m.poses, 0);

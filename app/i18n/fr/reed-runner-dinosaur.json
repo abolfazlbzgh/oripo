@@ -1,0 +1,74 @@
+{
+  "sheet": {
+    "title": "Préparez les plis",
+    "instruction": "Placez un côté du carré vers vous. Marquez les deux diagonales et les médianes horizontale et verticale, puis rouvrez.",
+    "result": "Huit secteurs triangulaires se rejoignent au centre."
+  },
+  "steps": {
+    "collapse-the-base": {
+      "title": "Fermez la base de bombe à eau",
+      "instruction": "Rentrez les milieux des côtés gauche et droit. Laissez le bord supérieur rejoindre celui du bas en refermant les diagonales.",
+      "result": "Quatre pointes distinctes forment un triangle dont le grand côté vous fait face."
+    },
+    "swing-leading-leg": {
+      "title": "Dégagez une patte arrière · Patte avancée",
+      "instruction": "Par-dessous, rabattez le coin indiqué sur le pli oblique pour dépasser le grand côté. Gardez le volet supérieur en place.",
+      "result": "Une pointe descend sous le ventre."
+    },
+    "swing-trailing-leg": {
+      "title": "Dégagez une patte arrière · Patte en retrait",
+      "instruction": "Par-dessous, rabattez le coin indiqué sur le pli oblique pour dépasser le grand côté. Gardez le volet supérieur en place.",
+      "result": "Une pointe descend sous le ventre."
+    },
+    "bend-leading-ankle": {
+      "title": "Pliez la cheville · Patte avancée",
+      "instruction": "Repliez le bout de la patte indiquée sur le petit pli oblique, vers la tête située à gauche.",
+      "result": "Un pied court fait un angle avec la patte."
+    },
+    "bend-trailing-ankle": {
+      "title": "Pliez la cheville · Patte en retrait",
+      "instruction": "Repliez le bout de la patte indiquée sur le petit pli oblique, vers la tête située à gauche.",
+      "result": "Un pied court fait un angle avec la patte."
+    },
+    "lift-the-neck": {
+      "title": "Dressez le cou",
+      "instruction": "Relevez la longue pointe supérieure gauche sur l’oblique. Dirigez son bout bien au-dessus de l’épaule gauche.",
+      "result": "Le cou se détache au-dessus du corps."
+    },
+    "turn-the-head": {
+      "title": "Orientez la tête",
+      "instruction": "Rabattez uniquement le bout du cou vers le bas et la gauche sur le pli indiqué.",
+      "result": "La tête en coin pointe vers l’avant."
+    },
+    "square-the-muzzle": {
+      "title": "Aplatissez le museau",
+      "instruction": "Rabattez la pointe fine du museau sur le court pli vertical.",
+      "result": "Le museau se termine par un petit bord plat."
+    },
+    "lower-the-back": {
+      "title": "Abaissez le dos",
+      "instruction": "Rabattez le sommet central derrière le corps sur l’horizontale en laissant la tête et la queue libres.",
+      "result": "Le dos s’abaisse et la pointe pliée apparaît sous le ventre."
+    },
+    "shape-the-tail": {
+      "title": "Affinez la queue",
+      "instruction": "Repliez derrière le corps la marge supérieure droite sur la diagonale qui rejoint le bout de la queue.",
+      "result": "La queue s’amincit de sa base large jusqu’à la pointe."
+    },
+    "fold-the-forelimb": {
+      "title": "Formez le bras",
+      "instruction": "Repliez la pointe centrale libre sur la petite oblique sous la poitrine.",
+      "result": "Un petit bras coudé repose entre le cou et les pattes."
+    },
+    "open-the-stance": {
+      "title": "Écartez les jambes",
+      "instruction": "Ouvrez légèrement les deux bas de jambe en sens opposés sur les plis marqués, ventre immobile.",
+      "result": "Les pieds se trouvent sur des plans différents, en position de marche."
+    },
+    "curve-the-tail": {
+      "title": "Tournez le bout de la queue",
+      "instruction": "Écartez doucement le dernier tronçon de la queue du plan du corps sur le dernier pli.",
+      "result": "De profil la queue équilibre la tête. De biais, sa courbure apparaît."
+    }
+  }
+}

@@ -7,22 +7,7 @@ import { locales, localeCodes } from "../../app/i18n/locales";
 import type { Common, Transcript } from "../../app/i18n/messages";
 import { canonicalPaths, localPath, prerenderPaths, publicPages } from "../../app/navigation";
 import { siteOrigin } from "../../app/site";
-import { airplaneText, sheetText } from "../../app/lesson/airplane.en";
-import { heartText, heartSheet } from "../../app/lesson/heart.en";
-import { foxText, foxSheet } from "../../app/lesson/fox.en";
-
 const origin = siteOrigin(process.env.ORIPO_SITE_URL);
-const english = {
-  "pinwheel-calyx": readCopy("en", "pinwheel-calyx"),
-  "river-tern": readCopy("en", "river-tern"),
-  "hex-iris": readCopy("en", "hex-iris"),
-  "jumping-frog": readCopy("en", "jumping-frog"),
-  "herringbone-map": readCopy("en", "herringbone-map"),
-  "masu-box": readCopy("en", "masu-box"),
-  "paper-airplane": { sheet: sheetText, steps: airplaneText },
-  "paper-heart": { sheet: heartSheet, steps: heartText },
-  "fox-face": { sheet: foxSheet, steps: foxText },
-};
 test.describe("first HTTP documents", () => {
   test.use({ javaScriptEnabled: false });
   for (const code of localeCodes)
@@ -82,7 +67,7 @@ test.describe("first HTTP documents", () => {
               common.guide.mountainText,
             ]);
           } else {
-            const copy: Transcript = code === "en" ? english[logical] : readCopy(code, logical);
+            const copy: Transcript = readCopy(code, logical);
             await expect(page.getByRole("heading", { level: 1, name: title })).toBeVisible();
             await expect(page.locator(".studio-placeholder")).toContainText(copy.sheet.instruction);
             const rows = page.locator(".lesson-transcript li");
@@ -124,6 +109,14 @@ test.describe("first HTTP documents", () => {
   test("localized HTTP errors offer working recovery without JavaScript", async ({ page }) => {
     for (const code of localeCodes) {
       const texts = readCopy(code, "common");
+      for (const retired of ["herringbone-map", "pinwheel-calyx", "hex-iris"]) {
+        expect((await page.goto(localPath(code) + "/lessons/" + retired))?.status()).toBe(404);
+        expect((await page.reload())?.status()).toBe(404);
+        await expect(page.locator("h1")).toHaveText(texts.error.title);
+      }
+      await expect(page.locator("html")).toHaveAttribute("lang", code);
+      await expect(page.locator("h1")).toHaveText(texts.error.title);
+      await expect(page.locator("meta[name=robots]")).toHaveAttribute("content", "noindex");
       expect((await page.goto(localPath(code) + "/lessons/unpublished"))?.status()).toBe(404);
       await expect(page.locator("html")).toHaveAttribute("dir", locales[code].dir);
       await expect(page.locator("h1")).toHaveText(texts.error.title);

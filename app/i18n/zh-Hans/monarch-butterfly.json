@@ -1,0 +1,99 @@
+{
+  "sheet": {
+    "title": "准备正方形纸",
+    "instruction": "把纸放平，一条边朝向自己。四个角将成为翅尖。",
+    "result": "一张正方形纸将折成蝶身和两对翅膀。"
+  },
+  "steps": {
+    "mark-rising-diagonal": {
+      "title": "折第一条对角线",
+      "instruction": "把两个对角叠在一起，压实对角折痕。",
+      "result": "两半纸叠成一个三角形。"
+    },
+    "open-rising-diagonal": {
+      "title": "打开第一折",
+      "instruction": "沿原折痕打开三角形。",
+      "result": "正方形上留下一条对角折痕。"
+    },
+    "mark-falling-diagonal": {
+      "title": "折另一条对角线",
+      "instruction": "把另外两个对角叠在一起，压出折痕。",
+      "result": "第二个三角形标出了另一条对角线。"
+    },
+    "open-falling-diagonal": {
+      "title": "展开正方形",
+      "instruction": "打开这一折，把纸放平。",
+      "result": "两条对角线在中心相交。"
+    },
+    "blintz-the-square": {
+      "title": "四角折向中心",
+      "instruction": "将四个角分别折到对角线的交点。",
+      "result": "四个三角形纸瓣在菱形中央相接。"
+    },
+    "mark-the-back": {
+      "title": "在背面压痕",
+      "instruction": "将菱形的四个角向后折到中心。",
+      "result": "较小的正方形上留下穿过两层纸的折痕。"
+    },
+    "release-the-marks": {
+      "title": "打开背面的四折",
+      "instruction": "只展开刚刚向后折的四个角。",
+      "result": "菱形重新展开，多了四条折痕。"
+    },
+    "open-the-blintz": {
+      "title": "展开三角纸瓣",
+      "instruction": "打开最初的四个三角形，把正方形铺平。",
+      "result": "折痕标出了四等分线和袋口的斜线。"
+    },
+    "fold-the-gates": {
+      "title": "两边向中间折",
+      "instruction": "把左右两边向内折，使它们在中线上相接。",
+      "result": "两片活动纸瓣盖住一个竖长方形。"
+    },
+    "pull-north-pockets": {
+      "title": "拉开远端的角",
+      "instruction": "提起远端的两片纸瓣，将松开的角分别拉向两侧，同时把后面的纸层压向中部。",
+      "result": "远端形成带有两个活动尖角的梯形。"
+    },
+    "pull-south-pockets": {
+      "title": "拉开近端的角",
+      "instruction": "同样展开靠近自己的两片纸瓣，一边向外拉角，一边压下后面的纸层。",
+      "result": "两只纸船在中央相接，四个尖角朝外。"
+    },
+    "book-the-boats": {
+      "title": "叠起两只纸船",
+      "instruction": "沿两只纸船共有的横折痕，把远处的纸船折到近处纸船的背后。",
+      "result": "两个梯形的长边重合。"
+    },
+    "drop-east-hindwing": {
+      "title": "折下右后翅",
+      "instruction": "只把前面纸船的右尖角沿从中心出发的斜线向下折，后面的尖角保持原位。",
+      "result": "尖角到达下方中央，右前翅仍然宽展。"
+    },
+    "drop-west-hindwing": {
+      "title": "折下左后翅",
+      "instruction": "把另一个活动尖角向下折，与先折的尖角相接。",
+      "result": "两片宽阔的前翅位于尖尖的后翅后面。"
+    },
+    "taper-east": {
+      "title": "收窄右角",
+      "instruction": "沿短斜线把右后翅外侧的小角向内折。",
+      "result": "右后翅的外缘变窄。"
+    },
+    "taper-west": {
+      "title": "收窄左角",
+      "instruction": "把左后翅外侧相应的小角也向内折。",
+      "result": "两片后翅的外缘对称收窄。"
+    },
+    "pinch-the-body": {
+      "title": "捏起蝶身",
+      "instruction": "沿中线合起左右两半，使两对翅膀对齐。",
+      "result": "中间的折层将两侧翅根合在一起。"
+    },
+    "spread-the-wings": {
+      "title": "展开两对翅膀",
+      "instruction": "捏住中央窄褶，沿倾斜的翅根展开左右两对翅膀，让翅面微微抬起。",
+      "result": "四片紫色的翅膀围绕着细窄而凸起的蝶身。"
+    }
+  }
+}

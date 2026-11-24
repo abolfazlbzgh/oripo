@@ -74,6 +74,12 @@ test("keyboard users can skip navigation, enter the studio and reverse without l
   expect(sceneRequests).toHaveLength(0);
   await page.keyboard.press("Enter");
   await expect(page.locator("#models")).toBeFocused();
+  // Inspect the lazy gallery images before deliberately leaving this document.
+  for (const preview of await page.locator("#models img").all()) {
+    await preview.scrollIntoViewIfNeeded();
+    await preview.evaluate((img: HTMLImageElement) => img.decode());
+  }
+  expect(sceneRequests).toHaveLength(0);
   await page.goto(labPath);
   await expect(page.getByRole("heading", { name: "The first fold", exact: true })).toBeVisible();
   await page.getByRole("main").focus();

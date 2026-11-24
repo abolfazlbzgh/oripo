@@ -41,30 +41,30 @@
     "back": "Zurück zu den Modellen"
   },
   "models": {
-    "hex-iris": {
-      "title": "Bernsteinfarbene Sechseckblende",
-      "short": "Sechseckblende",
-      "summary": "Schließe sechs gekoppelte Falten um einen sechseckigen Kern und öffne sie zu einem goldvioletten Relief."
+    "reed-runner-dinosaur": {
+      "title": "Dinosaurier aus dem Schilf",
+      "short": "Schilfläufer",
+      "summary": "Aus vier Ecken entstehen ein Kopf mit stumpfer Schnauze, ein langer Schwanz und zwei ausschreitende Beine."
     },
     "river-tern": {
       "title": "Flussseeschwalbe",
       "short": "Seeschwalbe",
       "summary": "Forme an einer Drachenbasis einen gegabelten Schwanz und einen erhobenen Hals und breite die Flügel aus."
     },
-    "pinwheel-calyx": {
-      "title": "Windradkelch",
-      "short": "Windradkelch",
-      "summary": "Forme vier doppelte Ränder an einer Blintz-Grundform und richte vier spitze Innenblätter auf."
+    "twin-stern-junk": {
+      "title": "Dschunke mit zwei Rückenlehnen",
+      "short": "Papierdschunke",
+      "summary": "Öffne einen blauen Rumpf und falte vor jeder der beiden hohen Lehnen eine kleine Sitzfläche."
     },
     "jumping-frog": {
       "title": "Vierbeiniger Springfrosch",
       "short": "Springfrosch",
       "summary": "Öffne zwei versteckte Taschen für die Hinterfüße und forme unter dem Frosch eine zurückgefaltete Sprungfeder in Ruhestellung."
     },
-    "herringbone-map": {
-      "title": "Karte mit Fischgrätfaltung",
-      "short": "Miura-Karte",
-      "summary": "Schiebe vier Papierlagen zu Zickzackrippen zusammen, die die Karte in beiden Richtungen verkürzen."
+    "monarch-butterfly": {
+      "title": "Monarchfalter",
+      "short": "Falter",
+      "summary": "Ziehe vier Spitzen aus dem gefalteten Quadrat, forme zwei Flügelpaare und drücke den schmalen Körper zusammen."
     },
     "paper-airplane": {
       "title": "Papierflieger in Pfeilform",

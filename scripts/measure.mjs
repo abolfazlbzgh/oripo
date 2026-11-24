@@ -8,6 +8,13 @@ import { createPreviewServer } from "./preview.mjs";
 const client = new URL("../build/client/", import.meta.url);
 const assets = readdirSync(new URL("assets/", client)).filter((file) => file.endsWith(".js"));
 const scripts = new Set(["appearance.js", ...assets.map((file) => "assets/" + file)]);
+// Vite emits imported JSON as named ES module exports in the locked build.
+const models = new Set(
+  [...scripts].filter((file) => {
+    const code = readFileSync(new URL(file, client), "utf8");
+    return code.includes(" as schemaVersion") && code.includes(" as manuscript");
+  }),
+);
 function bytes(files) {
   let raw = 0;
   let gzip = 0;
@@ -22,12 +29,29 @@ function bytes(files) {
 const lessons = readdirSync(new URL("en/lessons/", client), { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .map((entry) => "/en/lessons/" + entry.name);
+if (models.size !== lessons.length) throw Error("Could not identify every compiled lesson package");
 const server = createPreviewServer().listen(0, "127.0.0.1");
 await once(server, "listening");
 let browser;
 try {
   browser = await chromium.launch();
-  const report = { browser: browser.version(), allScripts: bytes(scripts), visits: [] };
+  const files = readdirSync(client, { recursive: true, encoding: "utf8" }).map((name) =>
+    name.replaceAll("\\", "/"),
+  );
+  const extensions = [".html", ".js", ".data", ".json", ".png"];
+  const emitted = Object.fromEntries(
+    extensions.map((ext) => {
+      const group = files.filter((file) => file.endsWith(ext));
+      return [ext, { count: group.length, ...bytes(group) }];
+    }),
+  );
+  const report = {
+    browser: browser.version(),
+    allScripts: bytes(scripts),
+    emitted,
+    packagedModels: bytes(models),
+    visits: [],
+  };
   for (const width of [1440, 390]) {
     const shell = ["/", "/en", "/en/guide/crease-notation"];
     const routes =
@@ -66,6 +90,9 @@ try {
       const scenes = [...requested].filter(
         (file) => file.includes(".client-") && !file.includes("/entry.client-"),
       );
+      const modelChunks = [...requested].filter((file) => models.has(file));
+      if (modelChunks.length !== (lessons.includes(route) ? 1 : 0))
+        throw Error("Unexpected number of cold model packages on " + route);
       report.visits.push({
         route,
         width,
@@ -77,6 +104,8 @@ try {
         fonts: [...fonts],
         sceneJs: bytes(scenes),
         scenes,
+        modelJs: bytes(modelChunks),
+        modelChunks,
         warnings: [...warnings],
       });
       await page.close();

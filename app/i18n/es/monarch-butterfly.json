@@ -1,0 +1,99 @@
+{
+  "sheet": {
+    "title": "Empezar con un cuadrado",
+    "instruction": "Coloca la hoja plana con un borde hacia ti. Sus cuatro esquinas serán las puntas de las alas.",
+    "result": "Un solo cuadrado formará las alas y el cuerpo."
+  },
+  "steps": {
+    "mark-rising-diagonal": {
+      "title": "Marcar la primera diagonal",
+      "instruction": "Junta dos esquinas opuestas y marca el pliegue diagonal.",
+      "result": "Las dos mitades forman un triángulo."
+    },
+    "open-rising-diagonal": {
+      "title": "Abrir el primer pliegue",
+      "instruction": "Desdobla el triángulo por la misma diagonal.",
+      "result": "Una diagonal cruza el cuadrado."
+    },
+    "mark-falling-diagonal": {
+      "title": "Marcar la otra diagonal",
+      "instruction": "Junta las otras dos esquinas opuestas y presiona.",
+      "result": "El segundo triángulo permite localizar el centro."
+    },
+    "open-falling-diagonal": {
+      "title": "Abrir el cuadrado",
+      "instruction": "Deshaz el pliegue y deja la hoja plana.",
+      "result": "Las dos diagonales se cruzan en el centro."
+    },
+    "blintz-the-square": {
+      "title": "Llevar las puntas al centro",
+      "instruction": "Dobla cada esquina hasta la intersección de las diagonales.",
+      "result": "Cuatro solapas triangulares se juntan dentro de un rombo."
+    },
+    "mark-the-back": {
+      "title": "Marcar por detrás",
+      "instruction": "Dobla hacia atrás las cuatro esquinas del rombo hasta su centro.",
+      "result": "El cuadrado más pequeño queda marcado a través de las dos capas."
+    },
+    "release-the-marks": {
+      "title": "Soltar los cuatro pliegues",
+      "instruction": "Abre solo los cuatro pliegues que acabas de hacer por detrás.",
+      "result": "Reaparece el rombo con cuatro marcas nuevas."
+    },
+    "open-the-blintz": {
+      "title": "Abrir las solapas",
+      "instruction": "Desdobla los cuatro triángulos iniciales y alisa la hoja.",
+      "result": "Las marcas indican los cuartos y las diagonales de los bolsillos."
+    },
+    "fold-the-gates": {
+      "title": "Cerrar los laterales",
+      "instruction": "Lleva los bordes izquierdo y derecho hasta la línea central.",
+      "result": "Dos solapas libres cubren un rectángulo vertical."
+    },
+    "pull-north-pockets": {
+      "title": "Sacar las puntas lejanas",
+      "instruction": "Levanta los extremos más alejados de las solapas. Separa las puntas mientras bajas la pared posterior hacia el centro.",
+      "result": "Un trapecio con dos puntas libres cubre el extremo lejano."
+    },
+    "pull-south-pockets": {
+      "title": "Sacar las puntas cercanas",
+      "instruction": "Abre igual las solapas más próximas. Baja la pared posterior mientras separas las puntas.",
+      "result": "Dos barcos se tocan en el centro con cuatro puntas hacia fuera."
+    },
+    "book-the-boats": {
+      "title": "Juntar los barcos",
+      "instruction": "Dobla el barco lejano detrás del cercano por el pliegue transversal común.",
+      "result": "Los dos trapecios quedan superpuestos por sus lados largos."
+    },
+    "drop-east-hindwing": {
+      "title": "Bajar el ala derecha",
+      "instruction": "Dobla hacia abajo solo la punta derecha del barco delantero por la diagonal que sale del centro. Deja quieta la punta de detrás.",
+      "result": "La punta llega abajo al centro y el ala anterior derecha sigue extendida."
+    },
+    "drop-west-hindwing": {
+      "title": "Bajar el ala izquierda",
+      "instruction": "Dobla la otra punta libre hasta juntarla con la primera.",
+      "result": "Dos alas anteriores anchas quedan detrás de las dos alas posteriores puntiagudas."
+    },
+    "taper-east": {
+      "title": "Estrechar el lado derecho",
+      "instruction": "Mete la pequeña esquina exterior del ala posterior derecha por su marca oblicua.",
+      "result": "El borde exterior derecho queda más estrecho."
+    },
+    "taper-west": {
+      "title": "Estrechar el lado izquierdo",
+      "instruction": "Dobla hacia dentro la esquina correspondiente del ala posterior izquierda.",
+      "result": "Las dos alas inferiores tienen bordes simétricos."
+    },
+    "pinch-the-body": {
+      "title": "Pellizcar el cuerpo",
+      "instruction": "Junta las dos mitades por el centro y alinea los dos pares de alas.",
+      "result": "El pliegue central reúne las raíces de las alas."
+    },
+    "spread-the-wings": {
+      "title": "Desplegar las alas",
+      "instruction": "Sujeta el pliegue estrecho del centro. Abre cada par por su raíz oblicua y deja las alas un poco levantadas.",
+      "result": "Cuatro alas violetas rodean un cuerpo estrecho en relieve."
+    }
+  }
+}

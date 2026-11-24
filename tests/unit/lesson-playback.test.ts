@@ -1,9 +1,6 @@
+import { fixture } from "../model-fixture";
 import { expect, it } from "vitest";
-import { airplane } from "../../app/lesson/airplane";
-import { atIndex, compileLesson, poseAt, tolerance } from "../../app/lesson/geometry";
-import { diamond, flatPattern } from "../../app/lesson/flat-pattern";
-import { foxFolds } from "../../app/lesson/fox";
-import { heartFolds } from "../../app/lesson/heart";
+import { atIndex, poseAt, tolerance } from "../../app/lesson/geometry";
 import {
   commandLesson,
   initialLessonMotion,
@@ -11,6 +8,9 @@ import {
   seekLesson,
   settleLesson,
 } from "../../app/lesson/playback";
+
+const airplane = fixture("paper-airplane").model;
+const foxFolds = fixture("fox-face").pattern.steps;
 
 const { steps } = airplane;
 it("reverses the displayed fraction, ignoring repeated commands to the same destination", () => {
@@ -95,16 +95,12 @@ it("starts a newly mounted lesson at zero independently of a retired renderer's 
   });
 });
 
-const models = [
-  airplane,
-  compileLesson(flatPattern("heart", diamond, heartFolds)),
-  compileLesson(flatPattern("fox", diamond, foxFolds)),
-];
+const models = [airplane, fixture("paper-heart").model, fixture("fox-face").model];
 it.each(models)(
   "resolves arbitrary seeks against independent first-crease coordinates in $lessonId",
   (model) => {
     const rest = atIndex(model.poses, 0);
-    const fox = model.lessonId === "fox";
+    const fox = model.lessonId === "fox-face";
     for (const fraction of [0.5, 0.1973, 0.941, 0.1973]) {
       const s = sampleLesson(model.steps, seekLesson(model.steps, fraction), 95000);
       const actual = poseAt(model, s.step, s.progress);

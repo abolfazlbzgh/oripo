@@ -36,6 +36,7 @@ export type Viewpoint = {
   maxDistance: number;
   inspectBack?: boolean;
   shadowZ?: number;
+  materialFrame?: { center: [number, number, number]; scale: number };
 };
 const turn = Math.PI / 12;
 
@@ -46,6 +47,7 @@ function Studio({
   children,
 }: StudioCallbacks & { view: Viewpoint; children: ReactNode }) {
   const { gl, camera, invalidate } = useThree();
+  const frame = view.materialFrame;
 
   useLayoutEffect(() => {
     const orbit = new OrbitControls(camera, gl.domElement);
@@ -100,7 +102,20 @@ function Studio({
         <planeGeometry args={[8, 8]} />
         <shadowMaterial transparent opacity={0.18} depthWrite={false} />
       </mesh>
-      {children}
+      {frame ? (
+        <group
+          position={[
+            -frame.center[0] * frame.scale,
+            -frame.center[1] * frame.scale,
+            -frame.center[2] * frame.scale,
+          ]}
+          scale={frame.scale}
+        >
+          {children}
+        </group>
+      ) : (
+        children
+      )}
     </>
   );
 }

@@ -1,0 +1,144 @@
+{
+  "sheet": {
+    "title": "Lege die Raute aus",
+    "instruction": "Lege ein dünnes Quadrat mit der Vorderseite nach oben und einer Spitze zu dir. Behalte diese Ausrichtung bei.",
+    "result": "Die vier Spitzen weisen nach oben, unten, links und rechts."
+  },
+  "steps": {
+    "mark-first-diagonal": {
+      "title": "Markiere die erste Diagonale",
+      "instruction": "Lege die obere Spitze auf die untere und streiche den Falz über die ganze Breite glatt.",
+      "result": "Unterhalb des waagerechten Falzes liegt ein Dreieck."
+    },
+    "reopen-first-diagonal": {
+      "title": "Öffne das Blatt · Erste Diagonale",
+      "instruction": "Hebe die gefaltete Hälfte an und lege sie wieder an ihren ursprünglichen Platz.",
+      "result": "Das Quadrat liegt flach und die Diagonale bleibt sichtbar."
+    },
+    "mark-second-diagonal": {
+      "title": "Markiere die zweite Diagonale",
+      "instruction": "Lege die linke Spitze auf die rechte und streiche den Falz glatt.",
+      "result": "Der neue Falz kreuzt den ersten in der Mitte."
+    },
+    "reopen-second-diagonal": {
+      "title": "Öffne das Blatt · Zweite Diagonale",
+      "instruction": "Hebe die gefaltete Hälfte an und lege sie wieder an ihren ursprünglichen Platz.",
+      "result": "Das Quadrat liegt flach und die Diagonale bleibt sichtbar."
+    },
+    "blintz-north": {
+      "title": "Falte die Spitze zur Mitte · Oben",
+      "instruction": "Führe nur die angegebene Ecke zum Schnittpunkt der Diagonalen. Drücke den Falz auf halbem Weg fest.",
+      "result": "Die Spitze liegt oben auf der Blattmitte."
+    },
+    "blintz-south": {
+      "title": "Falte die Spitze zur Mitte · Unten",
+      "instruction": "Führe nur die angegebene Ecke zum Schnittpunkt der Diagonalen. Drücke den Falz auf halbem Weg fest.",
+      "result": "Die Spitze liegt oben auf der Blattmitte."
+    },
+    "blintz-west": {
+      "title": "Falte die Spitze zur Mitte · Links",
+      "instruction": "Führe nur die angegebene Ecke zum Schnittpunkt der Diagonalen. Drücke den Falz auf halbem Weg fest.",
+      "result": "Die Spitze liegt oben auf der Blattmitte."
+    },
+    "blintz-east": {
+      "title": "Falte die Spitze zur Mitte · Rechts",
+      "instruction": "Führe nur die angegebene Ecke zum Schnittpunkt der Diagonalen. Drücke den Falz auf halbem Weg fest.",
+      "result": "Die Spitze liegt oben auf der Blattmitte."
+    },
+    "close-left-gate": {
+      "title": "Schließe die Klappe · Links",
+      "instruction": "Falte die angegebene doppelte Kante mit allen Lagen bis zur Mittellinie.",
+      "result": "Eine schmale Klappe bedeckt die Hälfte des Mittelstreifens."
+    },
+    "close-right-gate": {
+      "title": "Schließe die Klappe · Rechts",
+      "instruction": "Falte die angegebene doppelte Kante mit allen Lagen bis zur Mittellinie.",
+      "result": "Eine schmale Klappe bedeckt die Hälfte des Mittelstreifens."
+    },
+    "double-the-rectangle": {
+      "title": "Verdopple das Rechteck",
+      "instruction": "Falte die untere Hälfte an der mittleren Querlinie hinter die obere.",
+      "result": "Die beiden kurzen Kanten liegen aufeinander."
+    },
+    "mark-front-quarter": {
+      "title": "Markiere das vordere Viertel",
+      "instruction": "Falte nur vorn die entfernte Kante nach unten bis zur geschlossenen Kante.",
+      "result": "Ein Querfalz teilt die vordere Hälfte."
+    },
+    "mark-back-quarter": {
+      "title": "Markiere das hintere Viertel",
+      "instruction": "Greife nach hinten und falte die entfernte Kante rückwärts bis zur geschlossenen Kante.",
+      "result": "Auch die hinteren Lagen tragen eine Viertelmarke."
+    },
+    "release-back-quarter": {
+      "title": "Öffne die Viertelfalte · Hinten",
+      "instruction": "Öffne das angegebene Lagenpaket am Querfalz und halte die übrigen Lagen fest.",
+      "result": "Seine Kante liegt wieder oben am doppelten Rechteck."
+    },
+    "release-front-quarter": {
+      "title": "Öffne die Viertelfalte · Vorn",
+      "instruction": "Öffne das angegebene Lagenpaket am Querfalz und halte die übrigen Lagen fest.",
+      "result": "Seine Kante liegt wieder oben am doppelten Rechteck."
+    },
+    "open-the-rectangle": {
+      "title": "Öffne das Rechteck",
+      "instruction": "Klappe die untere Hälfte von hinten heraus. Lass beide schmalen Klappen geschlossen.",
+      "result": "Zwei parallele Marken verlaufen quer über das lange Rechteck."
+    },
+    "open-right-gate": {
+      "title": "Öffne die Klappe · Rechts",
+      "instruction": "Hebe die angegebene Kante an der Mittelnaht an und klappe das ganze Paket am alten Falz nach außen.",
+      "result": "Die zuvor verdeckte Ecke liegt frei."
+    },
+    "open-left-gate": {
+      "title": "Öffne die Klappe · Links",
+      "instruction": "Hebe die angegebene Kante an der Mittelnaht an und klappe das ganze Paket am alten Falz nach außen.",
+      "result": "Die zuvor verdeckte Ecke liegt frei."
+    },
+    "draw-out-north-point": {
+      "title": "Ziehe die Spitze heraus · Oben",
+      "instruction": "Greife die freie Spitze des angegebenen Dreiecks in der Mitte und klappe es am alten Eckfalz nach außen.",
+      "result": "Eine ganze Spitze ragt über das Paket hinaus."
+    },
+    "draw-out-south-point": {
+      "title": "Ziehe die Spitze heraus · Unten",
+      "instruction": "Greife die freie Spitze des angegebenen Dreiecks in der Mitte und klappe es am alten Eckfalz nach außen.",
+      "result": "Eine ganze Spitze ragt über das Paket hinaus."
+    },
+    "wrap-left-rail": {
+      "title": "Schlage die Bordkante zurück · Links",
+      "instruction": "Falte den angegebenen langen Rand zur Mitte zurück. Beide vorstehenden Spitzen bleiben draußen.",
+      "result": "Entlang der Mittelnaht liegt ein doppelter Streifen."
+    },
+    "wrap-right-rail": {
+      "title": "Schlage die Bordkante zurück · Rechts",
+      "instruction": "Falte den angegebenen langen Rand zur Mitte zurück. Beide vorstehenden Spitzen bleiben draußen.",
+      "result": "Entlang der Mittelnaht liegt ein doppelter Streifen."
+    },
+    "face-the-bow": {
+      "title": "Falte das Ende ein · Bug",
+      "instruction": "Schlage die vorstehende Spitze am Querfalz nach innen, etwa ein Drittel des Weges von der Spitze zur Mitte.",
+      "result": "Die breite Kante bildet den oberen Rand der Lehne. Das freie Ende weist zur Mitte."
+    },
+    "face-the-stern": {
+      "title": "Falte das Ende ein · Heck",
+      "instruction": "Schlage die vorstehende Spitze am Querfalz nach innen, etwa ein Drittel des Weges von der Spitze zur Mitte.",
+      "result": "Die breite Kante bildet den oberen Rand der Lehne. Das freie Ende weist zur Mitte."
+    },
+    "open-the-hull": {
+      "title": "Richte den Rumpf auf",
+      "instruction": "Halte den schmalen rechteckigen Boden fest. Hebe Seiten und Enden gemeinsam an und drücke dabei die vier diagonalen Eckfalten nach oben zusammen.",
+      "result": "Geschlossene Ecken umgeben den vertieften Boden. Die Lehnen überragen die Bordkanten."
+    },
+    "bow-seat": {
+      "title": "Richte den Sitz aus · Bug",
+      "instruction": "Hebe am angegebenen Ende nur die kurze freie Lasche zur Mitte hin an, bis sie parallel zum Boden liegt.",
+      "result": "Eine waagerechte Sitzfläche ragt aus der Innenseite der Lehne."
+    },
+    "stern-seat": {
+      "title": "Richte den Sitz aus · Heck",
+      "instruction": "Hebe am angegebenen Ende nur die kurze freie Lasche zur Mitte hin an, bis sie parallel zum Boden liegt.",
+      "result": "Eine waagerechte Sitzfläche ragt aus der Innenseite der Lehne."
+    }
+  }
+}

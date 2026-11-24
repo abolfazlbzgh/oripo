@@ -1,0 +1,74 @@
+{
+  "sheet": {
+    "title": "Prepare the base creases",
+    "instruction": "Lay a thin square with a straight edge toward you. Mark both diagonals and the horizontal and vertical midlines, then reopen.",
+    "result": "Eight triangular sectors meet at the center."
+  },
+  "steps": {
+    "collapse-the-base": {
+      "title": "Collapse the waterbomb base",
+      "instruction": "Bring the left and right midpoints inward. Let the upper edge come down to the lower edge as the diagonals close.",
+      "result": "Four separate corner flaps lie in a triangle with its long edge toward you."
+    },
+    "swing-leading-leg": {
+      "title": "Swing out a hind leg · Leading leg",
+      "instruction": "On the underside, take the indicated corner flap across the sloping guide and down past the long edge. Leave the upper flap in place.",
+      "result": "One lower corner projects below the belly."
+    },
+    "swing-trailing-leg": {
+      "title": "Swing out a hind leg · Trailing leg",
+      "instruction": "On the underside, take the indicated corner flap across the sloping guide and down past the long edge. Leave the upper flap in place.",
+      "result": "One lower corner projects below the belly."
+    },
+    "bend-leading-ankle": {
+      "title": "Bend the ankle · Leading leg",
+      "instruction": "Fold the end of the indicated lower flap back on the short oblique crease, directing its tip toward the head on the left.",
+      "result": "A short foot breaks the straight outline of the leg."
+    },
+    "bend-trailing-ankle": {
+      "title": "Bend the ankle · Trailing leg",
+      "instruction": "Fold the end of the indicated lower flap back on the short oblique crease, directing its tip toward the head on the left.",
+      "result": "A short foot breaks the straight outline of the leg."
+    },
+    "lift-the-neck": {
+      "title": "Lift the neck",
+      "instruction": "Raise the long upper-left corner on the slanting crease. Aim its tip high above the left shoulder.",
+      "result": "A long neck projects above the body."
+    },
+    "turn-the-head": {
+      "title": "Turn the head",
+      "instruction": "Bring just the end of the neck down and to the left along the indicated slant.",
+      "result": "The forward-pointing wedge makes a head distinct from the neck."
+    },
+    "square-the-muzzle": {
+      "title": "Blunt the muzzle",
+      "instruction": "Turn the narrow end of the snout back along the short upright crease.",
+      "result": "The muzzle has a short flat front edge."
+    },
+    "lower-the-back": {
+      "title": "Lower the back",
+      "instruction": "Fold the central peak behind the body on the horizontal guide. Leave the head and tail free.",
+      "result": "The back is lower and the folded point appears beneath the belly."
+    },
+    "shape-the-tail": {
+      "title": "Taper the tail",
+      "instruction": "Fold the upper margin of the right-hand packet behind along the diagonal that ends at the far tip.",
+      "result": "The tail narrows from a broad root to a single point."
+    },
+    "fold-the-forelimb": {
+      "title": "Make the forelimb",
+      "instruction": "Fold the loose central point back on the short slant below the chest.",
+      "result": "A small angled forelimb rests between the neck and hind legs."
+    },
+    "open-the-stance": {
+      "title": "Open the stance",
+      "instruction": "Ease the two lower shins in opposite directions on the marked creases. Keep the belly still.",
+      "result": "The feet occupy different planes and show a walking stride."
+    },
+    "curve-the-tail": {
+      "title": "Turn the tail tip",
+      "instruction": "Swing the outer part of the tail gently out of the body plane on the last crease.",
+      "result": "The tail counterbalances the head in profile and bends away in the oblique view."
+    }
+  }
+}

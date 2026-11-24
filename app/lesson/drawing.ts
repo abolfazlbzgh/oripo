@@ -2,9 +2,8 @@ import type { Point } from "../fold/geometry";
 import { chartPoint } from "./rigid-field";
 import {
   atIndex,
-  rotate,
-  packetAngle,
-  turnAngle,
+  packetTransform,
+  type PreparedTurn,
   type CompiledLesson,
   type Pose,
 } from "./geometry";
@@ -29,9 +28,13 @@ export function paperLayers(model: CompiledLesson, heights: HingePlies, plyThick
       return action.charts.map((chart, i) => {
         const transform = chart(progress);
         const [x, y, z] = chartPoint(transform, atIndex(start, i), true);
-        return [x, y, z + plyThickness * transform.ply * progress] as Point;
+        const rise = plyThickness * transform.ply * progress;
+        const normal = transform.plyNormal;
+        return normal
+          ? ([x + normal[0] * rise, y + normal[1] * rise, z + normal[2] * rise] as Point)
+          : ([x, y, z + rise] as Point);
       });
-    function pivot(crease: string): Point {
+    function pivot({ crease }: PreparedTurn): Point {
       const setting = heights[action.id];
       const height =
         typeof setting === "number" || Array.isArray(setting)
@@ -45,18 +48,8 @@ export function paperLayers(model: CompiledLesson, heights: HingePlies, plyThick
       return [x * plyThickness, y * plyThickness, z * plyThickness];
     }
     for (const turn of action.turns) {
-      const origin = pivot(turn.crease),
-        angle = packetAngle(turn, progress);
-      const carrier = turn.corner?.carrier;
-      const carried = carrier && {
-        origin: pivot(carrier.crease),
-        angle: turnAngle(carrier.degrees, progress),
-      };
-      for (const f of turn.faces) {
-        const local = rotate(atIndex(start, f), origin, turn.axis, angle);
-        result[f] =
-          carrier && carried ? rotate(local, carried.origin, carrier.axis, carried.angle) : local;
-      }
+      const apply = packetTransform(turn, progress, pivot);
+      for (const f of turn.faces) result[f] = apply(atIndex(start, f));
     }
     return result;
   }

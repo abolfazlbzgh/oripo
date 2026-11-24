@@ -1,11 +1,15 @@
+import { fixture } from "../model-fixture";
 import { expect, it } from "vitest";
-import { calyx as m, calyxHinges } from "../../app/lesson/calyx";
 import { atIndex } from "../../app/lesson/geometry";
 import { paperLayers } from "../../app/lesson/drawing";
 import { checkPenetrations } from "./material-collisions";
 import { checkSheet, materialChecks, distance } from "./material-checks";
 import { calyxCorner, type XY } from "../advanced-projections";
 import { poseAt } from "../../app/lesson/geometry";
+
+const m = fixture("pinwheel-calyx", "tests/fixtures/pinwheel-calyx").model;
+const calyxHinges = fixture("pinwheel-calyx", "tests/fixtures/pinwheel-calyx").presentation
+  .hingePlies;
 materialChecks(m);
 it("retains four doubled hems around an open diamond receptacle", () => {
   const rest = atIndex(m.poses, 0),

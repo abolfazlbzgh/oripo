@@ -1,0 +1,144 @@
+{
+  "sheet": {
+    "title": "Placez le losange",
+    "instruction": "Posez un carré fin face visible avec une pointe vers vous. Gardez cette orientation.",
+    "result": "Les quatre pointes indiquent le haut, le bas, la gauche et la droite."
+  },
+  "steps": {
+    "mark-first-diagonal": {
+      "title": "Marquez la première diagonale",
+      "instruction": "Rabattez la pointe du haut sur celle du bas et marquez le pli sur toute sa longueur.",
+      "result": "Un triangle repose sous le pli horizontal."
+    },
+    "reopen-first-diagonal": {
+      "title": "Rouvrez la feuille · Première diagonale",
+      "instruction": "Soulevez la moitié repliée et remettez-la à sa place.",
+      "result": "Le carré est à plat et garde la marque de la diagonale."
+    },
+    "mark-second-diagonal": {
+      "title": "Marquez la seconde diagonale",
+      "instruction": "Amenez la pointe gauche sur la droite et appuyez sur le pli.",
+      "result": "Les deux marques se croisent au centre."
+    },
+    "reopen-second-diagonal": {
+      "title": "Rouvrez la feuille · Deuxième diagonale",
+      "instruction": "Soulevez la moitié repliée et remettez-la à sa place.",
+      "result": "Le carré est à plat et garde la marque de la diagonale."
+    },
+    "blintz-north": {
+      "title": "Amenez la pointe au centre · Haut",
+      "instruction": "Pliez seulement le coin indiqué jusqu’au croisement des diagonales. Marquez le pli à mi-distance.",
+      "result": "La pointe repose au centre sur la feuille."
+    },
+    "blintz-south": {
+      "title": "Amenez la pointe au centre · Bas",
+      "instruction": "Pliez seulement le coin indiqué jusqu’au croisement des diagonales. Marquez le pli à mi-distance.",
+      "result": "La pointe repose au centre sur la feuille."
+    },
+    "blintz-west": {
+      "title": "Amenez la pointe au centre · Gauche",
+      "instruction": "Pliez seulement le coin indiqué jusqu’au croisement des diagonales. Marquez le pli à mi-distance.",
+      "result": "La pointe repose au centre sur la feuille."
+    },
+    "blintz-east": {
+      "title": "Amenez la pointe au centre · Droite",
+      "instruction": "Pliez seulement le coin indiqué jusqu’au croisement des diagonales. Marquez le pli à mi-distance.",
+      "result": "La pointe repose au centre sur la feuille."
+    },
+    "close-left-gate": {
+      "title": "Fermez le volet · Gauche",
+      "instruction": "Ramenez le bord double indiqué sur la ligne médiane en gardant ses épaisseurs ensemble.",
+      "result": "Un volet étroit couvre la moitié de la bande centrale."
+    },
+    "close-right-gate": {
+      "title": "Fermez le volet · Droite",
+      "instruction": "Ramenez le bord double indiqué sur la ligne médiane en gardant ses épaisseurs ensemble.",
+      "result": "Un volet étroit couvre la moitié de la bande centrale."
+    },
+    "double-the-rectangle": {
+      "title": "Doublez le rectangle",
+      "instruction": "Rabattez la moitié inférieure derrière la moitié supérieure sur le pli transversal du milieu.",
+      "result": "Les deux petits côtés se superposent."
+    },
+    "mark-front-quarter": {
+      "title": "Marquez le quart avant",
+      "instruction": "Sur le devant uniquement, abaissez le bord éloigné jusqu’au bord plié.",
+      "result": "Un pli transversal partage la moitié avant."
+    },
+    "mark-back-quarter": {
+      "title": "Marquez le quart arrière",
+      "instruction": "Au dos, rabattez le bord éloigné vers l’arrière jusqu’au bord plié.",
+      "result": "Les épaisseurs arrière portent la même marque de quart."
+    },
+    "release-back-quarter": {
+      "title": "Libérez le pli de quart · Dos",
+      "instruction": "Dépliez le paquet indiqué sur la marque transversale en retenant les autres épaisseurs.",
+      "result": "Son bord revient en haut du rectangle doublé."
+    },
+    "release-front-quarter": {
+      "title": "Libérez le pli de quart · Devant",
+      "instruction": "Dépliez le paquet indiqué sur la marque transversale en retenant les autres épaisseurs.",
+      "result": "Son bord revient en haut du rectangle doublé."
+    },
+    "open-the-rectangle": {
+      "title": "Ouvrez le rectangle",
+      "instruction": "Sortez la partie inférieure de derrière sans ouvrir les deux volets étroits.",
+      "result": "Deux marques parallèles traversent le long rectangle."
+    },
+    "open-right-gate": {
+      "title": "Ouvrez le volet · Droite",
+      "instruction": "Soulevez le bord indiqué depuis la jointure centrale et ouvrez tout le volet sur son ancien pli.",
+      "result": "Le coin caché de ce côté devient accessible."
+    },
+    "open-left-gate": {
+      "title": "Ouvrez le volet · Gauche",
+      "instruction": "Soulevez le bord indiqué depuis la jointure centrale et ouvrez tout le volet sur son ancien pli.",
+      "result": "Le coin caché de ce côté devient accessible."
+    },
+    "draw-out-north-point": {
+      "title": "Sortez la pointe · Haut",
+      "instruction": "Prenez au centre la pointe libre du triangle indiqué et dépliez-le vers l’extérieur sur son ancien pli.",
+      "result": "Une pointe entière dépasse du paquet."
+    },
+    "draw-out-south-point": {
+      "title": "Sortez la pointe · Bas",
+      "instruction": "Prenez au centre la pointe libre du triangle indiqué et dépliez-le vers l’extérieur sur son ancien pli.",
+      "result": "Une pointe entière dépasse du paquet."
+    },
+    "wrap-left-rail": {
+      "title": "Repliez le bordage · Gauche",
+      "instruction": "Ramenez la longue marge indiquée vers le milieu. Laissez dépasser les deux pointes.",
+      "result": "Une bande double longe la jointure centrale."
+    },
+    "wrap-right-rail": {
+      "title": "Repliez le bordage · Droite",
+      "instruction": "Ramenez la longue marge indiquée vers le milieu. Laissez dépasser les deux pointes.",
+      "result": "Une bande double longe la jointure centrale."
+    },
+    "face-the-bow": {
+      "title": "Rabattez l’extrémité · Proue",
+      "instruction": "Ramenez la pointe vers l’intérieur sur le pli transversal, au tiers environ du trajet vers le centre.",
+      "result": "Le bord large forme un dossier et le bout libre regarde le milieu."
+    },
+    "face-the-stern": {
+      "title": "Rabattez l’extrémité · Poupe",
+      "instruction": "Ramenez la pointe vers l’intérieur sur le pli transversal, au tiers environ du trajet vers le centre.",
+      "result": "Le bord large forme un dossier et le bout libre regarde le milieu."
+    },
+    "open-the-hull": {
+      "title": "Relevez la coque",
+      "instruction": "Maintenez le fond rectangulaire. Levez ensemble les flancs et les extrémités en pinçant vers le haut les diagonales des quatre coins.",
+      "result": "Quatre coins fermés entourent le fond creux et les dossiers dépassent des flancs."
+    },
+    "bow-seat": {
+      "title": "Mettez l’assise à niveau · Proue",
+      "instruction": "À l’extrémité indiquée, relevez seulement la petite languette vers le milieu pour la mettre parallèle au fond.",
+      "result": "Une assise horizontale dépasse à l’intérieur du dossier."
+    },
+    "stern-seat": {
+      "title": "Mettez l’assise à niveau · Poupe",
+      "instruction": "À l’extrémité indiquée, relevez seulement la petite languette vers le milieu pour la mettre parallèle au fond.",
+      "result": "Une assise horizontale dépasse à l’intérieur du dossier."
+    }
+  }
+}

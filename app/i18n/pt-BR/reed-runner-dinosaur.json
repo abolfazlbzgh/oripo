@@ -1,0 +1,74 @@
+{
+  "sheet": {
+    "title": "Prepare os vincos",
+    "instruction": "Vire um lado do quadrado para você. Marque as duas diagonais e as linhas centrais horizontal e vertical. Abra o papel.",
+    "result": "Oito setores triangulares se encontram no centro."
+  },
+  "steps": {
+    "collapse-the-base": {
+      "title": "Feche a base de balão",
+      "instruction": "Empurre os pontos médios dos lados para dentro. Deixe a borda de cima descer até a de baixo enquanto as diagonais se fecham.",
+      "result": "Quatro abas separadas se empilham num triângulo com o lado comprido voltado para você."
+    },
+    "swing-leading-leg": {
+      "title": "Solte uma perna traseira · Perna adiantada",
+      "instruction": "Por baixo, dobre a aba indicada pela guia inclinada para que passe da borda longa. Segure a aba de cima.",
+      "result": "Um dos cantos sai por baixo da barriga."
+    },
+    "swing-trailing-leg": {
+      "title": "Solte uma perna traseira · Perna recuada",
+      "instruction": "Por baixo, dobre a aba indicada pela guia inclinada para que passe da borda longa. Segure a aba de cima.",
+      "result": "Um dos cantos sai por baixo da barriga."
+    },
+    "bend-leading-ankle": {
+      "title": "Dobre o tornozelo · Perna adiantada",
+      "instruction": "Vire de volta a ponta da perna indicada no vinco oblíquo curto, em direção à cabeça, à esquerda.",
+      "result": "Um pé curto faz ângulo com a perna."
+    },
+    "bend-trailing-ankle": {
+      "title": "Dobre o tornozelo · Perna recuada",
+      "instruction": "Vire de volta a ponta da perna indicada no vinco oblíquo curto, em direção à cabeça, à esquerda.",
+      "result": "Um pé curto faz ângulo com a perna."
+    },
+    "lift-the-neck": {
+      "title": "Erga o pescoço",
+      "instruction": "Levante o canto comprido superior esquerdo pelo vinco inclinado e leve a ponta bem acima do ombro esquerdo.",
+      "result": "O pescoço comprido se ergue sobre o corpo."
+    },
+    "turn-the-head": {
+      "title": "Vire a cabeça",
+      "instruction": "Dobre só o fim do pescoço para baixo e para a esquerda na linha indicada.",
+      "result": "A cabeça em cunha aponta para a frente."
+    },
+    "square-the-muzzle": {
+      "title": "Achate o focinho",
+      "instruction": "Dobre a ponta fina do focinho para trás no pequeno vinco vertical.",
+      "result": "O focinho termina numa borda plana e curta."
+    },
+    "lower-the-back": {
+      "title": "Baixe as costas",
+      "instruction": "Dobre o pico central para trás do corpo na horizontal. Deixe cabeça e cauda livres.",
+      "result": "As costas ficam mais baixas e a ponta dobrada aparece sob a barriga."
+    },
+    "shape-the-tail": {
+      "title": "Afine a cauda",
+      "instruction": "Dobre para trás a margem superior do conjunto direito pela diagonal que termina na ponta.",
+      "result": "A cauda se afina desde uma base larga."
+    },
+    "fold-the-forelimb": {
+      "title": "Forme o braço",
+      "instruction": "Vire a ponta central solta pelo vinco inclinado curto sob o peito.",
+      "result": "Um pequeno braço dobrado fica entre o pescoço e as pernas."
+    },
+    "open-the-stance": {
+      "title": "Abra o passo",
+      "instruction": "Afaste as canelas em sentidos opostos nos vincos marcados sem mexer na barriga.",
+      "result": "Os pés ocupam planos diferentes e sugerem um passo."
+    },
+    "curve-the-tail": {
+      "title": "Vire a ponta da cauda",
+      "instruction": "Gire suavemente a parte externa da cauda pelo último vinco, afastando-a do plano do corpo.",
+      "result": "De perfil a cauda equilibra a cabeça. Seu desvio aparece na vista oblíqua."
+    }
+  }
+}

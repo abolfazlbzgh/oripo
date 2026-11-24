@@ -109,7 +109,11 @@ test.describe("first HTTP documents", () => {
   test("localized HTTP errors offer working recovery without JavaScript", async ({ page }) => {
     for (const code of localeCodes) {
       const texts = readCopy(code, "common");
-      expect((await page.goto(localPath(code) + "/lessons/herringbone-map"))?.status()).toBe(404);
+      for (const retired of ["herringbone-map", "pinwheel-calyx", "hex-iris"]) {
+        expect((await page.goto(localPath(code) + "/lessons/" + retired))?.status()).toBe(404);
+        expect((await page.reload())?.status()).toBe(404);
+        await expect(page.locator("h1")).toHaveText(texts.error.title);
+      }
       await expect(page.locator("html")).toHaveAttribute("lang", code);
       await expect(page.locator("h1")).toHaveText(texts.error.title);
       await expect(page.locator("meta[name=robots]")).toHaveAttribute("content", "noindex");

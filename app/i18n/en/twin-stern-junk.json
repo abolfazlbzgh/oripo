@@ -1,0 +1,144 @@
+{
+  "sheet": {
+    "title": "Set the diamond",
+    "instruction": "Lay a thin square face up with one corner toward you. Keep this corner nearest you while you work.",
+    "result": "The four points mark the top, bottom, left and right of the boat pattern."
+  },
+  "steps": {
+    "mark-first-diagonal": {
+      "title": "Mark the first diagonal",
+      "instruction": "Bring the top point down to the bottom point. Press across the whole width.",
+      "result": "A triangle rests below the horizontal crease."
+    },
+    "reopen-first-diagonal": {
+      "title": "Reopen the sheet · First diagonal",
+      "instruction": "Lift the folded half and return it to its original position.",
+      "result": "The square lies flat with the diagonal still visible."
+    },
+    "mark-second-diagonal": {
+      "title": "Mark the second diagonal",
+      "instruction": "Bring the left point over to the right point and press the fold.",
+      "result": "The new crease crosses the first at the center."
+    },
+    "reopen-second-diagonal": {
+      "title": "Reopen the sheet · Second diagonal",
+      "instruction": "Lift the folded half and return it to its original position.",
+      "result": "The square lies flat with the diagonal still visible."
+    },
+    "blintz-north": {
+      "title": "Bring the point to the center · Top",
+      "instruction": "Take just the named corner to the crossing of the diagonals. Press the crease halfway between the corner and center.",
+      "result": "The point lies at the center above the underlying sheet."
+    },
+    "blintz-south": {
+      "title": "Bring the point to the center · Bottom",
+      "instruction": "Take just the named corner to the crossing of the diagonals. Press the crease halfway between the corner and center.",
+      "result": "The point lies at the center above the underlying sheet."
+    },
+    "blintz-west": {
+      "title": "Bring the point to the center · Left",
+      "instruction": "Take just the named corner to the crossing of the diagonals. Press the crease halfway between the corner and center.",
+      "result": "The point lies at the center above the underlying sheet."
+    },
+    "blintz-east": {
+      "title": "Bring the point to the center · Right",
+      "instruction": "Take just the named corner to the crossing of the diagonals. Press the crease halfway between the corner and center.",
+      "result": "The point lies at the center above the underlying sheet."
+    },
+    "close-left-gate": {
+      "title": "Close the gate · Left",
+      "instruction": "Fold the named doubled edge inward until it meets the middle line. Keep all the layers of that margin together.",
+      "result": "A narrow flap covers half of the central strip."
+    },
+    "close-right-gate": {
+      "title": "Close the gate · Right",
+      "instruction": "Fold the named doubled edge inward until it meets the middle line. Keep all the layers of that margin together.",
+      "result": "A narrow flap covers half of the central strip."
+    },
+    "double-the-rectangle": {
+      "title": "Double the rectangle",
+      "instruction": "Fold the lower half behind the upper half along the middle crosswise crease.",
+      "result": "The two short ends coincide in a smaller packet."
+    },
+    "mark-front-quarter": {
+      "title": "Mark the front quarter",
+      "instruction": "On the front only, bring the far edge down to the doubled edge.",
+      "result": "A crosswise crease divides the front half."
+    },
+    "mark-back-quarter": {
+      "title": "Mark the back quarter",
+      "instruction": "Reach behind and fold the far edge of the back packet away to meet the doubled edge.",
+      "result": "The same quarter mark now exists on the back layers."
+    },
+    "release-back-quarter": {
+      "title": "Release the quarter fold · Back",
+      "instruction": "Unfold the named packet along the crosswise mark without disturbing the other layers.",
+      "result": "Its far edge returns to the top of the doubled rectangle."
+    },
+    "release-front-quarter": {
+      "title": "Release the quarter fold · Front",
+      "instruction": "Unfold the named packet along the crosswise mark without disturbing the other layers.",
+      "result": "Its far edge returns to the top of the doubled rectangle."
+    },
+    "open-the-rectangle": {
+      "title": "Open the rectangle",
+      "instruction": "Swing the lower packet out from behind. Leave both narrow gates folded.",
+      "result": "Two parallel quarter marks cross the long rectangle."
+    },
+    "open-right-gate": {
+      "title": "Open the gate · Right",
+      "instruction": "Lift the named edge of the center seam and swing the whole gate out on its existing crease.",
+      "result": "The corner underneath is exposed on that side."
+    },
+    "open-left-gate": {
+      "title": "Open the gate · Left",
+      "instruction": "Lift the named edge of the center seam and swing the whole gate out on its existing crease.",
+      "result": "The corner underneath is exposed on that side."
+    },
+    "draw-out-north-point": {
+      "title": "Draw out the point · Top",
+      "instruction": "Lift the named triangle by its loose tip at the center and swing it outward on the old corner crease.",
+      "result": "A full point now extends beyond the packet."
+    },
+    "draw-out-south-point": {
+      "title": "Draw out the point · Bottom",
+      "instruction": "Lift the named triangle by its loose tip at the center and swing it outward on the old corner crease.",
+      "result": "A full point now extends beyond the packet."
+    },
+    "wrap-left-rail": {
+      "title": "Rewrap the rail · Left",
+      "instruction": "Fold the named long margin back to the center line, keeping the two projecting points outside.",
+      "result": "The folded margin makes a doubled rail beside the center seam."
+    },
+    "wrap-right-rail": {
+      "title": "Rewrap the rail · Right",
+      "instruction": "Fold the named long margin back to the center line, keeping the two projecting points outside.",
+      "result": "The folded margin makes a doubled rail beside the center seam."
+    },
+    "face-the-bow": {
+      "title": "Fold the end facing · Bow",
+      "instruction": "Fold the projecting tip inward across the indicated crosswise line, about one third of the way in from the point to the center.",
+      "result": "The broad folded edge will form a seat back. Its free tip faces the middle."
+    },
+    "face-the-stern": {
+      "title": "Fold the end facing · Stern",
+      "instruction": "Fold the projecting tip inward across the indicated crosswise line, about one third of the way in from the point to the center.",
+      "result": "The broad folded edge will form a seat back. Its free tip faces the middle."
+    },
+    "open-the-hull": {
+      "title": "Raise the hull",
+      "instruction": "Hold the narrow rectangular floor. Lift both rails and both ends together, pinching the four diagonal corner creases upward as the walls rise.",
+      "result": "Four closed corners surround a recessed floor. The end backs rise above the rails."
+    },
+    "bow-seat": {
+      "title": "Level the seat · Bow",
+      "instruction": "At the named end, lift only the short free tongue toward the middle until it sits parallel to the floor.",
+      "result": "A small horizontal seat projects from the inside of the raised back."
+    },
+    "stern-seat": {
+      "title": "Level the seat · Stern",
+      "instruction": "At the named end, lift only the short free tongue toward the middle until it sits parallel to the floor.",
+      "result": "A small horizontal seat projects from the inside of the raised back."
+    }
+  }
+}

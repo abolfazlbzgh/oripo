@@ -99,3 +99,5 @@ Phase 8B regenerated both CJK subsets for the frog and map manuscripts from the 
 Phase 8C regenerated the same two CJK files for the calyx, tern and iris, including the signed twist instructions. The final cmap and CSS ranges cover all ten sets of manuscripts. The audit counted 459 required Japanese characters and 539 Simplified Chinese characters, with zero missing in either subset.
 
 Phase 9 regenerated Japanese and Simplified Chinese for the butterfly. A cmap and CSS-range audit across all ten locales found complete coverage, including 459 distinct required Japanese characters and 530 Simplified Chinese characters.
+
+The junk and dinosaur manuscripts use regenerated Japanese and Simplified Chinese subsets from the same source revision. The font cmap and CSS ranges cover all ten locale dictionaries, including 450 required Japanese characters and 540 Simplified Chinese characters.

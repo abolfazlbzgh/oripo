@@ -41,20 +41,20 @@
     "back": "Voltar aos modelos"
   },
   "models": {
-    "hex-iris": {
-      "title": "Íris hexagonal de âmbar",
-      "short": "Íris hexagonal",
-      "summary": "Feche seis pregas ligadas em torno de um hexágono e abra-as para revelar um relevo dourado e violeta."
+    "reed-runner-dinosaur": {
+      "title": "Dinossauro do brejo",
+      "short": "Corredor do brejo",
+      "summary": "Transforme os quatro cantos em uma cabeça de focinho achatado, uma cauda comprida e duas pernas em movimento."
     },
     "river-tern": {
       "title": "Trinta-réis do rio",
       "short": "Trinta-réis",
       "summary": "Modele a cauda bifurcada e o pescoço erguido numa base pipa e abra as asas."
     },
-    "pinwheel-calyx": {
-      "title": "Cálice de cata-vento",
-      "short": "Cálice",
-      "summary": "Franza quatro bordas duplas numa base de cantos ao centro e erga quatro pétalas pontudas no miolo."
+    "twin-stern-junk": {
+      "title": "Junco de dois encostos",
+      "short": "Junco de papel",
+      "summary": "Abra um casco azul e dobre um pequeno assento diante de cada encosto levantado."
     },
     "jumping-frog": {
       "title": "Rã saltadora de quatro patas",

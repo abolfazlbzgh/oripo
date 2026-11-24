@@ -1,0 +1,74 @@
+{
+  "sheet": {
+    "title": "Bereite die Grundfalten vor",
+    "instruction": "Lege eine Kante des Quadrats zu dir. Falte beide Diagonalen und die waagerechte und senkrechte Mittellinie vor, dann öffne das Blatt.",
+    "result": "Acht dreieckige Felder treffen sich in der Mitte."
+  },
+  "steps": {
+    "collapse-the-base": {
+      "title": "Schließe die Wasserbombenbasis",
+      "instruction": "Schiebe die Mitten der linken und rechten Kante nach innen. Senke die obere Kante zur unteren, während sich die Diagonalen schließen.",
+      "result": "Vier getrennte Ecklaschen liegen in einem Dreieck mit der langen Kante zu dir."
+    },
+    "swing-leading-leg": {
+      "title": "Falte ein Hinterbein heraus · Vorderes Standbein",
+      "instruction": "Falte auf der Unterseite die angegebene Ecklasche an der Schräge über die lange Kante hinaus. Halte die obere Lasche fest.",
+      "result": "Eine untere Ecke ragt unter dem Bauch hervor."
+    },
+    "swing-trailing-leg": {
+      "title": "Falte ein Hinterbein heraus · Hinteres Standbein",
+      "instruction": "Falte auf der Unterseite die angegebene Ecklasche an der Schräge über die lange Kante hinaus. Halte die obere Lasche fest.",
+      "result": "Eine untere Ecke ragt unter dem Bauch hervor."
+    },
+    "bend-leading-ankle": {
+      "title": "Knicke den Fuß ab · Vorderes Standbein",
+      "instruction": "Falte das Ende des angegebenen Beins am kurzen schrägen Falz zurück. Die Spitze soll nach links zum Kopf zeigen.",
+      "result": "Ein kurzer Fuß steht schräg vom Bein ab."
+    },
+    "bend-trailing-ankle": {
+      "title": "Knicke den Fuß ab · Hinteres Standbein",
+      "instruction": "Falte das Ende des angegebenen Beins am kurzen schrägen Falz zurück. Die Spitze soll nach links zum Kopf zeigen.",
+      "result": "Ein kurzer Fuß steht schräg vom Bein ab."
+    },
+    "lift-the-neck": {
+      "title": "Richte den Hals auf",
+      "instruction": "Hebe die lange obere linke Ecke an der Schräge an und führe ihre Spitze hoch über die linke Schulter.",
+      "result": "Ein langer Hals ragt über den Körper."
+    },
+    "turn-the-head": {
+      "title": "Forme den Kopf",
+      "instruction": "Falte nur das Halsende an der markierten Schräge nach links unten.",
+      "result": "Der keilförmige Kopf weist nach vorn."
+    },
+    "square-the-muzzle": {
+      "title": "Stumpfe die Schnauze ab",
+      "instruction": "Falte die schmale Schnauzenspitze am kurzen senkrechten Falz zurück.",
+      "result": "Die Schnauze endet in einer kurzen geraden Kante."
+    },
+    "lower-the-back": {
+      "title": "Senke den Rücken",
+      "instruction": "Falte den mittleren Gipfel am waagerechten Falz hinter den Körper. Lass Kopf und Schwanz frei.",
+      "result": "Der Rücken wird niedriger und die gefaltete Spitze erscheint unter dem Bauch."
+    },
+    "shape-the-tail": {
+      "title": "Verschmälere den Schwanz",
+      "instruction": "Falte den oberen Rand des rechten Pakets an der Diagonalen zur äußersten Spitze nach hinten.",
+      "result": "Der Schwanz verjüngt sich von der breiten Wurzel zur Spitze."
+    },
+    "fold-the-forelimb": {
+      "title": "Forme den Vorderarm",
+      "instruction": "Falte die freie mittlere Spitze am kurzen schrägen Falz unter der Brust zurück.",
+      "result": "Zwischen Hals und Hinterbeinen liegt ein kleiner angewinkelter Arm."
+    },
+    "open-the-stance": {
+      "title": "Öffne die Schrittstellung",
+      "instruction": "Schwenke beide Unterschenkel an den markierten Falten etwas in entgegengesetzte Richtungen. Halte den Bauch fest.",
+      "result": "Die Füße liegen auf verschiedenen Ebenen und bilden einen Schritt."
+    },
+    "curve-the-tail": {
+      "title": "Drehe die Schwanzspitze",
+      "instruction": "Schwenke den äußeren Schwanzabschnitt am letzten Falz sanft aus der Körperebene.",
+      "result": "Seitlich gleicht der Schwanz den Kopf aus. Schräg betrachtet wird sein Knick sichtbar."
+    }
+  }
+}

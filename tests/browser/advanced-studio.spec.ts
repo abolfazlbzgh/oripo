@@ -3,16 +3,15 @@ import { test, watchBrowser } from "./preview";
 import { paperPixels, type Point } from "./paper-pixels";
 import { readCopy } from "./locale-copy";
 import { inspectByTouch } from "./studio-touch";
-import { calyxOutline } from "../advanced-projections";
+import { batchOutline } from "../batch-projections";
 import { ternOutline } from "../tern-projection";
-import { irisPolygons } from "../iris-projection";
 
 const cases = [
   {
-    id: "pinwheel-calyx",
-    action: 4,
-    eye: [2.4, -3.9, 3.9],
-    project: (t: number) => calyxOutline(t, 0, false),
+    id: "twin-stern-junk",
+    action: 24,
+    eye: [2.5, -1.35, 2.1],
+    project: (t: number) => batchOutline("twin-stern-junk", 24 + t),
   },
   {
     id: "river-tern",
@@ -21,10 +20,10 @@ const cases = [
     project: (t: number) => ternOutline(63 * t, 0, 0),
   },
   {
-    id: "hex-iris",
-    action: 18,
-    eye: [1.45, -2.4, 2.55],
-    project: (t: number) => irisPolygons(t).map((p) => p.posed),
+    id: "reed-runner-dinosaur",
+    action: 11,
+    eye: [0, -0.7, 3.8],
+    project: (t: number) => batchOutline("reed-runner-dinosaur", 11 + t),
   },
 ] as const;
 for (const { id, action, eye, project } of cases) {

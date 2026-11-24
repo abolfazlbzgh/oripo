@@ -26,22 +26,29 @@ function canonical(value: unknown): unknown {
 }
 const sha = (value: unknown) => digest(JSON.stringify(canonical(value)));
 const images = lessonPreviews();
-it("changes only the retired map slot in the Phase 8C route inventory", () => {
+it("preserves the Phase 8C route inventory outside its three replaced slots", () => {
   const current = "/lessons/monarch-butterfly";
   expect(prerenderPaths.filter((p) => p.endsWith(current))).toHaveLength(localeCodes.length);
   expect(prerenderPaths.some((p) => p.endsWith("/lessons/herringbone-map"))).toBe(false);
-  expect(sha(prerenderPaths.map((p) => p.replace(current, "/lessons/herringbone-map")))).toBe(
-    baseline.paths,
-  );
+  expect(
+    sha(
+      prerenderPaths.map((p) =>
+        p
+          .replace(current, "/lessons/herringbone-map")
+          .replace("/lessons/twin-stern-junk", "/lessons/pinwheel-calyx")
+          .replace("/lessons/reed-runner-dinosaur", "/lessons/hex-iris"),
+      ),
+    ),
+  ).toBe(baseline.paths);
 });
 it.each(Object.entries(baseline.models))(
   "%s matches the independently captured Phase 8C inputs, poses, drawing and PNG",
   async (slug, expected) => {
-    const archived = slug === "herringbone-map";
+    const archived = ["herringbone-map", "pinwheel-calyx", "hex-iris"].includes(slug);
     if (!archived && !isModelId(slug)) throw Error("Missing original model " + slug);
     const pkg = isModelId(slug)
       ? await loadPackage(slug)
-      : fixture(slug, "tests/fixtures/legacy-map");
+      : fixture(slug, "tests/fixtures/" + (slug === "herringbone-map" ? "legacy-map" : slug));
     const { pattern, presentation } = pkg;
     const info = archived ? publicEntries([pkg])[0] : lessons.find((l) => l.id === slug);
     const model = compileLesson(pattern),

@@ -5,9 +5,9 @@ import { lessons, type ModelId } from "../../app/lessons";
 import { paperPixels, type Point } from "./paper-pixels";
 import { finishedOutlines } from "./finished-outlines";
 const studioEyes: Record<ModelId, Point> = {
-  "pinwheel-calyx": [2.4, -3.9, 3.9],
+  "twin-stern-junk": [2.5, -1.35, 2.1],
   "river-tern": [3.1, 0.7, 2.6],
-  "hex-iris": [1.45, -2.4, 2.55],
+  "reed-runner-dinosaur": [0, -0.7, 3.8],
   "jumping-frog": [0.55, -1.15, 2.75],
   "monarch-butterfly": [0.06, 1.25, -3.6],
   "paper-airplane": [2.4, -3.35, 4],
@@ -17,6 +17,8 @@ const studioEyes: Record<ModelId, Point> = {
 };
 const previewEyes: Record<ModelId, Point> = {
   ...studioEyes,
+  "twin-stern-junk": [1.6, -1, 4],
+  "reed-runner-dinosaur": [0, -0.7, 3],
   "paper-heart": [0, -0.18, 1],
   "fox-face": [0, -0.18, 1],
   "masu-box": [2, -3, 3],

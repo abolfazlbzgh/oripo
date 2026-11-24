@@ -7,8 +7,9 @@ import { checkSheet, materialChecks, distance } from "./material-checks";
 import { calyxCorner, type XY } from "../advanced-projections";
 import { poseAt } from "../../app/lesson/geometry";
 
-const m = fixture("pinwheel-calyx").model;
-const calyxHinges = fixture("pinwheel-calyx").presentation.hingePlies;
+const m = fixture("pinwheel-calyx", "tests/fixtures/pinwheel-calyx").model;
+const calyxHinges = fixture("pinwheel-calyx", "tests/fixtures/pinwheel-calyx").presentation
+  .hingePlies;
 materialChecks(m);
 it("retains four doubled hems around an open diamond receptacle", () => {
   const rest = atIndex(m.poses, 0),

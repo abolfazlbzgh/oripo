@@ -5,7 +5,7 @@ import { hydrationControl } from "./shell-helpers";
 import { expect } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
 
-for (const id of ["fox-face", "pinwheel-calyx", "river-tern", "hex-iris"] as const)
+for (const id of ["fox-face", "twin-stern-junk", "river-tern", "reed-runner-dinosaur"] as const)
   test(
     id + " leaves before its scene downloads without creating an abandoned WebGL context",
     async ({ page, baseURL }) => {

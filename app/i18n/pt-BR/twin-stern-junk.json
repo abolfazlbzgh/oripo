@@ -1,0 +1,144 @@
+{
+  "sheet": {
+    "title": "Posicione o losango",
+    "instruction": "Coloque um quadrado fino com a frente para cima e uma ponta voltada para você. Mantenha essa orientação.",
+    "result": "As quatro pontas indicam alto, baixo, esquerda e direita."
+  },
+  "steps": {
+    "mark-first-diagonal": {
+      "title": "Marque a primeira diagonal",
+      "instruction": "Leve a ponta de cima até a de baixo e pressione de ponta a ponta.",
+      "result": "Um triângulo fica abaixo do vinco horizontal."
+    },
+    "reopen-first-diagonal": {
+      "title": "Abra a folha · Primeira diagonal",
+      "instruction": "Levante a metade dobrada e devolva-a à posição inicial.",
+      "result": "O quadrado fica plano com a diagonal marcada."
+    },
+    "mark-second-diagonal": {
+      "title": "Marque a segunda diagonal",
+      "instruction": "Leve a ponta esquerda até a direita e aperte o vinco.",
+      "result": "A nova linha cruza a primeira no centro."
+    },
+    "reopen-second-diagonal": {
+      "title": "Abra a folha · Segunda diagonal",
+      "instruction": "Levante a metade dobrada e devolva-a à posição inicial.",
+      "result": "O quadrado fica plano com a diagonal marcada."
+    },
+    "blintz-north": {
+      "title": "Leve a ponta ao centro · Em cima",
+      "instruction": "Dobre apenas o canto indicado até o cruzamento das diagonais. Vinque na metade do caminho.",
+      "result": "A ponta repousa no centro, sobre a folha."
+    },
+    "blintz-south": {
+      "title": "Leve a ponta ao centro · Embaixo",
+      "instruction": "Dobre apenas o canto indicado até o cruzamento das diagonais. Vinque na metade do caminho.",
+      "result": "A ponta repousa no centro, sobre a folha."
+    },
+    "blintz-west": {
+      "title": "Leve a ponta ao centro · Esquerda",
+      "instruction": "Dobre apenas o canto indicado até o cruzamento das diagonais. Vinque na metade do caminho.",
+      "result": "A ponta repousa no centro, sobre a folha."
+    },
+    "blintz-east": {
+      "title": "Leve a ponta ao centro · Direita",
+      "instruction": "Dobre apenas o canto indicado até o cruzamento das diagonais. Vinque na metade do caminho.",
+      "result": "A ponta repousa no centro, sobre a folha."
+    },
+    "close-left-gate": {
+      "title": "Feche a aba · Esquerda",
+      "instruction": "Leve a borda dupla indicada até a linha central mantendo as camadas juntas.",
+      "result": "Uma aba estreita cobre metade da faixa central."
+    },
+    "close-right-gate": {
+      "title": "Feche a aba · Direita",
+      "instruction": "Leve a borda dupla indicada até a linha central mantendo as camadas juntas.",
+      "result": "Uma aba estreita cobre metade da faixa central."
+    },
+    "double-the-rectangle": {
+      "title": "Dobre o retângulo",
+      "instruction": "Passe a metade inferior por trás da superior no vinco transversal do meio.",
+      "result": "As bordas curtas ficam sobrepostas."
+    },
+    "mark-front-quarter": {
+      "title": "Marque o quarto da frente",
+      "instruction": "Apenas na frente, baixe a borda distante até a borda dobrada.",
+      "result": "Um vinco transversal divide a metade da frente."
+    },
+    "mark-back-quarter": {
+      "title": "Marque o quarto de trás",
+      "instruction": "Pelo verso, dobre a borda distante para trás até a borda dupla.",
+      "result": "As camadas de trás também ficam com a marca de um quarto."
+    },
+    "release-back-quarter": {
+      "title": "Solte a dobra de um quarto · Verso",
+      "instruction": "Abra o conjunto indicado pelo vinco transversal sem mover as demais camadas.",
+      "result": "A borda volta ao alto do retângulo duplo."
+    },
+    "release-front-quarter": {
+      "title": "Solte a dobra de um quarto · Frente",
+      "instruction": "Abra o conjunto indicado pelo vinco transversal sem mover as demais camadas.",
+      "result": "A borda volta ao alto do retângulo duplo."
+    },
+    "open-the-rectangle": {
+      "title": "Abra o retângulo",
+      "instruction": "Traga a metade inferior de trás e deixe as duas abas estreitas fechadas.",
+      "result": "Duas marcas paralelas atravessam o retângulo comprido."
+    },
+    "open-right-gate": {
+      "title": "Abra a aba · Direita",
+      "instruction": "Levante a borda indicada pela emenda central e abra a aba inteira para fora no vinco existente.",
+      "result": "O canto que estava debaixo fica acessível."
+    },
+    "open-left-gate": {
+      "title": "Abra a aba · Esquerda",
+      "instruction": "Levante a borda indicada pela emenda central e abra a aba inteira para fora no vinco existente.",
+      "result": "O canto que estava debaixo fica acessível."
+    },
+    "draw-out-north-point": {
+      "title": "Puxe a ponta · Em cima",
+      "instruction": "Pegue a ponta livre do triângulo indicado no centro e gire-o para fora pelo vinco antigo.",
+      "result": "Uma ponta inteira se projeta para fora do conjunto."
+    },
+    "draw-out-south-point": {
+      "title": "Puxe a ponta · Embaixo",
+      "instruction": "Pegue a ponta livre do triângulo indicado no centro e gire-o para fora pelo vinco antigo.",
+      "result": "Uma ponta inteira se projeta para fora do conjunto."
+    },
+    "wrap-left-rail": {
+      "title": "Redobre a lateral · Esquerda",
+      "instruction": "Leve a margem longa indicada de volta ao centro. Deixe as duas pontas salientes para fora.",
+      "result": "Uma faixa dupla acompanha a emenda central."
+    },
+    "wrap-right-rail": {
+      "title": "Redobre a lateral · Direita",
+      "instruction": "Leve a margem longa indicada de volta ao centro. Deixe as duas pontas salientes para fora.",
+      "result": "Uma faixa dupla acompanha a emenda central."
+    },
+    "face-the-bow": {
+      "title": "Dobre a extremidade · Proa",
+      "instruction": "Dobre a ponta saliente para dentro na linha transversal, a cerca de um terço da distância entre a ponta e o centro.",
+      "result": "A borda larga forma o alto do encosto e a ponta livre fica voltada para o meio."
+    },
+    "face-the-stern": {
+      "title": "Dobre a extremidade · Popa",
+      "instruction": "Dobre a ponta saliente para dentro na linha transversal, a cerca de um terço da distância entre a ponta e o centro.",
+      "result": "A borda larga forma o alto do encosto e a ponta livre fica voltada para o meio."
+    },
+    "open-the-hull": {
+      "title": "Levante o casco",
+      "instruction": "Segure o fundo retangular estreito. Levante juntos os lados e as extremidades, apertando para cima os vincos diagonais dos quatro cantos.",
+      "result": "Os cantos fechados cercam o fundo rebaixado e os encostos ficam acima das laterais."
+    },
+    "bow-seat": {
+      "title": "Nivele o assento · Proa",
+      "instruction": "Na extremidade indicada, erga apenas a lingueta curta em direção ao meio até ficar paralela ao fundo.",
+      "result": "Um assento horizontal se projeta da face interna do encosto."
+    },
+    "stern-seat": {
+      "title": "Nivele o assento · Popa",
+      "instruction": "Na extremidade indicada, erga apenas a lingueta curta em direção ao meio até ficar paralela ao fundo.",
+      "result": "Um assento horizontal se projeta da face interna do encosto."
+    }
+  }
+}

@@ -22,7 +22,7 @@ it("publishes complete lessons with their actual action counts", () => {
   ).toEqual([
     ["beginner", ["paper-airplane", "paper-heart", "fox-face"]],
     ["intermediate", ["masu-box", "jumping-frog", "monarch-butterfly"]],
-    ["advanced", ["pinwheel-calyx", "river-tern", "hex-iris"]],
+    ["advanced", ["twin-stern-junk", "river-tern", "reed-runner-dinosaur"]],
   ]);
 });
 

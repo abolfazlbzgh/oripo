@@ -7,8 +7,8 @@ import { checkSheet, materialChecks, distance } from "./material-checks";
 import { checkPenetrations } from "./material-collisions";
 import { irisPolygons } from "../iris-projection";
 
-const m = fixture("hex-iris").model;
-const irisHinges = fixture("hex-iris").presentation.hingePlies;
+const m = fixture("hex-iris", "tests/fixtures/hex-iris").model;
+const irisHinges = fixture("hex-iris", "tests/fixtures/hex-iris").presentation.hingePlies;
 it("locates the hexagon, all vane edges and the gusset corners independently", () => {
   const k = m.steps.length - 2,
     rest = atIndex(m.poses, 0);

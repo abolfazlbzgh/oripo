@@ -1,0 +1,144 @@
+{
+  "sheet": {
+    "title": "摆好菱形",
+    "instruction": "薄正方形纸正面朝上，一角朝向自己。折船时保持这个方向。",
+    "result": "四个角分别指向上、下、左、右。"
+  },
+  "steps": {
+    "mark-first-diagonal": {
+      "title": "折第一条对角线",
+      "instruction": "将上角对齐下角，把整条折边压实。",
+      "result": "横折线下方叠成一个三角形。"
+    },
+    "reopen-first-diagonal": {
+      "title": "打开纸张 · 第一条对角线",
+      "instruction": "抬起刚折过的半张纸，翻回原位。",
+      "result": "正方形重新铺平，留下对角折痕。"
+    },
+    "mark-second-diagonal": {
+      "title": "折第二条对角线",
+      "instruction": "将左角对齐右角，压实折边。",
+      "result": "两条折痕在中心相交。"
+    },
+    "reopen-second-diagonal": {
+      "title": "打开纸张 · 第二条对角线",
+      "instruction": "抬起刚折过的半张纸，翻回原位。",
+      "result": "正方形重新铺平，留下对角折痕。"
+    },
+    "blintz-north": {
+      "title": "把角折向中心 · 上方",
+      "instruction": "只把标出的角折到两条对角线的交点，在角和中心之间压出折痕。",
+      "result": "角尖落在纸张中央。"
+    },
+    "blintz-south": {
+      "title": "把角折向中心 · 下方",
+      "instruction": "只把标出的角折到两条对角线的交点，在角和中心之间压出折痕。",
+      "result": "角尖落在纸张中央。"
+    },
+    "blintz-west": {
+      "title": "把角折向中心 · 左侧",
+      "instruction": "只把标出的角折到两条对角线的交点，在角和中心之间压出折痕。",
+      "result": "角尖落在纸张中央。"
+    },
+    "blintz-east": {
+      "title": "把角折向中心 · 右侧",
+      "instruction": "只把标出的角折到两条对角线的交点，在角和中心之间压出折痕。",
+      "result": "角尖落在纸张中央。"
+    },
+    "close-left-gate": {
+      "title": "合上侧边 · 左侧",
+      "instruction": "把标出的双层边连同各层一起向内折，对准中线。",
+      "result": "窄纸瓣盖住中央纸带的一半。"
+    },
+    "close-right-gate": {
+      "title": "合上侧边 · 右侧",
+      "instruction": "把标出的双层边连同各层一起向内折，对准中线。",
+      "result": "窄纸瓣盖住中央纸带的一半。"
+    },
+    "double-the-rectangle": {
+      "title": "对折长方形",
+      "instruction": "沿横向中线把下半部分折到上半部分的背后。",
+      "result": "两条短边重合。"
+    },
+    "mark-front-quarter": {
+      "title": "标出正面四分线",
+      "instruction": "只折正面的纸层，把远端的边向下对齐双层折边。",
+      "result": "正面留下一道横向折痕。"
+    },
+    "mark-back-quarter": {
+      "title": "标出背面四分线",
+      "instruction": "从背后将远端的边向后折，对齐双层折边。",
+      "result": "背面的各层也有了四分线。"
+    },
+    "release-back-quarter": {
+      "title": "打开四分折 · 背面",
+      "instruction": "沿横折痕打开标出的纸层，用手按住其余部分。",
+      "result": "远端的边回到双层长方形的上端。"
+    },
+    "release-front-quarter": {
+      "title": "打开四分折 · 正面",
+      "instruction": "沿横折痕打开标出的纸层，用手按住其余部分。",
+      "result": "远端的边回到双层长方形的上端。"
+    },
+    "open-the-rectangle": {
+      "title": "展开长方形",
+      "instruction": "把下半部分从背后翻出来，两侧的窄纸瓣保持折叠。",
+      "result": "长方形上有两条平行的横折痕。"
+    },
+    "open-right-gate": {
+      "title": "打开侧边 · 右侧",
+      "instruction": "从中缝抬起标出的一边，沿原折痕把整片向外展开。",
+      "result": "这一侧原本藏住的角露出来了。"
+    },
+    "open-left-gate": {
+      "title": "打开侧边 · 左侧",
+      "instruction": "从中缝抬起标出的一边，沿原折痕把整片向外展开。",
+      "result": "这一侧原本藏住的角露出来了。"
+    },
+    "draw-out-north-point": {
+      "title": "拉出尖角 · 上方",
+      "instruction": "捏住中央标出的自由角尖，沿原先的角折痕把三角片向外翻开。",
+      "result": "一个完整的尖角伸出纸包。"
+    },
+    "draw-out-south-point": {
+      "title": "拉出尖角 · 下方",
+      "instruction": "捏住中央标出的自由角尖，沿原先的角折痕把三角片向外翻开。",
+      "result": "一个完整的尖角伸出纸包。"
+    },
+    "wrap-left-rail": {
+      "title": "折回船舷 · 左侧",
+      "instruction": "把标出的一条长边折回中线，让两端伸出的尖角留在外面。",
+      "result": "中缝旁形成双层的窄船舷。"
+    },
+    "wrap-right-rail": {
+      "title": "折回船舷 · 右侧",
+      "instruction": "把标出的一条长边折回中线，让两端伸出的尖角留在外面。",
+      "result": "中缝旁形成双层的窄船舷。"
+    },
+    "face-the-bow": {
+      "title": "折出靠背边 · 船头",
+      "instruction": "沿横线把伸出的尖角向内折，折线约在从角尖到中心的三分之一处。",
+      "result": "宽折边成为靠背的顶边，自由尖端朝向中央。"
+    },
+    "face-the-stern": {
+      "title": "折出靠背边 · 船尾",
+      "instruction": "沿横线把伸出的尖角向内折，折线约在从角尖到中心的三分之一处。",
+      "result": "宽折边成为靠背的顶边，自由尖端朝向中央。"
+    },
+    "open-the-hull": {
+      "title": "撑起船身",
+      "instruction": "按住狭长的矩形船底，同时抬起两侧和两端。顺着斜折痕把四个角向上捏合。",
+      "result": "四角围成下凹的船舱，两头的靠背高出船舷。"
+    },
+    "bow-seat": {
+      "title": "放平座面 · 船头",
+      "instruction": "在标出的一端，只将短小的自由舌片朝中央抬起，直到与船底平行。",
+      "result": "靠背内侧伸出一个水平座面。"
+    },
+    "stern-seat": {
+      "title": "放平座面 · 船尾",
+      "instruction": "在标出的一端，只将短小的自由舌片朝中央抬起，直到与船底平行。",
+      "result": "靠背内侧伸出一个水平座面。"
+    }
+  }
+}

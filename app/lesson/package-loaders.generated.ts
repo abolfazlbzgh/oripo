@@ -6,7 +6,7 @@ export const packageLoaders = {
   "masu-box": () => import("../../models/masu-box/lesson.json"),
   "jumping-frog": () => import("../../models/jumping-frog/lesson.json"),
   "monarch-butterfly": () => import("../../models/monarch-butterfly/lesson.json"),
-  "pinwheel-calyx": () => import("../../models/pinwheel-calyx/lesson.json"),
+  "twin-stern-junk": () => import("../../models/twin-stern-junk/lesson.json"),
   "river-tern": () => import("../../models/river-tern/lesson.json"),
-  "hex-iris": () => import("../../models/hex-iris/lesson.json"),
+  "reed-runner-dinosaur": () => import("../../models/reed-runner-dinosaur/lesson.json"),
 };

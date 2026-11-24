@@ -1,0 +1,74 @@
+{
+  "sheet": {
+    "title": "Prepara los pliegues",
+    "instruction": "Pon un lado del cuadrado hacia ti. Marca ambas diagonales y las líneas medias horizontal y vertical. Abre el papel.",
+    "result": "Ocho sectores triangulares se encuentran en el centro."
+  },
+  "steps": {
+    "collapse-the-base": {
+      "title": "Cierra la base bomba de agua",
+      "instruction": "Empuja hacia dentro los centros de los lados izquierdo y derecho. Baja el borde superior al inferior mientras se cierran las diagonales.",
+      "result": "Quedan cuatro solapas en un triángulo con el borde largo hacia ti."
+    },
+    "swing-leading-leg": {
+      "title": "Saca una pata trasera · Pata adelantada",
+      "instruction": "Por debajo, gira la esquina indicada sobre la guía oblicua hasta pasar el borde largo. Deja quieta la solapa superior.",
+      "result": "Una esquina asoma por debajo del vientre."
+    },
+    "swing-trailing-leg": {
+      "title": "Saca una pata trasera · Pata retrasada",
+      "instruction": "Por debajo, gira la esquina indicada sobre la guía oblicua hasta pasar el borde largo. Deja quieta la solapa superior.",
+      "result": "Una esquina asoma por debajo del vientre."
+    },
+    "bend-leading-ankle": {
+      "title": "Dobla el tobillo · Pata adelantada",
+      "instruction": "Vuelve la punta de la pata indicada por el pliegue oblicuo corto. Oriéntala hacia la cabeza, a la izquierda.",
+      "result": "Un pie corto forma un ángulo con la pata."
+    },
+    "bend-trailing-ankle": {
+      "title": "Dobla el tobillo · Pata retrasada",
+      "instruction": "Vuelve la punta de la pata indicada por el pliegue oblicuo corto. Oriéntala hacia la cabeza, a la izquierda.",
+      "result": "Un pie corto forma un ángulo con la pata."
+    },
+    "lift-the-neck": {
+      "title": "Alza el cuello",
+      "instruction": "Levanta la esquina larga superior izquierda por la guía inclinada y lleva su punta muy por encima del hombro.",
+      "result": "El cuello sobresale por encima del cuerpo."
+    },
+    "turn-the-head": {
+      "title": "Gira la cabeza",
+      "instruction": "Baja solo el extremo del cuello hacia la izquierda siguiendo la guía oblicua.",
+      "result": "La cabeza en forma de cuña apunta hacia delante."
+    },
+    "square-the-muzzle": {
+      "title": "Achata el hocico",
+      "instruction": "Repliega la punta estrecha del hocico por la marca vertical corta.",
+      "result": "El hocico termina en un borde plano."
+    },
+    "lower-the-back": {
+      "title": "Baja el lomo",
+      "instruction": "Dobla el pico central por detrás del cuerpo sobre la horizontal. Deja libres cabeza y cola.",
+      "result": "El lomo baja y la punta plegada aparece bajo el vientre."
+    },
+    "shape-the-tail": {
+      "title": "Afina la cola",
+      "instruction": "Dobla hacia atrás el margen superior del paquete derecho por la diagonal que llega al extremo.",
+      "result": "La cola se estrecha desde una raíz ancha hasta la punta."
+    },
+    "fold-the-forelimb": {
+      "title": "Forma el brazo",
+      "instruction": "Repliega la punta central libre por la corta diagonal bajo el pecho.",
+      "result": "Un brazo pequeño y angular queda entre el cuello y las patas."
+    },
+    "open-the-stance": {
+      "title": "Abre el paso",
+      "instruction": "Separa las dos espinillas en sentidos opuestos por las marcas, sin mover el vientre.",
+      "result": "Los pies quedan en planos distintos, como al dar un paso."
+    },
+    "curve-the-tail": {
+      "title": "Gira la punta de la cola",
+      "instruction": "Saca suavemente el tramo exterior de la cola del plano del cuerpo por el último pliegue.",
+      "result": "De perfil la cola equilibra la cabeza y en vista oblicua se aprecia su giro."
+    }
+  }
+}

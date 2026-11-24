@@ -53,17 +53,12 @@ export async function paperPixels(
         colored = 0,
         hash = 2166136261;
       function hue(r: number, g: number, b: number) {
-        if (finish === "pinwheel-calyx")
-          return r - g > 36 && r - g > 2 * (g - b) ? "coral" : "other";
+        if (finish === "twin-stern-junk")
+          return b - r > 28 && g - r > 16 && b - g > 6 ? "ocean" : "other";
         if (finish === "river-tern")
           return b - r > 31 && g - r > 16 && b - g > 8 ? "blue" : "other";
-        if (finish === "hex-iris") {
-          // Gold and violet meet at antialiased crease strokes. Count their mixed pigment for silhouettes.
-          if (includeCreaseInk && r - g > 8 && r < 202 && b > g - 50) return "iris";
-          return (r - g > 28 && g - b > 1.48 * (r - g)) || (b - r > 15 && r - g > 9)
-            ? "iris"
-            : "other";
-        }
+        if (finish === "reed-runner-dinosaur")
+          return g - b > 27 && r - b > 21 && g >= r && g - r < 25 ? "olive" : "other";
         if (finish === "jumping-frog")
           return g - b > 40 && g - r > 11 && r - b > 12 ? "leaf" : "other";
         if (finish === "monarch-butterfly") return b - r > 17 && r - g > 12 ? "violet" : "other";

@@ -1,0 +1,144 @@
+{
+  "sheet": {
+    "title": "Coloca el rombo",
+    "instruction": "Pon un cuadrado fino boca arriba con una punta hacia ti. Mantén esa orientación.",
+    "result": "Las cuatro puntas indican arriba, abajo, izquierda y derecha."
+  },
+  "steps": {
+    "mark-first-diagonal": {
+      "title": "Marca la primera diagonal",
+      "instruction": "Lleva la punta superior a la inferior y presiona de lado a lado.",
+      "result": "Queda un triángulo debajo del pliegue horizontal."
+    },
+    "reopen-first-diagonal": {
+      "title": "Abre el papel · Primera diagonal",
+      "instruction": "Levanta la mitad doblada y devuélvela a su sitio.",
+      "result": "El cuadrado queda plano con la diagonal marcada."
+    },
+    "mark-second-diagonal": {
+      "title": "Marca la segunda diagonal",
+      "instruction": "Lleva la punta izquierda a la derecha y presiona el pliegue.",
+      "result": "La nueva marca cruza la primera en el centro."
+    },
+    "reopen-second-diagonal": {
+      "title": "Abre el papel · Segunda diagonal",
+      "instruction": "Levanta la mitad doblada y devuélvela a su sitio.",
+      "result": "El cuadrado queda plano con la diagonal marcada."
+    },
+    "blintz-north": {
+      "title": "Lleva la punta al centro · Arriba",
+      "instruction": "Dobla solo la esquina indicada hasta el cruce de las diagonales. Marca a mitad de camino.",
+      "result": "La punta descansa en el centro sobre el papel."
+    },
+    "blintz-south": {
+      "title": "Lleva la punta al centro · Abajo",
+      "instruction": "Dobla solo la esquina indicada hasta el cruce de las diagonales. Marca a mitad de camino.",
+      "result": "La punta descansa en el centro sobre el papel."
+    },
+    "blintz-west": {
+      "title": "Lleva la punta al centro · Izquierda",
+      "instruction": "Dobla solo la esquina indicada hasta el cruce de las diagonales. Marca a mitad de camino.",
+      "result": "La punta descansa en el centro sobre el papel."
+    },
+    "blintz-east": {
+      "title": "Lleva la punta al centro · Derecha",
+      "instruction": "Dobla solo la esquina indicada hasta el cruce de las diagonales. Marca a mitad de camino.",
+      "result": "La punta descansa en el centro sobre el papel."
+    },
+    "close-left-gate": {
+      "title": "Cierra la solapa · Izquierda",
+      "instruction": "Lleva el borde doble indicado hasta la línea central, manteniendo sus capas juntas.",
+      "result": "Una solapa estrecha cubre la mitad de la franja central."
+    },
+    "close-right-gate": {
+      "title": "Cierra la solapa · Derecha",
+      "instruction": "Lleva el borde doble indicado hasta la línea central, manteniendo sus capas juntas.",
+      "result": "Una solapa estrecha cubre la mitad de la franja central."
+    },
+    "double-the-rectangle": {
+      "title": "Dobla el rectángulo",
+      "instruction": "Pasa la mitad inferior por detrás de la superior siguiendo la línea transversal central.",
+      "result": "Los dos bordes cortos coinciden."
+    },
+    "mark-front-quarter": {
+      "title": "Marca el cuarto delantero",
+      "instruction": "Solo por delante, baja el borde lejano hasta el borde doblado.",
+      "result": "Una marca transversal divide la mitad delantera."
+    },
+    "mark-back-quarter": {
+      "title": "Marca el cuarto trasero",
+      "instruction": "Por detrás, dobla el borde lejano hacia atrás hasta el borde doble.",
+      "result": "Las capas traseras tienen su propia marca de cuarto."
+    },
+    "release-back-quarter": {
+      "title": "Suelta el cuarto · Detrás",
+      "instruction": "Abre el paquete indicado por la marca transversal. Sujeta las otras capas.",
+      "result": "El borde lejano vuelve a la parte alta del rectángulo doble."
+    },
+    "release-front-quarter": {
+      "title": "Suelta el cuarto · Delante",
+      "instruction": "Abre el paquete indicado por la marca transversal. Sujeta las otras capas.",
+      "result": "El borde lejano vuelve a la parte alta del rectángulo doble."
+    },
+    "open-the-rectangle": {
+      "title": "Abre el rectángulo",
+      "instruction": "Saca la mitad inferior de detrás y deja cerradas las dos solapas estrechas.",
+      "result": "Dos marcas paralelas cruzan el rectángulo largo."
+    },
+    "open-right-gate": {
+      "title": "Abre la solapa · Derecha",
+      "instruction": "Levanta el borde indicado desde la unión central y gira toda la solapa hacia fuera.",
+      "result": "La esquina que había debajo queda accesible."
+    },
+    "open-left-gate": {
+      "title": "Abre la solapa · Izquierda",
+      "instruction": "Levanta el borde indicado desde la unión central y gira toda la solapa hacia fuera.",
+      "result": "La esquina que había debajo queda accesible."
+    },
+    "draw-out-north-point": {
+      "title": "Extrae la punta · Arriba",
+      "instruction": "Toma la punta libre del triángulo indicado en el centro y ábrelo hacia fuera por su pliegue original.",
+      "result": "Una punta completa sobresale del paquete."
+    },
+    "draw-out-south-point": {
+      "title": "Extrae la punta · Abajo",
+      "instruction": "Toma la punta libre del triángulo indicado en el centro y ábrelo hacia fuera por su pliegue original.",
+      "result": "Una punta completa sobresale del paquete."
+    },
+    "wrap-left-rail": {
+      "title": "Repliega el costado · Izquierda",
+      "instruction": "Devuelve el margen largo indicado al centro, dejando fuera ambas puntas.",
+      "result": "Una franja doble queda junto a la unión central."
+    },
+    "wrap-right-rail": {
+      "title": "Repliega el costado · Derecha",
+      "instruction": "Devuelve el margen largo indicado al centro, dejando fuera ambas puntas.",
+      "result": "Una franja doble queda junto a la unión central."
+    },
+    "face-the-bow": {
+      "title": "Dobla el extremo · Proa",
+      "instruction": "Dobla la punta saliente hacia dentro en la línea transversal, aproximadamente a un tercio del recorrido al centro.",
+      "result": "El borde ancho forma un respaldo y la punta libre mira al centro."
+    },
+    "face-the-stern": {
+      "title": "Dobla el extremo · Popa",
+      "instruction": "Dobla la punta saliente hacia dentro en la línea transversal, aproximadamente a un tercio del recorrido al centro.",
+      "result": "El borde ancho forma un respaldo y la punta libre mira al centro."
+    },
+    "open-the-hull": {
+      "title": "Levanta el casco",
+      "instruction": "Sujeta el fondo rectangular. Sube ambos costados y extremos a la vez, pellizcando hacia arriba las cuatro diagonales de las esquinas.",
+      "result": "Cuatro esquinas cerradas rodean el fondo hundido y los respaldos superan los costados."
+    },
+    "bow-seat": {
+      "title": "Nivela el asiento · Proa",
+      "instruction": "En el extremo indicado levanta solo la lengüeta corta hacia el centro hasta dejarla paralela al fondo.",
+      "result": "Un asiento horizontal sobresale de la cara interior del respaldo."
+    },
+    "stern-seat": {
+      "title": "Nivela el asiento · Popa",
+      "instruction": "En el extremo indicado levanta solo la lengüeta corta hacia el centro hasta dejarla paralela al fondo.",
+      "result": "Un asiento horizontal sobresale de la cara interior del respaldo."
+    }
+  }
+}

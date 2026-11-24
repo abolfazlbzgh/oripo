@@ -1,7 +1,10 @@
+import { fixture } from "../model-fixture";
 import { foxOutline } from "./finished-outlines";
-import { foxFolds } from "../../app/lesson/fox";
-import { foxSheet, foxText } from "../../app/lesson/fox.en";
+import foxManuscript from "../../app/i18n/en/fox-face.json" with { type: "json" };
 import { flatJourney } from "./flat-journey";
+
+const foxFolds = fixture("fox-face").pattern.steps;
+const { sheet: foxSheet, steps: foxText } = foxManuscript;
 
 // The left ear sweeps a circle of radius 1/√13 about the chin-to-cheek hinge.
 flatJourney({

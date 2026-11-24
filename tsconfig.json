@@ -1,5 +1,5 @@
 {
-  "include": ["app", "*.ts", "tests", ".react-router/types/**/*"],
+  "include": ["app", "scripts/**/*.ts", "*.ts", "tests", ".react-router/types/**/*"],
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,

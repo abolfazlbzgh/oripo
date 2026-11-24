@@ -4,7 +4,9 @@ import { atIndex } from "../../app/lesson/geometry";
 import { expect, type Page } from "@playwright/test";
 import { test as previewTest, watchBrowser } from "./preview";
 import { dartPixels } from "./dart-pixels";
-import { airplaneText, sheetText } from "../../app/lesson/airplane.en";
+import airplaneManuscript from "../../app/i18n/en/paper-airplane.json" with { type: "json" };
+
+const { steps: airplaneText, sheet: sheetText } = airplaneManuscript;
 
 const path = "/en/lessons/paper-airplane";
 const actions = [
@@ -103,7 +105,7 @@ test("playable catalog to nine folds, in-flight reversal, final dart, replay and
   await expect(page).toHaveURL(new RegExp(path + "$"));
   await ready(page);
   expect(sceneRequests.some((s) => s.includes("/studio.client-"))).toBe(true);
-  expect(sceneRequests.some((s) => s.includes("/airplane-scene.client-"))).toBe(true);
+  expect(sceneRequests.some((s) => s.includes("/package-scene.client-"))).toBe(true);
   await page.clock.pauseAt(new Date("2026-01-01T12:02:00Z"));
   await endpoint(page, 0);
   const flat = await dartPixels(page, "sheet");

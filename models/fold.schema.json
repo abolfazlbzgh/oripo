@@ -1,0 +1,149 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Oripo FOLD 1.2 planar material interchange",
+  "type": "object",
+  "required": ["file_spec", "vertices_coords", "edges_vertices", "faces_vertices"],
+  "additionalProperties": false,
+  "properties": {
+    "file_spec": {
+      "const": 1.2
+    },
+    "file_classes": {
+      "type": "array",
+      "items": {
+        "const": "singleModel"
+      },
+      "minItems": 1,
+      "maxItems": 1
+    },
+    "frame_classes": {
+      "type": "array",
+      "items": {
+        "const": "creasePattern"
+      },
+      "minItems": 1,
+      "maxItems": 1
+    },
+    "frame_unit": {
+      "enum": ["unit", "in", "pt", "m", "cm", "mm", "um", "nm"]
+    },
+    "file_creator": {
+      "type": "string",
+      "maxLength": 2048
+    },
+    "file_author": {
+      "type": "string",
+      "maxLength": 2048
+    },
+    "file_title": {
+      "type": "string",
+      "maxLength": 2048
+    },
+    "file_description": {
+      "type": "string",
+      "maxLength": 2048
+    },
+    "frame_author": {
+      "type": "string",
+      "maxLength": 2048
+    },
+    "frame_title": {
+      "type": "string",
+      "maxLength": 2048
+    },
+    "frame_description": {
+      "type": "string",
+      "maxLength": 2048
+    },
+    "vertices_coords": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "minItems": 3,
+      "maxItems": 4096
+    },
+    "edges_vertices": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "minItems": 3,
+      "maxItems": 12288
+    },
+    "faces_vertices": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minItems": 3,
+        "maxItems": 4096,
+        "uniqueItems": true
+      },
+      "minItems": 1,
+      "maxItems": 4096
+    },
+    "edges_assignment": {
+      "type": "array",
+      "items": {
+        "enum": ["B", "M", "V", "F", "U"]
+      },
+      "minItems": 3,
+      "maxItems": 12288
+    },
+    "oripo:vertexIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*$",
+        "maxLength": 96
+      },
+      "minItems": 3,
+      "maxItems": 4096,
+      "uniqueItems": true
+    },
+    "oripo:faceIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*$",
+        "maxLength": 96
+      },
+      "minItems": 1,
+      "maxItems": 4096,
+      "uniqueItems": true
+    },
+    "oripo:creases": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*$",
+        "maxLength": 96
+      },
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "maxProperties": 4096
+    }
+  }
+}

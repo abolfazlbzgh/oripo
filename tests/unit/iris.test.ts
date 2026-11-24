@@ -1,11 +1,14 @@
+import { fixture } from "../model-fixture";
 import type { Point } from "../../app/fold/geometry";
 import { expect, it } from "vitest";
-import { iris as m, irisHinges } from "../../app/lesson/iris";
 import { atIndex, poseAt } from "../../app/lesson/geometry";
 import { paperLayers } from "../../app/lesson/drawing";
 import { checkSheet, materialChecks, distance } from "./material-checks";
 import { checkPenetrations } from "./material-collisions";
 import { irisPolygons } from "../iris-projection";
+
+const m = fixture("hex-iris").model;
+const irisHinges = fixture("hex-iris").presentation.hingePlies;
 it("locates the hexagon, all vane edges and the gusset corners independently", () => {
   const k = m.steps.length - 2,
     rest = atIndex(m.poses, 0);

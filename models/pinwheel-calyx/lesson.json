@@ -1,0 +1,1315 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "order": 70,
+  "difficulty": "advanced",
+  "category": "botanical",
+  "paper": {
+    "shape": "square",
+    "span": [4, 4]
+  },
+  "finishedAppearance": {
+    "front": "#df716b",
+    "reverse": "#f3aa91",
+    "edge": "#884452"
+  },
+  "manuscript": "pinwheel-calyx",
+  "provenance": {
+    "variant": "Oripo Pinwheel calyx",
+    "reference": "docs/decisions/0009-advanced-model-selection.md",
+    "rightsStatus": "project-authored",
+    "rights": "Oripo-authored geometry and manuscript. See the construction record for attribution.",
+    "review": {
+      "maker": "provisional",
+      "physical": "pending",
+      "language": "pending",
+      "visual": "pending"
+    }
+  },
+  "presentation": {
+    "view": {
+      "position": [2.4, -3.9, 3.9],
+      "minDistance": 2,
+      "maxDistance": 8,
+      "inspectBack": true,
+      "shadowZ": -1.65
+    },
+    "previewEye": [2.4, -3.9, 3.9],
+    "hingePlies": {
+      "blintz-base": 0.5,
+      "hem-tips": 1.5,
+      "raise-first": 0,
+      "raise-second": 0,
+      "lift-inner-sides": 1,
+      "lift-inner-ends": 1
+    }
+  },
+  "pattern": {
+    "version": 4,
+    "lessonId": "pinwheel-calyx",
+    "sheet": {
+      "vertices": {
+        "v-0": [0, 1, 0],
+        "v-1": [-1, 0, 0],
+        "v-2": [0, -1, 0],
+        "v-3": [1, 0, 0],
+        "v-4": [0.78, -1, 0],
+        "v-5": [0.8332459813375523, -0.9467540186624477, 0],
+        "v-6": [0.5777784118285091, -0.8382220446880174, 0],
+        "v-7": [0.9142268381293696, -0.8657731618706305, 0],
+        "v-8": [0.74148229517992, -0.7923849573496223, 0],
+        "v-9": [1, -0.78, 0],
+        "v-10": [1, -0.7200000000000001, 0],
+        "v-11": [1, -0.4325922753835315, 0],
+        "v-12": [1, -0.25059406115037536, 0],
+        "v-13": [0.855866823082264, -1, 0],
+        "v-14": [0.9712513118444612, -1, 0],
+        "v-15": [0.9984000000000001, -1, 0],
+        "v-16": [1, -0.9942857142857144, 0],
+        "v-17": [1, -1, 0],
+        "v-18": [-1, -0.78, 0],
+        "v-19": [-0.9467540186624477, -0.8332459813375523, 0],
+        "v-20": [-0.8382220446880174, -0.5777784118285091, 0],
+        "v-21": [-0.8657731618706305, -0.9142268381293696, 0],
+        "v-22": [-0.7923849573496223, -0.74148229517992, 0],
+        "v-23": [-0.78, -1, 0],
+        "v-24": [-0.7200000000000001, -1, 0],
+        "v-25": [-0.4325922753835315, -1, 0],
+        "v-26": [-0.25059406115037536, -1, 0],
+        "v-27": [-1, -0.855866823082264, 0],
+        "v-28": [-1, -0.9712513118444612, 0],
+        "v-29": [-1, -0.9984000000000001, 0],
+        "v-30": [-0.9942857142857144, -1, 0],
+        "v-31": [-1, -1, 0],
+        "v-32": [-0.78, 1, 0],
+        "v-33": [-0.8332459813375523, 0.9467540186624477, 0],
+        "v-34": [-0.5777784118285091, 0.8382220446880174, 0],
+        "v-35": [-0.9142268381293696, 0.8657731618706305, 0],
+        "v-36": [-0.74148229517992, 0.7923849573496223, 0],
+        "v-37": [-1, 0.78, 0],
+        "v-38": [-1, 0.7200000000000001, 0],
+        "v-39": [-1, 0.4325922753835315, 0],
+        "v-40": [-1, 0.25059406115037536, 0],
+        "v-41": [-0.855866823082264, 1, 0],
+        "v-42": [-0.9712513118444612, 1, 0],
+        "v-43": [-0.9984000000000001, 1, 0],
+        "v-44": [-1, 0.9942857142857144, 0],
+        "v-45": [-1, 1, 0],
+        "v-46": [0.8382220446880174, 0.5777784118285091, 0],
+        "v-47": [1, 0.78, 0],
+        "v-48": [0.9467540186624477, 0.8332459813375523, 0],
+        "v-49": [0.7923849573496223, 0.74148229517992, 0],
+        "v-50": [0.8657731618706305, 0.9142268381293696, 0],
+        "v-51": [0.78, 1, 0],
+        "v-52": [0.7200000000000001, 1, 0],
+        "v-53": [0.4325922753835315, 1, 0],
+        "v-54": [0.25059406115037536, 1, 0],
+        "v-55": [1, 0.855866823082264, 0],
+        "v-56": [1, 0.9712513118444612, 0],
+        "v-57": [0.9942857142857144, 1, 0],
+        "v-58": [1, 0.9984000000000001, 0],
+        "v-59": [1, 1, 0],
+        "v-60": [-0.5, -1.5, 0],
+        "v-61": [-0.45999999999999996, -1.54, 0],
+        "v-62": [0.46, -1.54, 0],
+        "v-63": [0.5, -1.5, 0],
+        "v-64": [0.8332459813375523, -1.0532459813375523, 0],
+        "v-65": [0.577778411828509, -1.1617779553119825, 0],
+        "v-66": [0.8299835146340618, -1.170016485365938, 0],
+        "v-67": [0.89, -1.1099999999999999, 0],
+        "v-68": [0.7414822951799199, -1.2076150426503776, 0],
+        "v-69": [0.78125, -1.21875, 0],
+        "v-70": [0.7627648737594939, -1.2372351262405061, 0],
+        "v-71": [0.6866707928085621, -1.3133292071914378, 0],
+        "v-72": [0.9500164853659382, -1.0499835146340617, 0],
+        "v-73": [0.99875, -1.00125, 0],
+        "v-74": [-0.89, -1.1099999999999999, 0],
+        "v-75": [-0.8299835146340618, -1.170016485365938, 0],
+        "v-76": [-0.8657731618706305, -1.0857731618706303, 0],
+        "v-77": [-0.78125, -1.21875, 0],
+        "v-78": [-0.7627648737594939, -1.2372351262405061, 0],
+        "v-79": [-0.6866707928085621, -1.3133292071914378, 0],
+        "v-80": [-0.9500164853659382, -1.0499835146340617, 0],
+        "v-81": [-0.99875, -1.00125, 0],
+        "v-82": [0, -2, 0],
+        "v-83": [-1.5, 0.5, 0],
+        "v-84": [-1.54, 0.45999999999999996, 0],
+        "v-85": [-1.54, -0.46, 0],
+        "v-86": [-1.5, -0.5, 0],
+        "v-87": [-1.0532459813375523, -0.8332459813375523, 0],
+        "v-88": [-1.1617779553119825, -0.577778411828509, 0],
+        "v-89": [-1.170016485365938, -0.8299835146340618, 0],
+        "v-90": [-1.1099999999999999, -0.89, 0],
+        "v-91": [-1.2076150426503776, -0.7414822951799199, 0],
+        "v-92": [-1.21875, -0.78125, 0],
+        "v-93": [-1.2372351262405061, -0.7627648737594939, 0],
+        "v-94": [-1.3133292071914378, -0.6866707928085621, 0],
+        "v-95": [-1.0499835146340617, -0.9500164853659382, 0],
+        "v-96": [-1.00125, -0.99875, 0],
+        "v-97": [-1.1099999999999999, 0.89, 0],
+        "v-98": [-1.170016485365938, 0.8299835146340618, 0],
+        "v-99": [-1.0857731618706303, 0.8657731618706305, 0],
+        "v-100": [-1.21875, 0.78125, 0],
+        "v-101": [-1.2372351262405061, 0.7627648737594939, 0],
+        "v-102": [-1.3133292071914378, 0.6866707928085621, 0],
+        "v-103": [-1.0499835146340617, 0.9500164853659382, 0],
+        "v-104": [-1.00125, 0.99875, 0],
+        "v-105": [-2, 0, 0],
+        "v-106": [0.5, 1.5, 0],
+        "v-107": [0.45999999999999996, 1.54, 0],
+        "v-108": [-0.46, 1.54, 0],
+        "v-109": [-0.5, 1.5, 0],
+        "v-110": [-0.8332459813375523, 1.0532459813375523, 0],
+        "v-111": [-0.577778411828509, 1.1617779553119825, 0],
+        "v-112": [-0.8299835146340618, 1.170016485365938, 0],
+        "v-113": [-0.89, 1.1099999999999999, 0],
+        "v-114": [-0.7414822951799199, 1.2076150426503776, 0],
+        "v-115": [-0.78125, 1.21875, 0],
+        "v-116": [-0.7627648737594939, 1.2372351262405061, 0],
+        "v-117": [-0.6866707928085621, 1.3133292071914378, 0],
+        "v-118": [-0.9500164853659382, 1.0499835146340617, 0],
+        "v-119": [-0.99875, 1.00125, 0],
+        "v-120": [0.89, 1.1099999999999999, 0],
+        "v-121": [0.8299835146340618, 1.170016485365938, 0],
+        "v-122": [0.8657731618706305, 1.0857731618706303, 0],
+        "v-123": [0.78125, 1.21875, 0],
+        "v-124": [0.7627648737594939, 1.2372351262405061, 0],
+        "v-125": [0.6866707928085621, 1.3133292071914378, 0],
+        "v-126": [0.9500164853659382, 1.0499835146340617, 0],
+        "v-127": [0.99875, 1.00125, 0],
+        "v-128": [0, 2, 0],
+        "v-129": [1.54, 0.46, 0],
+        "v-130": [1.5, 0.5, 0],
+        "v-131": [1.5, -0.5, 0],
+        "v-132": [1.54, -0.45999999999999996, 0],
+        "v-133": [1.0857731618706303, -0.8657731618706305, 0],
+        "v-134": [1.1099999999999999, -0.89, 0],
+        "v-135": [1.170016485365938, -0.8299835146340618, 0],
+        "v-136": [1.21875, -0.78125, 0],
+        "v-137": [1.2372351262405061, -0.7627648737594939, 0],
+        "v-138": [1.3133292071914378, -0.6866707928085621, 0],
+        "v-139": [1.0499835146340617, -0.9500164853659382, 0],
+        "v-140": [1.00125, -0.99875, 0],
+        "v-141": [1.0532459813375523, 0.8332459813375523, 0],
+        "v-142": [1.1617779553119825, 0.577778411828509, 0],
+        "v-143": [1.170016485365938, 0.8299835146340618, 0],
+        "v-144": [1.1099999999999999, 0.89, 0],
+        "v-145": [1.2076150426503776, 0.7414822951799199, 0],
+        "v-146": [1.21875, 0.78125, 0],
+        "v-147": [1.2372351262405061, 0.7627648737594939, 0],
+        "v-148": [1.3133292071914378, 0.6866707928085621, 0],
+        "v-149": [1.0499835146340617, 0.9500164853659382, 0],
+        "v-150": [1.00125, 0.99875, 0],
+        "v-151": [2, 0, 0]
+      },
+      "faces": [
+        {
+          "id": "panel-0",
+          "vertices": ["v-0", "v-1", "v-2", "v-3"]
+        },
+        {
+          "id": "panel-1",
+          "vertices": ["v-2", "v-4", "v-5", "v-6"]
+        },
+        {
+          "id": "panel-2",
+          "vertices": ["v-5", "v-7", "v-8", "v-6"]
+        },
+        {
+          "id": "panel-3",
+          "vertices": ["v-7", "v-9", "v-10", "v-8"]
+        },
+        {
+          "id": "panel-4",
+          "vertices": ["v-8", "v-10", "v-11"]
+        },
+        {
+          "id": "panel-5",
+          "vertices": ["v-6", "v-8", "v-11", "v-12"]
+        },
+        {
+          "id": "panel-6",
+          "vertices": ["v-2", "v-6", "v-12", "v-3"]
+        },
+        {
+          "id": "panel-7",
+          "vertices": ["v-4", "v-13", "v-5"]
+        },
+        {
+          "id": "panel-8",
+          "vertices": ["v-13", "v-14", "v-7", "v-5"]
+        },
+        {
+          "id": "panel-9",
+          "vertices": ["v-14", "v-15", "v-16", "v-9", "v-7"]
+        },
+        {
+          "id": "panel-10",
+          "vertices": ["v-15", "v-17", "v-16"]
+        },
+        {
+          "id": "panel-11",
+          "vertices": ["v-1", "v-18", "v-19", "v-20"]
+        },
+        {
+          "id": "panel-12",
+          "vertices": ["v-19", "v-21", "v-22", "v-20"]
+        },
+        {
+          "id": "panel-13",
+          "vertices": ["v-21", "v-23", "v-24", "v-22"]
+        },
+        {
+          "id": "panel-14",
+          "vertices": ["v-22", "v-24", "v-25"]
+        },
+        {
+          "id": "panel-15",
+          "vertices": ["v-20", "v-22", "v-25", "v-26"]
+        },
+        {
+          "id": "panel-16",
+          "vertices": ["v-1", "v-20", "v-26", "v-2"]
+        },
+        {
+          "id": "panel-17",
+          "vertices": ["v-18", "v-27", "v-19"]
+        },
+        {
+          "id": "panel-18",
+          "vertices": ["v-27", "v-28", "v-21", "v-19"]
+        },
+        {
+          "id": "panel-19",
+          "vertices": ["v-28", "v-29", "v-30", "v-23", "v-21"]
+        },
+        {
+          "id": "panel-20",
+          "vertices": ["v-29", "v-31", "v-30"]
+        },
+        {
+          "id": "panel-21",
+          "vertices": ["v-0", "v-32", "v-33", "v-34"]
+        },
+        {
+          "id": "panel-22",
+          "vertices": ["v-33", "v-35", "v-36", "v-34"]
+        },
+        {
+          "id": "panel-23",
+          "vertices": ["v-35", "v-37", "v-38", "v-36"]
+        },
+        {
+          "id": "panel-24",
+          "vertices": ["v-36", "v-38", "v-39"]
+        },
+        {
+          "id": "panel-25",
+          "vertices": ["v-34", "v-36", "v-39", "v-40"]
+        },
+        {
+          "id": "panel-26",
+          "vertices": ["v-0", "v-34", "v-40", "v-1"]
+        },
+        {
+          "id": "panel-27",
+          "vertices": ["v-32", "v-41", "v-33"]
+        },
+        {
+          "id": "panel-28",
+          "vertices": ["v-41", "v-42", "v-35", "v-33"]
+        },
+        {
+          "id": "panel-29",
+          "vertices": ["v-42", "v-43", "v-44", "v-37", "v-35"]
+        },
+        {
+          "id": "panel-30",
+          "vertices": ["v-43", "v-45", "v-44"]
+        },
+        {
+          "id": "panel-31",
+          "vertices": ["v-46", "v-3", "v-47", "v-48"]
+        },
+        {
+          "id": "panel-32",
+          "vertices": ["v-49", "v-46", "v-48", "v-50"]
+        },
+        {
+          "id": "panel-33",
+          "vertices": ["v-51", "v-52", "v-49", "v-50"]
+        },
+        {
+          "id": "panel-34",
+          "vertices": ["v-52", "v-53", "v-49"]
+        },
+        {
+          "id": "panel-35",
+          "vertices": ["v-53", "v-54", "v-46", "v-49"]
+        },
+        {
+          "id": "panel-36",
+          "vertices": ["v-54", "v-0", "v-3", "v-46"]
+        },
+        {
+          "id": "panel-37",
+          "vertices": ["v-48", "v-47", "v-55"]
+        },
+        {
+          "id": "panel-38",
+          "vertices": ["v-50", "v-48", "v-55", "v-56"]
+        },
+        {
+          "id": "panel-39",
+          "vertices": ["v-57", "v-51", "v-50", "v-56", "v-58"]
+        },
+        {
+          "id": "panel-40",
+          "vertices": ["v-59", "v-57", "v-58"]
+        },
+        {
+          "id": "panel-41",
+          "vertices": ["v-60", "v-61", "v-62", "v-63", "v-2"]
+        },
+        {
+          "id": "panel-42",
+          "vertices": ["v-64", "v-4", "v-2", "v-65"]
+        },
+        {
+          "id": "panel-43",
+          "vertices": ["v-66", "v-67", "v-64", "v-65", "v-68"]
+        },
+        {
+          "id": "panel-44",
+          "vertices": ["v-69", "v-66", "v-68"]
+        },
+        {
+          "id": "panel-45",
+          "vertices": ["v-70", "v-69", "v-68"]
+        },
+        {
+          "id": "panel-46",
+          "vertices": ["v-71", "v-70", "v-68", "v-65"]
+        },
+        {
+          "id": "panel-47",
+          "vertices": ["v-63", "v-71", "v-65", "v-2"]
+        },
+        {
+          "id": "panel-48",
+          "vertices": ["v-13", "v-4", "v-64"]
+        },
+        {
+          "id": "panel-49",
+          "vertices": ["v-67", "v-72", "v-14", "v-13", "v-64"]
+        },
+        {
+          "id": "panel-50",
+          "vertices": ["v-72", "v-73", "v-15", "v-14"]
+        },
+        {
+          "id": "panel-51",
+          "vertices": ["v-73", "v-17", "v-15"]
+        },
+        {
+          "id": "panel-52",
+          "vertices": ["v-74", "v-75", "v-76"]
+        },
+        {
+          "id": "panel-53",
+          "vertices": ["v-75", "v-77", "v-24", "v-23", "v-76"]
+        },
+        {
+          "id": "panel-54",
+          "vertices": ["v-77", "v-78", "v-25", "v-24"]
+        },
+        {
+          "id": "panel-55",
+          "vertices": ["v-78", "v-79", "v-26", "v-25"]
+        },
+        {
+          "id": "panel-56",
+          "vertices": ["v-79", "v-60", "v-2", "v-26"]
+        },
+        {
+          "id": "panel-57",
+          "vertices": ["v-80", "v-74", "v-76"]
+        },
+        {
+          "id": "panel-58",
+          "vertices": ["v-81", "v-80", "v-76", "v-23", "v-30"]
+        },
+        {
+          "id": "panel-59",
+          "vertices": ["v-31", "v-81", "v-30"]
+        },
+        {
+          "id": "panel-60",
+          "vertices": ["v-61", "v-82", "v-62"]
+        },
+        {
+          "id": "panel-61",
+          "vertices": ["v-83", "v-84", "v-85", "v-86", "v-1"]
+        },
+        {
+          "id": "panel-62",
+          "vertices": ["v-87", "v-18", "v-1", "v-88"]
+        },
+        {
+          "id": "panel-63",
+          "vertices": ["v-89", "v-90", "v-87", "v-88", "v-91"]
+        },
+        {
+          "id": "panel-64",
+          "vertices": ["v-92", "v-89", "v-91"]
+        },
+        {
+          "id": "panel-65",
+          "vertices": ["v-93", "v-92", "v-91"]
+        },
+        {
+          "id": "panel-66",
+          "vertices": ["v-94", "v-93", "v-91", "v-88"]
+        },
+        {
+          "id": "panel-67",
+          "vertices": ["v-86", "v-94", "v-88", "v-1"]
+        },
+        {
+          "id": "panel-68",
+          "vertices": ["v-27", "v-18", "v-87"]
+        },
+        {
+          "id": "panel-69",
+          "vertices": ["v-90", "v-95", "v-28", "v-27", "v-87"]
+        },
+        {
+          "id": "panel-70",
+          "vertices": ["v-95", "v-96", "v-29", "v-28"]
+        },
+        {
+          "id": "panel-71",
+          "vertices": ["v-96", "v-31", "v-29"]
+        },
+        {
+          "id": "panel-72",
+          "vertices": ["v-97", "v-98", "v-99"]
+        },
+        {
+          "id": "panel-73",
+          "vertices": ["v-98", "v-100", "v-38", "v-37", "v-99"]
+        },
+        {
+          "id": "panel-74",
+          "vertices": ["v-100", "v-101", "v-39", "v-38"]
+        },
+        {
+          "id": "panel-75",
+          "vertices": ["v-101", "v-102", "v-40", "v-39"]
+        },
+        {
+          "id": "panel-76",
+          "vertices": ["v-102", "v-83", "v-1", "v-40"]
+        },
+        {
+          "id": "panel-77",
+          "vertices": ["v-103", "v-97", "v-99"]
+        },
+        {
+          "id": "panel-78",
+          "vertices": ["v-104", "v-103", "v-99", "v-37", "v-44"]
+        },
+        {
+          "id": "panel-79",
+          "vertices": ["v-45", "v-104", "v-44"]
+        },
+        {
+          "id": "panel-80",
+          "vertices": ["v-84", "v-105", "v-85"]
+        },
+        {
+          "id": "panel-81",
+          "vertices": ["v-106", "v-107", "v-108", "v-109", "v-0"]
+        },
+        {
+          "id": "panel-82",
+          "vertices": ["v-110", "v-32", "v-0", "v-111"]
+        },
+        {
+          "id": "panel-83",
+          "vertices": ["v-112", "v-113", "v-110", "v-111", "v-114"]
+        },
+        {
+          "id": "panel-84",
+          "vertices": ["v-115", "v-112", "v-114"]
+        },
+        {
+          "id": "panel-85",
+          "vertices": ["v-116", "v-115", "v-114"]
+        },
+        {
+          "id": "panel-86",
+          "vertices": ["v-117", "v-116", "v-114", "v-111"]
+        },
+        {
+          "id": "panel-87",
+          "vertices": ["v-109", "v-117", "v-111", "v-0"]
+        },
+        {
+          "id": "panel-88",
+          "vertices": ["v-41", "v-32", "v-110"]
+        },
+        {
+          "id": "panel-89",
+          "vertices": ["v-113", "v-118", "v-42", "v-41", "v-110"]
+        },
+        {
+          "id": "panel-90",
+          "vertices": ["v-118", "v-119", "v-43", "v-42"]
+        },
+        {
+          "id": "panel-91",
+          "vertices": ["v-119", "v-45", "v-43"]
+        },
+        {
+          "id": "panel-92",
+          "vertices": ["v-120", "v-121", "v-122"]
+        },
+        {
+          "id": "panel-93",
+          "vertices": ["v-121", "v-123", "v-52", "v-51", "v-122"]
+        },
+        {
+          "id": "panel-94",
+          "vertices": ["v-123", "v-124", "v-53", "v-52"]
+        },
+        {
+          "id": "panel-95",
+          "vertices": ["v-124", "v-125", "v-54", "v-53"]
+        },
+        {
+          "id": "panel-96",
+          "vertices": ["v-125", "v-106", "v-0", "v-54"]
+        },
+        {
+          "id": "panel-97",
+          "vertices": ["v-126", "v-120", "v-122"]
+        },
+        {
+          "id": "panel-98",
+          "vertices": ["v-127", "v-126", "v-122", "v-51", "v-57"]
+        },
+        {
+          "id": "panel-99",
+          "vertices": ["v-59", "v-127", "v-57"]
+        },
+        {
+          "id": "panel-100",
+          "vertices": ["v-107", "v-128", "v-108"]
+        },
+        {
+          "id": "panel-101",
+          "vertices": ["v-129", "v-130", "v-3", "v-131", "v-132"]
+        },
+        {
+          "id": "panel-102",
+          "vertices": ["v-133", "v-134", "v-135"]
+        },
+        {
+          "id": "panel-103",
+          "vertices": ["v-10", "v-9", "v-133", "v-135", "v-136"]
+        },
+        {
+          "id": "panel-104",
+          "vertices": ["v-11", "v-10", "v-136", "v-137"]
+        },
+        {
+          "id": "panel-105",
+          "vertices": ["v-12", "v-11", "v-137", "v-138"]
+        },
+        {
+          "id": "panel-106",
+          "vertices": ["v-3", "v-12", "v-138", "v-131"]
+        },
+        {
+          "id": "panel-107",
+          "vertices": ["v-139", "v-134", "v-133"]
+        },
+        {
+          "id": "panel-108",
+          "vertices": ["v-9", "v-16", "v-140", "v-139", "v-133"]
+        },
+        {
+          "id": "panel-109",
+          "vertices": ["v-16", "v-17", "v-140"]
+        },
+        {
+          "id": "panel-110",
+          "vertices": ["v-141", "v-47", "v-3", "v-142"]
+        },
+        {
+          "id": "panel-111",
+          "vertices": ["v-143", "v-144", "v-141", "v-142", "v-145"]
+        },
+        {
+          "id": "panel-112",
+          "vertices": ["v-146", "v-143", "v-145"]
+        },
+        {
+          "id": "panel-113",
+          "vertices": ["v-147", "v-146", "v-145"]
+        },
+        {
+          "id": "panel-114",
+          "vertices": ["v-148", "v-147", "v-145", "v-142"]
+        },
+        {
+          "id": "panel-115",
+          "vertices": ["v-130", "v-148", "v-142", "v-3"]
+        },
+        {
+          "id": "panel-116",
+          "vertices": ["v-55", "v-47", "v-141"]
+        },
+        {
+          "id": "panel-117",
+          "vertices": ["v-144", "v-149", "v-56", "v-55", "v-141"]
+        },
+        {
+          "id": "panel-118",
+          "vertices": ["v-149", "v-150", "v-58", "v-56"]
+        },
+        {
+          "id": "panel-119",
+          "vertices": ["v-150", "v-59", "v-58"]
+        },
+        {
+          "id": "panel-120",
+          "vertices": ["v-151", "v-129", "v-132"]
+        }
+      ],
+      "creases": {
+        "east-blintz": ["v-59", "v-17"],
+        "north-blintz": ["v-45", "v-59"],
+        "west-blintz": ["v-31", "v-45"],
+        "south-blintz": ["v-17", "v-31"],
+        "east-inner-petal": ["v-132", "v-129"],
+        "north-inner-petal": ["v-107", "v-108"],
+        "west-inner-petal": ["v-84", "v-85"],
+        "south-inner-petal": ["v-61", "v-62"],
+        "northeast-root": ["v-0", "v-3"],
+        "northeast-hem": ["v-51", "v-47"],
+        "northeast-rib": ["v-3", "v-52"],
+        "northeast-throat-broad": ["v-142", "v-54"],
+        "northeast-throat-narrow": ["v-46", "v-141"],
+        "northeast-lip-broad": ["v-145", "v-53"],
+        "northeast-lip-narrow": ["v-49", "v-122"],
+        "northwest-root": ["v-1", "v-0"],
+        "northwest-hem": ["v-37", "v-32"],
+        "northwest-rib": ["v-0", "v-38"],
+        "northwest-throat-broad": ["v-111", "v-40"],
+        "northwest-throat-narrow": ["v-34", "v-110"],
+        "northwest-lip-broad": ["v-114", "v-39"],
+        "northwest-lip-narrow": ["v-36", "v-99"],
+        "southwest-root": ["v-2", "v-1"],
+        "southwest-hem": ["v-23", "v-18"],
+        "southwest-rib": ["v-1", "v-24"],
+        "southwest-throat-broad": ["v-88", "v-26"],
+        "southwest-throat-narrow": ["v-20", "v-87"],
+        "southwest-lip-broad": ["v-91", "v-25"],
+        "southwest-lip-narrow": ["v-22", "v-76"],
+        "southeast-root": ["v-3", "v-2"],
+        "southeast-hem": ["v-9", "v-4"],
+        "southeast-rib": ["v-2", "v-10"],
+        "southeast-throat-broad": ["v-65", "v-12"],
+        "southeast-throat-narrow": ["v-6", "v-64"],
+        "southeast-lip-broad": ["v-68", "v-11"],
+        "southeast-lip-narrow": ["v-8", "v-133"],
+        "northeast-midrib-0": ["v-3", "v-46"],
+        "northeast-midrib-1": ["v-46", "v-49"],
+        "northeast-midrib-2": ["v-49", "v-52"],
+        "northwest-midrib-0": ["v-0", "v-34"],
+        "northwest-midrib-1": ["v-34", "v-36"],
+        "northwest-midrib-2": ["v-36", "v-38"],
+        "southwest-midrib-0": ["v-1", "v-20"],
+        "southwest-midrib-1": ["v-20", "v-22"],
+        "southwest-midrib-2": ["v-22", "v-24"],
+        "southeast-midrib-0": ["v-2", "v-6"],
+        "southeast-midrib-1": ["v-6", "v-8"],
+        "southeast-midrib-2": ["v-8", "v-10"]
+      }
+    },
+    "steps": [
+      {
+        "id": "blintz-base",
+        "durationMs": 2100,
+        "turns": [
+          {
+            "crease": "east-blintz",
+            "degrees": 180,
+            "faces": [
+              "panel-101",
+              "panel-102",
+              "panel-103",
+              "panel-104",
+              "panel-105",
+              "panel-106",
+              "panel-107",
+              "panel-108",
+              "panel-109",
+              "panel-110",
+              "panel-111",
+              "panel-112",
+              "panel-113",
+              "panel-114",
+              "panel-115",
+              "panel-116",
+              "panel-117",
+              "panel-118",
+              "panel-119",
+              "panel-120"
+            ]
+          },
+          {
+            "crease": "north-blintz",
+            "degrees": 180,
+            "faces": [
+              "panel-81",
+              "panel-82",
+              "panel-83",
+              "panel-84",
+              "panel-85",
+              "panel-86",
+              "panel-87",
+              "panel-88",
+              "panel-89",
+              "panel-90",
+              "panel-91",
+              "panel-92",
+              "panel-93",
+              "panel-94",
+              "panel-95",
+              "panel-96",
+              "panel-97",
+              "panel-98",
+              "panel-99",
+              "panel-100"
+            ]
+          },
+          {
+            "crease": "west-blintz",
+            "degrees": 180,
+            "faces": [
+              "panel-61",
+              "panel-62",
+              "panel-63",
+              "panel-64",
+              "panel-65",
+              "panel-66",
+              "panel-67",
+              "panel-68",
+              "panel-69",
+              "panel-70",
+              "panel-71",
+              "panel-72",
+              "panel-73",
+              "panel-74",
+              "panel-75",
+              "panel-76",
+              "panel-77",
+              "panel-78",
+              "panel-79",
+              "panel-80"
+            ]
+          },
+          {
+            "crease": "south-blintz",
+            "degrees": 180,
+            "faces": [
+              "panel-41",
+              "panel-42",
+              "panel-43",
+              "panel-44",
+              "panel-45",
+              "panel-46",
+              "panel-47",
+              "panel-48",
+              "panel-49",
+              "panel-50",
+              "panel-51",
+              "panel-52",
+              "panel-53",
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-57",
+              "panel-58",
+              "panel-59",
+              "panel-60"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hem-tips",
+        "durationMs": 1700,
+        "turns": [
+          {
+            "crease": "northeast-hem",
+            "degrees": 180,
+            "faces": [
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-97",
+              "panel-98",
+              "panel-99",
+              "panel-116",
+              "panel-117",
+              "panel-118",
+              "panel-119"
+            ]
+          },
+          {
+            "crease": "northwest-hem",
+            "degrees": 180,
+            "faces": [
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-77",
+              "panel-78",
+              "panel-79",
+              "panel-88",
+              "panel-89",
+              "panel-90",
+              "panel-91"
+            ]
+          },
+          {
+            "crease": "southwest-hem",
+            "degrees": 180,
+            "faces": [
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-57",
+              "panel-58",
+              "panel-59",
+              "panel-68",
+              "panel-69",
+              "panel-70",
+              "panel-71"
+            ]
+          },
+          {
+            "crease": "southeast-hem",
+            "degrees": 180,
+            "faces": [
+              "panel-7",
+              "panel-8",
+              "panel-9",
+              "panel-10",
+              "panel-48",
+              "panel-49",
+              "panel-50",
+              "panel-51",
+              "panel-107",
+              "panel-108",
+              "panel-109"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "raise-first",
+        "durationMs": 1800,
+        "turns": [
+          {
+            "crease": "northeast-root",
+            "degrees": 49,
+            "faces": [
+              "panel-31",
+              "panel-32",
+              "panel-33",
+              "panel-34",
+              "panel-35",
+              "panel-36",
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-92",
+              "panel-93",
+              "panel-94",
+              "panel-95",
+              "panel-96",
+              "panel-97",
+              "panel-98",
+              "panel-99",
+              "panel-110",
+              "panel-111",
+              "panel-112",
+              "panel-113",
+              "panel-114",
+              "panel-115",
+              "panel-116",
+              "panel-117",
+              "panel-118",
+              "panel-119"
+            ]
+          },
+          {
+            "crease": "southwest-root",
+            "degrees": 49,
+            "faces": [
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-15",
+              "panel-16",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-52",
+              "panel-53",
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-57",
+              "panel-58",
+              "panel-59",
+              "panel-62",
+              "panel-63",
+              "panel-64",
+              "panel-65",
+              "panel-66",
+              "panel-67",
+              "panel-68",
+              "panel-69",
+              "panel-70",
+              "panel-71"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "raise-second",
+        "durationMs": 1800,
+        "turns": [
+          {
+            "crease": "northwest-root",
+            "degrees": 49,
+            "faces": [
+              "panel-21",
+              "panel-22",
+              "panel-23",
+              "panel-24",
+              "panel-25",
+              "panel-26",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-72",
+              "panel-73",
+              "panel-74",
+              "panel-75",
+              "panel-76",
+              "panel-77",
+              "panel-78",
+              "panel-79",
+              "panel-82",
+              "panel-83",
+              "panel-84",
+              "panel-85",
+              "panel-86",
+              "panel-87",
+              "panel-88",
+              "panel-89",
+              "panel-90",
+              "panel-91"
+            ]
+          },
+          {
+            "crease": "southeast-root",
+            "degrees": 49,
+            "faces": [
+              "panel-1",
+              "panel-2",
+              "panel-3",
+              "panel-4",
+              "panel-5",
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-9",
+              "panel-10",
+              "panel-42",
+              "panel-43",
+              "panel-44",
+              "panel-45",
+              "panel-46",
+              "panel-47",
+              "panel-48",
+              "panel-49",
+              "panel-50",
+              "panel-51",
+              "panel-102",
+              "panel-103",
+              "panel-104",
+              "panel-105",
+              "panel-106",
+              "panel-107",
+              "panel-108",
+              "panel-109"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "crimp-first",
+        "durationMs": 2900,
+        "turns": [],
+        "crimps": [
+          {
+            "frame": ["v-3", "v-46", "v-0"],
+            "side": -1,
+            "stations": [
+              [0.6, 1.25],
+              [0.77, 1.25]
+            ],
+            "halfAngle": 52,
+            "hold": "left",
+            "faces": [
+              "panel-31",
+              "panel-32",
+              "panel-33",
+              "panel-34",
+              "panel-35",
+              "panel-36",
+              "panel-37",
+              "panel-38",
+              "panel-39",
+              "panel-40",
+              "panel-92",
+              "panel-93",
+              "panel-94",
+              "panel-95",
+              "panel-96",
+              "panel-97",
+              "panel-98",
+              "panel-99",
+              "panel-110",
+              "panel-111",
+              "panel-112",
+              "panel-113",
+              "panel-114",
+              "panel-115",
+              "panel-116",
+              "panel-117",
+              "panel-118",
+              "panel-119"
+            ]
+          },
+          {
+            "frame": ["v-1", "v-20", "v-2"],
+            "side": -1,
+            "stations": [
+              [0.6, 1.25],
+              [0.77, 1.25]
+            ],
+            "halfAngle": 52,
+            "hold": "left",
+            "faces": [
+              "panel-11",
+              "panel-12",
+              "panel-13",
+              "panel-14",
+              "panel-15",
+              "panel-16",
+              "panel-17",
+              "panel-18",
+              "panel-19",
+              "panel-20",
+              "panel-52",
+              "panel-53",
+              "panel-54",
+              "panel-55",
+              "panel-56",
+              "panel-57",
+              "panel-58",
+              "panel-59",
+              "panel-62",
+              "panel-63",
+              "panel-64",
+              "panel-65",
+              "panel-66",
+              "panel-67",
+              "panel-68",
+              "panel-69",
+              "panel-70",
+              "panel-71"
+            ]
+          }
+        ],
+        "guides": [
+          "northeast-throat-broad",
+          "northeast-throat-narrow",
+          "northeast-lip-broad",
+          "northeast-lip-narrow",
+          "northeast-midrib-0",
+          "northeast-midrib-1",
+          "northeast-midrib-2",
+          "southwest-throat-broad",
+          "southwest-throat-narrow",
+          "southwest-lip-broad",
+          "southwest-lip-narrow",
+          "southwest-midrib-0",
+          "southwest-midrib-1",
+          "southwest-midrib-2"
+        ]
+      },
+      {
+        "id": "crimp-second",
+        "durationMs": 2900,
+        "turns": [],
+        "crimps": [
+          {
+            "frame": ["v-0", "v-34", "v-1"],
+            "side": -1,
+            "stations": [
+              [0.6, 1.25],
+              [0.77, 1.25]
+            ],
+            "halfAngle": 52,
+            "hold": "left",
+            "faces": [
+              "panel-21",
+              "panel-22",
+              "panel-23",
+              "panel-24",
+              "panel-25",
+              "panel-26",
+              "panel-27",
+              "panel-28",
+              "panel-29",
+              "panel-30",
+              "panel-72",
+              "panel-73",
+              "panel-74",
+              "panel-75",
+              "panel-76",
+              "panel-77",
+              "panel-78",
+              "panel-79",
+              "panel-82",
+              "panel-83",
+              "panel-84",
+              "panel-85",
+              "panel-86",
+              "panel-87",
+              "panel-88",
+              "panel-89",
+              "panel-90",
+              "panel-91"
+            ]
+          },
+          {
+            "frame": ["v-2", "v-6", "v-3"],
+            "side": -1,
+            "stations": [
+              [0.6, 1.25],
+              [0.77, 1.25]
+            ],
+            "halfAngle": 52,
+            "hold": "left",
+            "faces": [
+              "panel-1",
+              "panel-2",
+              "panel-3",
+              "panel-4",
+              "panel-5",
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-9",
+              "panel-10",
+              "panel-42",
+              "panel-43",
+              "panel-44",
+              "panel-45",
+              "panel-46",
+              "panel-47",
+              "panel-48",
+              "panel-49",
+              "panel-50",
+              "panel-51",
+              "panel-102",
+              "panel-103",
+              "panel-104",
+              "panel-105",
+              "panel-106",
+              "panel-107",
+              "panel-108",
+              "panel-109"
+            ]
+          }
+        ],
+        "guides": [
+          "northwest-throat-broad",
+          "northwest-throat-narrow",
+          "northwest-lip-broad",
+          "northwest-lip-narrow",
+          "northwest-midrib-0",
+          "northwest-midrib-1",
+          "northwest-midrib-2",
+          "southeast-throat-broad",
+          "southeast-throat-narrow",
+          "southeast-lip-broad",
+          "southeast-lip-narrow",
+          "southeast-midrib-0",
+          "southeast-midrib-1",
+          "southeast-midrib-2"
+        ]
+      },
+      {
+        "id": "lift-inner-sides",
+        "durationMs": 1650,
+        "turns": [
+          {
+            "crease": "east-inner-petal",
+            "degrees": 78,
+            "faces": ["panel-120"]
+          },
+          {
+            "crease": "west-inner-petal",
+            "degrees": 78,
+            "faces": ["panel-80"]
+          }
+        ]
+      },
+      {
+        "id": "lift-inner-ends",
+        "durationMs": 1650,
+        "turns": [
+          {
+            "crease": "north-inner-petal",
+            "degrees": 65,
+            "faces": ["panel-100"]
+          },
+          {
+            "crease": "south-inner-petal",
+            "degrees": 65,
+            "faces": ["panel-60"]
+          }
+        ]
+      }
+    ]
+  }
+}

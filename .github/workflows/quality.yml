@@ -23,6 +23,7 @@ jobs:
       - name: Check bundled npm against packageManager
         run: test "npm@$(npm --version)" = "$(node -p 'require("./package.json").packageManager')"
       - run: npm ci
+      - run: npm run models -- check
       - run: npm run typecheck
       - run: npm run lint
       - run: npm run format:check

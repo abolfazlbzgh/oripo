@@ -1,7 +1,10 @@
+import { fixture } from "../model-fixture";
 import type { Point } from "../../app/fold/geometry";
-import { heartFolds } from "../../app/lesson/heart";
-import { heartText } from "../../app/lesson/heart.en";
+import heartManuscript from "../../app/i18n/en/paper-heart.json";
 import { verifyFlatLesson } from "./flat-lesson";
+
+const heartFolds = fixture("paper-heart").pattern.steps;
+const { steps: heartText } = heartManuscript;
 
 // Construct each physical endpoint directly from material coordinates, independent of the mesh.
 function heartLandmark([x, y]: Point, stage: number): Point {

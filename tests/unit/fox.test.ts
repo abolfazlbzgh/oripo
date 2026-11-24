@@ -1,10 +1,12 @@
+import { fixture } from "../model-fixture";
 import { expect, it } from "vitest";
 import type { Point } from "../../app/fold/geometry";
-import { diamond, flatPattern } from "../../app/lesson/flat-pattern";
-import { foxFolds } from "../../app/lesson/fox";
-import { foxText } from "../../app/lesson/fox.en";
-import { atIndex, compileLesson, poseAt } from "../../app/lesson/geometry";
+import foxManuscript from "../../app/i18n/en/fox-face.json";
+import { atIndex, poseAt } from "../../app/lesson/geometry";
 import { verifyFlatLesson } from "./flat-lesson";
+
+const foxFolds = fixture("fox-face").pattern.steps;
+const { steps: foxText } = foxManuscript;
 
 function foxLandmark([x, y]: Point, stage: number): Point {
   if (stage === 0) return [x, y, 0];
@@ -22,7 +24,7 @@ function foxLandmark([x, y]: Point, stage: number): Point {
 verifyFlatLesson("fox-face", foxFolds, foxText, foxLandmark);
 
 it("peels only the upper loose tip and carries both sides of the muzzle into the ear packets", () => {
-  const model = compileLesson(flatPattern("fox-face", diamond, foxFolds));
+  const model = fixture("fox-face").model;
   const rest = atIndex(model.poses, 0);
   const top = rest.findIndex(([, y]) => y === 1),
     chin = rest.findIndex(([, y]) => y === -1);

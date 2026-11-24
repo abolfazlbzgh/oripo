@@ -1,0 +1,485 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "order": 60,
+  "difficulty": "intermediate",
+  "category": "corrugation",
+  "paper": {
+    "shape": "rectangle",
+    "span": [3, 2]
+  },
+  "finishedAppearance": {
+    "front": "#7051a5",
+    "reverse": "#ad88cb",
+    "edge": "#453661"
+  },
+  "manuscript": "herringbone-map",
+  "provenance": {
+    "variant": "Miura-ori four-band map",
+    "reference": "docs/decisions/0008-intermediate-constructions.md",
+    "rightsStatus": "project-authored",
+    "rights": "Oripo-authored geometry and manuscript. See the construction record for attribution.",
+    "review": {
+      "maker": "provisional",
+      "physical": "pending",
+      "language": "pending",
+      "visual": "pending"
+    }
+  },
+  "presentation": {
+    "view": {
+      "position": [1.6, -3.5, 3.9],
+      "minDistance": 2,
+      "maxDistance": 8,
+      "inspectBack": true,
+      "shadowZ": -1.65
+    },
+    "previewEye": [1.6, -3.5, 3.9],
+    "hingePlies": {
+      "stack-far": 0.5,
+      "stack-middle": -0.5,
+      "stack-near": 0.5,
+      "mark-west": 3.5,
+      "unmark-west": 3.5,
+      "mark-west-middle": -0.5,
+      "unmark-west-middle": -0.5,
+      "mark-east-middle": 3.5,
+      "unmark-east-middle": 3.5,
+      "mark-east": -0.5,
+      "unmark-east": -0.5,
+      "release-near": 0.5,
+      "release-middle": -0.5,
+      "release-far": 0.5
+    }
+  },
+  "pattern": {
+    "version": 3,
+    "lessonId": "herringbone-map",
+    "sheet": {
+      "vertices": {
+        "grid-0-0": [-1.5, -1, 0],
+        "grid-0-1": [-1.25, -1, 0],
+        "grid-0-2": [-0.5, -1, 0],
+        "grid-0-3": [0.25, -1, 0],
+        "grid-0-4": [1, -1, 0],
+        "grid-0-5": [1.5, -1, 0],
+        "grid-1-0": [-1.5, -0.5, 0],
+        "grid-1-1": [-1, -0.5, 0],
+        "grid-1-2": [-0.25, -0.5, 0],
+        "grid-1-3": [0.5, -0.5, 0],
+        "grid-1-4": [1.25, -0.5, 0],
+        "grid-1-5": [1.5, -0.5, 0],
+        "grid-2-0": [-1.5, 0, 0],
+        "grid-2-1": [-1.25, 0, 0],
+        "grid-2-2": [-0.5, 0, 0],
+        "grid-2-3": [0.25, 0, 0],
+        "grid-2-4": [1, 0, 0],
+        "grid-2-5": [1.5, 0, 0],
+        "grid-3-0": [-1.5, 0.5, 0],
+        "grid-3-1": [-1, 0.5, 0],
+        "grid-3-2": [-0.25, 0.5, 0],
+        "grid-3-3": [0.5, 0.5, 0],
+        "grid-3-4": [1.25, 0.5, 0],
+        "grid-3-5": [1.5, 0.5, 0],
+        "grid-4-0": [-1.5, 1, 0],
+        "grid-4-1": [-1.25, 1, 0],
+        "grid-4-2": [-0.5, 1, 0],
+        "grid-4-3": [0.25, 1, 0],
+        "grid-4-4": [1, 1, 0],
+        "grid-4-5": [1.5, 1, 0]
+      },
+      "faces": [
+        {
+          "id": "band-0-panel-0",
+          "vertices": ["grid-0-0", "grid-0-1", "grid-1-1", "grid-1-0"]
+        },
+        {
+          "id": "band-0-panel-1",
+          "vertices": ["grid-0-1", "grid-0-2", "grid-1-2", "grid-1-1"]
+        },
+        {
+          "id": "band-0-panel-2",
+          "vertices": ["grid-0-2", "grid-0-3", "grid-1-3", "grid-1-2"]
+        },
+        {
+          "id": "band-0-panel-3",
+          "vertices": ["grid-0-3", "grid-0-4", "grid-1-4", "grid-1-3"]
+        },
+        {
+          "id": "band-0-panel-4",
+          "vertices": ["grid-0-4", "grid-0-5", "grid-1-5", "grid-1-4"]
+        },
+        {
+          "id": "band-1-panel-0",
+          "vertices": ["grid-1-0", "grid-1-1", "grid-2-1", "grid-2-0"]
+        },
+        {
+          "id": "band-1-panel-1",
+          "vertices": ["grid-1-1", "grid-1-2", "grid-2-2", "grid-2-1"]
+        },
+        {
+          "id": "band-1-panel-2",
+          "vertices": ["grid-1-2", "grid-1-3", "grid-2-3", "grid-2-2"]
+        },
+        {
+          "id": "band-1-panel-3",
+          "vertices": ["grid-1-3", "grid-1-4", "grid-2-4", "grid-2-3"]
+        },
+        {
+          "id": "band-1-panel-4",
+          "vertices": ["grid-1-4", "grid-1-5", "grid-2-5", "grid-2-4"]
+        },
+        {
+          "id": "band-2-panel-0",
+          "vertices": ["grid-2-0", "grid-2-1", "grid-3-1", "grid-3-0"]
+        },
+        {
+          "id": "band-2-panel-1",
+          "vertices": ["grid-2-1", "grid-2-2", "grid-3-2", "grid-3-1"]
+        },
+        {
+          "id": "band-2-panel-2",
+          "vertices": ["grid-2-2", "grid-2-3", "grid-3-3", "grid-3-2"]
+        },
+        {
+          "id": "band-2-panel-3",
+          "vertices": ["grid-2-3", "grid-2-4", "grid-3-4", "grid-3-3"]
+        },
+        {
+          "id": "band-2-panel-4",
+          "vertices": ["grid-2-4", "grid-2-5", "grid-3-5", "grid-3-4"]
+        },
+        {
+          "id": "band-3-panel-0",
+          "vertices": ["grid-3-0", "grid-3-1", "grid-4-1", "grid-4-0"]
+        },
+        {
+          "id": "band-3-panel-1",
+          "vertices": ["grid-3-1", "grid-3-2", "grid-4-2", "grid-4-1"]
+        },
+        {
+          "id": "band-3-panel-2",
+          "vertices": ["grid-3-2", "grid-3-3", "grid-4-3", "grid-4-2"]
+        },
+        {
+          "id": "band-3-panel-3",
+          "vertices": ["grid-3-3", "grid-3-4", "grid-4-4", "grid-4-3"]
+        },
+        {
+          "id": "band-3-panel-4",
+          "vertices": ["grid-3-4", "grid-3-5", "grid-4-5", "grid-4-4"]
+        }
+      ],
+      "creases": {
+        "near": ["grid-1-0", "grid-1-5"],
+        "middle": ["grid-2-0", "grid-2-5"],
+        "far": ["grid-3-0", "grid-3-5"],
+        "west-band-0": ["grid-0-1", "grid-1-1"],
+        "west-band-1": ["grid-1-1", "grid-2-1"],
+        "west-band-2": ["grid-2-1", "grid-3-1"],
+        "west-band-3": ["grid-3-1", "grid-4-1"],
+        "west-middle-band-0": ["grid-0-2", "grid-1-2"],
+        "west-middle-band-1": ["grid-1-2", "grid-2-2"],
+        "west-middle-band-2": ["grid-2-2", "grid-3-2"],
+        "west-middle-band-3": ["grid-3-2", "grid-4-2"],
+        "east-middle-band-0": ["grid-0-3", "grid-1-3"],
+        "east-middle-band-1": ["grid-1-3", "grid-2-3"],
+        "east-middle-band-2": ["grid-2-3", "grid-3-3"],
+        "east-middle-band-3": ["grid-3-3", "grid-4-3"],
+        "east-band-0": ["grid-0-4", "grid-1-4"],
+        "east-band-1": ["grid-1-4", "grid-2-4"],
+        "east-band-2": ["grid-2-4", "grid-3-4"],
+        "east-band-3": ["grid-3-4", "grid-4-4"]
+      }
+    },
+    "steps": [
+      {
+        "id": "stack-far",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "far",
+            "degrees": 180,
+            "faces": [
+              "band-3-panel-0",
+              "band-3-panel-1",
+              "band-3-panel-2",
+              "band-3-panel-3",
+              "band-3-panel-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "stack-middle",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "middle",
+            "degrees": -180,
+            "faces": [
+              "band-2-panel-0",
+              "band-2-panel-1",
+              "band-2-panel-2",
+              "band-2-panel-3",
+              "band-2-panel-4",
+              "band-3-panel-0",
+              "band-3-panel-1",
+              "band-3-panel-2",
+              "band-3-panel-3",
+              "band-3-panel-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "stack-near",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "near",
+            "degrees": 180,
+            "faces": [
+              "band-1-panel-0",
+              "band-1-panel-1",
+              "band-1-panel-2",
+              "band-1-panel-3",
+              "band-1-panel-4",
+              "band-2-panel-0",
+              "band-2-panel-1",
+              "band-2-panel-2",
+              "band-2-panel-3",
+              "band-2-panel-4",
+              "band-3-panel-0",
+              "band-3-panel-1",
+              "band-3-panel-2",
+              "band-3-panel-3",
+              "band-3-panel-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mark-west",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "west-band-0",
+            "degrees": 180,
+            "faces": ["band-0-panel-0", "band-1-panel-0", "band-2-panel-0", "band-3-panel-0"]
+          }
+        ]
+      },
+      {
+        "id": "unmark-west",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "west-band-0",
+            "degrees": -180,
+            "faces": ["band-0-panel-0", "band-1-panel-0", "band-2-panel-0", "band-3-panel-0"]
+          }
+        ]
+      },
+      {
+        "id": "mark-west-middle",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "west-middle-band-0",
+            "degrees": -180,
+            "faces": [
+              "band-0-panel-0",
+              "band-0-panel-1",
+              "band-1-panel-0",
+              "band-1-panel-1",
+              "band-2-panel-0",
+              "band-2-panel-1",
+              "band-3-panel-0",
+              "band-3-panel-1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unmark-west-middle",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "west-middle-band-0",
+            "degrees": 180,
+            "faces": [
+              "band-0-panel-0",
+              "band-0-panel-1",
+              "band-1-panel-0",
+              "band-1-panel-1",
+              "band-2-panel-0",
+              "band-2-panel-1",
+              "band-3-panel-0",
+              "band-3-panel-1"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mark-east-middle",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "east-middle-band-0",
+            "degrees": -180,
+            "faces": [
+              "band-0-panel-3",
+              "band-0-panel-4",
+              "band-1-panel-3",
+              "band-1-panel-4",
+              "band-2-panel-3",
+              "band-2-panel-4",
+              "band-3-panel-3",
+              "band-3-panel-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "unmark-east-middle",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "east-middle-band-0",
+            "degrees": 180,
+            "faces": [
+              "band-0-panel-3",
+              "band-0-panel-4",
+              "band-1-panel-3",
+              "band-1-panel-4",
+              "band-2-panel-3",
+              "band-2-panel-4",
+              "band-3-panel-3",
+              "band-3-panel-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mark-east",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "east-band-0",
+            "degrees": 180,
+            "faces": ["band-0-panel-4", "band-1-panel-4", "band-2-panel-4", "band-3-panel-4"]
+          }
+        ]
+      },
+      {
+        "id": "unmark-east",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "east-band-0",
+            "degrees": -180,
+            "faces": ["band-0-panel-4", "band-1-panel-4", "band-2-panel-4", "band-3-panel-4"]
+          }
+        ]
+      },
+      {
+        "id": "release-near",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "near",
+            "degrees": -180,
+            "faces": [
+              "band-1-panel-0",
+              "band-1-panel-1",
+              "band-1-panel-2",
+              "band-1-panel-3",
+              "band-1-panel-4",
+              "band-2-panel-0",
+              "band-2-panel-1",
+              "band-2-panel-2",
+              "band-2-panel-3",
+              "band-2-panel-4",
+              "band-3-panel-0",
+              "band-3-panel-1",
+              "band-3-panel-2",
+              "band-3-panel-3",
+              "band-3-panel-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "release-middle",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "middle",
+            "degrees": 180,
+            "faces": [
+              "band-2-panel-0",
+              "band-2-panel-1",
+              "band-2-panel-2",
+              "band-2-panel-3",
+              "band-2-panel-4",
+              "band-3-panel-0",
+              "band-3-panel-1",
+              "band-3-panel-2",
+              "band-3-panel-3",
+              "band-3-panel-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "release-far",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "far",
+            "degrees": -180,
+            "faces": [
+              "band-3-panel-0",
+              "band-3-panel-1",
+              "band-3-panel-2",
+              "band-3-panel-3",
+              "band-3-panel-4"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gather-ridges",
+        "durationMs": 2600,
+        "turns": [],
+        "guides": [
+          "west-band-0",
+          "west-band-1",
+          "west-band-2",
+          "west-band-3",
+          "west-middle-band-0",
+          "west-middle-band-1",
+          "west-middle-band-2",
+          "west-middle-band-3",
+          "east-middle-band-0",
+          "east-middle-band-1",
+          "east-middle-band-2",
+          "east-middle-band-3",
+          "east-band-0",
+          "east-band-1",
+          "east-band-2",
+          "east-band-3"
+        ],
+        "field": {
+          "kind": "herringbone",
+          "origin": [-2, -1],
+          "pitch": 0.75,
+          "band": 0.5,
+          "stagger": 0.25,
+          "degrees": 53.13010235415598
+        }
+      }
+    ]
+  }
+}

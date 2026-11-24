@@ -1,9 +1,12 @@
+import { fixture } from "../model-fixture";
 import { atIndex } from "../../app/lesson/geometry";
 import { it, expect } from "vitest";
 import { groupByDifficulty, lessons, difficultyOrder } from "../../app/lessons";
-import { airplane, airplaneHingePlies } from "../../app/lesson/airplane";
 import { projectPaper } from "../../scripts/paper-preview";
 import { inflateSync } from "node:zlib";
+
+const airplane = fixture("paper-airplane").model;
+const airplaneHingePlies = fixture("paper-airplane").presentation.hingePlies;
 
 it("orders human difficulty groups without deriving identifiers or group sizes from rank", () => {
   const entries = Array.from({ length: 47 }, (_, i) => ({

@@ -1,11 +1,14 @@
+import { fixture } from "../model-fixture";
 import { checkPenetrations } from "./material-collisions";
 import { paperLayers } from "../../app/lesson/drawing";
-import { masuHingePlies } from "../../app/lesson/masu";
 import { commandLesson, sampleLesson, initialLessonMotion } from "../../app/lesson/playback";
 import { it, expect } from "vitest";
-import { masu as box, masuPattern } from "../../app/lesson/masu";
 import { atIndex, compileLesson, difference, poseAt, tolerance } from "../../app/lesson/geometry";
 import type { Point } from "../../app/fold/geometry";
+
+const masuHingePlies = fixture("masu-box").presentation.hingePlies;
+const box = fixture("masu-box").model;
+const masuPattern = fixture("masu-box").pattern;
 
 const rest = atIndex(box.poses, 0);
 const distance = (a: Point, b: Point) => Math.hypot(...difference(a, b));
@@ -168,11 +171,12 @@ it("finds no transverse penetration between material triangles during any fold",
   checkPenetrations(box));
 it("rejects reversed corner coupling and missing multilayer packets", () => {
   const wrong = structuredClone(masuPattern);
-  const gusset = atIndex(wrong.steps[12].turns, 1);
+  const gusset = atIndex(atIndex(wrong.steps, 12).turns, 1);
   Object.assign(gusset, { degrees: -gusset.degrees });
   expect(() => compileLesson(wrong)).toThrow(/seam/);
   const missing = structuredClone(masuPattern);
-  missing.steps[12].turns.splice(2, 1);
+  const action = atIndex(missing.steps, 12);
+  Object.assign(action, { turns: action.turns.filter((_, i) => i !== 2) });
   expect(() => compileLesson(missing)).toThrow(/seam/);
 });
 

@@ -1,8 +1,8 @@
+import { fixture } from "../model-fixture";
 import { localPath } from "../../app/navigation";
 import { describe, expect, it } from "vitest";
 import type { Point } from "../../app/fold/geometry";
-import { airplane as model, airplanePattern } from "../../app/lesson/airplane";
-import { airplaneText } from "../../app/lesson/airplane.en";
+import airplaneManuscript from "../../app/i18n/en/paper-airplane.json";
 import {
   atIndex,
   compileLesson,
@@ -10,8 +10,13 @@ import {
   tolerance,
   type LessonPattern,
 } from "../../app/lesson/geometry";
-import { airplaneInfo, lessons } from "../../app/lessons";
+import { lessons } from "../../app/lessons";
 
+const model = fixture("paper-airplane").model;
+const airplanePattern = fixture("paper-airplane").pattern;
+const { steps: airplaneText } = airplaneManuscript;
+
+const airplaneInfo = atIndex(lessons, 0);
 const rest = atIndex(model.poses, 0);
 const distance = (a: Point, b: Point) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
 const rad = Math.PI / 180;

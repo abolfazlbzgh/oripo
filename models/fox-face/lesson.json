@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "status": "published",
+  "order": 30,
+  "difficulty": "beginner",
+  "category": "animal",
+  "paper": {
+    "shape": "square",
+    "span": [2, 2]
+  },
+  "finishedAppearance": {
+    "front": "#efb797",
+    "reverse": "#d5712e",
+    "edge": "#814521"
+  },
+  "manuscript": "fox-face",
+  "provenance": {
+    "variant": "Oripo single-ply fox muzzle",
+    "reference": "docs/decisions/0004-flat-packet-lessons.md",
+    "rightsStatus": "project-authored",
+    "rights": "Oripo-authored geometry and manuscript. See the construction record for attribution.",
+    "review": {
+      "maker": "provisional",
+      "physical": "pending",
+      "language": "pending",
+      "visual": "pending"
+    }
+  },
+  "presentation": {
+    "view": {
+      "position": [0, -0.75, 3.4],
+      "minDistance": 2.3,
+      "maxDistance": 6,
+      "inspectBack": true,
+      "shadowZ": -0.4
+    },
+    "previewEye": [0, -0.18, 1],
+    "hingePlies": {
+      "fold-triangle": 0.5,
+      "mark-forehead": 1.5,
+      "open-forehead": 1.5,
+      "lift-muzzle": 1.5,
+      "left-ear": -0.5,
+      "right-ear": -0.5
+    }
+  },
+  "pattern": {
+    "version": 1,
+    "lessonId": "fox-face",
+    "sheet": {
+      "vertices": {
+        "v-0": [0, -1, 0],
+        "v-1": [0, 0, 0],
+        "v-2": [-0.6666666666666665, 0, 0],
+        "v-3": [-1, 0, 0],
+        "v-4": [0.6666666666666666, 0, 0],
+        "v-5": [1, 0, 0],
+        "v-6": [0, 0.7, 0],
+        "v-7": [-0.2, 0.7, 0],
+        "v-8": [-0.30000000000000004, 0.7, 0],
+        "v-9": [0, 1, 0],
+        "v-10": [-0.24, 0.76, 0],
+        "v-11": [0.20000000000000004, 0.7, 0],
+        "v-12": [0.30000000000000004, 0.7, 0],
+        "v-13": [0.24000000000000005, 0.76, 0]
+      },
+      "faces": [
+        {
+          "id": "panel-0",
+          "vertices": ["v-0", "v-1", "v-2"]
+        },
+        {
+          "id": "panel-1",
+          "vertices": ["v-3", "v-0", "v-2"]
+        },
+        {
+          "id": "panel-2",
+          "vertices": ["v-0", "v-4", "v-1"]
+        },
+        {
+          "id": "panel-3",
+          "vertices": ["v-0", "v-5", "v-4"]
+        },
+        {
+          "id": "panel-4",
+          "vertices": ["v-2", "v-1", "v-6", "v-7"]
+        },
+        {
+          "id": "panel-5",
+          "vertices": ["v-8", "v-3", "v-2", "v-7"]
+        },
+        {
+          "id": "panel-6",
+          "vertices": ["v-9", "v-10", "v-7", "v-6"]
+        },
+        {
+          "id": "panel-7",
+          "vertices": ["v-10", "v-8", "v-7"]
+        },
+        {
+          "id": "panel-8",
+          "vertices": ["v-6", "v-1", "v-4", "v-11"]
+        },
+        {
+          "id": "panel-9",
+          "vertices": ["v-4", "v-5", "v-12", "v-11"]
+        },
+        {
+          "id": "panel-10",
+          "vertices": ["v-9", "v-6", "v-11", "v-13"]
+        },
+        {
+          "id": "panel-11",
+          "vertices": ["v-11", "v-12", "v-13"]
+        }
+      ],
+      "creases": {
+        "fold-triangle": ["v-3", "v-5"],
+        "mark-forehead": ["v-1", "v-9"],
+        "open-forehead": ["v-0", "v-1"],
+        "lift-muzzle": ["v-12", "v-8"],
+        "left-ear": ["v-0", "v-2"],
+        "right-ear": ["v-4", "v-0"]
+      }
+    },
+    "steps": [
+      {
+        "id": "fold-triangle",
+        "durationMs": 1500,
+        "turns": [
+          {
+            "crease": "fold-triangle",
+            "degrees": 180,
+            "faces": [
+              "panel-4",
+              "panel-5",
+              "panel-6",
+              "panel-7",
+              "panel-8",
+              "panel-9",
+              "panel-10",
+              "panel-11"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mark-forehead",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "mark-forehead",
+            "degrees": 180,
+            "faces": ["panel-2", "panel-3", "panel-8", "panel-9", "panel-10", "panel-11"]
+          }
+        ]
+      },
+      {
+        "id": "open-forehead",
+        "durationMs": 1400,
+        "turns": [
+          {
+            "crease": "open-forehead",
+            "degrees": 180,
+            "faces": ["panel-2", "panel-3", "panel-8", "panel-9", "panel-10", "panel-11"]
+          }
+        ]
+      },
+      {
+        "id": "lift-muzzle",
+        "durationMs": 1300,
+        "turns": [
+          {
+            "crease": "lift-muzzle",
+            "degrees": 180,
+            "faces": ["panel-6", "panel-7", "panel-10", "panel-11"]
+          }
+        ]
+      },
+      {
+        "id": "left-ear",
+        "durationMs": 1600,
+        "turns": [
+          {
+            "crease": "left-ear",
+            "degrees": -180,
+            "faces": ["panel-1", "panel-5", "panel-7"]
+          }
+        ]
+      },
+      {
+        "id": "right-ear",
+        "durationMs": 1600,
+        "turns": [
+          {
+            "crease": "right-ear",
+            "degrees": -180,
+            "faces": ["panel-3", "panel-9", "panel-11"]
+          }
+        ]
+      }
+    ]
+  }
+}

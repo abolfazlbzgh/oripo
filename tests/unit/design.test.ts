@@ -1,14 +1,6 @@
-import { masuPattern } from "../../app/lesson/masu";
+import { fixture } from "../model-fixture";
 import { readFileSync } from "node:fs";
 import { expect, it } from "vitest";
-import { airplanePattern } from "../../app/lesson/airplane";
-import { calyxSteps } from "../../app/lesson/calyx";
-import { ternSteps } from "../../app/lesson/tern";
-import { irisSteps } from "../../app/lesson/iris";
-import { heartFolds } from "../../app/lesson/heart";
-import { foxFolds } from "../../app/lesson/fox";
-import { frogPattern } from "../../app/lesson/frog";
-import { herringbone } from "../../app/lesson/herringbone";
 import { groupByDifficulty, lessons } from "../../app/lessons";
 import { localPath, publishedPaths } from "../../app/navigation";
 
@@ -20,17 +12,7 @@ it("gives each gallery demonstration a unique ID and a published address", () =>
 });
 
 it("publishes complete lessons with their actual action counts", () => {
-  expect(Object.fromEntries(lessons.map((l) => [l.id, l.stepCount]))).toEqual({
-    [airplanePattern.lessonId]: airplanePattern.steps.length,
-    "paper-heart": heartFolds.length,
-    "fox-face": foxFolds.length,
-    [masuPattern.lessonId]: masuPattern.steps.length,
-    [frogPattern.lessonId]: frogPattern.steps.length,
-    [herringbone.lessonId]: herringbone.steps.length,
-    "pinwheel-calyx": calyxSteps.length,
-    "river-tern": ternSteps.length,
-    "hex-iris": irisSteps.length,
-  });
+  for (const { id, stepCount } of lessons) expect(stepCount).toBe(fixture(id).pattern.steps.length);
   expect(lessons.every((l) => l.availability === "playable" && l.paper)).toBe(true);
   expect(
     groupByDifficulty(lessons).map(({ difficulty, entries }) => [

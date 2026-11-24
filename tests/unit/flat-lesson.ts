@@ -1,3 +1,5 @@
+import { fixture } from "../model-fixture";
+import type { LessonPattern } from "../../app/lesson/geometry";
 import { describe, expect, it } from "vitest";
 import type { Point } from "../../app/fold/geometry";
 import { diamond, flatPattern, type FlatFold } from "../../app/lesson/flat-pattern";
@@ -8,11 +10,11 @@ const distance = (a: Point, b: Point) => Math.hypot(a[0] - b[0], a[1] - b[1], a[
 
 export function verifyFlatLesson(
   id: string,
-  folds: readonly FlatFold[],
+  folds: LessonPattern["steps"],
   copy: Record<string, { title: string; instruction: string; result: string }>,
   landmark: (point: Point, stage: number) => Point,
 ) {
-  const pattern = flatPattern(id, diamond, folds);
+  const { pattern } = fixture(id);
   const model = compileLesson(pattern);
   const rest = atIndex(model.poses, 0);
   describe(id, () => {
@@ -51,7 +53,16 @@ export function verifyFlatLesson(
     });
 
     it("rejects an unknown packet, invalid hinge or sense, and a missing moving panel", () => {
-      const first = atIndex(folds, 0);
+      const first: FlatFold = {
+        id: "fold",
+        durationMs: 500,
+        line: [
+          [0, -1],
+          [0, 1],
+        ],
+        sense: "front",
+        hingePly: 0.5,
+      };
       expect(() => flatPattern(id, diamond, [{ ...first, packet: "missing-ply" }])).toThrow(
         /Unknown earlier packet/,
       );

@@ -1,0 +1,88 @@
+{
+  "commit": "80f264ca5f27a6a5a1f07904480fe5871e15a4bd",
+  "fractions": [0, 0.125, 0.25, 0.5, 0.75, 0.875, 1],
+  "paths": "a902ca6db66a8b5d3c2e2c5270bba96fae91e33d89fb3595ff0c51f7c6a768de",
+  "models": {
+    "paper-airplane": {
+      "pattern": "ba5486ffa4802eb62a1d30082cd52a92ba49c6002d1981639a4d9edc7b4121eb",
+      "presentation": "f50082104917d2acb1422c9c67df24335acfb088d640b7eaa5c528d9070c41e6",
+      "catalog": "d93e521cbc8e340bde870d151373ac04abf42532533c0d7d84ebdfc6117900a3",
+      "transcripts": "42d28dd0ad93108fb33babd78157c5dd7be30c52e58033dc43c33a92d7198fc9",
+      "names": "788a3234fe2719639e6b7740d2ede5583abc9e47c4a8fa6a3292bd4424e79d05",
+      "poses": "8c29786e35043f8e87fc7731e29abae17d31614cb4930337caf5287a5c56dbfe",
+      "preview": "3bb34cc515c452f4f28c982e46728a6bfce5a4f72b02a5b4810c02465dc6fa33"
+    },
+    "paper-heart": {
+      "pattern": "edf4fdd071c52cab5defa10252feb5e34874d337f38ef71ebddbc595fc84df1e",
+      "presentation": "c1b63b209845cfb14e8b0110a1a18efebd98ad770c530e8686667f733085dae1",
+      "catalog": "b633654c4ba9bdd4ccedc1cc46a25a2594323ca369402eeb08e94524455a675f",
+      "transcripts": "f0f8fb7b938ad44c7a1598e5a15dffa89b5a946467d83756b438d03a2ec51b0b",
+      "names": "0caa194b7419fb4c50f34366bf260452acb459a95105517f8d4011f73ec8dad5",
+      "poses": "644b26b81bdc8d86d19c352c155a76f320b8edb3297b92cbf73e905aeb959cc6",
+      "preview": "29e8019bb76889be6e33ac65b961528f403c16cba07ba58e5bf8a685700a9da9"
+    },
+    "fox-face": {
+      "pattern": "4be8e77908a7e2bca77e7e24b37c20f0b19eaf34c2faca802e0c605ad253df1f",
+      "presentation": "947a933cf586b5282d3810a5c57a1b8c51204ca127cb5f404e314ad34d2b83c2",
+      "catalog": "1f1d172aba7017f2d3a6eb06a68eff7370b9620b5ec0c69a305fa38c476cbe62",
+      "transcripts": "8ca1d4b7107bdec162cc746be9ac51116e624179d0397037cd276a51628f58ec",
+      "names": "d7de465c6539ce54525749d9e5cb3ebf7a55e37247a3069d2e7fe2ecc44a3a16",
+      "poses": "a480e663264ac886f55351cbd037c066b591472ae9a98715d8bb9f469602b17a",
+      "preview": "30f53f36fac958e9bcaf83f9b2ff23d26d414126838a2e67c9a72ffe4e390e67"
+    },
+    "masu-box": {
+      "pattern": "09c2100a6902c0e6e8f2bc40e373d1fe1318e9fbc7850634c8578f32f7f8cb0d",
+      "presentation": "395c76b64c9b9923de283e01c666dc10f739ac64ab0c593ed1d480ded64379a0",
+      "catalog": "94758d8b94e9432005e2ecad4e936ba9e9e1796c7d03d6cd47d994f8a1c618df",
+      "transcripts": "4192cd3204b144d44eced323dd5c980040321eae1c819776bc94d696f35555b9",
+      "names": "cca546fc680467d18b98829012a901cf6f2f9b5899684c80824058ff65e51923",
+      "poses": "72a84cd5e613a7061c08e3af87beaf892db7d9958a200ef80db96df6a063f85c",
+      "preview": "3458afe06298908a64b9b11887eeefd81844277a1935d464b62cfec326795555"
+    },
+    "jumping-frog": {
+      "pattern": "118c343c05f72562e47610004de13c43837fdc887259479ca27abf9fb56694a1",
+      "presentation": "18cfe10667e0a1792dbdf7cdcc8c6c11c9283415f742e3ffd1ae7069f7d36a32",
+      "catalog": "2e4409ddb394ac5263408f2b6cee4112adb08436274eeaf3ff3227e9cdda854a",
+      "transcripts": "9d47361a4be9716766f7d7a601cbde00c1914b61404b3db2d77a50020269c8f8",
+      "names": "6bf7d1f7452999601c22c17e8513a070cfd1d5369d4793bdc45aa6506f2e9aa2",
+      "poses": "5ce945e7d3ef243f9abde1e5d80495358de5e5def26857b9f9efb13dff2028b1",
+      "preview": "2e3a0dcd8f66cab9654b3ad9f1b57fe190c47dad8d76883af8001485fafe9a28"
+    },
+    "herringbone-map": {
+      "pattern": "5b922ceb87fc7f57fc702c3b9e7e6dcd493e8c0a80b876ace2b322c6811550cc",
+      "presentation": "692b57820333f00b765b61ad92eafd95a5861cf089aa8206f6b7e0a8d7c68742",
+      "catalog": "27ab4793543550b3f1f1f134d238b34ffe8371a0936c3f7cc1b596fd14c3356e",
+      "transcripts": "8121072be68c25b3adb0d989e0ea7c1160e513494e7e6f933cb7a4ac4fcc9c12",
+      "names": "aaddb406ce806c8a9600ba2aa613b20d60f73c85ce35bdde1179ac821aa00187",
+      "poses": "62d596b870c35143968d365082c1962fe5d17d74aee30386edca33f4b04c728c",
+      "preview": "d2a57f4c2b111a2fc1cb6bc107d5a2b3625d4f8aa165c14cac1ac5c0307895d0"
+    },
+    "pinwheel-calyx": {
+      "pattern": "802a6d979d4666dbcc962b8d4350496df939ae6b8b1710cc0ed92eab1859ad97",
+      "presentation": "63e49ccb84bbff9e8763d8403684319c7c2395e16cd18f8ba6dc109a0d178bc4",
+      "catalog": "2063eb7f224c3226348b43790cc356e34541571d182a7913ab0e73130e1aa8e0",
+      "transcripts": "28e1dd74834d7d3a7965dc52bf5939b5ca6c55e84a3587e8118f619114976333",
+      "names": "af99d72d49cc066208dd6acdfbe38dc682e69266ecbb925ce4797fce554971ab",
+      "poses": "5cf3af2877df79e9c9bdf55caab2c6d69e53cb858e58e416eb6af95b3c6bd33f",
+      "preview": "fe5ebe7df72362572824d18edc74942b3548069fbf955f8ece59fea3753f3d76"
+    },
+    "river-tern": {
+      "pattern": "a9c9a87e6870a1674855d11ec4378e8cf31d7d301a5329839f8fe3162ec0c2cb",
+      "presentation": "d1aa238d02d996cf9aaa88329c4f3fd77be682f928b9ffbd75f8b5ff0178d192",
+      "catalog": "e06a5bf69e70c4147178391f89ad3348e7af921233e8b13d99238df0eb8a14a0",
+      "transcripts": "4ecc7605e7c59f85a5c96a5012b34c4cf2ebc60c114061be78f68a31c8377ef9",
+      "names": "c2413d3566d3bd42c14a28ce3e0e12c341e223d38679ba9efb4f4bbb4e6175f8",
+      "poses": "0bbc1d55a43d1ef09f9f09a1975c0bceb0b7dbfdb50088ca5ade6727199cfdde",
+      "preview": "f2a90c290c7e0c3ffb6e26ba1837f9f95885b32a3a681857e38922055866bad6"
+    },
+    "hex-iris": {
+      "pattern": "251ea4606e02a0f529d7adca440f038092ef9c84a74d47eb3549bba7b0cc286d",
+      "presentation": "453ba5778f1388c6fb3a988915269909daf9d46e9ba8b771b5da0ca7dc4c9e54",
+      "catalog": "e72174064d25a9cbb9992b0cb64e4f5b767c9c0fe880b9c2a66cd420080f4a0c",
+      "transcripts": "54a2b5459d61db1e6cb89f611a910ea6fd44312c935d6b6ccbd370689efd8714",
+      "names": "d9adc24e1e456ffc01b235575868e32215505b443bc07e277dee58ac4c62a74f",
+      "poses": "7a3aa0e9be6829930fc07a620db8f477a337804fd111c7a5f59f4d4169c61d93",
+      "preview": "ae4166b6ee0a3907b1cea083f2d40e1bc1f633245424476a1cb92221e24f5638"
+    }
+  }
+}

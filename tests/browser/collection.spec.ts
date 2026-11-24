@@ -5,12 +5,7 @@ import { hydrationControl } from "./shell-helpers";
 import { expect } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
 
-for (const [id, chunkName] of [
-  ["fox-face", "flat"],
-  ["pinwheel-calyx", "calyx"],
-  ["river-tern", "tern"],
-  ["hex-iris", "iris"],
-] as const)
+for (const id of ["fox-face", "pinwheel-calyx", "river-tern", "hex-iris"] as const)
   test(
     id + " leaves before its scene downloads without creating an abandoned WebGL context",
     async ({ page, baseURL }) => {
@@ -26,7 +21,7 @@ for (const [id, chunkName] of [
           return Reflect.apply(get, this, [type, ...args]);
         } as typeof get;
       });
-      const chunk = new RegExp("/assets/" + chunkName + "-scene\\.client-[^/]+\\.js$");
+      const chunk = new RegExp("/assets/package-scene\\.client-[^/]+\\.js$");
       let release!: () => void;
       const gate = new Promise<void>((resolve) => {
         release = resolve;

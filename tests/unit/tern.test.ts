@@ -1,10 +1,13 @@
+import { fixture } from "../model-fixture";
 import { expect, it } from "vitest";
-import { tern as m, ternHinges } from "../../app/lesson/tern";
 import { atIndex, poseAt } from "../../app/lesson/geometry";
 import { paperLayers } from "../../app/lesson/drawing";
 import { checkSheet, materialChecks, distance } from "./material-checks";
 import { checkPenetrations } from "./material-collisions";
 import { ternPoint } from "../tern-projection";
+
+const m = fixture("river-tern").model;
+const ternHinges = fixture("river-tern").presentation.hingePlies;
 materialChecks(m);
 it("raises the throat, carries the doubled crown and spreads the wings independently", () => {
   const rest = atIndex(m.poses, 0);

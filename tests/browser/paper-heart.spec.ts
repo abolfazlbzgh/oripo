@@ -1,7 +1,10 @@
+import { fixture } from "../model-fixture";
 import { heartOutline } from "./finished-outlines";
-import { heartFolds } from "../../app/lesson/heart";
-import { heartSheet, heartText } from "../../app/lesson/heart.en";
+import heartManuscript from "../../app/i18n/en/paper-heart.json" with { type: "json" };
 import { flatJourney } from "./flat-journey";
+
+const heartFolds = fixture("paper-heart").pattern.steps;
+const { sheet: heartSheet, steps: heartText } = heartManuscript;
 
 // Hand-built outer rim and projected 90° paper outlines from ADR 0004.
 flatJourney({

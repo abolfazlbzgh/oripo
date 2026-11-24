@@ -1,44 +1,18 @@
-import calyxText from "./en/pinwheel-calyx.json";
-import ternText from "./en/river-tern.json";
-import irisText from "./en/hex-iris.json";
-import masuText from "./en/masu-box.json";
-import mapText from "./en/herringbone-map.json";
-import frogText from "./en/jumping-frog.json";
 import type { Locale } from "./locales";
 import type { Common, Transcript } from "./messages";
-import { airplaneText, sheetText } from "../lesson/airplane.en";
-import { heartText, heartSheet } from "../lesson/heart.en";
-import { foxText, foxSheet } from "../lesson/fox.en";
-
-type ModelId = keyof Common["models"];
+import type { ModelId } from "../lessons";
 
 const commonFiles = import.meta.glob<Common>("./*/common.json", { import: "default" });
-const lessonFiles = import.meta.glob<Transcript>(
-  ["./*/*.json", "!./*/common.json", "!./en/*.json"],
-  {
-    import: "default",
-  },
-);
-const english = {
-  "pinwheel-calyx": calyxText,
-  "river-tern": ternText,
-  "hex-iris": irisText,
-  "jumping-frog": frogText,
-  "herringbone-map": mapText,
-  "masu-box": masuText,
-  "paper-airplane": { sheet: sheetText, steps: airplaneText },
-  "paper-heart": { sheet: heartSheet, steps: heartText },
-  "fox-face": { sheet: foxSheet, steps: foxText },
-} satisfies Record<ModelId, Transcript>;
-
+const lessonFiles = import.meta.glob<Transcript>(["./*/*.json", "!./*/common.json"], {
+  import: "default",
+});
 export function readCommon(locale: Locale) {
   const read = commonFiles[`./${locale}/common.json`];
-  if (!read) throw new Error(`Missing messages for ${locale}`);
+  if (!read) throw Error("Missing messages for " + locale);
   return read();
 }
-export async function readTranscript(locale: Locale, model: ModelId): Promise<Transcript> {
-  if (locale === "en") return english[model];
+export function readTranscript(locale: Locale, model: ModelId) {
   const read = lessonFiles[`./${locale}/${model}.json`];
-  if (!read) throw new Error(`Missing transcript for ${locale}/${model}`);
+  if (!read) throw Error(`Missing transcript for ${locale}/${model}`);
   return read();
 }

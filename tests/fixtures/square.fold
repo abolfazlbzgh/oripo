@@ -1,0 +1,68 @@
+{
+  "file_spec": 1.2,
+  "file_author": "Test folder",
+  "file_title": "Two triangles",
+  "frame_unit": "cm",
+  "frame_classes": [
+    "creasePattern"
+  ],
+  "vertices_coords": [
+    [
+      0,
+      0
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "edges_vertices": [
+    [
+      2,
+      0
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "edges_assignment": [
+    "V",
+    "B",
+    "B",
+    "B",
+    "B"
+  ],
+  "faces_vertices": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      2,
+      3
+    ]
+  ]
+}

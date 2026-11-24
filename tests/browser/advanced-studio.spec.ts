@@ -10,27 +10,24 @@ import { irisPolygons } from "../iris-projection";
 const cases = [
   {
     id: "pinwheel-calyx",
-    chunk: "calyx",
     action: 4,
     eye: [2.4, -3.9, 3.9],
     project: (t: number) => calyxOutline(t, 0, false),
   },
   {
     id: "river-tern",
-    chunk: "tern",
     action: 11,
     eye: [3.1, 0.7, 2.6],
     project: (t: number) => ternOutline(63 * t, 0, 0),
   },
   {
     id: "hex-iris",
-    chunk: "iris",
     action: 18,
     eye: [1.45, -2.4, 2.55],
     project: (t: number) => irisPolygons(t).map((p) => p.posed),
   },
 ] as const;
-for (const { id, chunk, action, eye, project } of cases) {
+for (const { id, action, eye, project } of cases) {
   test(
     id + " tracks the moving paper at three fractions in both directions",
     async ({ page, baseURL }, info) => {
@@ -57,7 +54,7 @@ for (const { id, chunk, action, eye, project } of cases) {
     },
   );
   test(id + " recovers a missing scene chunk after text-only completion", async ({ page }) => {
-    const asset = new RegExp("/assets/" + chunk + "-scene\\.client-[^/]+\\.js$");
+    const asset = new RegExp("/assets/package-scene\\.client-[^/]+\\.js$");
     let refused = 0;
     await page.route(asset, async (route) => {
       refused++;

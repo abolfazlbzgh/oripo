@@ -62,6 +62,7 @@ it.each([
     ],
   },
   { faces_vertices: [[0, 1, 9]] },
+  { "oripo:vertexIds": ["a", "a", "b", "c"] },
   { "external:chart": "https://example.invalid" },
   { frame_unit: "furlongs" },
 ])("rejects unsupported or inconsistent FOLD information %j", (bad) =>

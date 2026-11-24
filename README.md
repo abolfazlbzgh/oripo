@@ -1,18 +1,18 @@
 # Oripo
 
-**Origami in Motion.** Fold a single sheet in 3D. Explore nine lessons in three maker-difficulty groups. Start with a dart, heart or fox, then try a lined Masu box, jumping frog or corrugated map. The Advanced lessons teach an eight-petal calyx, a fork-tailed tern and a closed hexagonal twist. Use Next fold to make one fold, Play to continue through the lesson or the timeline to stop at any angle. Drag the paper to inspect its layers.
+**Origami in Motion.** Fold a single sheet in 3D. Explore nine lessons in three maker-difficulty groups. Start with a dart, heart or fox, then try a lined Masu box, jumping frog or violet Monarch butterfly. The Advanced lessons teach an eight-petal calyx, a fork-tailed tern and a closed hexagonal twist. Use Next fold to make one fold, Play to continue through the lesson or the timeline to stop at any angle. Drag the paper to inspect its layers.
 
-| English lesson                                                         | Starting paper                       | Actions |
-| ---------------------------------------------------------------------- | ------------------------------------ | ------: |
-| [Dart paper airplane](http://127.0.0.1:4173/en/lessons/paper-airplane) | 2 × 3 portrait rectangle             |       9 |
-| [Paper heart](http://127.0.0.1:4173/en/lessons/paper-heart)            | Square, corner up                    |      12 |
-| [Fox face](http://127.0.0.1:4173/en/lessons/fox-face)                  | Square, corner up                    |       6 |
-| [Masu box](http://127.0.0.1:4173/en/lessons/masu-box)                  | Square, corner up                    |      18 |
-| [Jumping frog](http://127.0.0.1:4173/en/lessons/jumping-frog)          | 2 × 2 square                         |      20 |
-| [Herringbone map](http://127.0.0.1:4173/en/lessons/herringbone-map)    | 3 × 2 landscape rectangle            |      15 |
-| [Pinwheel calyx](http://127.0.0.1:4173/en/lessons/pinwheel-calyx)      | 34 cm square                         |       8 |
-| [River tern](http://127.0.0.1:4173/en/lessons/river-tern)              | 24 cm square                         |      15 |
-| [Amber hex iris](http://127.0.0.1:4173/en/lessons/hex-iris)            | Regular hexagon, 24 cm across points |      20 |
+| English lesson                                                          | Starting paper                       | Actions |
+| ----------------------------------------------------------------------- | ------------------------------------ | ------: |
+| [Dart paper airplane](http://127.0.0.1:4173/en/lessons/paper-airplane)  | 2 × 3 portrait rectangle             |       9 |
+| [Paper heart](http://127.0.0.1:4173/en/lessons/paper-heart)             | Square, corner up                    |      12 |
+| [Fox face](http://127.0.0.1:4173/en/lessons/fox-face)                   | Square, corner up                    |       6 |
+| [Masu box](http://127.0.0.1:4173/en/lessons/masu-box)                   | Square, corner up                    |      18 |
+| [Jumping frog](http://127.0.0.1:4173/en/lessons/jumping-frog)           | 2 × 2 square                         |      20 |
+| [Monarch butterfly](http://127.0.0.1:4173/en/lessons/monarch-butterfly) | Square                               |      18 |
+| [Pinwheel calyx](http://127.0.0.1:4173/en/lessons/pinwheel-calyx)       | 34 cm square                         |       8 |
+| [River tern](http://127.0.0.1:4173/en/lessons/river-tern)               | 24 cm square                         |      15 |
+| [Amber hex iris](http://127.0.0.1:4173/en/lessons/hex-iris)             | Regular hexagon, 24 cm across points |      20 |
 
 ## Run locally
 
@@ -47,12 +47,7 @@ React Router Framework Mode and Vite generate static pages with React and TypeSc
 
 ## Add a lesson
 
-1. Draw the finished outline and work backwards to a fold plan. Record the starting proportions, intended moving plies, crease directions and landmark coordinates.
-2. For straight folds that settle flat, define directed lines in the current folded plane as in `app/lesson/fox.ts`. An optional packet ID selects material moved by an earlier action. The authoring helper builds the shared version 1 pattern. Spatial finishes such as the dart can supply a pattern directly.
-3. For a moving seam, start with a separate analytic fixture. Version 2 can carry a right-angle gusset on a rotating wall. A version 3 action starts flat and declares a whole-sheet `field` or named face packets in `regions`, registered crease IDs in `guides` and an empty `turns` array. Ordinary turns can surround a coupled action. See the worked waterbomb, rear-pocket and map constructions. [Authoring contract](docs/decisions/0008-intermediate-constructions.md)
-4. Key all ten lesson transcripts by immutable step IDs. Bind the model to `LessonPage`, add its locale-independent route module, and register its paper, tier, action count and front, reverse and edge pigments in `app/lessons.ts`. The registry expands the static paths.
-5. Supply the shared scene mount and build-time projection with the same compiled pattern, virtual ply heights, thickness and eye position. Register the projection in `scripts/lesson-previews.ts`. Running `npm run build` writes the finished transparent PNG into `build/client/previews/`.
-6. Derive expected front, oblique and rear landmarks from the fold plan. Use `materialChecks` for all pairwise panel distances, seam agreement, endpoints and reversal. Probe contact order and openings separately, run the transverse collision scan, then compare the gallery and live canvas against the independent outlines in the production browsers.
+Create a draft with `npm run models -- new my-fold`. Edit its canonical material graph, motions, presentation and provenance in `models/my-fold/lesson.json`. Supply all ten manuscripts and model names, generate the catalog, and compare the finished projection with an independent construction. Import/export examples, supported motions, package validation and the publication steps are in the [contributor guide](docs/authoring.md).
 
 For a local demo, open a lesson in the production preview, advance to an intermediate fold, orbit the paper, then reverse to the starting sheet. Each transcript includes the expected shape after every step and opens without JavaScript. Physical paper, real touch devices, spoken screen readers and hosted behavior have separate acceptance checks. [Local verification and release checklist](docs/release.md) · [Contributing](CONTRIBUTING.md) · [Security reporting](SECURITY.md)
 

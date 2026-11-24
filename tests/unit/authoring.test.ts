@@ -89,7 +89,9 @@ it("rejects unknown contracts, mixed motions and missing or invented author refe
   expect(() => check(badStep({ field: { kind: "waterbomb", center: [0, 0], radius: 1 } }))).toThrow(
     /lift.*motion family/,
   );
-  expect(() => check(badStep({ field: { kind: "petal-eversion" } }))).toThrow(/field/);
+  expect(() => check(badStep({ field: { kind: "petal-eversion" } }))).toThrow(
+    /specimen step lift field petal-eversion/,
+  );
   expect(() => check(badStep({ reopenTo: 0.4, turns: [] }))).toThrow(/reopening/);
   expect(() =>
     check(badStep({ turns: [{ crease: "diagonal", degrees: 90, faces: ["missing"] }] })),

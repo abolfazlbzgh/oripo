@@ -118,6 +118,8 @@ export function importFold(value: unknown): Required<Material> {
   } = value as FoldFile;
   if (file_spec !== 1.2 || ids.length !== coords.length || names.length !== faces.length)
     throw Error("Invalid FOLD version or identifier count");
+  if (new Set(ids).size !== ids.length || new Set(names).size !== names.length)
+    throw Error("FOLD material IDs must be unique within each vertex or face list");
   const name = (v: number) => {
     if (v >= ids.length) throw Error("Vertex index out of range: " + v);
     return atIndex(ids, v);

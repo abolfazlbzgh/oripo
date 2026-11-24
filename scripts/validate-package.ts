@@ -24,7 +24,12 @@ export function validatePackage(input: unknown, slug: string): LessonPackage {
       throw Error("paper.shape/span disagree with material coordinates");
     if (pkg.fold) exportFold({ sheet: pattern.sheet, fold: pkg.fold });
     const distance = Math.hypot(...p.view.position);
-    if (!Math.hypot(...p.previewEye) || !distance || p.view.minDistance >= p.view.maxDistance)
+    if (
+      !Math.hypot(...p.previewEye) ||
+      distance < p.view.minDistance ||
+      distance > p.view.maxDistance ||
+      p.view.minDistance >= p.view.maxDistance
+    )
       throw Error("presentation: invalid viewing direction or camera range");
     const model = pattern.steps.length ? compileLesson(pattern) : undefined;
     for (const [id, settings] of Object.entries(p.hingePlies)) {

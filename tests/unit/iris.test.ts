@@ -3,7 +3,7 @@ import { expect, it } from "vitest";
 import { iris as m, irisHinges } from "../../app/lesson/iris";
 import { atIndex, poseAt } from "../../app/lesson/geometry";
 import { paperLayers } from "../../app/lesson/drawing";
-import { materialChecks, distance } from "./material-checks";
+import { checkSheet, materialChecks, distance } from "./material-checks";
 import { checkPenetrations } from "./material-collisions";
 import { irisPolygons } from "../iris-projection";
 it("locates the hexagon, all vane edges and the gusset corners independently", () => {
@@ -24,14 +24,8 @@ it("locates the hexagon, all vane edges and the gusset corners independently", (
 });
 materialChecks(m);
 it("closes the hexagon flat and reopens the exact material and ply trajectory", () => {
-  const rest = atIndex(m.poses, 0),
-    n = m.steps.length - 1;
-  expect(rest.length - m.edges.length + m.faces.length).toBe(1);
-  expect(
-    m.edges
-      .filter((e) => e.faces.length === 1)
-      .reduce((a, e) => a + distance(atIndex(rest, e.a), atIndex(rest, e.b)), 0),
-  ).toBeCloseTo(6, 10);
+  const n = m.steps.length - 1;
+  checkSheet(m, (3 * Math.sqrt(3)) / 2, 6);
   const { offsets, foldOffsets } = paperLayers(m, irisHinges);
   let worst = 0;
   for (let i = 0; i <= 1000; i++) {

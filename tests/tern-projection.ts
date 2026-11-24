@@ -21,20 +21,14 @@ export function ternPoint([x, y]: XY, angle: number, wing: number, wrist = 0): X
   function swung(p: XYZ, w: number, slope: number, degrees: number): XYZ {
     const k = Math.hypot(1, slope),
       ax: XYZ = [(slope * Math.cos(a)) / k, 1 / k, (slope * Math.sin(a)) / k];
-    const delta = [p[0] - w * Math.cos(a), p[1], p[2] - w * Math.sin(a)],
-      dot = ax[0] * delta[0]! + ax[1] * delta[1]! + ax[2] * delta[2]!;
+    const delta: XYZ = [p[0] - w * Math.cos(a), p[1], p[2] - w * Math.sin(a)],
+      dot = ax[0] * delta[0] + ax[1] * delta[1] + ax[2] * delta[2];
     const q = rad(degrees),
       c = Math.cos(q),
       sn = Math.sin(q);
-    return [0, 1, 2].map((i) => {
-      const j = (i + 1) % 3,
-        k = (i + 2) % 3;
-      return (
-        p[i]! +
-        (c - 1) * (delta[i]! - dot * ax[i]!) +
-        sn * (ax[j]! * delta[k]! - ax[k]! * delta[j]!)
-      );
-    }) as [number, number, number];
+    const component = (i: 0 | 1 | 2, j: 0 | 1 | 2, k: 0 | 1 | 2) =>
+      p[i] + (c - 1) * (delta[i] - dot * ax[i]) + sn * (ax[j] * delta[k] - ax[k] * delta[j]);
+    return [component(0, 1, 2), component(1, 2, 0), component(2, 0, 1)];
   }
   if (u > 0.39 + 0.11 * y) {
     const p = u > 0.7 - 0.2 * y ? swung(base, 0.7, -0.2, -48 * wrist) : base;
@@ -45,7 +39,7 @@ export function ternPoint([x, y]: XY, angle: number, wing: number, wrist = 0): X
   const [px, py, pz] = spinePose(x, -y, 1.2, 3, 0.36, angle);
   return [px, -py, pz];
 }
-export function ternOutline(): XYZ[][] {
+export function ternOutline(angle = 63, wing = 1, wrist = 1): XYZ[][] {
   const sheet: XY[] = [
     [0, -1.5],
     [3 * (1 - 1 / Math.SQRT2), 1.5 - 3 / Math.SQRT2],
@@ -77,5 +71,5 @@ export function ternOutline(): XYZ[][] {
       ];
     }),
   ];
-  return pieces.map((poly) => poly.map((p) => ternPoint(p, 63, 1, 1)));
+  return pieces.map((poly) => poly.map((p) => ternPoint(p, angle, wing, wrist)));
 }

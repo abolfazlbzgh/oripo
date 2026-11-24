@@ -8,11 +8,11 @@ export async function paperPixels(
   eye: Point,
   probes: Point[] = [],
   finish?: ModelId,
-  includeTeachingInk = false,
+  includeCreaseInk = false,
 ) {
   const png = await page.locator("canvas").screenshot();
   return page.evaluate(
-    async ({ encoded, polygons, eye, probes, finish, includeTeachingInk }) => {
+    async ({ encoded, polygons, eye, probes, finish, includeCreaseInk }) => {
       const bytes = Uint8Array.from(atob(encoded), (c) => c.charCodeAt(0));
       const bitmap = await createImageBitmap(new Blob([bytes], { type: "image/png" }));
       const canvas = document.createElement("canvas");
@@ -53,6 +53,17 @@ export async function paperPixels(
         colored = 0,
         hash = 2166136261;
       function hue(r: number, g: number, b: number) {
+        if (finish === "pinwheel-calyx")
+          return r - g > 36 && r - g > 2 * (g - b) ? "coral" : "other";
+        if (finish === "river-tern")
+          return b - r > 31 && g - r > 16 && b - g > 8 ? "blue" : "other";
+        if (finish === "hex-iris") {
+          // Gold and violet meet at antialiased crease strokes. Count their mixed pigment for silhouettes.
+          if (includeCreaseInk && r - g > 8 && r < 202 && b > g - 50) return "iris";
+          return (r - g > 28 && g - b > 1.48 * (r - g)) || (b - r > 15 && r - g > 9)
+            ? "iris"
+            : "other";
+        }
         if (finish === "jumping-frog")
           return g - b > 40 && g - r > 11 && r - b > 12 ? "leaf" : "other";
         if (finish === "herringbone-map") return b - r > 17 && r - g > 12 ? "violet" : "other";
@@ -68,7 +79,7 @@ export async function paperPixels(
           return "other";
         }
         // Subpixel rim/crease strokes blend the two teaching pigments on small panels.
-        if (includeTeachingInk && g - b > 12 && g > 80 && Math.abs(r - g) < 21) return "ink";
+        if (includeCreaseInk && g - b > 12 && g > 80 && Math.abs(r - g) < 21) return "ink";
         if (g - r > 14 && g - b > 8 && g > 90) return "green";
         if (r - g > 18 && g - b > 16 && r > 105) return "gold";
         return "other";
@@ -105,6 +116,6 @@ export async function paperPixels(
       });
       return { iou: inside / union, green, gold, colored, hash, colors };
     },
-    { encoded: png.toString("base64"), polygons, eye, probes, finish, includeTeachingInk },
+    { encoded: png.toString("base64"), polygons, eye, probes, finish, includeCreaseInk },
   );
 }

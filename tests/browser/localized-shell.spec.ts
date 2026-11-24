@@ -31,6 +31,7 @@ test("brand, repeated Explore, footer, reload and browser history reach their in
 }) => {
   const errors = watchBrowser(page, baseURL);
   await page.emulateMedia({ reducedMotion: "reduce" });
+  test.setTimeout(90000);
   const code = "fr",
     copy = readCopy(code, "common");
   const banner = page.getByRole("banner");

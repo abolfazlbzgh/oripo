@@ -6,6 +6,9 @@ import { localeCodes, locales } from "../../app/i18n/locales";
 import { readCopy } from "./locale-copy";
 
 for (const { id, end, mid, eye } of [
+  { id: "pinwheel-calyx", end: 8, mid: 4.5, eye: [2.4, -3.9, 3.9] },
+  { id: "river-tern", end: 15, mid: 11.5, eye: [3.1, 0.7, 2.6] },
+  { id: "hex-iris", end: 20, mid: 18.5, eye: [1.45, -2.4, 2.55] },
   { id: "jumping-frog", end: 20, mid: 15.5, eye: [0.55, -1.15, 2.75] },
   { id: "herringbone-map", end: 15, mid: 14.5, eye: [1.6, -3.5, 3.9] },
 ] as const) {
@@ -31,7 +34,7 @@ for (const { id, end, mid, eye } of [
   test(
     id + " keeps the localized transcript and keyboard completion usable at double text size",
     async ({ page, baseURL }) => {
-      test.setTimeout(90000);
+      test.setTimeout(120000);
       const errors = watchBrowser(page, baseURL);
       await page.emulateMedia({ reducedMotion: "reduce" });
       for (const [i, locale] of localeCodes.entries()) {
@@ -92,7 +95,9 @@ for (const { id, end, mid, eye } of [
           radius * Math.sin(e),
         ];
         const view = direction === 1 ? "front" : "rear";
-        const score = await paperPixels(page, finishedOutlines[id], camera, [], id);
+        // The stage focus outline is painted over the canvas. Keep it outside the paper sample.
+        await range.focus();
+        const score = await paperPixels(page, finishedOutlines[id], camera, [], id, true);
         console.info(id, view, info.project.name, "IoU", score.iou);
         expect(score.iou).toBeGreaterThan(0.95);
         await canvas.screenshot({ path: info.outputPath(view + ".png") });

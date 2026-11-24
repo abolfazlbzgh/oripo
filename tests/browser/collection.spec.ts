@@ -5,58 +5,66 @@ import { hydrationControl } from "./shell-helpers";
 import { expect } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
 
-test("leaving before the scene downloads creates no abandoned WebGL context", async ({
-  page,
-  baseURL,
-}) => {
-  const errors = watchBrowser(page, baseURL);
-  await page.addInitScript(() => {
-    const get = HTMLCanvasElement.prototype.getContext;
-    HTMLCanvasElement.prototype.getContext = function (
-      this: HTMLCanvasElement,
-      type: string,
-      ...args: unknown[]
-    ) {
-      if (type === "webgl2") performance.mark("oripo-webgl-request");
-      return Reflect.apply(get, this, [type, ...args]);
-    } as typeof get;
-  });
-  const chunk = /\/assets\/flat-scene\.client-[^/]+\.js$/;
-  let release!: () => void;
-  const gate = new Promise<void>((resolve) => {
-    release = resolve;
-  });
-  await page.route(chunk, async (route) => {
-    await gate;
-    await route.continue();
-  });
-  const requested = page.waitForRequest(chunk);
-  const delivered = page.waitForResponse(chunk);
-  try {
-    await page.goto("/en/lessons/fox-face", { waitUntil: "domcontentloaded" });
-    await requested;
-    await expect(page.getByRole("button", { name: "Next fold", exact: true })).toBeDisabled();
-    await page.getByRole("banner").getByRole("link", { name: "Oripo", exact: true }).click();
-    await expect(page.getByRole("main")).toBeFocused();
-  } finally {
-    release();
-  }
-  const response = await delivered;
-  await response.finished();
-  // Await evaluation of the same cached module and any pending mount callbacks.
-  await page.evaluate(async (url) => {
-    await import(url);
-    await new Promise(requestAnimationFrame);
-  }, response.url());
-  expect(
-    await page.evaluate(() => performance.getEntriesByName("oripo-webgl-request").length),
-  ).toBe(0);
-  await page.getByRole("link", { name: "Fox face", exact: true }).click();
-  await expect(page.getByRole("button", { name: "Zoom in" })).toBeEnabled();
-  await expect(page.getByRole("slider")).toHaveJSProperty("valueAsNumber", 0);
-  await expect(page.locator("canvas")).toHaveCount(1);
-  expect(errors).toEqual([]);
-});
+for (const [id, chunkName] of [
+  ["fox-face", "flat"],
+  ["pinwheel-calyx", "calyx"],
+  ["river-tern", "tern"],
+  ["hex-iris", "iris"],
+] as const)
+  test(
+    id + " leaves before its scene downloads without creating an abandoned WebGL context",
+    async ({ page, baseURL }) => {
+      const errors = watchBrowser(page, baseURL);
+      await page.addInitScript(() => {
+        const get = HTMLCanvasElement.prototype.getContext;
+        HTMLCanvasElement.prototype.getContext = function (
+          this: HTMLCanvasElement,
+          type: string,
+          ...args: unknown[]
+        ) {
+          if (type === "webgl2") performance.mark("oripo-webgl-request");
+          return Reflect.apply(get, this, [type, ...args]);
+        } as typeof get;
+      });
+      const chunk = new RegExp("/assets/" + chunkName + "-scene\\.client-[^/]+\\.js$");
+      let release!: () => void;
+      const gate = new Promise<void>((resolve) => {
+        release = resolve;
+      });
+      await page.route(chunk, async (route) => {
+        await gate;
+        await route.continue();
+      });
+      const requested = page.waitForRequest(chunk);
+      const delivered = page.waitForResponse(chunk);
+      try {
+        await page.goto("/en/lessons/" + id, { waitUntil: "domcontentloaded" });
+        await requested;
+        await expect(page.getByRole("button", { name: "Next fold", exact: true })).toBeDisabled();
+        await page.getByRole("banner").getByRole("link", { name: "Oripo", exact: true }).click();
+        await expect(page.getByRole("main")).toBeFocused();
+      } finally {
+        release();
+      }
+      const response = await delivered;
+      await response.finished();
+      // Await evaluation of the same cached module and any pending mount callbacks.
+      await page.evaluate(async (url) => {
+        await import(url);
+        await new Promise(requestAnimationFrame);
+      }, response.url());
+      expect(
+        await page.evaluate(() => performance.getEntriesByName("oripo-webgl-request").length),
+      ).toBe(0);
+      await page
+        .getByRole("link", { name: readCopy("en", "common").models[id].title, exact: true })
+        .click();
+      await expect(page.getByRole("button", { name: "Zoom in" })).toBeEnabled();
+      await expect(page.getByRole("slider")).toHaveJSProperty("valueAsNumber", 0);
+      await expect(page.locator("canvas")).toHaveCount(1);
+      expect(errors).toEqual([]);
+    },
+  );
 
 declare global {
   interface Window {

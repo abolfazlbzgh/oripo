@@ -3,18 +3,14 @@ import { calyx as m, calyxHinges } from "../../app/lesson/calyx";
 import { atIndex } from "../../app/lesson/geometry";
 import { paperLayers } from "../../app/lesson/drawing";
 import { checkPenetrations } from "./material-collisions";
-import { materialChecks, distance } from "./material-checks";
+import { checkSheet, materialChecks, distance } from "./material-checks";
 import { calyxCorner, type XY } from "../advanced-projections";
 import { poseAt } from "../../app/lesson/geometry";
 materialChecks(m);
 it("retains four doubled hems around an open diamond receptacle", () => {
   const rest = atIndex(m.poses, 0),
     final = atIndex(m.poses, m.steps.length);
-  expect(rest.length - m.edges.length + m.faces.length).toBe(1);
-  const cut = m.edges.filter((e) => e.faces.length === 1);
-  expect(
-    cut.reduce((sum, e) => sum + distance(atIndex(rest, e.a), atIndex(rest, e.b)), 0),
-  ).toBeCloseTo(8 * Math.SQRT2, 12);
+  checkSheet(m, 8, 8 * Math.SQRT2);
   const offsets = atIndex(paperLayers(m, calyxHinges).offsets, m.steps.length);
   expect(offsets.some((p) => Math.hypot(...p) > 0.00069)).toBe(true);
   for (const [i, p] of rest.entries()) {

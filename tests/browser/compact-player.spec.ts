@@ -3,6 +3,9 @@ import { expect } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
 
 for (const [slug, first, second, total] of [
+  ["pinwheel-calyx", 2100, 1700, 8],
+  ["river-tern", 1850, 1450, 15],
+  ["hex-iris", 1350, 1350, 20],
   ["paper-airplane", 1600, 1600, 9],
   ["paper-heart", 1400, 1400, 12],
   ["fox-face", 1500, 1400, 6],
@@ -34,8 +37,11 @@ for (const [slug, first, second, total] of [
     await page.clock.fastForward(50000);
     await expect(range).toHaveValue("1.5");
     await play.press("Space");
-    await page.clock.fastForward(second / 4);
-    await expect(range).toHaveValue("1.75");
+    const elapsed = Math.floor(second / 4);
+    await page.clock.fastForward(elapsed);
+    await expect
+      .poll(async () => Number(await range.inputValue()))
+      .toBeCloseTo(1.5 + elapsed / second, 12);
     await range.fill("0.375");
     await page.clock.fastForward(50000);
     await expect(range).toHaveValue("0.375");

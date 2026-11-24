@@ -29,10 +29,9 @@ try {
   browser = await chromium.launch();
   const report = { browser: browser.version(), allScripts: bytes(scripts), visits: [] };
   for (const width of [1440, 390]) {
+    const shell = ["/", "/en", "/en/guide/crease-notation"];
     const routes =
-      width === 1440
-        ? ["/en", "/en/guide/crease-notation", "/en/lab/first-fold", ...lessons]
-        : ["/en", "/en/lessons/paper-heart"];
+      width === 1440 ? [...shell, "/en/lab/first-fold", ...lessons] : [...shell, ...lessons];
     for (const route of routes) {
       const page = await browser.newPage({
         viewport: { width, height: width === 1440 ? 900 : 844 },
@@ -51,7 +50,7 @@ try {
       await page.goto(`http://127.0.0.1:${server.address().port}${route}`);
       await page
         .locator(
-          route === "/en" || route.includes("/guide/")
+          shell.includes(route)
             ? ".theme-controller:enabled"
             : ".lab-camera:enabled, .studio-camera:enabled",
         )
@@ -73,7 +72,7 @@ try {
         fcpMs,
         scripts: requested.size,
         coldJs: bytes(requested),
-        html: bytes([route.slice(1) + "/index.html"]),
+        html: bytes([route === "/" ? "index.html" : route.slice(1) + "/index.html"]),
         fontBytes: bytes(fonts).raw,
         fonts: [...fonts],
         sceneJs: bytes(scenes),

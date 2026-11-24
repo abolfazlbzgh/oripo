@@ -13,6 +13,9 @@ import { foxText, foxSheet } from "../../app/lesson/fox.en";
 
 const origin = siteOrigin(process.env.ORIPO_SITE_URL);
 const english = {
+  "pinwheel-calyx": readCopy("en", "pinwheel-calyx"),
+  "river-tern": readCopy("en", "river-tern"),
+  "hex-iris": readCopy("en", "hex-iris"),
   "jumping-frog": readCopy("en", "jumping-frog"),
   "herringbone-map": readCopy("en", "herringbone-map"),
   "masu-box": readCopy("en", "masu-box"),

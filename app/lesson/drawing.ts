@@ -28,7 +28,11 @@ export function paperLayers(model: CompiledLesson, heights: HingePlies, plyThick
       return action.charts.map((chart, i) => {
         const transform = chart(progress);
         const [x, y, z] = chartPoint(transform, atIndex(start, i), true);
-        return [x, y, z + plyThickness * transform.ply * progress] as Point;
+        const rise = plyThickness * transform.ply * progress;
+        const normal = transform.plyNormal;
+        return normal
+          ? ([x + normal[0] * rise, y + normal[1] * rise, z + normal[2] * rise] as Point)
+          : ([x, y, z + rise] as Point);
       });
     function pivot({ crease }: PreparedTurn): Point {
       const setting = heights[action.id];

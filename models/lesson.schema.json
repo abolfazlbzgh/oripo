@@ -111,7 +111,7 @@
       "type": "object",
       "properties": {
         "version": {
-          "enum": [1, 2, 3, 4, 5]
+          "enum": [1, 2, 3, 4, 5, 6]
         },
         "lessonId": {
           "$ref": "#/definitions/id"
@@ -302,9 +302,29 @@
         {
           "type": "object",
           "properties": {
+            "kind": { "const": "tray-corner" },
+            "center": { "$ref": "#/definitions/xy" },
+            "outward": {
+              "type": "array",
+              "items": { "enum": [-1, 1] },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "sector": { "enum": ["side", "end", "side-gusset", "end-gusset"] },
+            "sideAngle": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 90 },
+            "endAngle": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 90 },
+            "branch": { "enum": [-1, 1] }
+          },
+          "required": ["kind", "center", "outward", "sector", "sideAngle", "endAngle", "branch"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
             "kind": {
               "const": "boat-pocket"
             },
+            "frame": { "$ref": "#/definitions/framePins" },
             "center": {
               "$ref": "#/definitions/xy"
             },
@@ -326,18 +346,19 @@
         }
       ]
     },
+    "framePins": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/id"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true
+    },
     "crimp": {
       "type": "object",
       "properties": {
-        "frame": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/id"
-          },
-          "minItems": 3,
-          "maxItems": 3,
-          "uniqueItems": true
-        },
+        "frame": { "$ref": "#/definitions/framePins" },
         "side": {
           "enum": [-1, 1]
         },

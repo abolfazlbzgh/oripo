@@ -1,8 +1,10 @@
 import type { Point } from "../fold/geometry";
+import { prepareTray, type TrayCorner } from "./tray-corner";
 import { hexChart } from "./hex-twist";
 import { prepareBoat, type BoatPocket } from "./boat-pocket";
 
 export type RigidField =
+  | TrayCorner
   | BoatPocket
   | { kind: "hex-twist"; radius: number }
   | {
@@ -24,7 +26,7 @@ export type RigidField =
 
 // Each chart gives the images of the planar x and y unit vectors. Their cross
 // product transports thickness offsets without feeding them into the material.
-export type Chart = { origin: Point; x: Point; y: Point; ply: number };
+export type Chart = { origin: Point; x: Point; y: Point; ply: number; plyNormal?: Point };
 export function chartPoint(chart: Chart, point: Point, vector = false): Point {
   const [a, b, c] = chart.x,
     [d, e, f] = chart.y,
@@ -68,6 +70,7 @@ export function prepareChart(
   cy: number,
   corners: readonly Point[] = [[cx, cy, 0]],
 ): (t: number) => Chart {
+  if (field.kind === "tray-corner") return prepareTray(field, corners);
   if (field.kind === "boat-pocket") return prepareBoat(field, corners);
   if (field.kind === "hex-twist") return hexChart(field.radius, cx, cy);
   if (field.kind === "pocket-squash") {

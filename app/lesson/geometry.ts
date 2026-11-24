@@ -1,4 +1,5 @@
 import { clampProgress, type Point } from "../fold/geometry";
+import { chartFrame } from "./chart-frame";
 import { prepareCrimp, type Crimp } from "./spatial-crimp";
 import {
   chartPoint,
@@ -40,7 +41,7 @@ function operationKind(step: FoldStep): OperationKind {
   return active[0] ?? "turns";
 }
 export type LessonPattern = {
-  version: 1 | 2 | 3 | 4 | 5;
+  version: 1 | 2 | 3 | 4 | 5 | 6;
   lessonId: string;
   sheet: {
     vertices: Readonly<Record<string, Point>>;
@@ -250,7 +251,7 @@ export function compileSheet(sheet: LessonPattern["sheet"]) {
 }
 
 export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern): CompiledLesson {
-  requireValue([1, 2, 3, 4, 5].includes(version), "Unsupported lesson version");
+  requireValue([1, 2, 3, 4, 5, 6].includes(version), "Unsupported lesson version");
   uniqueIds([lessonId], "lesson");
   uniqueIds(
     steps.map((s) => s.id),
@@ -311,7 +312,11 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
       "Invalid coupled field or guides",
     );
     requireValue(
-      crimps || start.every((p) => Math.abs(p[2]) <= tolerance),
+      crimps ||
+        (version >= 6 &&
+          regions?.length &&
+          regions.every(({ field }) => field.kind === "boat-pocket" && field.frame)) ||
+        start.every((p) => Math.abs(p[2]) <= tolerance),
       "Coupled field requires a flat starting packet",
     );
     const assigned = new Map<string, RigidField>();
@@ -352,6 +357,14 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
         assigned.set(face, region.field);
       }
     }
+    const frames = new Map<RigidField, ReturnType<typeof chartFrame>>();
+    for (const { field } of regions ?? []) {
+      if (field.kind !== "boat-pocket" || !field.frame) continue;
+      requireValue(version >= 6, "Local chart frames require version 6");
+      const [o, x, y] = field.frame.map((id) => atIndex(start, vertex(id)));
+      requireValue(o && x && y, "Missing chart frame pins");
+      frames.set(field, chartFrame(o, x, y));
+    }
     const charts = faces.map((face) => {
       const crimp = spatial.get(face.id);
       if (crimp) return crimp;
@@ -363,11 +376,30 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
         x += atIndex(start, v)[0];
         y += atIndex(start, v)[1];
       }
+      if (local.kind === "tray-corner") {
+        requireValue(version >= 6 && !field, "Tray corners require version 6 regional packets");
+        return prepareChart(
+          local,
+          0,
+          0,
+          face.vertices.map((v) => atIndex(start, v)),
+        );
+      }
       if (local.kind === "boat-pocket") {
         requireValue(
           version >= 5 && !field,
           "Double-boat pockets require version 5 regional packets",
         );
+        const frame = frames.get(local);
+        if (frame) {
+          const corners = face.vertices.map((v) => frame.localPoint(atIndex(start, v)));
+          requireValue(
+            corners.every((p) => Math.abs(p[2]) <= tolerance),
+            "Packet leaves its local chart plane",
+          );
+          const chart = prepareChart(local, 0, 0, corners);
+          return (t: number) => frame.transport(chart(t));
+        }
         return prepareChart(
           local,
           x / face.vertices.length,

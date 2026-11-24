@@ -4,6 +4,7 @@ import type { Chart } from "./rigid-field";
 export type BoatPocket = {
   kind: "boat-pocket";
   center: readonly [number, number];
+  frame?: readonly [origin: string, alongX: string, towardY: string];
   inward: 1 | -1;
   outward: 1 | -1;
   sector: "wall" | "wing" | "bridge";

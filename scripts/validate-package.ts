@@ -28,7 +28,13 @@ function validateFieldPanels(pkg: LessonPackage, model: CompiledLesson) {
     const start = atIndex(model.poses, i);
     for (const [f, face] of model.faces.entries()) {
       const field = step.field ?? assigned.get(face.id);
-      if (!field || field.kind === "boat-pocket" || field.kind === "pocket-squash") continue;
+      if (
+        !field ||
+        field.kind === "tray-corner" ||
+        field.kind === "boat-pocket" ||
+        field.kind === "pocket-squash"
+      )
+        continue;
       const corners = face.vertices.map((v) => atIndex(start, v));
       const cx = corners.reduce((sum, p) => sum + p[0], 0) / corners.length;
       const cy = corners.reduce((sum, p) => sum + p[1], 0) / corners.length;

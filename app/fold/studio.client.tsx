@@ -11,10 +11,20 @@ import {
   WebGLRenderer,
 } from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { poleMargin, type ViewCue } from "../lesson/camera";
+import type { Point } from "./geometry";
 
 export type CameraAction = "left" | "right" | "up" | "down" | "closer" | "farther" | "reset";
-export type FoldView = { invalidate: () => void; moveCamera: (action: CameraAction) => void };
+
+export type Inspection = "start" | "end" | "reset";
+export type FoldView = {
+  guided?: { views: readonly ViewCue[]; read: () => Point; show: (eye: Point) => void };
+  invalidate: () => void;
+  moveCamera: (action: CameraAction) => void;
+};
 export type StudioCallbacks = {
+  views?: readonly ViewCue[];
+  inspect?: (event: Inspection) => void;
   ready: (view: FoldView) => void;
   cameraChanged: (bearing: number, elevation: number, zoom: number) => void;
   unavailable: () => void;
@@ -43,6 +53,8 @@ const turn = Math.PI / 12;
 function Studio({
   ready,
   cameraChanged,
+  views,
+  inspect,
   view,
   children,
 }: StudioCallbacks & { view: Viewpoint; children: ReactNode }) {
@@ -54,8 +66,8 @@ function Studio({
     orbit.enablePan = false;
     orbit.minDistance = view.minDistance;
     orbit.maxDistance = view.maxDistance;
-    orbit.minPolarAngle = Math.PI / 24;
-    orbit.maxPolarAngle = (view.inspectBack ? Math.PI : Math.PI / 2) - Math.PI / 24;
+    orbit.minPolarAngle = poleMargin;
+    orbit.maxPolarAngle = (view.inspectBack ? Math.PI : Math.PI / 2) - poleMargin;
     orbit.cursorStyle = "grab";
     function reportView() {
       cameraChanged(
@@ -77,12 +89,37 @@ function Studio({
     };
     orbit.addEventListener("change", reportView);
     reportView();
-    ready({ invalidate, moveCamera: (action) => move[action]() });
+    const start = () => inspect?.("start"),
+      end = () => inspect?.("end");
+    orbit.addEventListener("start", start);
+    orbit.addEventListener("end", end);
+    const guided = views && {
+      views,
+      read: (): Point => [camera.position.x, camera.position.y, camera.position.z],
+      show: (eye: Point) => {
+        camera.position.set(...eye);
+        orbit.target.set(0, 0, 0);
+        orbit.update();
+      },
+    };
+    ready({
+      invalidate,
+      guided,
+      moveCamera: (action) => {
+        if (!guided) return move[action]();
+        if (action === "reset") return inspect?.("reset");
+        start();
+        move[action]();
+        end();
+      },
+    });
     return () => {
       orbit.removeEventListener("change", reportView);
+      orbit.removeEventListener("start", start);
+      orbit.removeEventListener("end", end);
       orbit.dispose();
     };
-  }, [camera, cameraChanged, gl, invalidate, ready, view]);
+  }, [camera, cameraChanged, gl, invalidate, ready, view, views, inspect]);
 
   return (
     <>
@@ -156,7 +193,13 @@ export function mountStudio(
   void root
     .configure({
       gl: () => new WebGLRenderer({ ...options, canvas, context }),
-      camera: { position: view.position, up: [0, 0, 1], fov: 40, near: 0.1, far: 30 },
+      camera: {
+        position: [...(callbacks.views?.[0]?.position ?? view.position)],
+        up: [0, 0, 1],
+        fov: 40,
+        near: 0.1,
+        far: 30,
+      },
       size: { width: host.clientWidth, height: host.clientHeight, top: 0, left: 0 },
       dpr: [1, 2],
       frameloop: "demand",

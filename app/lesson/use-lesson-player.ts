@@ -1,5 +1,7 @@
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { useStudioView, type SettleReason, type StudioMount } from "../fold/use-studio-view";
+import type { FoldView, Inspection } from "../fold/studio.client";
+import { sameEye } from "./camera";
 import { useI18n } from "../i18n/context";
 import type { Common, formatter, Instruction } from "../i18n/messages";
 export type { Instruction } from "../i18n/messages";
@@ -28,7 +30,7 @@ function statusOf(
 ) {
   const { steps, sheet } = lesson;
   const { position, step, travel, canNext, canPrevious } = pose;
-  const complete = position === steps.length && travel === "rest";
+  const complete = pose.complete;
   const completedFolds = Math.floor(position);
   const copy = atIndex(steps, step);
   const boundary = Number.isInteger(position);
@@ -58,6 +60,9 @@ export function useLessonPlayer(lesson: PlayerLesson) {
   } = useI18n();
   const { steps } = lesson;
   const motion = useRef(initialLessonMotion);
+  const controls = useRef<FoldView | null>(null);
+  const shown = useRef<Reading>(sampleLesson(steps, initialLessonMotion, 0));
+  const gesturing = useRef(false);
   const displayed = useRef(0);
   const range = useRef<HTMLInputElement>(null);
   const [status, setStatus] = useState(() =>
@@ -70,7 +75,11 @@ export function useLessonPlayer(lesson: PlayerLesson) {
   // that affect an instruction, command, or announcement.
   const sample = useCallback(
     (now: number) => {
-      const pose = sampleLesson(steps, motion.current, now);
+      const guided = controls.current?.guided;
+      const pose = sampleLesson(steps, motion.current, now, guided?.views);
+      if (guided && pose.eye && !gesturing.current && !sameEye(guided.read(), pose.eye))
+        guided.show(pose.eye);
+      shown.current = pose;
       const { position, step, progress, travel } = pose;
       const prior = last.current;
       const languageChanged = prior.copy !== atIndex(steps, step) && prior.step === step;
@@ -78,6 +87,7 @@ export function useLessonPlayer(lesson: PlayerLesson) {
         languageChanged ||
         displayed.current !== position ||
         prior.travel !== travel ||
+        prior.complete !== pose.complete ||
         prior.step !== step ||
         prior.canNext !== pose.canNext ||
         prior.canPrevious !== pose.canPrevious
@@ -158,12 +168,46 @@ export function useLessonPlayer(lesson: PlayerLesson) {
       }),
     [format, p, locale],
   );
-  const studio = useStudioView(lesson.loadScene, sample, settle, cameraText);
+  function inspect(event: Inspection) {
+    const guided = controls.current?.guided;
+    if (!guided) return;
+    const pose = shown.current,
+      now = performance.now();
+    const active = pose.travel !== "rest",
+      prev = motion.current;
+    const index = pose.guide;
+    gesturing.current = event === "start";
+    const eye = event === "reset" ? atIndex(guided.views, index).position : guided.read();
+    motion.current = {
+      ...(active ? prev : seekLesson(steps, pose.position)),
+      from: pose.position,
+      start: now,
+      eye,
+      heldStep: active ? undefined : pose.step,
+      heldGuide: active ? undefined : pose.guide,
+      manualStep: event === "reset" ? undefined : gesturing.current ? "gesture" : index,
+      finish: event !== "reset" && pose.unfinishedShowcase && pose.travel === "rest",
+    };
+    if (event === "reset") guided.show(eye);
+    sample(now);
+    controls.current?.invalidate();
+  }
+  const studio = useStudioView(lesson.loadScene, sample, settle, cameraText, inspect, controls);
 
   function command(action: LessonCommand) {
     const now = performance.now();
     const instant = studio.reduced.current || !studio.view.current;
-    motion.current = commandLesson(steps, motion.current, action, now, instant, displayed.current);
+    const pose = { ...shown.current, eye: controls.current?.guided?.read() ?? shown.current.eye };
+    motion.current = commandLesson(
+      steps,
+      motion.current,
+      action,
+      now,
+      instant,
+      displayed.current,
+      pose,
+    );
+    if (gesturing.current) motion.current = { ...motion.current, manualStep: "gesture" };
     sample(now);
     studio.view.current?.invalidate();
   }

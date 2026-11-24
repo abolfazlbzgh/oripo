@@ -524,9 +524,38 @@
       "required": ["vertices", "faces", "creases"],
       "additionalProperties": false
     },
+    "viewCue": {
+      "type": "object",
+      "properties": {
+        "position": { "$ref": "#/definitions/point" },
+        "transitionMs": { "type": "integer", "minimum": 200, "maximum": 1200 }
+      },
+      "required": ["position", "transitionMs"],
+      "additionalProperties": false
+    },
     "presentation": {
       "type": "object",
       "properties": {
+        "camera": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "steps": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["step", "position", "transitionMs"],
+                "properties": {
+                  "step": { "$ref": "#/definitions/id" },
+                  "position": { "$ref": "#/definitions/point" },
+                  "transitionMs": { "type": "integer", "minimum": 200, "maximum": 1200 }
+                }
+              }
+            },
+            "finished": { "$ref": "#/definitions/viewCue" }
+          }
+        },
         "view": {
           "type": "object",
           "properties": {

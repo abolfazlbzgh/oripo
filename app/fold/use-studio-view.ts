@@ -1,5 +1,5 @@
 import { useEffect, useEffectEvent, useLayoutEffect, useRef, useState } from "react";
-import type { CameraAction, FoldView, StudioCallbacks } from "./studio.client";
+import type { CameraAction, FoldView, Inspection, StudioCallbacks } from "./studio.client";
 
 export type StudioMount<T> = (
   host: HTMLDivElement,
@@ -15,10 +15,14 @@ export function useStudioView<T>(
   sample: (now: number) => T,
   settle: (reason: SettleReason) => void,
   formatReading = defaultReading,
+  onInspect?: (event: Inspection) => void,
+  externalView?: React.RefObject<FoldView | null>,
 ) {
   const host = useRef<HTMLDivElement>(null);
   const cameraReading = useRef<HTMLParagraphElement>(null);
-  const view = useRef<FoldView | null>(null);
+  const internalView = useRef<FoldView | null>(null);
+  const view = externalView ?? internalView;
+  const inspect = useEffectEvent((event: Inspection) => onInspect?.(event));
   const reduced = useRef(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [scene, setScene] = useState<"loading" | "ready" | "unavailable">("loading");
@@ -63,6 +67,7 @@ export function useStudioView<T>(
         if (closed) return;
         dispose = mount(container, {
           sample: readPose,
+          inspect,
           active: () => !closed && !lost,
           ready: (controls) => {
             if (closed || lost) return;
@@ -85,7 +90,7 @@ export function useStudioView<T>(
       view.current = null;
       dispose?.();
     };
-  }, [load]);
+  }, [load, view]);
   function moveCamera(action: CameraAction) {
     view.current?.moveCamera(action);
   }

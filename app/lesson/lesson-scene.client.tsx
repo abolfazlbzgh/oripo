@@ -15,7 +15,9 @@ import {
 import { paperLayers, type HingePlies } from "./drawing";
 import { instructionalPaper, type PaperPalette } from "./paper-palette";
 import { mountStudio, type StudioCallbacks, type Viewpoint } from "../fold/studio.client";
-import { atIndex, difference, poseAt, type CompiledLesson } from "./geometry";
+import { guideEdges, guidePoint } from "./guides";
+import { resolveViews, type CameraCues } from "./camera";
+import { atIndex, poseAt, type CompiledLesson } from "./geometry";
 import type { sampleLesson } from "./playback";
 
 type Sample = (now: number) => ReturnType<typeof sampleLesson>;
@@ -25,8 +27,11 @@ export function createLessonMount(
   view: Viewpoint,
   heights: HingePlies,
   plyThickness?: number,
+  camera?: CameraCues,
 ) {
-  const { faces, steps, creases } = model;
+  const { faces, steps } = model;
+  const guides = guideEdges(model),
+    views = resolveViews(steps, view, camera);
 
   const { offsets, foldOffsets, outlines } = paperLayers(model, heights, plyThickness);
 
@@ -66,10 +71,11 @@ export function createLessonMount(
       color: "#864529",
       dashSize: 0.055,
       gapSize: 0.04,
-      depthTest: false,
+      depthTest: true,
+      transparent: true,
       depthWrite: false,
     });
-    const guideSize = 2 * Math.max(...steps.map((s) => s.guides.length));
+    const guideSize = 2 * Math.max(...guides.map((segments) => segments.length));
     const guide = new LineSegments(geometryWithPositions(guideSize), guideInk);
     guide.geometry.setAttribute(
       "lineDistance",
@@ -98,8 +104,7 @@ export function createLessonMount(
     });
     let lastPosition = -1;
     let lastGuide = -1;
-    function draw({ step, progress, position }: ReturnType<Sample>) {
-      const guideStep = position === steps.length ? steps.length : step;
+    function draw({ step, progress, position, guide: guideStep }: ReturnType<Sample>) {
       if (position === lastPosition && guideStep === lastGuide) return;
       if ((position === steps.length) !== (lastPosition === steps.length)) {
         const palette = position === steps.length ? finished : instructionalPaper;
@@ -132,20 +137,18 @@ export function createLessonMount(
       }
       guide.visible = guideStep < steps.length;
       if (guide.visible) {
-        const names = atIndex(steps, guideStep).guides;
+        const segments = atIndex(guides, guideStep);
         const line = guide.geometry.getAttribute("position"),
           distances = guide.geometry.getAttribute("lineDistance");
-        names.forEach((name, i) => {
-          const ends = creases.get(name);
-          if (!ends) throw new Error(`Missing guide for ${name}`);
-          const a = atIndex(pose, ends[0]),
-            b = atIndex(pose, ends[1]);
+        segments.forEach((segment, i) => {
+          const a = guidePoint(pose, separation, segment.a, segment.face),
+            b = guidePoint(pose, separation, segment.b, segment.face);
           line.setXYZ(2 * i, ...a);
           line.setXYZ(2 * i + 1, ...b);
-          distances.setX(2 * i, 0);
-          distances.setX(2 * i + 1, Math.hypot(...difference(a, b)));
+          distances.setX(2 * i, segment.startDistance);
+          distances.setX(2 * i + 1, segment.endDistance);
         });
-        guide.geometry.setDrawRange(0, 2 * names.length);
+        guide.geometry.setDrawRange(0, 2 * segments.length);
         line.needsUpdate = true;
         distances.needsUpdate = true;
       }
@@ -192,7 +195,7 @@ export function createLessonMount(
   ) =>
     mountStudio(
       host,
-      callbacks,
+      { ...callbacks, views },
       view,
       <Paper sample={callbacks.sample} active={callbacks.active} />,
     );

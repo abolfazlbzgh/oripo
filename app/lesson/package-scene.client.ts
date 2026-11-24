@@ -11,5 +11,6 @@ export async function loadLessonMount(id: ModelId) {
     presentation.view,
     presentation.hingePlies,
     presentation.plyThickness,
+    presentation.camera,
   );
 }

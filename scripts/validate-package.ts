@@ -6,6 +6,7 @@ import {
   type CompiledLesson,
 } from "../app/lesson/geometry";
 import { prepareChart, type Chart, type RigidField } from "../app/lesson/rigid-field";
+import { validateViews } from "../app/lesson/camera";
 import { paperLayers } from "../app/lesson/drawing";
 import {
   resolvePresentation,
@@ -84,12 +85,16 @@ export function validatePackage(input: unknown, slug: string): LessonPackage {
     if (pkg.fold) exportFold({ sheet: pattern.sheet, fold: pkg.fold });
     const distance = Math.hypot(...p.view.position);
     if (
+      ![p.view.minDistance, p.view.maxDistance, distance, Math.hypot(...p.previewEye)].every(
+        Number.isFinite,
+      ) ||
       !Math.hypot(...p.previewEye) ||
       distance < p.view.minDistance ||
       distance > p.view.maxDistance ||
       p.view.minDistance >= p.view.maxDistance
     )
       throw Error("presentation: invalid viewing direction or camera range");
+    validateViews(pattern.steps, p.view, p.camera);
     const model = pattern.steps.length ? compileLesson(pattern) : undefined;
     for (const [id, settings] of Object.entries(p.hingePlies)) {
       const step = pattern.steps.find((s) => s.id === id);

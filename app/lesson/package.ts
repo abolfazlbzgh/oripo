@@ -5,6 +5,8 @@ import type { HingePlies } from "./drawing";
 import type { LessonPattern } from "./geometry";
 import type { PaperPalette } from "./paper-palette";
 
+import type { CameraCues } from "./camera";
+
 export type FoldMetadata = Partial<
   Record<
     | "file_creator"
@@ -49,6 +51,7 @@ export type LessonPackage = {
   };
   presentation: {
     view: Viewpoint;
+    camera?: CameraCues;
     previewEye: Point;
     hingePlies: HingePlies;
     plyThickness?: number;

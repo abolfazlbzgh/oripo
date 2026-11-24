@@ -45,7 +45,9 @@ it("discovers a new package from data, excludes drafts and detects stale generat
   try {
     mkdirSync(join(dir, "models", id), { recursive: true });
     mkdirSync(join(dir, "app", "lesson"), { recursive: true });
-    json("models/" + id + "/lesson.json", example);
+    const { presentation, ...minimal } = example;
+    expect(validatePackage(minimal, id).presentation.previewEye).toEqual(presentation.previewEye);
+    json("models/" + id + "/lesson.json", minimal);
     for (const code of localeCodes) {
       mkdirSync(join(dir, "app", "i18n", code), { recursive: true });
       json("app/i18n/" + code + "/common.json", { models: {} });
@@ -53,7 +55,7 @@ it("discovers a new package from data, excludes drafts and detects stale generat
     expect((await checkCatalog(dir, true)).published).toBe(0);
     const loader = join(dir, "app/lesson/package-loaders.generated.ts");
     expect(readFileSync(loader, "utf8")).not.toContain(id);
-    json("models/" + id + "/lesson.json", { ...example, status: "published" });
+    json("models/" + id + "/lesson.json", { ...minimal, status: "published" });
     for (const code of localeCodes) {
       json("app/i18n/" + code + "/common.json", {
         models: { [id]: { title: "Waterbomb", short: "Base", summary: "Test packet" } },
@@ -133,4 +135,53 @@ it("requires scored material panels for each automatically classified rigid fiel
   }
   const archivedMap = JSON.parse(readFileSync("tests/fixtures/legacy-map/lesson.json", "utf8"));
   expect(validatePackage(archivedMap, "herringbone-map").paper.shape).toBe("rectangle");
+});
+
+it("frames open folds from the stock and requires an authored stack for closures", () => {
+  const { presentation, ...draft } = makeDraft("open-sheet");
+  const minimal = validatePackage(draft, "open-sheet");
+  expect(minimal.presentation).toEqual({ ...presentation, hingePlies: { lift: 0 } });
+  const vertices = Object.fromEntries(
+    Object.entries(draft.pattern.sheet.vertices).map(([id, [x, y]]) => [
+      id,
+      [2040 + x * 100, -3450 + y * 100, 0],
+    ]),
+  );
+  const translated = validatePackage(
+    {
+      ...draft,
+      paper: { ...draft.paper, span: [200, 200] },
+      pattern: { ...draft.pattern, sheet: { ...draft.pattern.sheet, vertices } },
+    },
+    "open-sheet",
+  );
+  expect(translated.presentation.view.materialFrame).toEqual({
+    center: [2040, -3450, 0],
+    scale: 0.01,
+  });
+  expect(translated.pattern.sheet.vertices).toEqual(vertices);
+  const partial = validatePackage(
+    { ...draft, presentation: { previewEye: [2, -1, 4] } },
+    "open-sheet",
+  );
+  expect(partial.presentation).toEqual({ ...minimal.presentation, previewEye: [2, -1, 4] });
+  const step = atIndex(draft.pattern.steps, 0),
+    turn = atIndex(step.turns, 0);
+  expect(() =>
+    validatePackage(
+      {
+        ...draft,
+        pattern: { ...draft.pattern, steps: [{ ...step, turns: [{ ...turn, degrees: 180 }] }] },
+      },
+      "open-sheet",
+    ),
+  ).toThrow(/lift requires explicit presentation.hingePlies/);
+  expect(
+    projectPaper(
+      compileLesson(minimal.pattern),
+      minimal.presentation.hingePlies,
+      minimal.finishedAppearance,
+      minimal.presentation.previewEye,
+    ).length,
+  ).toBeGreaterThan(100);
 });

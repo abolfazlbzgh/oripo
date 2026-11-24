@@ -2,7 +2,7 @@ import { mkdirSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { format } from "prettier";
 import { compileLesson } from "../app/lesson/geometry";
-import type { LessonPackage } from "../app/lesson/package";
+import { resolvePresentation, type LessonPackage } from "../app/lesson/package";
 import { checkCatalog, readJson } from "./model-catalog";
 import { describeStock, exportFold, importFold, type Material } from "./fold";
 import { validatePackage } from "./validate-package";
@@ -20,9 +20,8 @@ const template: Material = {
 };
 export function makeDraft(id: string, material?: Material): LessonPackage {
   const { sheet, fold } = material ?? template;
-  const paper = describeStock(sheet),
-    span = Math.max(...paper.span);
-  return {
+  const paper = describeStock(sheet);
+  return resolvePresentation({
     schemaVersion: 1,
     status: "draft",
     order: 0,
@@ -39,13 +38,6 @@ export function makeDraft(id: string, material?: Material): LessonPackage {
       review: { maker: "provisional", language: "pending", physical: "pending", visual: "pending" },
     },
     presentation: {
-      view: {
-        position: [span * 0.6, -span, span * 1.4],
-        minDistance: span * 0.4,
-        maxDistance: span * 4,
-        inspectBack: true,
-      },
-      previewEye: [1, -2, 3],
       hingePlies: material ? {} : { lift: 0.5 },
     },
     pattern: {
@@ -63,7 +55,7 @@ export function makeDraft(id: string, material?: Material): LessonPackage {
           ],
     },
     ...(fold ? { fold } : {}),
-  };
+  });
 }
 export async function run(args: string[]) {
   const [action = "check", id, path] = args;

@@ -7,7 +7,11 @@ import {
 } from "../app/lesson/geometry";
 import { prepareChart, type Chart, type RigidField } from "../app/lesson/rigid-field";
 import { paperLayers } from "../app/lesson/drawing";
-import type { LessonPackage } from "../app/lesson/package";
+import {
+  resolvePresentation,
+  type AuthoredLessonPackage,
+  type LessonPackage,
+} from "../app/lesson/package";
 import { describeStock, exportFold } from "./fold";
 import { checkShape, packageShape } from "./schema-validation";
 
@@ -55,8 +59,8 @@ function validateFieldPanels(pkg: LessonPackage, model: CompiledLesson) {
 }
 export function validatePackage(input: unknown, slug: string): LessonPackage {
   checkShape(packageShape, input, slug);
-  const pkg = input as LessonPackage;
   try {
+    const pkg = resolvePresentation(input as AuthoredLessonPackage);
     const { pattern, presentation: p } = pkg;
     if (pattern.lessonId !== slug || pkg.manuscript !== slug)
       throw Error("pattern.lessonId and manuscript must match the directory ID");

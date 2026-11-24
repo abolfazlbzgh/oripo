@@ -145,7 +145,6 @@
     "finishedAppearance",
     "manuscript",
     "provenance",
-    "presentation",
     "pattern"
   ],
   "additionalProperties": false,
@@ -526,6 +525,15 @@
             },
             "shadowZ": {
               "type": "number"
+            },
+            "materialFrame": {
+              "type": "object",
+              "properties": {
+                "center": { "$ref": "#/definitions/point" },
+                "scale": { "type": "number", "exclusiveMinimum": 0 }
+              },
+              "required": ["center", "scale"],
+              "additionalProperties": false
             }
           },
           "required": ["position", "minDistance", "maxDistance"],
@@ -575,7 +583,6 @@
           "exclusiveMinimum": 0
         }
       },
-      "required": ["view", "previewEye", "hingePlies"],
       "additionalProperties": false
     },
     "fold": {

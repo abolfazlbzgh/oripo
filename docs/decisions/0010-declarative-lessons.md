@@ -6,6 +6,8 @@ The authoring CLI generates deterministic public metadata. Dev, build and CI val
 
 FOLD interchange covers a planar material graph. Sequential changes of hinge sense, selected plies, text, display layers and cameras belong to the native lesson. Imported topology begins as a draft. A published construction needs an independent fold plan, physical landmarks and sampled geometry checks.
 
+The CLI, studio and preview resolve optional presentation settings through the same pure function. Stock-sized camera defaults and material-plane pivots handle simple open folds. Closing packets and coupled gussets require an authored contact order.
+
 ## Working checklist
 
 - Freeze the Phase 8C inputs, drawing settings, translations, route enumeration, endpoint images and intermediate material/drawing poses before conversion.

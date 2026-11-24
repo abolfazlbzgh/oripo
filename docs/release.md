@@ -1,5 +1,68 @@
 # Local release verification
 
+## Phase 8C · Nine playable lessons
+
+The local catalog contains three Beginner, three Intermediate and three Advanced lessons. The starting point was `feat/intermediate-lessons` at `8e516c90823fee0612601d09e06b553099c8e03c`. The three new entries are independent, connected-sheet designs. The gallery, studio and text fallback all use the same stable model and step identifiers. [Nine-lesson roster](phase-8-models.md) · [Selection, maker difficulty and fold plans](decisions/0009-advanced-model-selection.md)
+
+### Material measurements
+
+| New model      | Actions | Vertices / edges / faces |  Poses | Maximum rigid error | Maximum seam error | Maximum independent landmark error | Candidate triangle pairs |
+| -------------- | ------: | ------------------------ | -----: | ------------------: | -----------------: | ---------------------------------: | -----------------------: |
+| Pinwheel calyx |       8 | 152 / 272 / 121          |  8,008 |           1.027e−15 |          1.346e−15 |                          7.499e−16 |                  711,644 |
+| River tern     |      15 | 49 / 90 / 42             | 15,015 |           1.332e−15 |          1.201e−15 |                          6.990e−16 |                  370,130 |
+| Amber hex iris |      20 | 108 / 204 / 97           | 20,020 |           3.664e−15 |          3.073e−15 |                          2.722e−15 |                  703,853 |
+
+The independent material inventory checks signed face areas, adjacent face IDs, one connected boundary cycle and one connected face graph. The source areas are 8, 4.5 and 3√3/2 square units. Each action used 1,001 fractions in the rigidity and seam checks. Fixed hinge displacement was zero. Each new lesson retraced 1,000 full clock cycles with zero drift and survived 25 interrupted fractional seeks. The triangle test sampled 31 interior fractions per action and detected zero transverse penetrations across 1,785,627 candidate pairs. This is a sampled check of ideal, zero-thickness material. The display offsets and the physical thickness of a folded sheet are separate quantities.
+
+- **Calyx.** A contact probe counted four ordered plies before the raised crimp. The held diamond stayed fixed while the lips turned. The two opposite rim landmarks finish 1.591610 world units apart.
+- **Tern.** At a point inside the bill and cheek folds, the stack increases from four plies to eight, then to sixteen in the book. The eight reopened plies retain their alternating orientation and local order as the double crimp raises the neck by 0.335756 units. The left and right wings have separate material hinges.
+- **Iris.** The complete six-sector ring closed flat. All six hub sides and twelve moving rails match the taught mountain/valley senses at three interior poses. The incoming height order agreed with the closed drawing stack for 2,681 contacting ply pairs. Reopening to the exhibition pose stayed within 1.118e−15 units of the original path. Relief height was 0.383371 units.
+
+The finished palettes are coral/peach (`#df716b`, `#f3aa91`, edge `#884452`), river blue/pale blue (`#4278ae`, `#89b6d0`, edge `#294966`) and gold/violet (`#e2b52d`, `#665389`, edge `#57416f`). Each switches at the exact endpoint. Scrubbing back restores teaching pigments. All six earlier preview PNGs retain their Phase 8B SHA-256 hashes.
+
+### Baseline and test environment
+
+On Windows with Node 22.23.2 and npm 10.9.8, the locked install added 230 packages and reported zero vulnerabilities. The original six-lesson source passed all 96 unit tests. The first six-lesson browser run shared live source fixtures with work in progress. Its result was discarded. An isolated checkout of the starting commit then passed 237/238 cases. Its sole failure was WebKit's five-second initial camera readiness check on the airplane. That exact untouched case passed on rerun, covering all 82 Chromium, 78 Firefox and 78 WebKit baseline cases across the two isolated runs. The candidate suite allows twelve seconds for asynchronous readiness assertions and retains its geometry thresholds and zero configured retries.
+
+The first full nine-lesson integration run passed 304/313. Its failures exposed half-millisecond rounding in the simulated clock and pixel oracles counting a focus ring or omitting shaded crease ink. The transport check now advances an integral number of milliseconds and compares with the corresponding fraction. The phone outline check moves keyboard focus to the timeline before sampling the canvas. Its shape classifier includes antialiased gold/violet mixtures, while the endpoint pigment check retains its independent hue cutoffs. All twelve affected journeys passed in the focused three-browser run.
+
+### Final production acceptance
+
+The locked install, typecheck, lint, formatting, unit tests, static build and complete production browser run all passed. The unit suite contained 118 tests in 20 files. The 15.9-minute browser run passed all 313 tests in one run, with zero skips, failures, flakes or retries. Chromium 159.0.8154.6 passed 109, Firefox 159.0 passed 102 and WebKit 27.2 passed 102. Seven Chromium-only cases use the DevTools touch protocol. The other journeys run on all three engines.
+
+The production journeys cover 320px and 390px phones, tablet, 1440px desktop, short landscape, 200% root text, Light and Dark, keyboard and reduced motion. They also cover direct load and refresh, JavaScript-disabled documents and the complete text player. On a missing scene chunk, the instructions remained usable and a reload restored one canvas. Context loss preserved the current position in the text player. Leaving during a scene download or playback retired the previous scene.
+
+| Minimum measured intersection over union across engines | Working fold | Finished oblique | Phone front | Phone rear | Gallery PNG | Gallery pigment coverage |
+| ------------------------------------------------------- | -----------: | ---------------: | ----------: | ---------: | ----------: | -----------------------: |
+| Pinwheel calyx                                          |       0.9825 |           0.9907 |      0.9875 |     0.9844 |      0.9895 |                    90.8% |
+| River tern                                              |       0.9805 |           0.9837 |      0.9843 |     0.9825 |      0.9741 |                    88.9% |
+| Amber hex iris                                          |       0.9785 |           0.9363 |      0.9821 |     0.9840 |      0.9848 |                    89.5% |
+
+The oblique endpoint measure uses a strict finished-pigment classifier. Blended crease pixels account for part of the iris difference. Front and rear silhouette comparisons include the shaded crease ink. The moving and static contours are independent projections. The material and contact checks above establish the additional layer information that a silhouette cannot show. The complete browser run retained 294 production screenshots.
+
+### Delivery, routes and assets
+
+Each locale supplies the title, card and SEO summary, starting sheet, action instructions, accessible result and full static transcript for all three models. The ten locale checks exercised both script directions and the local font subsets. The 110 canonical documents comprise ten Explores, ten Guides and 90 lesson pages. The English root alias and internal noindex lab bring the prerender route count to 112. Direct and repeat HTTP fetches returned the on-disk HTML bytes 224 times. Seven withheld or unknown slugs across all ten locales returned 140 localized, noindex HTTP 404 responses. The sitemap contained the exact 110 canonical paths, and the browser checked the canonical and alternate links.
+
+| Cold JavaScript in bytes      | Six lessons, raw / gzip | Nine lessons, raw / gzip | Gzip change |
+| ----------------------------- | ----------------------: | -----------------------: | ----------: |
+| All emitted client scripts    |     1,158,846 / 334,199 |      1,177,675 / 342,535 |      +8,336 |
+| English Explore               |       378,936 / 121,363 |        381,520 / 121,663 |        +300 |
+| English Guide                 |       377,235 / 120,786 |        379,819 / 121,086 |        +300 |
+| Calyx through scene readiness |                       — |      1,138,829 / 324,425 |         New |
+| Tern through scene readiness  |                       — |      1,139,271 / 324,444 |         New |
+| Iris through scene readiness  |                       — |      1,138,083 / 324,180 |         New |
+
+Cold Chromium runs at 390 and 1440 CSS pixels both recorded zero scene requests on `/`, `/en` and the Guide. The English Explore HTML was 25,544 raw bytes and 6,012 gzipped. The lazy studio still triggers Vite's chunk-size warning at approximately 722 kB minified. The drawing reuses the existing Three.js materials and buffers during playback and releases the prior scene on navigation. English manuscripts have one static server import each. Locale data are prerendered. No new runtime dependencies or hosted services were introduced.
+
+The build emitted a 10,260-byte calyx PNG, a 4,171-byte tern PNG and an 11,195-byte iris PNG. The development preview handler returned the same bytes for all nine PNGs as the production build. Full per-file SHA-256 values are in the ignored `.local/phase-8c/final-png.json`. Root and Guide request costs, full lesson costs, warnings and observation widths are in `.local/phase-8c/bundle.json`.
+
+### Evidence and outstanding hands-on work
+
+The cropped contact sheet at `.local/phase-8c/contact.png` combines actual production canvases. Its front and rear views use a 390px viewport. The full, uncropped screenshots are under `.local/phase-8c/verified-browser/`. The three `fixture-*` directories retain every action at 0.25, 0.5, 0.75 and 1. The final flat-to-flat screenshot comparison is byte-exact for each model. The gallery tests read the independently derived silhouette and pigment coverage in both themes. `geometry.log`, `verified.json`, `http.json` and `dev-preview-parity.json` retain the numeric evidence.
+
+For physical trials, check the four-ply lip and free inner tips on a 34 cm calyx sheet, the eight-ply cheek and forward bill on a 24 cm tern sheet, and whether all six rails seat in the taught order on a 24 cm hexagon. Physical folding, independent maker ratings, real phones, hardware GPU rendering, spoken screen-reader output, GitHub CI, deployed HTTP and Vercel cache behavior remain untested. Human translation and terminology review for every locale is `REVIEW_PENDING`. Published originals have project provenance. Contemporary designs with unresolved adaptation permission remain outside the collection. External pushes, pull requests, tags and deployments were outside this local release.
+
 ## Phase 8B · Six playable lessons
 
 The catalog contains three Beginner lessons and three Intermediate lessons. The four-foot jumping frog joins Masu in the Intermediate tier alongside the four-band herringbone map. The full nine-lesson milestone still needs three verified Advanced models. The source branch for this increment was `feat/nine-lessons-finished-colors` at `6a096965fbfeb4df0850ec31a17b9befe45c9a5e`. [Model selection and rights](decisions/0008-intermediate-constructions.md)

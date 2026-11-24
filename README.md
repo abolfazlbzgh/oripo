@@ -1,15 +1,18 @@
 # Oripo
 
-**Origami in Motion.** Fold a single sheet in 3D. Start with a dart, heart or fox, then try a lined Masu box, a four-foot jumping frog or a corrugated map. Use Next fold to make one fold, Play to continue through the lesson or the timeline to stop at any angle. Drag the paper to inspect its layers.
+**Origami in Motion.** Fold a single sheet in 3D. Explore nine lessons in three maker-difficulty groups. Start with a dart, heart or fox, then try a lined Masu box, jumping frog or corrugated map. The Advanced lessons teach an eight-petal calyx, a fork-tailed tern and a closed hexagonal twist. Use Next fold to make one fold, Play to continue through the lesson or the timeline to stop at any angle. Drag the paper to inspect its layers.
 
-| English lesson                                                         | Starting paper            | Actions |
-| ---------------------------------------------------------------------- | ------------------------- | ------: |
-| [Dart paper airplane](http://127.0.0.1:4173/en/lessons/paper-airplane) | 2 × 3 portrait rectangle  |       9 |
-| [Paper heart](http://127.0.0.1:4173/en/lessons/paper-heart)            | Square, corner up         |      12 |
-| [Fox face](http://127.0.0.1:4173/en/lessons/fox-face)                  | Square, corner up         |       6 |
-| [Masu box](http://127.0.0.1:4173/en/lessons/masu-box)                  | Square, corner up         |      18 |
-| [Jumping frog](http://127.0.0.1:4173/en/lessons/jumping-frog)          | 2 × 2 square              |      20 |
-| [Herringbone map](http://127.0.0.1:4173/en/lessons/herringbone-map)    | 3 × 2 landscape rectangle |      15 |
+| English lesson                                                         | Starting paper                       | Actions |
+| ---------------------------------------------------------------------- | ------------------------------------ | ------: |
+| [Dart paper airplane](http://127.0.0.1:4173/en/lessons/paper-airplane) | 2 × 3 portrait rectangle             |       9 |
+| [Paper heart](http://127.0.0.1:4173/en/lessons/paper-heart)            | Square, corner up                    |      12 |
+| [Fox face](http://127.0.0.1:4173/en/lessons/fox-face)                  | Square, corner up                    |       6 |
+| [Masu box](http://127.0.0.1:4173/en/lessons/masu-box)                  | Square, corner up                    |      18 |
+| [Jumping frog](http://127.0.0.1:4173/en/lessons/jumping-frog)          | 2 × 2 square                         |      20 |
+| [Herringbone map](http://127.0.0.1:4173/en/lessons/herringbone-map)    | 3 × 2 landscape rectangle            |      15 |
+| [Pinwheel calyx](http://127.0.0.1:4173/en/lessons/pinwheel-calyx)      | 34 cm square                         |       8 |
+| [River tern](http://127.0.0.1:4173/en/lessons/river-tern)              | 24 cm square                         |      15 |
+| [Amber hex iris](http://127.0.0.1:4173/en/lessons/hex-iris)            | Regular hexagon, 24 cm across points |      20 |
 
 ## Run locally
 

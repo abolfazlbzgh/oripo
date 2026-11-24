@@ -1,5 +1,23 @@
 # Phase 8 model selection
 
+## Phase 8C public catalog
+
+| Maker tier   | Stable ID         | Category      | Actions | Finished paper           |
+| ------------ | ----------------- | ------------- | ------: | ------------------------ |
+| Beginner     | `paper-airplane`  | Vehicle       |       9 | Pale blue                |
+| Beginner     | `paper-heart`     | Symbol        |      12 | Rose red                 |
+| Beginner     | `fox-face`        | Animal        |       6 | Amber orange             |
+| Intermediate | `masu-box`        | Container     |      18 | Teal                     |
+| Intermediate | `jumping-frog`    | Action animal |      20 | Leaf green               |
+| Intermediate | `herringbone-map` | Corrugation   |      15 | Violet                   |
+| Advanced     | `pinwheel-calyx`  | Botanical     |       8 | Coral and peach          |
+| Advanced     | `river-tern`      | Bird          |      15 | River blue and pale blue |
+| Advanced     | `hex-iris`        | Tessellation  |      20 | Gold and violet          |
+
+Each public lesson has one connected sheet, a reversible fold sequence, an endpoint-generated gallery PNG and complete manuscripts in all ten locales. An action can move a pair of packets together or release a previous crease. The three Advanced entries are original Oripo constructions. Their working-packet complexity and separate rights histories are recorded in the selection memo. [Advanced fold plans and provenance](decisions/0009-advanced-model-selection.md)
+
+The locked butterfly, inflation-based tulip and attributed eight-petal sink flower remain outside the catalog. The published calyx uses crimped lips and lifts four separate inner flaps. The generic crane and simple lily were rejected for this tier. The licensed status of a reference diagram was never used to infer permission for a different design. [Earlier candidate review](decisions/0008-intermediate-constructions.md)
+
 ## Phase 8B decisions
 
 | Candidate                         | Decision and evidence                                                                                                                                                                                                                                                                                                          |

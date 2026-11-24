@@ -1,5 +1,15 @@
 # AI-assisted development
 
+## Phase 8C · Three Advanced originals
+
+Oripo's nine lessons share the same player. The new work adds an eight-petal flower, a fork-tailed bird and a closed twist. Codex authored their crease layouts, multilingual instructions, analytic fixtures and actual-pose previews for this repository. The owner had accepted the earlier six-model collection. Physical acceptance and independent difficulty ratings for the new models remain open. [Selection record and final sequences](decisions/0009-advanced-model-selection.md)
+
+The initial flower finished too much like a tray. A blintz base provided four genuinely independent inner petals. The bird's early shape lacked enough separation between bill, tail and wing. The folded kite base, cheek tucks, tail reverse and independent wrists distinguish them in the finished mesh. For the iris, closing only five corners would leave an unconstrained sixth seam. The analytic fixture tests the full loop, and a separate fixture compares all finite rail senses with the instructions. Captures in the ignored phase evidence directory show each action at quarter, half, three-quarter and full progress.
+
+The three constructions add 43 actions. Their 43,043 sampled poses had a maximum seam disagreement of 3.073e−15 world units. The final local run passed 118 unit tests and 313 production browser cases across Chromium (109), Firefox (102) and WebKit (102). The production contact sheet and full-size screenshots are under the ignored `.local/phase-8c/` evidence directory.
+
+The release record distinguishes the isolated six-lesson starting tests, final three-browser acceptance and tasks requiring a person or a hosted environment. No external crease file, photograph, diagram or translated text was distributed. Human review is `REVIEW_PENDING` for the three new manuscripts in every locale. [Local release measurements and screenshots](release.md)
+
 ## Phase 0 skill audit
 
 The session catalog and local skill directories were inspected on 2026-11-22. The available Sites skill had a local-checkout workflow. That workflow informed responsive layout, local preview and browser QA in the owner's existing repository. The owner's repository, stack, npm lockfile and local-only instructions governed implementation.

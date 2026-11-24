@@ -1,0 +1,84 @@
+{
+  "sheet": {
+    "title": "Set the square on a point",
+    "instruction": "Place a thin 24 cm square front side up with one corner pointing away. Mark the center lightly.",
+    "result": "The far corner supplies the bill and the near corner the tail."
+  },
+  "steps": {
+    "kite-base": {
+      "title": "Narrow the kite",
+      "instruction": "Valley-fold both upper edges to the vertical diagonal. Bring their edges together along the spine.",
+      "result": "Two thin flaps cover the long half of the kite."
+    },
+    "double-bill": {
+      "title": "Double the bill",
+      "instruction": "Fold the top 1.7 cm toward you across all layers.",
+      "result": "A doubled cap ends the head."
+    },
+    "narrow-cheeks": {
+      "title": "Taper the cheeks",
+      "instruction": "Turn the cap’s left and right corners under along the two slanted guides. Let their top ends meet.",
+      "result": "The two cheek folds leave a pointed bill."
+    },
+    "close-book": {
+      "title": "Close the book",
+      "instruction": "Bring the right side over the left along the spine. Align the two wings and keep the bill inside.",
+      "result": "The two halves line up for through-ply marks."
+    },
+    "mark-throat": {
+      "title": "Mark the throat",
+      "instruction": "Valley-fold the nose packet on the oblique guide that meets the spine 4.5 cm forward of center.",
+      "result": "Both cheeks receive the lower reverse crease."
+    },
+    "release-throat": {
+      "title": "Release the throat",
+      "instruction": "Unfold the nose to the closed book while holding the mark.",
+      "result": "The first pair of obliques lies in the stack."
+    },
+    "mark-crown": {
+      "title": "Mark the crown",
+      "instruction": "Mountain-fold the nose on the parallel guide 8.6 cm forward of center.",
+      "result": "The second pair marks the return of the neck."
+    },
+    "release-crown": {
+      "title": "Release the crown",
+      "instruction": "Open that fold back to the book.",
+      "result": "Two parallel marks cross the head packet."
+    },
+    "mark-tail": {
+      "title": "Mark the tail fork",
+      "instruction": "Valley-fold the tail on the shallower guide, 13.6 cm behind center at the spine.",
+      "result": "The two tail plies receive matching reverse lines."
+    },
+    "release-tail": {
+      "title": "Release the tail",
+      "instruction": "Open the tail mark and keep the long edges aligned.",
+      "result": "The tail lies ready to reverse."
+    },
+    "open-book": {
+      "title": "Open the book",
+      "instruction": "Return the upper half to the right. Keep the kite flaps and the tiny bill folds closed.",
+      "result": "The neck and tail marks appear in mirrored pairs."
+    },
+    "crimp-neck": {
+      "title": "Reverse the neck and tail",
+      "instruction": "Raise the sides of the spine together. Push the throat inside, turn the bill forward again at the crown, and reverse the rear point between the tail edges. Follow both arms of each V.",
+      "result": "A raised neck carries the bill forward and two tail tips project behind it."
+    },
+    "spread-left": {
+      "title": "Spread the left wing",
+      "instruction": "Hold the keel and rotate the left wing out on its swept root line.",
+      "result": "The left wing extends beside the body."
+    },
+    "spread-right": {
+      "title": "Spread the right wing",
+      "instruction": "Open the right wing to match the left, keeping the throat still.",
+      "result": "The wings span both sides of the neck."
+    },
+    "bend-wrists": {
+      "title": "Bend the wing tips",
+      "instruction": "Turn both free tips upward on the short oblique wrist creases. Keep each inner wing panel still.",
+      "result": "The finished tern has a pointed bill, forked tail and two bent wings."
+    }
+  }
+}

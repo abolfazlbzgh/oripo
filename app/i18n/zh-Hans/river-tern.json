@@ -1,0 +1,84 @@
+{
+  "sheet": {
+    "title": "放好方纸",
+    "instruction": "取边长24厘米的薄方纸，正面朝上，一角朝前。轻轻标出中心。",
+    "result": "远角做喙，近角做尾。"
+  },
+  "steps": {
+    "kite-base": {
+      "title": "折风筝形底",
+      "instruction": "把上面的两条边谷折到竖直对角线，让两边在中线上相接。",
+      "result": "两层纸盖住风筝形较长的一半。"
+    },
+    "double-bill": {
+      "title": "折双层喙",
+      "instruction": "将顶部1.7厘米连同所有纸层向自己折下。",
+      "result": "头部末端叠成双层。"
+    },
+    "narrow-cheeks": {
+      "title": "收窄两颊",
+      "instruction": "沿两条斜线把顶端左右两角折到底下，让上端相接。",
+      "result": "两颊之间留下尖喙。"
+    },
+    "close-book": {
+      "title": "对折纸包",
+      "instruction": "把右半边沿中线合到左边，对齐双翼，把喙留在里面。",
+      "result": "两半纸叠齐，可以同时压痕。"
+    },
+    "mark-throat": {
+      "title": "压出喉折线",
+      "instruction": "沿距中心向前4.5厘米处的斜线，将头部纸包谷折。",
+      "result": "左右两颊都有了较低的反折线。"
+    },
+    "release-throat": {
+      "title": "打开喉折",
+      "instruction": "把喙展开回对折状态。",
+      "result": "第一对斜痕留在纸层上。"
+    },
+    "mark-crown": {
+      "title": "压出头顶折线",
+      "instruction": "沿中心前方8.6厘米处的平行线把头部山折。",
+      "result": "第二条线标出颈部折返处。"
+    },
+    "release-crown": {
+      "title": "打开头顶折",
+      "instruction": "展开刚才的山折。",
+      "result": "两道平行痕横过头部纸包。"
+    },
+    "mark-tail": {
+      "title": "压出叉尾线",
+      "instruction": "沿中心后方13.6厘米处较平缓的斜线，将尾部谷折。",
+      "result": "尾部两层都有了对应的反折痕。"
+    },
+    "release-tail": {
+      "title": "松开尾部",
+      "instruction": "打开尾折，保持两条长边对齐。",
+      "result": "尾尖可以沿折痕反折。"
+    },
+    "open-book": {
+      "title": "展开纸包",
+      "instruction": "把上层翻回右边，风筝底和喙的小折保持合拢。",
+      "result": "头尾的折痕成对称的人字形。"
+    },
+    "crimp-neck": {
+      "title": "反折颈部和尾尖",
+      "instruction": "同时提起中线两侧。把喉部压入，在头顶折痕处把喙翻向前方，再把后尖反折到尾缘之间。两侧都沿人字线折。",
+      "result": "颈部托起向前的喙，尾部留下两个尖端。"
+    },
+    "spread-left": {
+      "title": "展开左翼",
+      "instruction": "捏住躯干，沿倾斜的翼根线把左翼向外展开。",
+      "result": "左翼伸出身体左侧。"
+    },
+    "spread-right": {
+      "title": "展开右翼",
+      "instruction": "固定喉部，把右翼展开到与左翼相同的角度。",
+      "result": "双翼在颈部两侧张开。"
+    },
+    "bend-wrists": {
+      "title": "折起翼尖",
+      "instruction": "固定机翼内侧的纸面，沿翼腕的短斜线把两个自由翼尖向上折。",
+      "result": "燕鸥有尖喙、叉尾和弯折的双翼。"
+    }
+  }
+}

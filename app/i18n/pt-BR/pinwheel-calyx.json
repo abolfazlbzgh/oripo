@@ -1,0 +1,49 @@
+{
+  "sheet": {
+    "title": "Prepare o losango",
+    "instruction": "Deixe um quadrado fino de 34 cm com uma ponta voltada para você e a frente para cima. Marque de leve o encontro das diagonais.",
+    "result": "As oito pétalas sairão desta folha."
+  },
+  "steps": {
+    "blintz-base": {
+      "title": "Leve os cantos ao centro",
+      "instruction": "Dobre os quatro cantos em vale até o centro. Encoste as bordas vizinhas sem sobrepô-las.",
+      "result": "Quatro pontas soltas se encontram sobre um quadrado menor."
+    },
+    "hem-tips": {
+      "title": "Dobre as pontas",
+      "instruction": "Marque 2,6 cm em cada borda a partir de cada canto. Faça uma dobra em vale entre as marcas para virar a ponta para dentro.",
+      "result": "Cada canto ganha uma borda curta de duas camadas."
+    },
+    "raise-first": {
+      "title": "Erga duas pétalas",
+      "instruction": "Levante as abas superior direita e inferior esquerda pelas linhas entre pontos médios vizinhos. Pare em cerca de 49°.",
+      "result": "Duas pétalas opostas ficam erguidas sobre o fundo plano."
+    },
+    "raise-second": {
+      "title": "Erga o outro par",
+      "instruction": "Levante as duas abas restantes até o mesmo ângulo, mantendo o losango apoiado na mesa.",
+      "result": "Quatro paredes cercam o centro aberto."
+    },
+    "crimp-first": {
+      "title": "Vinque duas nervuras",
+      "instruction": "Na pétala superior direita, pince uma nervura do meio do lado direito até um ponto 3,4 cm à esquerda do canto superior direito. A 7,2 e 9,2 cm da base da nervura, inverta-a para dentro e depois para fora nas linhas em V indicadas. Segure o lado largo e leve as quatro camadas na segunda dobra. Repita na pétala oposta.",
+      "result": "O trecho central muda de sentido e a borda dupla vira para fora."
+    },
+    "crimp-second": {
+      "title": "Vire as últimas bordas",
+      "instruction": "Gire a flor um quarto de volta. Repita as duas dobras inversas nas pétalas restantes, no mesmo sentido.",
+      "result": "Quatro pétalas côncavas giram no sentido horário em torno do losango."
+    },
+    "lift-inner-sides": {
+      "title": "Levante as pétalas laterais",
+      "instruction": "Localize as pontas soltas que vieram da direita e da esquerda da folha original. Erga só essas abas nos guias curtos, a cerca de 5,5 cm do centro, até 78°.",
+      "result": "Duas pétalas pontudas se erguem entre as bordas dobradas."
+    },
+    "lift-inner-ends": {
+      "title": "Abra a corola interna",
+      "instruction": "Levante as outras duas pontas pelas bases marcadas até cerca de 65°. Deixe o centro aberto.",
+      "result": "Quatro pétalas pontudas ficam dentro de quatro bordas recurvadas."
+    }
+  }
+}

@@ -12,6 +12,7 @@
     "models": "Choisir une leçon"
   },
   "home": {
+    "hexagon": "Hexagone régulier",
     "tagline": "L’origami en mouvement",
     "title": "Une feuille.",
     "emphasis": "Des possibilités infinies.",
@@ -40,6 +41,21 @@
     "back": "Revenir aux modèles"
   },
   "models": {
+    "hex-iris": {
+      "title": "Iris hexagonal ambré",
+      "short": "Iris hexagonal",
+      "summary": "Fermez six plis solidaires autour d’un hexagone puis entrouvrez-les pour révéler un relief or et violet."
+    },
+    "river-tern": {
+      "title": "Sterne de rivière",
+      "short": "Sterne",
+      "summary": "Formez une queue fourchue et un cou relevé dans une base cerf-volant, puis déployez les ailes."
+    },
+    "pinwheel-calyx": {
+      "title": "Calice en moulinet",
+      "short": "Calice",
+      "summary": "Plissez quatre rebords doubles sur une base blintz, puis relevez quatre pétales pointus au centre."
+    },
     "jumping-frog": {
       "title": "Grenouille sauteuse à quatre pattes",
       "short": "Grenouille sauteuse",

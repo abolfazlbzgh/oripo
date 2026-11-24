@@ -1,0 +1,49 @@
+{
+  "sheet": {
+    "title": "Prepara el rombo",
+    "instruction": "Coloca un cuadrado fino de 34 cm sobre una punta, anverso arriba. Marca suavemente el cruce de las diagonales.",
+    "result": "Los ocho pétalos saldrán de esta hoja."
+  },
+  "steps": {
+    "blintz-base": {
+      "title": "Lleva las esquinas al centro",
+      "instruction": "Pliega en valle las cuatro esquinas al centro. Junta los bordes vecinos sin superponerlos.",
+      "result": "Cuatro puntas libres se juntan sobre un cuadrado menor."
+    },
+    "hem-tips": {
+      "title": "Dobla las puntas",
+      "instruction": "Marca 2,6 cm desde cada esquina en sus dos bordes. Haz un pliegue en valle entre las marcas para llevar la punta hacia dentro.",
+      "result": "Cada esquina tiene un labio corto de dos capas."
+    },
+    "raise-first": {
+      "title": "Levanta dos pétalos",
+      "instruction": "Alza las solapas superior derecha e inferior izquierda por las líneas entre puntos medios contiguos. Detente a unos 49°.",
+      "result": "Dos pétalos opuestos se alzan sobre el rombo plano."
+    },
+    "raise-second": {
+      "title": "Levanta el otro par",
+      "instruction": "Alza las otras dos solapas hasta el mismo ángulo. Mantén el fondo plano sobre la mesa.",
+      "result": "Cuatro paredes rodean el centro abierto."
+    },
+    "crimp-first": {
+      "title": "Pliega dos nervios",
+      "instruction": "En el pétalo superior derecho, pinza un nervio desde el punto medio derecho hasta un punto a 3,4 cm a la izquierda de la esquina superior derecha. A 7,2 y 9,2 cm del arranque, inviértelo hacia dentro y luego hacia fuera por las líneas en V. Sujeta el lado ancho y toma las cuatro capas en el segundo giro. Repite en el pétalo opuesto.",
+      "result": "El nervio central cambia de sentido y el labio doble gira hacia fuera."
+    },
+    "crimp-second": {
+      "title": "Vuelve los últimos labios",
+      "instruction": "Gira la flor un cuarto de vuelta. Repite los dos pliegues inversos en los pétalos restantes con la misma orientación.",
+      "result": "Cuatro pétalos cóncavos giran en sentido horario alrededor del rombo."
+    },
+    "lift-inner-sides": {
+      "title": "Levanta los pétalos laterales",
+      "instruction": "Busca las puntas libres que venían de la derecha y la izquierda. Levanta solo esas solapas sobre las guías cortas, a unos 5,5 cm del centro, hasta 78°.",
+      "result": "Dos pétalos puntiagudos se alzan entre los bordes plegados."
+    },
+    "lift-inner-ends": {
+      "title": "Abre la corola interior",
+      "instruction": "Levanta las otras dos puntas por sus bases marcadas hasta unos 65°. Deja abierto el centro.",
+      "result": "Cuatro pétalos puntiagudos quedan dentro de cuatro bordes vueltos."
+    }
+  }
+}

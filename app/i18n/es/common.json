@@ -12,6 +12,7 @@
     "models": "Elegir una lección"
   },
   "home": {
+    "hexagon": "Hexágono regular",
     "tagline": "Origami en movimiento",
     "title": "Una hoja.",
     "emphasis": "Infinitas posibilidades.",
@@ -40,6 +41,21 @@
     "back": "Volver a explorar"
   },
   "models": {
+    "hex-iris": {
+      "title": "Iris hexagonal de ámbar",
+      "short": "Iris hexagonal",
+      "summary": "Cierra seis pliegues enlazados alrededor de un hexágono y ábrelos para revelar un relieve dorado y violeta."
+    },
+    "river-tern": {
+      "title": "Charrán de río",
+      "short": "Charrán",
+      "summary": "Forma una cola ahorquillada y un cuello elevado en una base cometa y despliega las alas."
+    },
+    "pinwheel-calyx": {
+      "title": "Cáliz de molinete",
+      "short": "Cáliz",
+      "summary": "Pliega cuatro bordes dobles en una base de esquinas al centro y levanta cuatro pétalos interiores puntiagudos."
+    },
     "jumping-frog": {
       "title": "Rana saltarina de cuatro patas",
       "short": "Rana saltarina",

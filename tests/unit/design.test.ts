@@ -2,11 +2,14 @@ import { masuPattern } from "../../app/lesson/masu";
 import { readFileSync } from "node:fs";
 import { expect, it } from "vitest";
 import { airplanePattern } from "../../app/lesson/airplane";
+import { calyxSteps } from "../../app/lesson/calyx";
+import { ternSteps } from "../../app/lesson/tern";
+import { irisSteps } from "../../app/lesson/iris";
 import { heartFolds } from "../../app/lesson/heart";
 import { foxFolds } from "../../app/lesson/fox";
 import { frogPattern } from "../../app/lesson/frog";
 import { herringbone } from "../../app/lesson/herringbone";
-import { lessons } from "../../app/lessons";
+import { groupByDifficulty, lessons } from "../../app/lessons";
 import { localPath, publishedPaths } from "../../app/navigation";
 
 it("gives each gallery demonstration a unique ID and a published address", () => {
@@ -24,8 +27,21 @@ it("publishes complete lessons with their actual action counts", () => {
     [masuPattern.lessonId]: masuPattern.steps.length,
     [frogPattern.lessonId]: frogPattern.steps.length,
     [herringbone.lessonId]: herringbone.steps.length,
+    "pinwheel-calyx": calyxSteps.length,
+    "river-tern": ternSteps.length,
+    "hex-iris": irisSteps.length,
   });
   expect(lessons.every((l) => l.availability === "playable" && l.paper)).toBe(true);
+  expect(
+    groupByDifficulty(lessons).map(({ difficulty, entries }) => [
+      difficulty,
+      entries.map((l) => l.id),
+    ]),
+  ).toEqual([
+    ["beginner", ["paper-airplane", "paper-heart", "fox-face"]],
+    ["intermediate", ["masu-box", "jumping-frog", "herringbone-map"]],
+    ["advanced", ["pinwheel-calyx", "river-tern", "hex-iris"]],
+  ]);
 });
 
 const css = readFileSync(new URL("../../app/styles.css", import.meta.url), "utf8");

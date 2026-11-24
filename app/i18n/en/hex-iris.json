@@ -1,0 +1,109 @@
+{
+  "sheet": {
+    "title": "Set the hexagon",
+    "instruction": "Lay a thin regular hexagon 24 cm across opposite points front side up, one point to the right. Mark three fifths of each radius from the center.",
+    "result": "The six marks are the corners of the inner hub."
+  },
+  "steps": {
+    "mark-hub-0": {
+      "title": "Hub · upper right and lower left",
+      "instruction": "Join adjacent hub marks on the indicated sides. Fold the margin at the first named vane toward you and the opposite margin away.",
+      "result": "Two parallel creases cross the sheet."
+    },
+    "release-hub-0": {
+      "title": "Release · Hub · upper right and lower left",
+      "instruction": "Open both margins fully, preserving the crease marks.",
+      "result": "The sheet is flat for the next pair."
+    },
+    "mark-hub-1": {
+      "title": "Hub · top and bottom",
+      "instruction": "Join adjacent hub marks on the indicated sides. Fold the margin at the first named vane toward you and the opposite margin away.",
+      "result": "Two parallel creases cross the sheet."
+    },
+    "release-hub-1": {
+      "title": "Release · Hub · top and bottom",
+      "instruction": "Open both margins fully, preserving the crease marks.",
+      "result": "The sheet is flat for the next pair."
+    },
+    "mark-hub-2": {
+      "title": "Hub · upper left and lower right",
+      "instruction": "Join adjacent hub marks on the indicated sides. Fold the margin at the first named vane toward you and the opposite margin away.",
+      "result": "Two parallel creases cross the sheet."
+    },
+    "release-hub-2": {
+      "title": "Release · Hub · upper left and lower right",
+      "instruction": "Open both margins fully, preserving the crease marks.",
+      "result": "The sheet is flat for the next pair."
+    },
+    "mark-outer-0": {
+      "title": "Outer rails · upper right and lower left",
+      "instruction": "Through the indicated hub corners use the farther parallels, 5 cm from center. The rails turn 14.5° counterclockwise from the outward perpendicular. Fold the margin at the first named vane toward you and the opposite margin away.",
+      "result": "Two parallel creases cross the sheet."
+    },
+    "release-outer-0": {
+      "title": "Release · Outer rails · upper right and lower left",
+      "instruction": "Open both margins fully, preserving the crease marks.",
+      "result": "The sheet is flat for the next pair."
+    },
+    "mark-outer-1": {
+      "title": "Outer rails · top and bottom",
+      "instruction": "Through the indicated hub corners use the farther parallels, 5 cm from center. The rails turn 14.5° counterclockwise from the outward perpendicular. Fold the margin at the first named vane toward you and the opposite margin away.",
+      "result": "Two parallel creases cross the sheet."
+    },
+    "release-outer-1": {
+      "title": "Release · Outer rails · top and bottom",
+      "instruction": "Open both margins fully, preserving the crease marks.",
+      "result": "The sheet is flat for the next pair."
+    },
+    "mark-outer-2": {
+      "title": "Outer rails · upper left and lower right",
+      "instruction": "Through the indicated hub corners use the farther parallels, 5 cm from center. The rails turn 14.5° counterclockwise from the outward perpendicular. Fold the margin at the first named vane toward you and the opposite margin away.",
+      "result": "Two parallel creases cross the sheet."
+    },
+    "release-outer-2": {
+      "title": "Release · Outer rails · upper left and lower right",
+      "instruction": "Open both margins fully, preserving the crease marks.",
+      "result": "The sheet is flat for the next pair."
+    },
+    "mark-inner-0": {
+      "title": "Inner rails · upper right and lower left",
+      "instruction": "Through the other hub corners use the nearer parallels, 1.9 cm from center, at the same tilt. Fold the margin at the first named vane toward you and the opposite margin away.",
+      "result": "Two parallel creases cross the sheet."
+    },
+    "release-inner-0": {
+      "title": "Release · Inner rails · upper right and lower left",
+      "instruction": "Open both margins fully, preserving the crease marks.",
+      "result": "The sheet is flat for the next pair."
+    },
+    "mark-inner-1": {
+      "title": "Inner rails · top and bottom",
+      "instruction": "Through the other hub corners use the nearer parallels, 1.9 cm from center, at the same tilt. Fold the margin at the first named vane toward you and the opposite margin away.",
+      "result": "Two parallel creases cross the sheet."
+    },
+    "release-inner-1": {
+      "title": "Release · Inner rails · top and bottom",
+      "instruction": "Open both margins fully, preserving the crease marks.",
+      "result": "The sheet is flat for the next pair."
+    },
+    "mark-inner-2": {
+      "title": "Inner rails · upper left and lower right",
+      "instruction": "Through the other hub corners use the nearer parallels, 1.9 cm from center, at the same tilt. Fold the margin at the first named vane toward you and the opposite margin away.",
+      "result": "Two parallel creases cross the sheet."
+    },
+    "release-inner-2": {
+      "title": "Release · Inner rails · upper left and lower right",
+      "instruction": "Open both margins fully, preserving the crease marks.",
+      "result": "The sheet is flat for the next pair."
+    },
+    "close-iris": {
+      "title": "Close the iris",
+      "instruction": "Raise the six hub edges as valleys. Lead with the upper-left and lower-right vanes, then the top and bottom, then the last pair. Pinch each wedge between its rails as it turns in. Let the fastest pair lie nearest the hub. On the leading pair, mountain-fold both rails. On the top and bottom vanes, mountain-fold the outer rail and valley-fold the inner one. Valley-fold both rails of the last pair.",
+      "result": "Six interleaved gussets close over the fixed hub."
+    },
+    "open-relief": {
+      "title": "Open the relief",
+      "instruction": "Hold the hub and ease all six vanes back together. Stop with the fastest pair partly over the hub and the slower vanes clear of the floor.",
+      "result": "Three pairs of vanes stand at different angles in the open relief."
+    }
+  }
+}

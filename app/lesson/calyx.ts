@@ -143,4 +143,3 @@ export const calyxHinges = {
   "lift-inner-ends": 1,
 };
 export const calyxEye: Point = [2.4, -3.9, 3.9];
-export const calyxPalette = { front: "#df716b", reverse: "#f3aa91", edge: "#884452" };

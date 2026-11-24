@@ -12,6 +12,7 @@
     "models": "Escolher uma aula"
   },
   "home": {
+    "hexagon": "Hexágono regular",
     "tagline": "Origami em movimento",
     "title": "Uma folha.",
     "emphasis": "Infinitas possibilidades.",
@@ -40,6 +41,21 @@
     "back": "Voltar aos modelos"
   },
   "models": {
+    "hex-iris": {
+      "title": "Íris hexagonal de âmbar",
+      "short": "Íris hexagonal",
+      "summary": "Feche seis pregas ligadas em torno de um hexágono e abra-as para revelar um relevo dourado e violeta."
+    },
+    "river-tern": {
+      "title": "Trinta-réis do rio",
+      "short": "Trinta-réis",
+      "summary": "Modele a cauda bifurcada e o pescoço erguido numa base pipa e abra as asas."
+    },
+    "pinwheel-calyx": {
+      "title": "Cálice de cata-vento",
+      "short": "Cálice",
+      "summary": "Franza quatro bordas duplas numa base de cantos ao centro e erga quatro pétalas pontudas no miolo."
+    },
     "jumping-frog": {
       "title": "Rã saltadora de quatro patas",
       "short": "Rã saltadora",

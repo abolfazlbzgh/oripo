@@ -1,0 +1,84 @@
+{
+  "sheet": {
+    "title": "Prepara el rombo",
+    "instruction": "Pon un cuadrado fino de 24 cm con el anverso arriba y una punta hacia delante. Marca el centro.",
+    "result": "La punta lejana formará el pico y la cercana la cola."
+  },
+  "steps": {
+    "kite-base": {
+      "title": "Estrecha la cometa",
+      "instruction": "Pliega en valle los dos bordes superiores hasta la diagonal vertical.",
+      "result": "Dos solapas cubren la mitad larga."
+    },
+    "double-bill": {
+      "title": "Dobla el pico",
+      "instruction": "Baja los 1,7 cm superiores con todas las capas.",
+      "result": "El extremo de la cabeza queda doble."
+    },
+    "narrow-cheeks": {
+      "title": "Afina las mejillas",
+      "instruction": "Dobla hacia abajo las esquinas del remate por las dos líneas oblicuas hasta juntar sus extremos.",
+      "result": "Entre las mejillas queda un pico afilado."
+    },
+    "close-book": {
+      "title": "Cierra el libro",
+      "instruction": "Pasa la mitad derecha sobre la izquierda. Alinea las alas con el pico dentro.",
+      "result": "Las dos mitades quedan registradas."
+    },
+    "mark-throat": {
+      "title": "Marca la garganta",
+      "instruction": "Dobla en valle la cabeza por la guía oblicua situada a 4,5 cm del centro hacia el pico.",
+      "result": "Ambas mejillas reciben la marca inferior."
+    },
+    "release-throat": {
+      "title": "Abre la garganta",
+      "instruction": "Deshaz la marca hasta volver al libro cerrado.",
+      "result": "El primer par de oblicuas permanece en las capas."
+    },
+    "mark-crown": {
+      "title": "Marca la coronilla",
+      "instruction": "Pliega en montaña por la paralela a 8,6 cm del centro hacia el pico.",
+      "result": "La segunda marca señala el retorno del cuello."
+    },
+    "release-crown": {
+      "title": "Abre la coronilla",
+      "instruction": "Despliega hasta el libro.",
+      "result": "Dos marcas paralelas cruzan la cabeza."
+    },
+    "mark-tail": {
+      "title": "Marca la horquilla",
+      "instruction": "Pliega en valle la cola por la guía menos inclinada a 13,6 cm del centro hacia atrás.",
+      "result": "Ambas capas de la cola quedan marcadas."
+    },
+    "release-tail": {
+      "title": "Suelta la cola",
+      "instruction": "Abre el pliegue sin desalinear los bordes largos.",
+      "result": "La cola está lista para invertirse."
+    },
+    "open-book": {
+      "title": "Abre el libro",
+      "instruction": "Devuelve la mitad superior a la derecha. Sujeta la base cometa y el pico plegado.",
+      "result": "Las marcas de cuello y cola aparecen en pares simétricos."
+    },
+    "crimp-neck": {
+      "title": "Invierte cuello y cola",
+      "instruction": "Alza ambos lados del lomo. Hunde la garganta, devuelve el pico hacia delante en la coronilla e invierte la punta trasera entre los bordes de la cola siguiendo cada V.",
+      "result": "Un cuello elevado sostiene el pico y dos puntas sobresalen por detrás."
+    },
+    "spread-left": {
+      "title": "Extiende el ala izquierda",
+      "instruction": "Sujeta el cuerpo y gira el ala izquierda por la raíz oblicua.",
+      "result": "El ala izquierda sobresale del cuerpo."
+    },
+    "spread-right": {
+      "title": "Extiende el ala derecha",
+      "instruction": "Iguala la apertura del ala izquierda sin mover la garganta.",
+      "result": "Las dos alas se abren a los lados."
+    },
+    "bend-wrists": {
+      "title": "Dobla los extremos",
+      "instruction": "Sube las dos puntas libres por las líneas oblicuas de las muñecas manteniendo quieto el interior de cada ala.",
+      "result": "El charrán tiene pico afilado, cola ahorquillada y alas acodadas."
+    }
+  }
+}

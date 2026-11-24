@@ -7,7 +7,7 @@ type LessonInfo = {
   id: string;
   availability: "playable";
   stepCount: number;
-  paper: "rectangle" | "square";
+  paper: "rectangle" | "square" | "hexagon";
   category: string;
   difficulty: Difficulty;
   finishedAppearance: PaperPalette;
@@ -69,7 +69,44 @@ export const frogInfo = {
   difficulty: "intermediate",
   finishedAppearance: { front: "#528236", reverse: "#82a74e", edge: "#314c28" },
 } as const satisfies LessonInfo;
-export const lessons = [airplaneInfo, heartInfo, foxInfo, masuInfo, frogInfo, mapInfo] as const;
+export const calyxInfo = {
+  id: "pinwheel-calyx",
+  availability: "playable",
+  stepCount: 8,
+  paper: "square",
+  category: "botanical",
+  difficulty: "advanced",
+  finishedAppearance: { front: "#df716b", reverse: "#f3aa91", edge: "#884452" },
+} as const satisfies LessonInfo;
+export const ternInfo = {
+  id: "river-tern",
+  availability: "playable",
+  stepCount: 15,
+  paper: "square",
+  category: "bird",
+  difficulty: "advanced",
+  finishedAppearance: { front: "#4278ae", reverse: "#89b6d0", edge: "#294966" },
+} as const satisfies LessonInfo;
+export const irisInfo = {
+  id: "hex-iris",
+  availability: "playable",
+  stepCount: 20,
+  paper: "hexagon",
+  category: "tessellation",
+  difficulty: "advanced",
+  finishedAppearance: { front: "#e2b52d", reverse: "#665389", edge: "#57416f" },
+} as const satisfies LessonInfo;
+export const lessons = [
+  airplaneInfo,
+  heartInfo,
+  foxInfo,
+  masuInfo,
+  frogInfo,
+  mapInfo,
+  calyxInfo,
+  ternInfo,
+  irisInfo,
+] as const;
 export type ModelId = (typeof lessons)[number]["id"];
 
 export function groupByDifficulty<T extends { difficulty: Difficulty }>(entries: readonly T[]) {

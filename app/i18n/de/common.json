@@ -12,6 +12,7 @@
     "models": "Eine Anleitung wählen"
   },
   "home": {
+    "hexagon": "Regelmäßiges Sechseck",
     "tagline": "Origami in Bewegung",
     "title": "Ein Blatt.",
     "emphasis": "Unendlich viele Möglichkeiten.",
@@ -40,6 +41,21 @@
     "back": "Zurück zu den Modellen"
   },
   "models": {
+    "hex-iris": {
+      "title": "Bernsteinfarbene Sechseckblende",
+      "short": "Sechseckblende",
+      "summary": "Schließe sechs gekoppelte Falten um einen sechseckigen Kern und öffne sie zu einem goldvioletten Relief."
+    },
+    "river-tern": {
+      "title": "Flussseeschwalbe",
+      "short": "Seeschwalbe",
+      "summary": "Forme an einer Drachenbasis einen gegabelten Schwanz und einen erhobenen Hals und breite die Flügel aus."
+    },
+    "pinwheel-calyx": {
+      "title": "Windradkelch",
+      "short": "Windradkelch",
+      "summary": "Forme vier doppelte Ränder an einer Blintz-Grundform und richte vier spitze Innenblätter auf."
+    },
     "jumping-frog": {
       "title": "Vierbeiniger Springfrosch",
       "short": "Springfrosch",

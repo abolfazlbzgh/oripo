@@ -1,3 +1,6 @@
+import { calyx, calyxEye, calyxHinges } from "../app/lesson/calyx";
+import { tern, ternEye, ternHinges } from "../app/lesson/tern";
+import { iris, irisEye, irisHinges } from "../app/lesson/iris";
 import { masu, masuHingePlies } from "../app/lesson/masu";
 import { herringbone, mapHingePlies, mapEye } from "../app/lesson/herringbone";
 import { frog, frogHingePlies, frogEye, frogPlyThickness } from "../app/lesson/frog";
@@ -23,6 +26,9 @@ const previews: Record<
   ModelId,
   () => { model: CompiledLesson; heights: HingePlies; eye: Point; plyThickness?: number }
 > = {
+  "pinwheel-calyx": () => ({ model: calyx, eye: calyxEye, heights: calyxHinges }),
+  "river-tern": () => ({ model: tern, eye: ternEye, heights: ternHinges }),
+  "hex-iris": () => ({ model: iris, eye: irisEye, heights: irisHinges }),
   "jumping-frog": () => ({
     model: frog,
     heights: frogHingePlies,

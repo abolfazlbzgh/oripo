@@ -1,0 +1,84 @@
+{
+  "sheet": {
+    "title": "Poser le carré sur la pointe",
+    "instruction": "Posez un carré fin de 24 cm, endroit en haut, une pointe devant vous. Marquez le centre.",
+    "result": "La pointe éloignée donnera le bec et la plus proche la queue."
+  },
+  "steps": {
+    "kite-base": {
+      "title": "Former le cerf-volant",
+      "instruction": "Pliez les deux bords supérieurs en vallée jusqu’à la diagonale verticale.",
+      "result": "Deux rabats couvrent la moitié allongée."
+    },
+    "double-bill": {
+      "title": "Doubler le bec",
+      "instruction": "Rabattez les 1,7 cm du haut vers vous en prenant toutes les épaisseurs.",
+      "result": "Une pointe doublée termine la tête."
+    },
+    "narrow-cheeks": {
+      "title": "Affiner les joues",
+      "instruction": "Rabattez dessous les deux coins du bord sur les lignes obliques jusqu’à joindre leurs extrémités.",
+      "result": "Le bec se dessine entre les joues."
+    },
+    "close-book": {
+      "title": "Fermer le livre",
+      "instruction": "Ramenez la moitié droite sur la gauche en alignant les ailes, bec à l’intérieur.",
+      "result": "Les deux moitiés sont superposées."
+    },
+    "mark-throat": {
+      "title": "Marquer la gorge",
+      "instruction": "Pliez la tête en vallée sur le biais qui coupe le dos à 4,5 cm du centre vers le bec.",
+      "result": "Les deux joues portent le repère inférieur."
+    },
+    "release-throat": {
+      "title": "Déplier la gorge",
+      "instruction": "Défaites le pli jusqu’au livre fermé.",
+      "result": "Les premières obliques sont marquées."
+    },
+    "mark-crown": {
+      "title": "Marquer la calotte",
+      "instruction": "Pliez la tête en montagne sur la parallèle à 8,6 cm en avant du centre.",
+      "result": "Cette ligne marque le retour du cou."
+    },
+    "release-crown": {
+      "title": "Déplier la calotte",
+      "instruction": "Rouvrez le pli jusqu’au livre.",
+      "result": "Deux plis parallèles traversent la tête."
+    },
+    "mark-tail": {
+      "title": "Marquer la fourche",
+      "instruction": "Pliez la queue en vallée sur le biais le moins incliné à 13,6 cm en arrière du centre.",
+      "result": "Les deux épaisseurs portent la même marque."
+    },
+    "release-tail": {
+      "title": "Déplier la queue",
+      "instruction": "Défaites le pli en gardant les bords alignés.",
+      "result": "La queue est prête à être inversée."
+    },
+    "open-book": {
+      "title": "Ouvrir le livre",
+      "instruction": "Ramenez la moitié supérieure à droite. Gardez les rabats et le bec pliés.",
+      "result": "Les repères de la tête et de la queue sont symétriques."
+    },
+    "crimp-neck": {
+      "title": "Inverser le cou et la queue",
+      "instruction": "Relevez les deux côtés du dos ensemble. Rentrez la gorge, ramenez le bec en avant à la calotte et inversez la pointe arrière entre les bords de la queue. Suivez les deux branches de chaque V.",
+      "result": "Le cou porte le bec en avant et deux pointes dépassent à l’arrière."
+    },
+    "spread-left": {
+      "title": "Déployer l’aile gauche",
+      "instruction": "Tenez le corps et ouvrez l’aile gauche sur sa base oblique.",
+      "result": "L’aile gauche dépasse du corps."
+    },
+    "spread-right": {
+      "title": "Déployer l’aile droite",
+      "instruction": "Ouvrez-la autant que l’aile gauche en immobilisant la gorge.",
+      "result": "Les ailes s’étendent de part et d’autre."
+    },
+    "bend-wrists": {
+      "title": "Plier les poignets",
+      "instruction": "Relevez les pointes aux courts plis obliques en tenant les panneaux intérieurs.",
+      "result": "La sterne présente un bec pointu, une queue fourchue et deux ailes coudées."
+    }
+  }
+}

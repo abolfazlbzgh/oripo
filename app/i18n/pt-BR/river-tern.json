@@ -1,0 +1,84 @@
+{
+  "sheet": {
+    "title": "Prepare o quadrado",
+    "instruction": "Ponha um quadrado fino de 24 cm com a frente para cima e uma ponta para a frente. Marque o centro.",
+    "result": "A ponta distante será o bico e a próxima, a cauda."
+  },
+  "steps": {
+    "kite-base": {
+      "title": "Estreite a pipa",
+      "instruction": "Dobre as duas bordas superiores em vale até a diagonal vertical.",
+      "result": "Duas abas cobrem a metade longa da pipa."
+    },
+    "double-bill": {
+      "title": "Dobre o bico",
+      "instruction": "Traga os 1,7 cm do topo para baixo com todas as camadas.",
+      "result": "A ponta da cabeça fica dupla."
+    },
+    "narrow-cheeks": {
+      "title": "Afine as faces",
+      "instruction": "Vire por baixo os dois cantos do topo nas linhas oblíquas até juntar suas extremidades.",
+      "result": "As duas faces delimitam o bico pontudo."
+    },
+    "close-book": {
+      "title": "Feche o livro",
+      "instruction": "Leve a metade direita sobre a esquerda e alinhe as asas com o bico por dentro.",
+      "result": "As metades ficam alinhadas para vincar as camadas juntas."
+    },
+    "mark-throat": {
+      "title": "Marque a garganta",
+      "instruction": "Dobre em vale a cabeça na guia oblíqua que cruza o eixo 4,5 cm à frente do centro.",
+      "result": "As duas faces recebem a marca inferior."
+    },
+    "release-throat": {
+      "title": "Abra a garganta",
+      "instruction": "Desfaça a dobra até voltar ao livro fechado.",
+      "result": "O primeiro par de vincos fica marcado."
+    },
+    "mark-crown": {
+      "title": "Marque o alto da cabeça",
+      "instruction": "Dobre a cabeça em montanha na paralela a 8,6 cm à frente do centro.",
+      "result": "A segunda marca define o retorno do pescoço."
+    },
+    "release-crown": {
+      "title": "Abra o alto da cabeça",
+      "instruction": "Desfaça a dobra até o livro fechado.",
+      "result": "Dois vincos paralelos cruzam a cabeça."
+    },
+    "mark-tail": {
+      "title": "Marque a forquilha",
+      "instruction": "Faça uma dobra em vale na cauda sobre a guia menos inclinada, a 13,6 cm atrás do centro.",
+      "result": "As camadas da cauda têm marcas correspondentes."
+    },
+    "release-tail": {
+      "title": "Solte a cauda",
+      "instruction": "Abra o vinco sem desalinhar as bordas longas.",
+      "result": "A cauda está pronta para a inversão."
+    },
+    "open-book": {
+      "title": "Abra o livro",
+      "instruction": "Volte a metade de cima para a direita. Mantenha a base e o bico dobrados.",
+      "result": "As marcas do pescoço e da cauda aparecem aos pares."
+    },
+    "crimp-neck": {
+      "title": "Inverta pescoço e cauda",
+      "instruction": "Erga os lados do eixo juntos. Empurre a garganta para dentro, volte o bico para a frente no alto da cabeça e inverta a ponta traseira entre as bordas da cauda pelas linhas em V.",
+      "result": "O pescoço sustenta o bico e duas pontas se projetam atrás."
+    },
+    "spread-left": {
+      "title": "Abra a asa esquerda",
+      "instruction": "Segure o corpo e abra a asa esquerda na linha oblíqua da raiz.",
+      "result": "A asa esquerda se estende ao lado do corpo."
+    },
+    "spread-right": {
+      "title": "Abra a asa direita",
+      "instruction": "Iguale a abertura da asa esquerda sem mover a garganta.",
+      "result": "As asas se abrem dos dois lados."
+    },
+    "bend-wrists": {
+      "title": "Dobre as pontas",
+      "instruction": "Erga as pontas livres nos vincos curtos dos pulsos e segure os painéis internos.",
+      "result": "A ave tem bico pontudo, cauda bifurcada e duas asas anguladas."
+    }
+  }
+}

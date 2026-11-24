@@ -1,0 +1,109 @@
+{
+  "sheet": {
+    "title": "Posicione o hexágono",
+    "instruction": "Use um hexágono regular fino de 24 cm entre pontas opostas, frente para cima e uma ponta à direita. Marque três quintos de cada raio a partir do centro.",
+    "result": "Seis vértices delimitam o miolo."
+  },
+  "steps": {
+    "mark-hub-0": {
+      "title": "Miolo · superior direito e inferior esquerdo",
+      "instruction": "Una as marcas vizinhas do miolo nos dois lados indicados. Dobre a margem da primeira pá indicada para você e a margem oposta para trás.",
+      "result": "Duas referências paralelas atravessam a folha."
+    },
+    "release-hub-0": {
+      "title": "Desfaça · Miolo · superior direito e inferior esquerdo",
+      "instruction": "Abra totalmente as duas margens e preserve os vincos.",
+      "result": "A folha fica plana para o próximo par."
+    },
+    "mark-hub-1": {
+      "title": "Miolo · superior e inferior",
+      "instruction": "Una as marcas vizinhas do miolo nos dois lados indicados. Dobre a margem da primeira pá indicada para você e a margem oposta para trás.",
+      "result": "Duas referências paralelas atravessam a folha."
+    },
+    "release-hub-1": {
+      "title": "Desfaça · Miolo · superior e inferior",
+      "instruction": "Abra totalmente as duas margens e preserve os vincos.",
+      "result": "A folha fica plana para o próximo par."
+    },
+    "mark-hub-2": {
+      "title": "Miolo · superior esquerdo e inferior direito",
+      "instruction": "Una as marcas vizinhas do miolo nos dois lados indicados. Dobre a margem da primeira pá indicada para você e a margem oposta para trás.",
+      "result": "Duas referências paralelas atravessam a folha."
+    },
+    "release-hub-2": {
+      "title": "Desfaça · Miolo · superior esquerdo e inferior direito",
+      "instruction": "Abra totalmente as duas margens e preserve os vincos.",
+      "result": "A folha fica plana para o próximo par."
+    },
+    "mark-outer-0": {
+      "title": "Guias externas · superior direito e inferior esquerdo",
+      "instruction": "Pelos vértices indicados, use as paralelas mais afastadas, a 5 cm do centro. Elas giram 14,5° no sentido anti-horário a partir da perpendicular externa. Dobre a margem da primeira pá indicada para você e a margem oposta para trás.",
+      "result": "Duas referências paralelas atravessam a folha."
+    },
+    "release-outer-0": {
+      "title": "Desfaça · Guias externas · superior direito e inferior esquerdo",
+      "instruction": "Abra totalmente as duas margens e preserve os vincos.",
+      "result": "A folha fica plana para o próximo par."
+    },
+    "mark-outer-1": {
+      "title": "Guias externas · superior e inferior",
+      "instruction": "Pelos vértices indicados, use as paralelas mais afastadas, a 5 cm do centro. Elas giram 14,5° no sentido anti-horário a partir da perpendicular externa. Dobre a margem da primeira pá indicada para você e a margem oposta para trás.",
+      "result": "Duas referências paralelas atravessam a folha."
+    },
+    "release-outer-1": {
+      "title": "Desfaça · Guias externas · superior e inferior",
+      "instruction": "Abra totalmente as duas margens e preserve os vincos.",
+      "result": "A folha fica plana para o próximo par."
+    },
+    "mark-outer-2": {
+      "title": "Guias externas · superior esquerdo e inferior direito",
+      "instruction": "Pelos vértices indicados, use as paralelas mais afastadas, a 5 cm do centro. Elas giram 14,5° no sentido anti-horário a partir da perpendicular externa. Dobre a margem da primeira pá indicada para você e a margem oposta para trás.",
+      "result": "Duas referências paralelas atravessam a folha."
+    },
+    "release-outer-2": {
+      "title": "Desfaça · Guias externas · superior esquerdo e inferior direito",
+      "instruction": "Abra totalmente as duas margens e preserve os vincos.",
+      "result": "A folha fica plana para o próximo par."
+    },
+    "mark-inner-0": {
+      "title": "Guias internas · superior direito e inferior esquerdo",
+      "instruction": "Pelos outros vértices, use as paralelas mais próximas, a 1,9 cm do centro, com a mesma inclinação. Dobre a margem da primeira pá indicada para você e a margem oposta para trás.",
+      "result": "Duas referências paralelas atravessam a folha."
+    },
+    "release-inner-0": {
+      "title": "Desfaça · Guias internas · superior direito e inferior esquerdo",
+      "instruction": "Abra totalmente as duas margens e preserve os vincos.",
+      "result": "A folha fica plana para o próximo par."
+    },
+    "mark-inner-1": {
+      "title": "Guias internas · superior e inferior",
+      "instruction": "Pelos outros vértices, use as paralelas mais próximas, a 1,9 cm do centro, com a mesma inclinação. Dobre a margem da primeira pá indicada para você e a margem oposta para trás.",
+      "result": "Duas referências paralelas atravessam a folha."
+    },
+    "release-inner-1": {
+      "title": "Desfaça · Guias internas · superior e inferior",
+      "instruction": "Abra totalmente as duas margens e preserve os vincos.",
+      "result": "A folha fica plana para o próximo par."
+    },
+    "mark-inner-2": {
+      "title": "Guias internas · superior esquerdo e inferior direito",
+      "instruction": "Pelos outros vértices, use as paralelas mais próximas, a 1,9 cm do centro, com a mesma inclinação. Dobre a margem da primeira pá indicada para você e a margem oposta para trás.",
+      "result": "Duas referências paralelas atravessam a folha."
+    },
+    "release-inner-2": {
+      "title": "Desfaça · Guias internas · superior esquerdo e inferior direito",
+      "instruction": "Abra totalmente as duas margens e preserve os vincos.",
+      "result": "A folha fica plana para o próximo par."
+    },
+    "close-iris": {
+      "title": "Feche a íris",
+      "instruction": "Erga em vale as seis bordas do miolo. As pás superior esquerda e inferior direita avançam primeiro, depois as de cima e de baixo e por último o par restante. Pince cada cunha entre suas guias e deixe o par mais rápido junto ao miolo. No primeiro par, faça dobras em montanha nas duas guias. Nas pás de cima e de baixo, dobre a guia externa em montanha e a interna em vale. No último par, dobre ambas em vale.",
+      "result": "Seis pregas entrelaçadas se fecham sobre o centro fixo."
+    },
+    "open-relief": {
+      "title": "Abra o relevo",
+      "instruction": "Segure o miolo e afrouxe juntas as seis pás. Pare enquanto o par mais rápido cobre parte do centro e as demais pás estão acima do fundo.",
+      "result": "Três pares de pás cercam o relevo em ângulos diferentes."
+    }
+  }
+}

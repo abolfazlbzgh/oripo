@@ -12,6 +12,7 @@
     "models": "选择教程"
   },
   "home": {
+    "hexagon": "正六边形",
     "tagline": "动起来的折纸",
     "title": "一张纸。",
     "emphasis": "无限可能。",
@@ -40,6 +41,21 @@
     "back": "返回探索"
   },
   "models": {
+    "hex-iris": {
+      "title": "琥珀六角光圈",
+      "short": "六角光圈",
+      "summary": "把六道相连的褶绕六角中心闭合，再略微展开，露出金紫相间的浮雕。"
+    },
+    "river-tern": {
+      "title": "河燕鸥",
+      "short": "燕鸥",
+      "summary": "在多层风筝形底上折出叉尾和翘起的颈，再展开两翼。"
+    },
+    "pinwheel-calyx": {
+      "title": "风车花萼",
+      "short": "风车花萼",
+      "summary": "在四角向中心折成的底座上折出四片卷边外瓣，再从中心立起四片尖内瓣。"
+    },
     "jumping-frog": {
       "title": "四足跳蛙",
       "short": "跳蛙",

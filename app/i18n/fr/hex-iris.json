@@ -1,0 +1,109 @@
+{
+  "sheet": {
+    "title": "Disposer l’hexagone",
+    "instruction": "Prenez un hexagone régulier fin de 24 cm entre pointes opposées, endroit en haut et une pointe à droite. Marquez les trois cinquièmes de chaque rayon depuis le centre.",
+    "result": "Six sommets délimitent le moyeu."
+  },
+  "steps": {
+    "mark-hub-0": {
+      "title": "Moyeu · en haut à droite et en bas à gauche",
+      "instruction": "Joignez les repères voisins sur les deux côtés indiqués du moyeu. Pliez la marge de la première pale nommée vers vous et la marge opposée vers l’arrière.",
+      "result": "Deux repères parallèles traversent la feuille."
+    },
+    "release-hub-0": {
+      "title": "Déplier · Moyeu · en haut à droite et en bas à gauche",
+      "instruction": "Rouvrez complètement les deux marges en conservant leurs plis.",
+      "result": "La feuille repose à plat pour la paire suivante."
+    },
+    "mark-hub-1": {
+      "title": "Moyeu · en haut et en bas",
+      "instruction": "Joignez les repères voisins sur les deux côtés indiqués du moyeu. Pliez la marge de la première pale nommée vers vous et la marge opposée vers l’arrière.",
+      "result": "Deux repères parallèles traversent la feuille."
+    },
+    "release-hub-1": {
+      "title": "Déplier · Moyeu · en haut et en bas",
+      "instruction": "Rouvrez complètement les deux marges en conservant leurs plis.",
+      "result": "La feuille repose à plat pour la paire suivante."
+    },
+    "mark-hub-2": {
+      "title": "Moyeu · en haut à gauche et en bas à droite",
+      "instruction": "Joignez les repères voisins sur les deux côtés indiqués du moyeu. Pliez la marge de la première pale nommée vers vous et la marge opposée vers l’arrière.",
+      "result": "Deux repères parallèles traversent la feuille."
+    },
+    "release-hub-2": {
+      "title": "Déplier · Moyeu · en haut à gauche et en bas à droite",
+      "instruction": "Rouvrez complètement les deux marges en conservant leurs plis.",
+      "result": "La feuille repose à plat pour la paire suivante."
+    },
+    "mark-outer-0": {
+      "title": "Guides extérieurs · en haut à droite et en bas à gauche",
+      "instruction": "Aux sommets indiqués prenez les parallèles éloignées, à 5 cm du centre. Elles tournent de 14,5° dans le sens antihoraire depuis la perpendiculaire extérieure. Pliez la marge de la première pale nommée vers vous et la marge opposée vers l’arrière.",
+      "result": "Deux repères parallèles traversent la feuille."
+    },
+    "release-outer-0": {
+      "title": "Déplier · Guides extérieurs · en haut à droite et en bas à gauche",
+      "instruction": "Rouvrez complètement les deux marges en conservant leurs plis.",
+      "result": "La feuille repose à plat pour la paire suivante."
+    },
+    "mark-outer-1": {
+      "title": "Guides extérieurs · en haut et en bas",
+      "instruction": "Aux sommets indiqués prenez les parallèles éloignées, à 5 cm du centre. Elles tournent de 14,5° dans le sens antihoraire depuis la perpendiculaire extérieure. Pliez la marge de la première pale nommée vers vous et la marge opposée vers l’arrière.",
+      "result": "Deux repères parallèles traversent la feuille."
+    },
+    "release-outer-1": {
+      "title": "Déplier · Guides extérieurs · en haut et en bas",
+      "instruction": "Rouvrez complètement les deux marges en conservant leurs plis.",
+      "result": "La feuille repose à plat pour la paire suivante."
+    },
+    "mark-outer-2": {
+      "title": "Guides extérieurs · en haut à gauche et en bas à droite",
+      "instruction": "Aux sommets indiqués prenez les parallèles éloignées, à 5 cm du centre. Elles tournent de 14,5° dans le sens antihoraire depuis la perpendiculaire extérieure. Pliez la marge de la première pale nommée vers vous et la marge opposée vers l’arrière.",
+      "result": "Deux repères parallèles traversent la feuille."
+    },
+    "release-outer-2": {
+      "title": "Déplier · Guides extérieurs · en haut à gauche et en bas à droite",
+      "instruction": "Rouvrez complètement les deux marges en conservant leurs plis.",
+      "result": "La feuille repose à plat pour la paire suivante."
+    },
+    "mark-inner-0": {
+      "title": "Guides intérieurs · en haut à droite et en bas à gauche",
+      "instruction": "Aux autres sommets prenez les parallèles proches, à 1,9 cm du centre, avec la même inclinaison. Pliez la marge de la première pale nommée vers vous et la marge opposée vers l’arrière.",
+      "result": "Deux repères parallèles traversent la feuille."
+    },
+    "release-inner-0": {
+      "title": "Déplier · Guides intérieurs · en haut à droite et en bas à gauche",
+      "instruction": "Rouvrez complètement les deux marges en conservant leurs plis.",
+      "result": "La feuille repose à plat pour la paire suivante."
+    },
+    "mark-inner-1": {
+      "title": "Guides intérieurs · en haut et en bas",
+      "instruction": "Aux autres sommets prenez les parallèles proches, à 1,9 cm du centre, avec la même inclinaison. Pliez la marge de la première pale nommée vers vous et la marge opposée vers l’arrière.",
+      "result": "Deux repères parallèles traversent la feuille."
+    },
+    "release-inner-1": {
+      "title": "Déplier · Guides intérieurs · en haut et en bas",
+      "instruction": "Rouvrez complètement les deux marges en conservant leurs plis.",
+      "result": "La feuille repose à plat pour la paire suivante."
+    },
+    "mark-inner-2": {
+      "title": "Guides intérieurs · en haut à gauche et en bas à droite",
+      "instruction": "Aux autres sommets prenez les parallèles proches, à 1,9 cm du centre, avec la même inclinaison. Pliez la marge de la première pale nommée vers vous et la marge opposée vers l’arrière.",
+      "result": "Deux repères parallèles traversent la feuille."
+    },
+    "release-inner-2": {
+      "title": "Déplier · Guides intérieurs · en haut à gauche et en bas à droite",
+      "instruction": "Rouvrez complètement les deux marges en conservant leurs plis.",
+      "result": "La feuille repose à plat pour la paire suivante."
+    },
+    "close-iris": {
+      "title": "Fermer l’iris",
+      "instruction": "Relevez en vallée les six bords du moyeu. Les pales en haut à gauche et en bas à droite passent en premier, puis celles du haut et du bas, puis la dernière paire. Pincez chaque gousset entre ses guides. Couchez les deux pales les plus rapides au plus près du moyeu. Sur les deux premières pales, pliez les deux guides en montagne. Sur celles du haut et du bas, pliez le guide extérieur en montagne et le guide intérieur en vallée. Sur les deux dernières, pliez les deux guides en vallée.",
+      "result": "Les six goussets se referment sur le moyeu fixe."
+    },
+    "open-relief": {
+      "title": "Ouvrir le relief",
+      "instruction": "Tenez le moyeu et rouvrez ensemble les six pales. Arrêtez-vous lorsque la première paire surplombe encore le centre et que les autres décollent du fond.",
+      "result": "Trois paires de pales se dressent à des inclinaisons différentes."
+    }
+  }
+}

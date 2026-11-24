@@ -1,0 +1,84 @@
+{
+  "sheet": {
+    "title": "Quadrat ausrichten",
+    "instruction": "Lege ein dünnes Quadrat mit 24 cm Seitenlänge auf eine Spitze, Vorderseite nach oben. Markiere die Mitte.",
+    "result": "Die ferne Spitze wird zum Schnabel, die nahe zum Schwanz."
+  },
+  "steps": {
+    "kite-base": {
+      "title": "Drachenbasis falten",
+      "instruction": "Falte die oberen Kanten als Talfalten an die senkrechte Diagonale.",
+      "result": "Zwei Laschen decken die lange Hälfte."
+    },
+    "double-bill": {
+      "title": "Schnabel doppeln",
+      "instruction": "Falte die obersten 1,7 cm mit allen Lagen zu dir.",
+      "result": "Die Kopfspitze liegt doppelt."
+    },
+    "narrow-cheeks": {
+      "title": "Wangen verschmälern",
+      "instruction": "Schlage beide Ecken der Kappe an den schrägen Linien nach unten, bis ihre oberen Enden zusammentreffen.",
+      "result": "Zwischen den Wangen bleibt eine Schnabelspitze."
+    },
+    "close-book": {
+      "title": "Buch schließen",
+      "instruction": "Lege die rechte Hälfte auf die linke. Richte die Flügel aus und halte den Schnabel innen.",
+      "result": "Die Hälften liegen zum Vorfalten übereinander."
+    },
+    "mark-throat": {
+      "title": "Kehle vorfalten",
+      "instruction": "Falte den Kopf an der Schräge 4,5 cm vor der Mitte im Tal.",
+      "result": "Die untere Umkehrfalte ist auf beiden Wangen markiert."
+    },
+    "release-throat": {
+      "title": "Kehlfalte öffnen",
+      "instruction": "Öffne die Falte bis zum geschlossenen Buch.",
+      "result": "Das erste schräge Linienpaar bleibt eingeprägt."
+    },
+    "mark-crown": {
+      "title": "Scheitel vorfalten",
+      "instruction": "Falte den Kopf an der Parallelen 8,6 cm vor der Mitte als Bergfalte.",
+      "result": "Die zweite Linie markiert den Rückknick."
+    },
+    "release-crown": {
+      "title": "Scheitelfalte öffnen",
+      "instruction": "Öffne die Falte wieder zum Buch.",
+      "result": "Zwei parallele Linien kreuzen den Kopf."
+    },
+    "mark-tail": {
+      "title": "Schwanzgabel markieren",
+      "instruction": "Falte den Schwanz an der flacheren Schräge 13,6 cm hinter der Mitte im Tal.",
+      "result": "Beide Schwanzlagen tragen passende Linien."
+    },
+    "release-tail": {
+      "title": "Schwanz öffnen",
+      "instruction": "Löse die Falte bei ausgerichteten Längskanten.",
+      "result": "Der Schwanz ist für die Umkehr bereit."
+    },
+    "open-book": {
+      "title": "Buch öffnen",
+      "instruction": "Lege die obere Hälfte nach rechts zurück. Halte Drachenbasis und Schnabelfalten geschlossen.",
+      "result": "Die Linien an Hals und Schwanz liegen spiegelbildlich."
+    },
+    "crimp-neck": {
+      "title": "Hals und Schwanz umkehren",
+      "instruction": "Hebe die Seiten des Rückens zusammen an. Drücke die Kehle ein, richte den Schnabel am Scheitel wieder vor und stülpe die hintere Spitze entlang der V-Linien zwischen die Schwanzkanten.",
+      "result": "Der Hals hebt den Schnabel und hinten ragen zwei Spitzen hervor."
+    },
+    "spread-left": {
+      "title": "Linken Flügel ausbreiten",
+      "instruction": "Halte den Körper und schwenke den linken Flügel an seiner schrägen Wurzel nach außen.",
+      "result": "Der linke Flügel steht seitlich ab."
+    },
+    "spread-right": {
+      "title": "Rechten Flügel ausbreiten",
+      "instruction": "Öffne den rechten ebenso weit und halte die Kehle fest.",
+      "result": "Beide Flügel stehen seitlich ab."
+    },
+    "bend-wrists": {
+      "title": "Flügelspitzen knicken",
+      "instruction": "Hebe die freien Spitzen an den kurzen schrägen Handgelenksfalten und halte die inneren Flächen fest.",
+      "result": "Die Seeschwalbe hat einen spitzen Schnabel, einen Gabelschwanz und geknickte Flügel."
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "sheet": {
+    "title": "Prepara el hexágono",
+    "instruction": "Usa un hexágono regular fino de 24 cm entre puntas opuestas, anverso arriba y una punta a la derecha. Marca tres quintos de cada radio desde el centro.",
+    "result": "Las marcas delimitan el hexágono interior."
+  },
+  "steps": {
+    "mark-hub-0": {
+      "title": "Centro · arriba derecha y abajo izquierda",
+      "instruction": "Une las marcas contiguas del centro en los dos lados indicados. Pliega el margen de la primera pala indicada hacia ti y el margen opuesto hacia atrás.",
+      "result": "Dos referencias paralelas atraviesan la hoja."
+    },
+    "release-hub-0": {
+      "title": "Despliega · Centro · arriba derecha y abajo izquierda",
+      "instruction": "Abre ambos márgenes por completo conservando las marcas.",
+      "result": "La hoja queda plana para el siguiente par."
+    },
+    "mark-hub-1": {
+      "title": "Centro · arriba y abajo",
+      "instruction": "Une las marcas contiguas del centro en los dos lados indicados. Pliega el margen de la primera pala indicada hacia ti y el margen opuesto hacia atrás.",
+      "result": "Dos referencias paralelas atraviesan la hoja."
+    },
+    "release-hub-1": {
+      "title": "Despliega · Centro · arriba y abajo",
+      "instruction": "Abre ambos márgenes por completo conservando las marcas.",
+      "result": "La hoja queda plana para el siguiente par."
+    },
+    "mark-hub-2": {
+      "title": "Centro · arriba izquierda y abajo derecha",
+      "instruction": "Une las marcas contiguas del centro en los dos lados indicados. Pliega el margen de la primera pala indicada hacia ti y el margen opuesto hacia atrás.",
+      "result": "Dos referencias paralelas atraviesan la hoja."
+    },
+    "release-hub-2": {
+      "title": "Despliega · Centro · arriba izquierda y abajo derecha",
+      "instruction": "Abre ambos márgenes por completo conservando las marcas.",
+      "result": "La hoja queda plana para el siguiente par."
+    },
+    "mark-outer-0": {
+      "title": "Guías exteriores · arriba derecha y abajo izquierda",
+      "instruction": "Por los vértices indicados toma las paralelas alejadas, a 5 cm del centro. Giran 14,5° en sentido antihorario desde la perpendicular exterior. Pliega el margen de la primera pala indicada hacia ti y el margen opuesto hacia atrás.",
+      "result": "Dos referencias paralelas atraviesan la hoja."
+    },
+    "release-outer-0": {
+      "title": "Despliega · Guías exteriores · arriba derecha y abajo izquierda",
+      "instruction": "Abre ambos márgenes por completo conservando las marcas.",
+      "result": "La hoja queda plana para el siguiente par."
+    },
+    "mark-outer-1": {
+      "title": "Guías exteriores · arriba y abajo",
+      "instruction": "Por los vértices indicados toma las paralelas alejadas, a 5 cm del centro. Giran 14,5° en sentido antihorario desde la perpendicular exterior. Pliega el margen de la primera pala indicada hacia ti y el margen opuesto hacia atrás.",
+      "result": "Dos referencias paralelas atraviesan la hoja."
+    },
+    "release-outer-1": {
+      "title": "Despliega · Guías exteriores · arriba y abajo",
+      "instruction": "Abre ambos márgenes por completo conservando las marcas.",
+      "result": "La hoja queda plana para el siguiente par."
+    },
+    "mark-outer-2": {
+      "title": "Guías exteriores · arriba izquierda y abajo derecha",
+      "instruction": "Por los vértices indicados toma las paralelas alejadas, a 5 cm del centro. Giran 14,5° en sentido antihorario desde la perpendicular exterior. Pliega el margen de la primera pala indicada hacia ti y el margen opuesto hacia atrás.",
+      "result": "Dos referencias paralelas atraviesan la hoja."
+    },
+    "release-outer-2": {
+      "title": "Despliega · Guías exteriores · arriba izquierda y abajo derecha",
+      "instruction": "Abre ambos márgenes por completo conservando las marcas.",
+      "result": "La hoja queda plana para el siguiente par."
+    },
+    "mark-inner-0": {
+      "title": "Guías interiores · arriba derecha y abajo izquierda",
+      "instruction": "Por los otros vértices toma las paralelas cercanas, a 1,9 cm del centro, con la misma inclinación. Pliega el margen de la primera pala indicada hacia ti y el margen opuesto hacia atrás.",
+      "result": "Dos referencias paralelas atraviesan la hoja."
+    },
+    "release-inner-0": {
+      "title": "Despliega · Guías interiores · arriba derecha y abajo izquierda",
+      "instruction": "Abre ambos márgenes por completo conservando las marcas.",
+      "result": "La hoja queda plana para el siguiente par."
+    },
+    "mark-inner-1": {
+      "title": "Guías interiores · arriba y abajo",
+      "instruction": "Por los otros vértices toma las paralelas cercanas, a 1,9 cm del centro, con la misma inclinación. Pliega el margen de la primera pala indicada hacia ti y el margen opuesto hacia atrás.",
+      "result": "Dos referencias paralelas atraviesan la hoja."
+    },
+    "release-inner-1": {
+      "title": "Despliega · Guías interiores · arriba y abajo",
+      "instruction": "Abre ambos márgenes por completo conservando las marcas.",
+      "result": "La hoja queda plana para el siguiente par."
+    },
+    "mark-inner-2": {
+      "title": "Guías interiores · arriba izquierda y abajo derecha",
+      "instruction": "Por los otros vértices toma las paralelas cercanas, a 1,9 cm del centro, con la misma inclinación. Pliega el margen de la primera pala indicada hacia ti y el margen opuesto hacia atrás.",
+      "result": "Dos referencias paralelas atraviesan la hoja."
+    },
+    "release-inner-2": {
+      "title": "Despliega · Guías interiores · arriba izquierda y abajo derecha",
+      "instruction": "Abre ambos márgenes por completo conservando las marcas.",
+      "result": "La hoja queda plana para el siguiente par."
+    },
+    "close-iris": {
+      "title": "Cierra el iris",
+      "instruction": "Levanta en valle los seis lados del centro. Adelanta las palas superior izquierda e inferior derecha, luego las de arriba y abajo y por último las restantes. Pinza cada cuña entre sus guías al girar. Deja el par más rápido junto al centro. En el primer par, dobla ambas guías en montaña. En las palas de arriba y abajo, dobla la guía exterior en montaña y la interior en valle. En el último par, dobla ambas en valle.",
+      "result": "Los seis pliegues se entrelazan sobre el centro fijo."
+    },
+    "open-relief": {
+      "title": "Abre el relieve",
+      "instruction": "Sujeta el centro y abre juntas las seis palas. Deja el primer par inclinado sobre el centro y las otras palas separadas del fondo.",
+      "result": "Tres pares de palas rodean el relieve con inclinaciones distintas."
+    }
+  }
+}

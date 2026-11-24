@@ -217,4 +217,3 @@ export const ternHinges: Record<string, number> = {
 for (const step of ternSteps.slice(4, 10))
   ternHinges[step.id] = atIndex(step.turns, 0).crease === "crown-left" ? -4.5 : 11.5;
 export const ternEye: Point = [3.1, 0.7, 2.6];
-export const ternPalette = { front: "#4278ae", reverse: "#89b6d0", edge: "#294966" };

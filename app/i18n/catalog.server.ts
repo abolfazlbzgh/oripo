@@ -1,3 +1,6 @@
+import calyxText from "./en/pinwheel-calyx.json";
+import ternText from "./en/river-tern.json";
+import irisText from "./en/hex-iris.json";
 import masuText from "./en/masu-box.json";
 import mapText from "./en/herringbone-map.json";
 import frogText from "./en/jumping-frog.json";
@@ -10,10 +13,16 @@ import { foxText, foxSheet } from "../lesson/fox.en";
 type ModelId = keyof Common["models"];
 
 const commonFiles = import.meta.glob<Common>("./*/common.json", { import: "default" });
-const lessonFiles = import.meta.glob<Transcript>(["./*/*.json", "!./*/common.json"], {
-  import: "default",
-});
+const lessonFiles = import.meta.glob<Transcript>(
+  ["./*/*.json", "!./*/common.json", "!./en/*.json"],
+  {
+    import: "default",
+  },
+);
 const english = {
+  "pinwheel-calyx": calyxText,
+  "river-tern": ternText,
+  "hex-iris": irisText,
   "jumping-frog": frogText,
   "herringbone-map": mapText,
   "masu-box": masuText,

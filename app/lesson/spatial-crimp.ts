@@ -62,7 +62,9 @@ export function prepareCrimp(crimp: Crimp, origin: Point, along: Point, sidePin:
           ([at, slope], i) => (v - at - slope * Math.abs(u)) * (i < beyond ? 1 : -1) < -1e-7,
         )
       )
-        throw Error("Crimp face crosses an uncut material hinge");
+        throw Error(
+          `Crimp face crosses an uncut material hinge at (${u}, ${v}), side ${sign}, station count ${beyond}`,
+        );
     }
     const key = sign + "/" + beyond;
     const existing = charts.get(key);

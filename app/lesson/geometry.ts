@@ -1,4 +1,5 @@
 import { clampProgress, type Point } from "../fold/geometry";
+import { prepareCrimp, type Crimp } from "./spatial-crimp";
 import {
   chartPoint,
   prepareChart,
@@ -21,10 +22,11 @@ export type FoldStep = {
   turns: readonly Turn[];
   field?: RigidField;
   regions?: readonly { field: RigidField; faces: readonly string[] }[];
+  crimps?: readonly Crimp[];
   guides?: readonly string[];
 };
 export type LessonPattern = {
-  version: 1 | 2 | 3;
+  version: 1 | 2 | 3 | 4;
   lessonId: string;
   sheet: {
     vertices: Readonly<Record<string, Point>>;
@@ -183,7 +185,7 @@ function linkEdges(rest: Pose, faces: CompiledLesson["faces"]) {
 }
 
 export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern): CompiledLesson {
-  requireValue(version === 1 || version === 2 || version === 3, "Unsupported lesson version");
+  requireValue([1, 2, 3, 4].includes(version), "Unsupported lesson version");
   uniqueIds([lessonId], "lesson");
   uniqueIds(
     steps.map((s) => s.id),
@@ -223,22 +225,43 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
     Object.entries(sheet.creases).map(([id, [a, b]]) => [id, [vertex(a), vertex(b)] as const]),
   );
   const poses: Pose[] = [rest];
-  const prepared = steps.map(({ id, durationMs, turns, guides, field, regions }): PreparedStep => {
+  const prepared = steps.map((step): PreparedStep => {
+    const { id, durationMs, turns, guides, field, regions, crimps } = step;
     requireValue(
-      Number.isFinite(durationMs) && durationMs > 0 && (turns.length || field || regions?.length),
+      Number.isFinite(durationMs) &&
+        durationMs > 0 &&
+        (turns.length || field || regions?.length || crimps?.length),
       `Invalid step ${id}`,
     );
     const start = atIndex(poses, poses.length - 1);
-    if (field || regions) {
+    if (field || regions || crimps) {
       requireValue(
-        version === 3 && !turns.length && guides?.length && guides.every((g) => creases.has(g)),
+        version >= 3 && !turns.length && guides?.length && guides.every((g) => creases.has(g)),
         "Invalid coupled field or guides",
       );
       requireValue(
-        start.every((p) => Math.abs(p[2]) <= tolerance),
+        crimps || start.every((p) => Math.abs(p[2]) <= tolerance),
         "Coupled field requires a flat starting packet",
       );
       const assigned = new Map<string, RigidField>();
+      const spatial = new Map<string, (t: number) => Chart>();
+      if (crimps) {
+        requireValue(
+          version === 4 && crimps.length && !field && !regions,
+          "Invalid spatial packet assignment",
+        );
+        for (const crimp of crimps) {
+          const pin = (id: string) => atIndex(start, vertex(id));
+          const [o, y, s] = crimp.frame;
+          const prepare = prepareCrimp(crimp, pin(o), pin(y), pin(s));
+          requireValue(crimp.faces.length, "Empty crimp packet");
+          for (const name of crimp.faces) {
+            const face = faces[faceIds.indexOf(name)];
+            requireValue(face && !spatial.has(name), "Invalid crimp packet");
+            spatial.set(name, prepare(face.vertices.map((v) => atIndex(start, v))));
+          }
+        }
+      }
       requireValue(!(field && regions), "Ambiguous field assignment");
       for (const region of regions ?? []) {
         requireValue(region.faces.length, "Empty field region");
@@ -248,6 +271,8 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
         }
       }
       const charts = faces.map((face) => {
+        const crimp = spatial.get(face.id);
+        if (crimp) return crimp;
         const local = field ?? assigned.get(face.id);
         if (!local) return stationaryChart;
         let x = 0,

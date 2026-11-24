@@ -8,7 +8,7 @@ The route modules and fold patterns are shared across languages. At build time t
 
 ## Sharing and recovery
 
-Each public document links to its own canonical and all ten versions of the same logical page. Explore’s `x-default` is `/`. Guides and lessons use their English equivalents as `x-default`. The sitemap contains exactly the 50 canonical public URLs. The lab and recovery documents carry `noindex`.
+Each public document links to its own canonical and all ten versions of the same logical page. Explore’s `x-default` is `/`. Guides and lessons use their English equivalents as `x-default`. The sitemap lists all canonical public URLs. At the original localization milestone it contained 50. The nine-lesson catalog contains 110. The lab and recovery documents carry `noindex`.
 
 Set `ORIPO_SITE_URL` to the verified HTTPS origin **before building for hosting**. It sets absolute URLs in both the page head and the sitemap. The default for pre-launch builds is the local preview origin `http://127.0.0.1:4173`. Rebuild on any origin change. The planned domain can be selected after the owner verifies it. [Google guidance on localized versions](https://developers.google.com/search/docs/specialty/international/localized-versions)
 

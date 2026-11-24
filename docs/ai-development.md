@@ -1,5 +1,9 @@
 # AI-assisted development
 
+## Phase 9 · Data-driven lessons
+
+Codex migrated all nine legacy models, recorded independent migration fingerprints and authored the traditional Monarch butterfly material graph, reusable pocket motion and ten manuscripts. The owner chose the three visual directions. The final local run passed 172 unit tests and 313 production-browser checks. The calyx and iris stay playable while their proposed replacements lack a verified construction. Owner visual review, physical trials and human language review remain open. [Candidate records](phase-9-candidates.md) · [Release checks](release.md)
+
 ## Phase 8C · Three Advanced originals
 
 Oripo's nine lessons share the same player. The new work adds an eight-petal flower, a fork-tailed bird and a closed twist. Codex authored their crease layouts, multilingual instructions, analytic fixtures and actual-pose previews for this repository. The owner had accepted the earlier six-model collection. Physical acceptance and independent difficulty ratings for the new models remain open. [Selection record and final sequences](decisions/0009-advanced-model-selection.md)

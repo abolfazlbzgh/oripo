@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "order": 0,
+  "difficulty": null,
+  "category": "test",
+  "paper": {
+    "shape": "square",
+    "span": [2, 2]
+  },
+  "finishedAppearance": {
+    "front": "#2479a2",
+    "reverse": "#9bc8dd",
+    "edge": "#15394a"
+  },
+  "manuscript": "tray-corner",
+  "provenance": {
+    "variant": "Single scored tray corner",
+    "reference": "tests/unit/tray-corner.test.ts",
+    "rights": "Original project geometry.",
+    "rightsStatus": "project-authored",
+    "review": {
+      "maker": "provisional",
+      "physical": "pending",
+      "language": "pending",
+      "visual": "pending"
+    }
+  },
+  "pattern": {
+    "version": 6,
+    "lessonId": "tray-corner",
+    "sheet": {
+      "vertices": {
+        "sw": [-1, -1, 0],
+        "s": [0, -1, 0],
+        "se": [1, -1, 0],
+        "w": [-1, 0, 0],
+        "o": [0, 0, 0],
+        "e": [1, 0, 0],
+        "nw": [-1, 1, 0],
+        "n": [0, 1, 0],
+        "ne": [1, 1, 0]
+      },
+      "faces": [
+        {
+          "id": "floor",
+          "vertices": ["sw", "s", "o", "w"]
+        },
+        {
+          "id": "side",
+          "vertices": ["s", "se", "e", "o"]
+        },
+        {
+          "id": "end",
+          "vertices": ["w", "o", "n", "nw"]
+        },
+        {
+          "id": "side-gusset",
+          "vertices": ["o", "e", "ne"]
+        },
+        {
+          "id": "end-gusset",
+          "vertices": ["o", "ne", "n"]
+        }
+      ],
+      "creases": {
+        "side": ["s", "o"],
+        "end": ["w", "o"],
+        "diagonal": ["o", "ne"]
+      }
+    },
+    "steps": [
+      {
+        "id": "lift",
+        "durationMs": 1500,
+        "guides": ["side", "end", "diagonal"],
+        "turns": [],
+        "regions": [
+          {
+            "faces": ["side"],
+            "field": {
+              "kind": "tray-corner",
+              "center": [0, 0],
+              "outward": [1, 1],
+              "sector": "side",
+              "sideAngle": 38,
+              "endAngle": 73,
+              "branch": 1
+            }
+          },
+          {
+            "faces": ["end"],
+            "field": {
+              "kind": "tray-corner",
+              "center": [0, 0],
+              "outward": [1, 1],
+              "sector": "end",
+              "sideAngle": 38,
+              "endAngle": 73,
+              "branch": 1
+            }
+          },
+          {
+            "faces": ["side-gusset"],
+            "field": {
+              "kind": "tray-corner",
+              "center": [0, 0],
+              "outward": [1, 1],
+              "sector": "side-gusset",
+              "sideAngle": 38,
+              "endAngle": 73,
+              "branch": 1
+            }
+          },
+          {
+            "faces": ["end-gusset"],
+            "field": {
+              "kind": "tray-corner",
+              "center": [0, 0],
+              "outward": [1, 1],
+              "sector": "end-gusset",
+              "sideAngle": 38,
+              "endAngle": 73,
+              "branch": 1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

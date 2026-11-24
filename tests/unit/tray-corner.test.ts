@@ -1,3 +1,7 @@
+import { readFileSync } from "node:fs";
+import { validatePackage } from "../../scripts/validate-package";
+import { atIndex, compileLesson } from "../../app/lesson/geometry";
+import { checkSheet } from "./material-checks";
 import { expect, it } from "vitest";
 import type { Point } from "../../app/fold/geometry";
 import { chartFrame } from "../../app/lesson/chart-frame";
@@ -80,4 +84,21 @@ it("carries a scored boat bridge and its layer normal onto a vertical back face"
   ).toBeLessThan(1e-12);
   expect(chart.plyNormal).toEqual([1, 0, 0]);
   expect(chart.ply).toBe(2);
+});
+
+it("validates the five-panel native example and rejects a missing moving neighbor", () => {
+  const packageData = JSON.parse(readFileSync("tests/fixtures/tray-corner/lesson.json", "utf8"));
+  const { pattern } = validatePackage(packageData, "tray-corner");
+  const model = compileLesson(pattern);
+  checkSheet(model, 4, 8);
+  const s = atIndex(pattern.steps, 0),
+    regions = s.regions;
+  if (!regions) throw Error("Missing corner fixture regions");
+  expect(() => compileLesson({ ...pattern, version: 5 })).toThrow(/version 6/);
+  expect(() =>
+    compileLesson({
+      ...pattern,
+      steps: [{ ...s, regions: regions.filter((r) => !r.faces.includes("end")) }],
+    }),
+  ).toThrow(/Moving field seam/);
 });

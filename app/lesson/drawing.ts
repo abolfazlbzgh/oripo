@@ -19,6 +19,12 @@ export function paperLayers(model: CompiledLesson, heights: HingePlies, plyThick
   function foldOffsets(start: Pose, step: number, progress: number): Pose {
     const result = [...start];
     const action = atIndex(steps, step);
+    if (action.reopenTo !== undefined)
+      return foldOffsets(
+        atIndex(offsets, step - 1),
+        step - 1,
+        1 - (1 - action.reopenTo) * progress,
+      );
     if (action.charts)
       return action.charts.map((chart, i) => {
         const transform = chart(progress);

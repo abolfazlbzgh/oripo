@@ -20,6 +20,8 @@ function unit(p: Point): Point {
 }
 
 export function prepareCrimp(crimp: Crimp, origin: Point, along: Point, sidePin: Point) {
+  if ((crimp.side !== 1 && crimp.side !== -1) || !["spine", "left"].includes(crimp.hold))
+    throw Error("Invalid crimp frame orientation or hold");
   const y = unit(minus(along, origin)),
     side = minus(sidePin, origin),
     d = dot(side, y);

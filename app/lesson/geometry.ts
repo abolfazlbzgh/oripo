@@ -23,6 +23,8 @@ export type FoldStep = {
   field?: RigidField;
   regions?: readonly { field: RigidField; faces: readonly string[] }[];
   crimps?: readonly Crimp[];
+  /** Retrace the immediately preceding coupled closure to this fraction. */
+  reopenTo?: number;
   guides?: readonly string[];
 };
 export type LessonPattern = {
@@ -60,6 +62,7 @@ type PreparedStep = {
   guides: readonly string[];
   charts?: readonly ((p: number) => Chart)[];
   chartOwners?: readonly number[];
+  reopenTo?: number;
 };
 type SheetEdge = { a: number; b: number; faces: number[] };
 export type CompiledLesson = {
@@ -225,15 +228,63 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
     Object.entries(sheet.creases).map(([id, [a, b]]) => [id, [vertex(a), vertex(b)] as const]),
   );
   const poses: Pose[] = [rest];
+  let closure: { index: number; step: PreparedStep } | undefined;
   const prepared = steps.map((step): PreparedStep => {
-    const { id, durationMs, turns, guides, field, regions, crimps } = step;
+    const { id, durationMs, turns, guides, field, regions, crimps, reopenTo } = step;
     requireValue(
       Number.isFinite(durationMs) &&
         durationMs > 0 &&
-        (turns.length || field || regions?.length || crimps?.length),
+        (turns.length || field || regions?.length || crimps?.length || reopenTo !== undefined),
       `Invalid step ${id}`,
     );
     const start = atIndex(poses, poses.length - 1);
+    if (reopenTo !== undefined) {
+      requireValue(
+        version === 4 &&
+          !turns.length &&
+          !field &&
+          !regions &&
+          !crimps &&
+          !guides &&
+          closure &&
+          closure.index === poses.length - 2 &&
+          closure.step.charts &&
+          closure.step.chartOwners &&
+          Number.isFinite(reopenTo) &&
+          reopenTo >= 0 &&
+          reopenTo < 1,
+        "Invalid reopening of a coupled action",
+      );
+      const source = closure.step.charts,
+        owners = closure.step.chartOwners;
+      const charts = source.map((chart) => {
+        const end = chart(1),
+          z = chartPoint(end, [0, 0, 1], true);
+        const dot = (a: Point, b: Point) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+        const origin: Point = [
+          -dot(end.x, end.origin),
+          -dot(end.y, end.origin),
+          -dot(z, end.origin),
+        ];
+        return (p: number): Chart => {
+          const c = chart(1 - (1 - reopenTo) * p);
+          const axis = (i: 0 | 1) => chartPoint(c, [end.x[i], end.y[i], z[i]], true);
+          return { origin: chartPoint(c, origin), x: axis(0), y: axis(1), ply: 0 };
+        };
+      });
+      const flat = atIndex(poses, closure.index),
+        dest = source.map((c) => c(reopenTo));
+      poses.push(flat.map((p, i) => chartPoint(atIndex(dest, atIndex(owners, i)), p)));
+      return {
+        id,
+        durationMs,
+        turns: [],
+        guides: closure.step.guides,
+        charts,
+        chartOwners: owners,
+        reopenTo,
+      };
+    }
     if (field || regions || crimps) {
       requireValue(
         version >= 3 && !turns.length && guides?.length && guides.every((g) => creases.has(g)),
@@ -263,6 +314,11 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
         }
       }
       requireValue(!(field && regions), "Ambiguous field assignment");
+      requireValue(
+        version === 4 ||
+          (field?.kind !== "hex-twist" && !regions?.some((r) => r.field.kind === "hex-twist")),
+        "Hexagonal twist requires schema version 4",
+      );
       for (const region of regions ?? []) {
         requireValue(region.faces.length, "Empty field region");
         for (const face of region.faces) {
@@ -299,7 +355,9 @@ export function compileLesson({ version, lessonId, sheet, steps }: LessonPattern
           }
         if (t === 1) poses.push(pose);
       }
-      return { id, durationMs, turns: [], guides, charts, chartOwners };
+      const coupled = { id, durationMs, turns: [], guides, charts, chartOwners };
+      closure = { index: poses.length - 2, step: coupled };
+      return coupled;
     }
     const owner = new Map<number, number>();
     const rotations = turns.map((turn, index): PreparedTurn => {

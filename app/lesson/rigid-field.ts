@@ -1,6 +1,8 @@
 import type { Point } from "../fold/geometry";
+import { hexChart } from "./hex-twist";
 
 export type RigidField =
+  | { kind: "hex-twist"; radius: number }
   | {
       kind: "herringbone";
       origin: readonly [number, number];
@@ -59,6 +61,7 @@ function anchored(
 }
 
 export function prepareChart(field: RigidField, cx: number, cy: number): (t: number) => Chart {
+  if (field.kind === "hex-twist") return hexChart(field.radius, cx, cy);
   if (field.kind === "pocket-squash") {
     const {
       center: [x, y],

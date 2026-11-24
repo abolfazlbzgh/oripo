@@ -100,3 +100,37 @@ it("rejects unknown contracts, mixed motions and missing or invented author refe
     /en\/specimen\/steps\/lift/,
   );
 });
+
+it("requires scored material panels for each automatically classified rigid field", () => {
+  const { sw, se, ne, nw } = example.pattern.sheet.vertices;
+  const sheet = {
+    vertices: { sw, se, ne, nw },
+    faces: [{ id: "stock", vertices: ["sw", "se", "ne", "nw"] }],
+    creases: { slash: ["sw", "ne"] },
+  };
+  for (const field of [
+    example.pattern.steps[0]?.field,
+    {
+      kind: "herringbone",
+      origin: [-1.25, -1.625],
+      pitch: 0.5,
+      band: 0.75,
+      stagger: 0.125,
+      degrees: 45,
+    },
+    { kind: "hex-twist", radius: 0.26 },
+  ]) {
+    const p = {
+      ...example,
+      pattern: {
+        ...example.pattern,
+        version: 4,
+        sheet,
+        steps: [{ id: "collapse", durationMs: 1250, turns: [], guides: ["slash"], field }],
+      },
+    };
+    expect(() => validatePackage(p, id)).toThrow(/collapse\/stock.*score the panel/);
+  }
+  const archivedMap = JSON.parse(readFileSync("tests/fixtures/legacy-map/lesson.json", "utf8"));
+  expect(validatePackage(archivedMap, "herringbone-map").paper.shape).toBe("rectangle");
+});

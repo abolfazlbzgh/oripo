@@ -1,5 +1,7 @@
 # Phase 9 construction decisions
 
+These decisions describe the Phase 9 catalog. The later Advanced slot replacements and their source correspondence are recorded in the [framed-pocket and tray-corner decision](decisions/0011-framed-pockets-and-tray-corners.md).
+
 ## Butterfly · B1
 
 The construction under evaluation is WWF Together’s traditional Monarch Butterfly from one square. Its double-boat base, two hindwing folds, corner tucks, central book and pinched wing roots correspond to the Intermediate butterfly on Kids Web Japan. WWF identifies the underlying design as traditional. Its illustrations and prose are copyrighted. Use original coordinates, manuscript and projections. The public sources remain external. The basic comparison tutorial supplies no difficulty claim for B1. Independent maker and owner visual review are pending. [WWF sequence, pp. 3–4](https://files.worldwildlife.org/wwfcmsprod/files/Publication/file/1z79g6ntm4_WWF_Together_ButterflyOrigami.pdf) · [Web Japan base](https://web-japan.org/kidsweb/virtual/origami/exploring02m.html) · [Web Japan finish](https://web-japan.org/kidsweb/virtual/origami/exploring02n.html) · [Abrashi’s traditional windmill butterfly](https://abrashiorigami.com/butterfly/) · [Web Japan reuse terms](https://web-japan.org/plaza/about.html)

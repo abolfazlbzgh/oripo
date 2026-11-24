@@ -6,13 +6,13 @@ Oripo is a multilingual 3D origami lesson player. Scrub to the middle of a fold,
 
 The gallery projection and production browser captures show the same Monarch mesh. The narrow views use a simulated phone viewport.
 
-| Maker tier   | Lessons in the gallery                       |
-| ------------ | -------------------------------------------- |
-| Beginner     | Dart paper airplane · Paper heart · Fox face |
-| Intermediate | Masu box · Jumping frog · Monarch butterfly  |
-| Advanced     | Pinwheel calyx · River tern · Amber hex iris |
+| Maker tier   | Lessons in the gallery                              |
+| ------------ | --------------------------------------------------- |
+| Beginner     | Dart paper airplane · Paper heart · Fox face        |
+| Intermediate | Masu box · Jumping frog · Monarch butterfly         |
+| Advanced     | Twin-stern junk · River tern · Reed Runner dinosaur |
 
-The nine lessons contain 126 actions in English, Persian, Spanish, French, Simplified Chinese, Arabic, Brazilian Portuguese, German, Japanese and Hindi. Human translation review, physical folding trials and independent difficulty ratings remain open.
+The nine lessons contain 138 actions in English, Persian, Spanish, French, Simplified Chinese, Arabic, Brazilian Portuguese, German, Japanese and Hindi. Human translation review, physical folding trials and independent difficulty ratings remain open.
 
 ## Run locally
 
@@ -29,7 +29,7 @@ Open the address Vite prints (normally port 5173). Visit `/en#models` for the ga
 
 The TypeScript compiler turns a lesson's welded sheet, signed hinges and coupled motions into exact step endpoints and functions of fold progress. Drawing adds a thin offset between touching plies. Three.js and React Three Fiber display the material pose and drawing layers. React Router Framework Mode and Vite prerender each localized transcript and load the interactive scene and selected model on demand. Tailwind and daisyUI supply the light and dark themes. [Architecture and source map](docs/architecture.md)
 
-A contributor starts with a specific paper design, its rights and an independently checked fold sequence. `npm run models -- new my-fold` creates a working draft. Edit its package, validate the folds, prepare the ten manuscripts and inspect its finished projection in the studio. Supported motion includes rigid turns, constrained pockets, spatial crimps and one six-sector twist family. Continuous curls and arbitrary crease-pattern animation require additional geometry. [Authoring contract and examples](docs/authoring.md) · [AI-assisted development and review](docs/ai-development.md)
+A contributor starts with a specific paper design, its rights and an independently checked fold sequence. `npm run models -- new my-fold` creates a working draft. Edit its package, validate the folds, prepare the ten manuscripts and inspect its finished projection in the studio. Supported motion includes rigid turns, framed pockets, unequal-angle tray corners, spatial crimps and one six-sector twist family. Continuous curls and arbitrary crease-pattern animation require additional geometry. [Authoring contract and examples](docs/authoring.md) · [AI-assisted development and review](docs/ai-development.md)
 
 ## Verify changes
 

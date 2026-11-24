@@ -3,7 +3,7 @@ import { expect } from "@playwright/test";
 import { test, watchBrowser } from "./preview";
 import { labPath, prerenderPaths } from "../../app/navigation";
 
-test("appearance applies before hydration, survives navigation and reload, then follows the system", async ({
+test("appearance applies before hydration, survives navigation and reload, then defaults to light", async ({
   page,
   baseURL,
 }) => {
@@ -41,11 +41,11 @@ test("appearance applies before hydration, survives navigation and reload, then 
   await page.reload();
   await expect(appearance).not.toBeChecked();
   await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
-  // A fresh preference follows the OS until a visitor makes a binary choice.
+  // Clearing the choice restores light, including on a dark OS.
   await page.evaluate(() => localStorage.removeItem("oripo-appearance"));
   await page.reload();
-  await expect(appearance).toBeChecked();
-  await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
+  await expect(appearance).not.toBeChecked();
+  await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
   await page.emulateMedia({ colorScheme: "light" });
   await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
   expect(errors).toEqual([]);

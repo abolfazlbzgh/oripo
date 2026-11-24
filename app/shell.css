@@ -335,13 +335,3 @@ html[data-theme="oripo-light"] .theme-swap .swap-off {
     flex-basis: 100%;
   }
 }
-
-@media (prefers-color-scheme: dark) {
-  html:not([data-theme]) .theme-swap .swap-off {
-    opacity: 0;
-  }
-  html:not([data-theme]) .theme-swap .swap-on {
-    opacity: 1;
-    rotate: 0deg;
-  }
-}

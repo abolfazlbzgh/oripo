@@ -25,13 +25,13 @@ for (const { path, heading } of documents) {
     expect(errors).toEqual([]);
   });
 }
-test("English navigation works at phone width with system and explicit themes", async ({
+test("English navigation works at phone width with default and explicit themes", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 320, height: 720 });
   await page.emulateMedia({ colorScheme: "dark", reducedMotion: "reduce" });
   await page.goto("/");
-  await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
+  await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
   await setDark(page, false);
   await page.getByRole("button", { name: "Site menu" }).click();
   await page.getByRole("banner").getByRole("link", { name: "Guide", exact: true }).click();

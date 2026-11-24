@@ -90,7 +90,7 @@ test.describe("first HTTP documents", () => {
   }) => {
     await page.emulateMedia({ colorScheme: "dark" });
     expect((await page.goto("/"))?.status()).toBe(200);
-    await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
+    await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
     await expect(page.locator("h1")).toHaveText("One sheet. Endless possibilities.");
     await expect(page.locator("body")).not.toContainText("Choose a language");

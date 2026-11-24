@@ -238,13 +238,13 @@ test.describe("narrow touch viewport", { tag: "@cdp" }, () => {
     reducedMotion: "reduce",
     colorScheme: "dark",
   });
-  test("one-finger orbit and pinch zoom work at 320px in system and explicit themes", async ({
+  test("one-finger orbit and pinch zoom work at 320px in default and explicit themes", async ({
     page,
     context,
   }) => {
     await page.goto(lab);
     await rendered(page);
-    await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
+    await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
     for (const dark of [false, true]) {
       await setDark(page, dark);
       expect(await page.evaluate(() => [innerWidth, document.documentElement.scrollWidth])).toEqual(

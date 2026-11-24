@@ -2,7 +2,6 @@
 (() => {
   const win = globalThis;
   const key = "oripo-appearance";
-  const system = win.matchMedia("(prefers-color-scheme: dark)");
   const valid = (value) => value === "oripo-dark" || value === "oripo-light";
   let saved;
   try {
@@ -12,7 +11,7 @@
   }
 
   function apply() {
-    const theme = valid(saved) ? saved : system.matches ? "oripo-dark" : "oripo-light";
+    const theme = valid(saved) ? saved : "oripo-light";
     win.document.documentElement.dataset.theme = theme;
     win.dispatchEvent(new win.Event("oripo-appearance-change"));
   }
@@ -25,7 +24,6 @@
     }
     apply();
   };
-  system.addEventListener("change", apply);
   win.addEventListener("storage", (event) => {
     if (event.key === key || event.key === null) {
       saved = event.newValue;

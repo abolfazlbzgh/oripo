@@ -44,7 +44,7 @@
 @plugin "daisyui/theme" {
   name: "oripo-dark";
   default: false;
-  prefersdark: true;
+  prefersdark: false;
   color-scheme: dark;
   --color-base-100: #151e1b;
   --color-base-200: #202d27;

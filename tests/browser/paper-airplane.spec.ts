@@ -172,7 +172,7 @@ for (const width of [320, 390])
       await ready(page);
       await endpoint(page, 0);
     }
-    await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
+    await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
     for (const dark of [false, true]) await setDark(page, dark);
     for (let n = 1; n <= 9; n++) {
       await button(page, "Next fold").click();

@@ -195,7 +195,7 @@ export function flatJourney(f: Fixture) {
         await page.emulateMedia({ colorScheme: "dark", reducedMotion: "reduce" });
         expect((await page.goto(route))?.status()).toBe(200);
         await expect(button(page, "Zoom in")).toBeEnabled();
-        await expect(page.locator("html")).toHaveCSS("color-scheme", "dark");
+        await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
         await setDark(page, false);
         expect((await page.reload())?.status()).toBe(200);
         await expect(button(page, "Zoom in")).toBeEnabled();

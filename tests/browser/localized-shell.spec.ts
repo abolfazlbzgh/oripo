@@ -215,7 +215,7 @@ test("document script, one-row header, focus and scene isolation across seven vi
         ),
       ).toEqual(["/fonts/" + font + ".woff2"]);
       for (const scheme of ["light", "dark"] as const) {
-        await page.emulateMedia({ colorScheme: scheme });
+        await page.evaluate((dark) => window.oripoAppearance?.(dark), scheme === "dark");
         await expect(page.locator("html")).toHaveCSS("color-scheme", scheme);
         for (const size of ["100%", "200%"]) {
           const layout = await page.evaluate((size) => {

@@ -2,6 +2,27 @@
 
 Oripo teaches an ordered, reversible fold sequence on a single sheet. An author supplies the material graph, individual actions and intended layer contacts. Use this page with the [native JSON Schema](../models/lesson.schema.json), the [Dart](../models/paper-airplane/lesson.json), [Masu box](../models/masu-box/lesson.json) and [Monarch butterfly](../models/monarch-butterfly/lesson.json) packages. The schema specifies JSON shape and limits. The compiler and offline validator check geometric preconditions.
 
+## Instructional camera
+
+Add optional `presentation.camera` to a schema-version-1 package. Its optional `steps` array contains objects with exactly `step`, `position` and `transitionMs`. Each step ID must exist and occur once in this list. Its optional `finished` object takes only `position` and `transitionMs`. Array order has no timing significance. Resolve in native fold order, starting with `presentation.view.position`. An action inherits the previous eye until a cue replaces it. Completion inherits the last action's eye unless overridden. Older packages use their studio view throughout.
+
+Each eye has three finite coordinates in the studio's right-handed Z-up frame. OrbitControls targets the framed origin `[0, 0, 0]`. A material point is displayed at `(point − materialFrame.center) × materialFrame.scale`. Apply that transform once to material. The radius must fall within the model's inclusive min/max distances. The polar angle measured from +Z runs from 7.5° through 82.5°, or through 172.5° with `inspectBack`. Eye and target must differ. `transitionMs` is an integer from 200 through 1200. The studio adds a 100 ms crease reveal when it turns before a fold. An identical view adds no interval. A changed view supplies no new fold, count or manuscript entry.
+
+This excerpt selects the underside for the dinosaur's leading and trailing legs. The next authored cue returns above the sheet for the leading ankle.
+
+```json
+{
+  "steps": [
+    { "step": "swing-leading-leg", "position": [3.12, 0, -1.8], "transitionMs": 650 },
+    { "step": "bend-leading-ankle", "position": [0, -0.7, 3.8], "transitionMs": 650 }
+  ]
+}
+```
+
+Scrub to the intended action's start and identify the moving packet from the manuscript. Orbit to both sides. Look for the dashed score, its visible incident ply and space to see the moving edge at midfold. Check the endpoint and nearby actions before introducing another turn. For pockets, inspect the mouth as it opens and allow internal scores to stay covered. Compare the finish at phone and desktop width. Keep the offline thumbnail eye in `previewEye`.
+
+Future GPT Pro drafts can suggest a small set of action IDs and eyes, with uncertain choices labeled in accompanying notes. Codex checks those proposals against native poses, drawing offsets, visible guide pixels and the timed fold in the production studio. Physical and language reviews retain their own provenance status.
+
 ## A reference-led draft
 
 1. Identify the exact model and variant, original creator or traditional provenance, complete step sequence, source pages or step numbers, stock proportions, printed side and any required attribution or permission. Use links to copyrighted instructions. A finished photo or generated illustration leaves internal creases, hidden plies and their order ambiguous.

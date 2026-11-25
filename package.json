@@ -26,7 +26,8 @@
     "typecheck": "react-router typegen && tsc --noEmit",
     "lint": "eslint . --max-warnings=0",
     "test": "vitest run",
-    "test:smoke": "playwright test",
+    "test:smoke": "playwright test --test-list tests/browser/smoke.txt",
+    "test:browser": "playwright test",
     "format:check": "prettier . --check"
   },
   "dependencies": {

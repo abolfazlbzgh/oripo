@@ -4,14 +4,68 @@ on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  # A docs-only main push must not cancel verification of the preceding code push.
+  # For pushes, supersede the browser jobs only after the new diff selects them.
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}-${{ github.event_name == 'push' && github.run_id || 'latest' }}
+  cancel-in-progress: true
+
 jobs:
   foundation:
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 10
+    outputs:
+      docs_only: ${{ steps.scope.outputs.docs_only }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Check bundled npm against packageManager
+        run: test "npm@$(npm --version)" = "$(node -p 'require("./package.json").packageManager')"
+      - name: Select browser coverage
+        id: scope
+        run: |
+          if node scripts/quality-scope.ts; then
+            echo 'docs_only=true' >> "$GITHUB_OUTPUT"
+            echo 'Documentation edits only. Foundation is required.'
+          else
+            echo 'docs_only=false' >> "$GITHUB_OUTPUT"
+            echo 'Full browser matrix required.'
+          fi
+      - run: npm ci --strict-peer-deps
+      - run: npm run models -- check
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm test
+      - run: npm run build
+
+  browser:
+    name: Browser (${{ matrix.browser }})
+    needs: foundation
+    if: needs.foundation.outputs.docs_only != 'true'
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}-${{ matrix.browser }}
+      cancel-in-progress: true
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      BROWSER: ${{ matrix.browser }}
+      ORIPO_BROWSER_REPORT: .local/browser-${{ matrix.browser }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -20,14 +74,53 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-      - name: Check bundled npm against packageManager
-        run: test "npm@$(npm --version)" = "$(node -p 'require("./package.json").packageManager')"
-      - run: npm ci
-      - run: npm run models -- check
-      - run: npm run typecheck
-      - run: npm run lint
-      - run: npm run format:check
-      - run: npm test
+      - run: npm ci --strict-peer-deps
       - run: npm run build
-      - run: npx playwright install --with-deps --only-shell chromium firefox webkit
-      - run: npm run test:smoke
+      - name: Install the project browser
+        run: |
+          args=(--with-deps)
+          if [[ "$BROWSER" == chromium ]]; then args+=(--only-shell); fi
+          ./node_modules/.bin/playwright install "${args[@]}" "$BROWSER"
+          # The verified Firefox software context loads Mesa EGL in addition to Xvfb's GLX/DRI stack.
+          if [[ "$BROWSER" == firefox ]]; then
+            sudo apt-get install -y --no-install-recommends --no-upgrade libegl1
+          fi
+      - name: Run the full browser project
+        id: suite
+        env:
+          DEBUG: pw:browser
+        run: |
+          launcher=()
+          # Headless Firefox needs an X display for Mesa WebGL2 on this runner family.
+          if [[ "$BROWSER" == firefox ]]; then launcher=(xvfb-run -a); fi
+          # JUnit retains per-test stdout/stderr. Keep the live list and failure annotations readable.
+          "${launcher[@]}" npm run test:browser -- --project="$BROWSER" --workers=1 --max-failures=3 --global-timeout=1440000 --quiet
+      - name: Upload browser failure evidence
+        if: failure() && steps.suite.outcome == 'failure'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: browser-${{ matrix.browser }}-attempt-${{ github.run_attempt }}
+          path: ${{ env.ORIPO_BROWSER_REPORT }}/
+          include-hidden-files: true
+          retention-days: 7
+
+  quality:
+    name: Quality gate
+    needs: [foundation, browser]
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Require every selected check
+        env:
+          FOUNDATION: ${{ needs.foundation.result }}
+          DOCS_ONLY: ${{ needs.foundation.outputs.docs_only }}
+          BROWSERS: ${{ needs.browser.result }}
+        run: |
+          echo "foundation=$FOUNDATION docs_only=$DOCS_ONLY browsers=$BROWSERS"
+          [[ "$FOUNDATION" == success ]]
+          if [[ "$DOCS_ONLY" == true ]]; then
+            [[ "$BROWSERS" == skipped ]]
+          else
+            [[ "$BROWSERS" == success ]]
+          fi

@@ -1,0 +1,4 @@
+paper-airplane.spec.ts › playable catalog to nine folds, in-flight reversal, final dart, replay and full return
+guided-camera.spec.ts › the dinosaur turns before its hidden leg moves and its crease disappears behind the cover
+production.spec.ts › unknown pages and unsupported locales return a recoverable HTTP 404
+studio-ui.spec.ts › appearance applies before hydration, survives navigation and reload, then defaults to light

@@ -3,7 +3,7 @@ import { useStudioView, type SettleReason, type StudioMount } from "../fold/use-
 import type { FoldView, Inspection } from "../fold/studio.client";
 import { sameEye } from "./camera";
 import { useI18n } from "../i18n/context";
-import type { Common, formatter, Instruction } from "../i18n/messages";
+import { numberLocale, type Common, type formatter, type Instruction } from "../i18n/messages";
 export type { Instruction } from "../i18n/messages";
 import { atIndex } from "./geometry";
 import {
@@ -164,7 +164,10 @@ export function useLessonPlayer(lesson: PlayerLesson) {
       format(p.reading, {
         bearing,
         elevation,
-        zoom: zoom.toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
+        zoom: zoom.toLocaleString(numberLocale(locale), {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }),
       }),
     [format, p, locale],
   );

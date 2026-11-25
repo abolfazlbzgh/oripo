@@ -1,4 +1,5 @@
 import { useI18n } from "../i18n/context";
+import { numberLocale } from "../i18n/messages";
 import type { KeyboardEvent, RefObject } from "react";
 import type { LessonCommand } from "../lesson/playback";
 import { PlayerIcon } from "./player-icon";
@@ -36,6 +37,7 @@ export function LessonTransport({
     common: { player: p },
     locale,
   } = useI18n();
+  const numericLocale = numberLocale(locale);
   function rangeKey(event: KeyboardEvent<HTMLInputElement>) {
     const p = event.currentTarget.valueAsNumber;
     const targets: Record<string, number> = {
@@ -67,7 +69,7 @@ export function LessonTransport({
       <div className="transport-caption">
         <strong>{complete ? p.modelComplete : title}</strong>
         <span aria-hidden="true" dir="ltr">
-          {completedFolds.toLocaleString(locale)} / {total.toLocaleString(locale)}
+          {completedFolds.toLocaleString(numericLocale)} / {total.toLocaleString(numericLocale)}
         </span>
       </div>
       <input

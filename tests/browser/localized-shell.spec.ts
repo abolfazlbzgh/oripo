@@ -5,6 +5,36 @@ import { hydrationControl } from "./shell-helpers";
 import { locales, localeCodes, type Locale } from "../../app/i18n/locales";
 import { galleryPath, localPath } from "../../app/navigation";
 
+test("Arabic fold numbers match the prerendered document through hydration and reload", async ({
+  page,
+  baseURL,
+}) => {
+  const errors = watchBrowser(page, baseURL);
+  const copy = readCopy("ar", "common");
+  for (const visit of [() => page.goto("/ar/lessons/twin-stern-junk"), () => page.reload()]) {
+    const response = await visit();
+    expect(response?.status()).toBe(200);
+    const initial = await page.evaluate(
+      (html) => {
+        const doc = new DOMParser().parseFromString(html, "text/html");
+        return {
+          counter: doc.querySelector(".transport-caption span")?.textContent,
+          step: doc.querySelector(".step-indicator")?.textContent,
+        };
+      },
+      (await response?.text()) ?? "",
+    );
+    expect(initial.counter).toBe("0 / 27");
+    await expect(page.getByRole("button", { name: copy.player.closer, exact: true })).toBeEnabled();
+    const counter = page.locator(".transport-caption span");
+    await expect(counter).toHaveText("0 / 27");
+    expect(await page.locator(".step-indicator").textContent()).toBe(initial.step);
+    await page.getByRole("slider").fill("1");
+    await expect(counter).toHaveText("1 / 27");
+    expect(errors).toEqual([]);
+  }
+});
+
 async function atGallery(page: Page, code: Locale) {
   await expect(page).toHaveURL(new RegExp("/" + code + "#models$"));
   const gallery = page.locator("#models");

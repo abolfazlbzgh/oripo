@@ -10,18 +10,32 @@ Build from the reviewed source and run `npm run preview` in that directory. Keep
 
 ## Local acceptance
 
-After `npm run build`, install the browsers for the locked Playwright version and run the production journeys. On a minimal Linux host, add `--with-deps` to the install command. A single project can be selected with `npm run test:smoke -- --project=firefox`.
+After `npm ci --strict-peer-deps` and `npm run build`, install the locked browsers. On Ubuntu 24.04, add `--with-deps` to both install commands. The studio tests require a working WebGL2 context. They measure pixels, reversal and crease visibility on the rendered canvas. Dedicated fallback cases deliberately disable WebGL.
 
 ```sh
-npx playwright install --only-shell chromium firefox webkit
+npm exec -- playwright install --only-shell chromium
+npm exec -- playwright install firefox webkit
 npm run test:smoke
+npm run test:browser
 ```
+
+Both suites use all three projects and one worker by default. For a single full project run `npm run test:browser -- --project=firefox`. To investigate the hidden leg, run `npm run test:browser -- --project=firefox guided-camera.spec.ts -g "dinosaur turns" --workers=1 --reporter=list --max-failures=1 --trace=on`. Open the reported ZIP with `npm exec -- playwright show-trace <trace.zip>`.
+
+On Linux without a display, prefix commands that include Firefox with `xvfb-run -a`, for example `xvfb-run -a npm run test:smoke`. Headless Firefox required the virtual display to create a Mesa WebGL2 context in the Ubuntu 24.04 reproduction. Its browser log reported `AllowWebgl2:false` without the display. For a Firefox-only Ubuntu install, include `libegl1` alongside Playwright’s system dependencies. [Playwright Linux CI guidance](https://playwright.dev/docs/ci#running-headed)
 
 - Run the locked install, package/manuscript and generated-index checks, typecheck, lint, formatting, Vitest, a production build and the Chromium/Firefox/WebKit suite. Playwright owns its own preview listeners. Some touch journeys require Chromium's DevTools protocol. [Quality workflow](../.github/workflows/quality.yml)
 - Compare material positions, layer offsets, completion colors and projected PNGs at unchanged lesson endpoints and interior fractions. Use model-specific fixtures for seam agreement, contacts and independent silhouettes. Collision sampling establishes clearance only at the sampled poses.
 - Measure a cold gallery, Guide and direct lesson at mobile and desktop widths with `node scripts/measure.mjs`. Gallery and Guide should fetch zero scene/model bytes. Each studio loads one model. Compare repeated locked builds using relative paths and content hashes.
 - Check static HTML, direct load, reload, no-JavaScript instructions, alternate languages, RTL, fonts, keyboard, reduced motion and localized HTTP 404 recovery. Keep local logs and captures under `.local/`.
 - Review dependency advisories, licenses, new assets and reachable Git history before publication. Preserve the notice files emitted into the build. Use a private channel for sensitive findings. [Font credits](fonts.md) · [Security reporting](../SECURITY.md)
+
+## GitHub Actions
+
+Quality runs Foundation on pushes to main and pull requests. Model validation, types, lint, formatting, every unit test and a production build gate three concurrent browser jobs. Each job rebuilds the same commit and runs its entire project with one worker. The only automatic browser exemption is a diff consisting entirely of edits to the [listed documentation files](../scripts/quality-scope.ts). Mixed changes, additions, deletions, renames, missing history and unknown paths run the full matrix. **Actions → Quality → Run workflow** always selects all three.
+
+Use **Quality gate** as the required check for branch protection. It requires Foundation and all selected browsers, and accepts a skipped matrix only for classified documentation edits. A newer PR run supersedes the previous one. On main, a newer full browser job supersedes the older job for that browser. A documentation-only push lets an earlier code push finish its browser checks. Manual runs have a separate concurrency group.
+
+Open the failed browser job for named tests and immediate assertion annotations. Three failures or a 24-minute suite limit stop that project with incomplete coverage while the other projects continue. For a failed suite, download its `browser-<project>-attempt-<n>` artifact within seven days. It contains JUnit results, browser process output, failure traces and available screenshots. A hard cancellation or runner timeout can prevent the upload.
 
 ## Historical engineering evidence
 

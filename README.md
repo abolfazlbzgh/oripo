@@ -72,7 +72,7 @@ npm run format:check
 npm test
 ```
 
-After a production build, run `npm run test:smoke` for the Chromium, Firefox and WebKit journeys. They exercise the rendered folds, direct links, keyboard controls and localized pages. [Browser installation and verification](docs/release.md#local-acceptance) · [Quality workflow](.github/workflows/quality.yml)
+After a production build, run `npm run test:smoke` for four journeys per browser covering the Dart’s fold and reversal, the dinosaur’s hidden crease, localized 404 recovery and theme persistence. Run `npm run test:browser` for every Chromium, Firefox and WebKit case. Both commands accept `-- --project=firefox` to select one browser. [Browser installation and verification](docs/release.md#local-acceptance) · [Quality workflow](.github/workflows/quality.yml)
 
 ## Contributing
 

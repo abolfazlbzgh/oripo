@@ -1,5 +1,14 @@
 {
   "name": "oripo",
+  "description": "A multilingual 3D origami studio powered by a reversible TypeScript folding engine.",
+  "homepage": "https://oripo.byabolfazl.com/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abolfazlbzgh/oripo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abolfazlbzgh/oripo/issues"
+  },
   "version": "0.0.0",
   "private": true,
   "type": "module",

@@ -1,5 +1,5 @@
 # Reporting a security concern
 
-If GitHub offers **Security → Report a vulnerability** for this repository, use that private form. While the repository is private, collaborators can also use the private contact channel they already use with the owner, `@abolfazlbzgh`. If you need a channel, ask the maintainer to arrange one and share technical details only after the channel is private.
+If **Report a vulnerability** is available on the repository’s Security tab, submit the details through that private form. Collaborators can also use their existing private channel with the maintainer, `@abolfazlbzgh`. If neither is available, open a general issue asking the maintainer to arrange a private channel. Wait for that channel before sharing any technical details. [Repository security](https://github.com/abolfazlbzgh/oripo/security)
 
 Include the affected commit or package version, the page or build step involved, the conditions you observed and the impact. Redact tokens, personal information and private URLs from examples. Keep sensitive details out of issues, pull requests and public discussions.

@@ -10,6 +10,13 @@ Build from the reviewed source and run `npm run preview` in that directory. Keep
 
 ## Local acceptance
 
+After `npm run build`, install the browsers for the locked Playwright version and run the production journeys. On a minimal Linux host, add `--with-deps` to the install command. A single project can be selected with `npm run test:smoke -- --project=firefox`.
+
+```sh
+npx playwright install --only-shell chromium firefox webkit
+npm run test:smoke
+```
+
 - Run the locked install, package/manuscript and generated-index checks, typecheck, lint, formatting, Vitest, a production build and the Chromium/Firefox/WebKit suite. Playwright owns its own preview listeners. Some touch journeys require Chromium's DevTools protocol. [Quality workflow](../.github/workflows/quality.yml)
 - Compare material positions, layer offsets, completion colors and projected PNGs at unchanged lesson endpoints and interior fractions. Use model-specific fixtures for seam agreement, contacts and independent silhouettes. Collision sampling establishes clearance only at the sampled poses.
 - Measure a cold gallery, Guide and direct lesson at mobile and desktop widths with `node scripts/measure.mjs`. Gallery and Guide should fetch zero scene/model bytes. Each studio loads one model. Compare repeated locked builds using relative paths and content hashes.
@@ -29,7 +36,9 @@ The Advanced collection now opens with the Twin-stern junk, followed by River te
 
 For visual review, scrub the junk through action 25 to watch all four corners rise around the fixed floor. Orbit above its two seats after action 27. On the dinosaur, compare the muzzle at action 8 with the bent forelimb at action 11, then orbit behind the finished feet and tail. Both have draft translations in ten languages, provisional maker ratings and pending physical and visual reviews.
 
-The detailed earlier measurements remain in Git, for example `git show 2303bae:docs/release.md`. Human translation and visual review, physical trials, independent ratings, actual phones, spoken screen-reader output and hosted verification remain open. For a paper trial, record sheet dimensions and side colors, follow the manuscript in order, identify the first ambiguous step or inaccessible layer, and compare the finished front and back before unfolding.
+At the guided-studio milestone (`733a3b8`), the local suite passed 208 unit tests and 343 production-browser cases (119 Chromium, 112 Firefox and 112 WebKit). All 690 sampled material poses and drawing offsets and all nine finished PNGs matched the previous geometry. Of 138 actions, 37 carried a camera cue and five lessons had a dedicated finished view. [Guided-view decision](decisions/0012-guided-instructional-views.md)
+
+The detailed earlier measurements remain in Git, for example `git show 2303bae:docs/release.md`. Formal visual and human translation reviews, physical trials, independent ratings, actual phones and spoken screen-reader output remain open. For a paper trial, record sheet dimensions and side colors, follow the manuscript in order, identify the first ambiguous step or inaccessible layer, and compare the finished front and back before unfolding.
 
 ## Guided studio review
 
@@ -39,6 +48,14 @@ A completed single fold holds its last teaching eye for inspection. The instruct
 
 ## Owner-operated hosting
 
-After reference selection and owner acceptance, the owner controls the GitHub push, repository visibility, Vercel import and domain. The static project uses framework **Other**, root `./`, install `npm ci`, build `npm run build`, output `build/client` and intended production branch `main`. Use a supported Node 22 build environment and compare the build toolchain with `.nvmrc` and `package.json`. Set `ORIPO_SITE_URL` to the verified HTTPS origin **before building**. The local fallback is `http://127.0.0.1:4173`. The value must be a bare origin without credentials, query or fragment. Rebuild after changing it. [Vercel routing configuration](../vercel.json) · [Origin validation](../app/site.ts)
+The official studio is served from the owner’s custom domain. For Vercel use framework **Other**, root `./`, install `npm ci`, build `npm run build`, output `build/client`, Node 22 and production branch `main`. The filesystem lookup precedes the localized 404 rules. [Live studio](https://oripo.byabolfazl.com/) · [Routing configuration](../vercel.json)
 
-On the host, verify direct lessons and refresh, alternate/canonical links and sitemap origins, static asset caching and localized HTTP 404 status/body after the filesystem lookup. Check hosted CI, DNS and TLS separately. Configure and confirm the private security reporting channel before making the repository public.
+In the Vercel project’s **Settings → Environment Variables**, set `ORIPO_SITE_URL=https://oripo.byabolfazl.com` for **Production** before the next production build. Rebuild and deploy after changing it. The build writes the origin into each canonical URL, language alternate and sitemap entry. Use a bare HTTPS origin with no credentials, path, query or fragment. An unset variable selects `http://127.0.0.1:4173` for local use. If a hosted page advertises loopback links, correct the production setting and build again. [Origin validation](../app/site.ts) · [Production sitemap](https://oripo.byabolfazl.com/sitemap.xml)
+
+On the host, verify direct lessons and refresh, alternate/canonical links and sitemap origins, static asset caching and localized HTTP 404 status/body. Check hosted CI, DNS and TLS separately. When publishing on GitHub, enable private vulnerability reporting in the repository’s security settings and confirm that the reporting form is available. [Reporting instructions](../SECURITY.md)
+
+### Publication check on 24 November 2026
+
+The live home, gallery and direct Monarch lesson returned HTTP 200, including a repeat lesson request. A missing Persian lesson returned 404 in Persian with right-to-left layout. The deployed canonical links, language alternates and all 110 sitemap entries pointed to the local preview origin. A local build with the Production value above emitted the correct links on all 110 canonical pages and the root alias. Verify the next deployment against that result.
+
+The documentation candidate passed 208 unit tests and six selected production journeys in each of Chromium, Firefox and WebKit on Windows. Firefox passed on the host after its sandboxed content process crashed during page creation. The checks covered gallery and route inventory, the dinosaur’s hidden leg, fresh Light and saved Dark, Persian transcripts and localized 404 recovery. The full 343-case matrix belongs to the earlier guided-studio milestone.

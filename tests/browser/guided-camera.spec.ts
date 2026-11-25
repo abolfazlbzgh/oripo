@@ -43,14 +43,36 @@ async function leadingLegInk(page: Page, eye: [number, number, number]) {
                   Math.round(a.x + ((b.x - a.x) * i) / 100) +
                   u),
             );
-      let ink = 0;
+      // A one-pixel dash can straddle adjacent samples. Measure the fraction of
+      // the authored #864529 ink over the local paper, in opaque-pixel units.
+      // Both sides of the score must agree on the stock color to reject edges.
+      const dx = b.x - a.x,
+        dy = b.y - a.y,
+        length = Math.hypot(dx, dy);
+      const side = 4 * (Math.round((-6 * dy) / length) + w * Math.round((6 * dx) / length));
+      const ink = [134, 69, 41] as const;
+      const quarters = [0, 0, 0, 0];
       for (const i of indices) {
-        const r = pixels.getUint8(i),
-          g = pixels.getUint8(i + 1),
-          b = pixels.getUint8(i + 2);
-        if (r - g > 50 && g - b > 23 && g < 140 && r >= 128 && r < 205) ink++;
+        const paper = ink.map((_, c) => pixels.getUint8(i + side + c));
+        if (paper.some((v, c) => Math.abs(v - pixels.getUint8(i - side + c)) > 3)) continue;
+        const green = pixels.getUint8(i + side + 1);
+        if (green - ink[1] < 30) continue;
+        const coverage = (green - pixels.getUint8(i + 1)) / (green - ink[1]);
+        if (coverage < 0.2 || coverage > 1.01) continue;
+        if (
+          !ink.every((v, c) => {
+            const stock = pixels.getUint8(i + side + c);
+            return Math.abs(stock + coverage * (v - stock) - pixels.getUint8(i + c)) <= 2;
+          })
+        )
+          continue;
+        const x = (i / 4) % w,
+          y = Math.floor(i / 4 / w);
+        const along = ((x - a.x) * dx + (y - a.y) * dy) / (length * length);
+        const quarter = Math.max(0, Math.min(3, Math.floor((along - 0.08) / 0.21)));
+        quarters[quarter] = (quarters[quarter] ?? 0) + Math.min(1, coverage);
       }
-      return ink;
+      return { total: quarters.reduce((sum, n) => sum + n, 0), quarters };
     },
     { png: png.toString("base64"), eye },
   );
@@ -92,7 +114,8 @@ test("the dinosaur turns before its hidden leg moves and its crease disappears b
   const back = await reading.innerText();
   const eye: [number, number, number] = [3.12, 0, -1.8];
   const visible = await leadingLegInk(page, eye);
-  expect(visible).toBeGreaterThan(8);
+  expect(visible.total).toBeGreaterThan(32);
+  expect(Math.min(...visible.quarters)).toBeGreaterThan(2);
   await page.clock.fastForward(600);
   expect(Number(await range.inputValue())).toBeGreaterThan(1);
   await shot("moving");
@@ -111,7 +134,8 @@ test("the dinosaur turns before its hidden leg moves and its crease disappears b
     r * Math.cos(e) * Math.sin(az),
     r * Math.sin(e),
   ]);
-  expect(hidden).toBeLessThan(visible * 0.12);
+  expect(hidden.total).toBeLessThan(visible.total * 0.12);
+  expect(hidden.total).toBeLessThan(1);
   await page.getByRole("button", { name: "Reset view" }).click();
   await expect(reading).toHaveText(back);
   await expect(range).toHaveValue("1");
